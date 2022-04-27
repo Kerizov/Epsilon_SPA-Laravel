@@ -1,0 +1,169 @@
+@media (max-width: 1300px) {
+    .block {
+        display: block !important;
+    }
+    .desc {
+        text-align: center !important;
+    }
+    .main {
+        &__inner {
+            display: grid !important;
+        }
+
+        &__btn {
+            margin: 25px auto !important;
+        }
+
+        &__form {
+            width: auto !important;
+            height: auto !important;
+            margin: 20px auto !important;
+            padding: 20px 60px !important;
+        }
+
+        &__search-form input, &__search-form select {
+            width: 350px !important;
+        }
+    }
+    .news__items{
+        grid-template-columns: none !important;
+    }
+}
+
+@media (min-width: 850px) {
+    .mob__menu, .mobile_buttons {
+        display: none !important;
+    }
+}
+
+@media (max-width: 850px) {
+    .mob__menu{
+        z-index: 0;
+        position: absolute;
+        right: 45px;
+        transition: 1s;
+    }
+    .menu{
+        display: none;
+    }
+    .mobile_buttons{
+        float: right;
+        z-index: 1;
+    }
+    .mob-menu__list > ul > li {
+        border-top: none !important;
+        border-right: 5px solid transparent !important;
+        line-height: 40px !important;
+
+        &:hover {
+            border-right: 5px solid #97CA2B !important;
+            background-color: #A9A9A930 !important;
+        }
+    }
+    .main {
+        &__info {
+            width: auto !important;
+        }
+
+        &__search-form input, &__search-form select {
+            width: 200px !important;
+        }
+    }
+    //.menu ul {
+    //    display: none !important;
+    //}
+    //.mob-menu_btn {
+    //    display: block !important;
+    //}
+    .menu-list {
+        display: grid !important;
+        width: 200px !important;
+        margin-top: 260px;
+        background-color: #fff;
+
+        & a {
+            width: auto !important;
+            height: auto !important;
+        }
+
+        & li {
+            border: 1px solid #F3F3F3;
+            line-height: inherit !important;
+            width: auto !important;
+            height: 40px !important;
+        }
+
+        & li:last-child {
+            margin-left: 0 !important;
+        }
+    }
+    .about-us__benefits-title, .contacts__form-title {
+        font-size: 30px !important;
+    }
+    .contacts {
+        &__form {
+            display: block !important;
+
+            & div {
+                margin: 20px auto !important;
+            }
+        }
+
+        &__form-text {
+            font-size: 18px !important;
+        }
+
+    }
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 0 20px !important;
+    }
+    .page {
+        padding-top: 25px !important;
+    }
+    .header__inner {
+        height: 66px !important;
+        padding: 0 20px !important;
+
+        & > a > .logo {
+            width: 100px !important;
+        }
+    }
+    .crumbs__subtitle {
+        font-size: 18px !important;
+    }
+    .crumbs__title {
+        font-size: 30px !important;
+    }
+    .mobile_buttons img {
+        width: 30px !important;
+        height: auto !important;
+    }
+    .mob__menu {
+        top: 66px !important;
+    }
+    .main {
+        &__form {
+            padding: 20px 20px !important;
+        }
+
+        &__search-form input, &__search-form select {
+            width: 200px !important;
+        }
+    }
+    .contacts__info {
+        grid-template-columns: 1fr !important;
+    }
+    .footer {
+        &__inner {
+            display: grid !important;
+        }
+
+        &__copyright {
+            text-align: left !important;
+            margin-top: 10px !important;
+        }
+    }
+}
