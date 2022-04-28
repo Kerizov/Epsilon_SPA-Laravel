@@ -25,14 +25,14 @@ class UpdateRequest extends FormRequest
     {
         return [
             'login' => 'string|email',
-            'firstname' => 'string',
-            'lastname' => 'string',
-            'phone_number' => 'string',
-            'passport_series' => 'string',
-            'passport_number' => 'string',
-            'inn' => 'string',
-            'mail_index' => 'string',
-            'address' => 'string',
+            'firstname' => 'string|nullable',
+            'lastname' => 'string|nullable',
+            'phone_number' => 'string|nullable',
+            'passport_series' => 'string|nullable',
+            'passport_number' => 'string|nullable',
+            'inn' => 'string|nullable',
+            'mail_index' => 'string|nullable',
+            'address' => 'string|nullable',
         ];
     }
 }

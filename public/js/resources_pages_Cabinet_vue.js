@@ -69,7 +69,7 @@ __webpack_require__.r(__webpack_exports__);
         mail_index: this.mail_index,
         address: this.address
       }).then(function (res) {
-        console.log(res);
+        console.log('updated');
       });
     }
   }
