@@ -27,18 +27,20 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 //
-//Auth::routes(['verify' => true]);
+Auth::routes();
 
 Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
     Route::post('login', [AuthController::class, 'login']);
+    Route::get('email-verify', [StoreController::class, 'verification']);
     Route::group(['middleware' => 'jwt.auth'], function() {
-        Route::post('email/verification-notification', [EmailVerificationController::class, 'sendVerificationEmail']);
-        Route::get('verify-email/{id}/{hash}', [EmailVerificationController::class, 'verify'])->name('verification.verify');
         Route::post('logout', [AuthController::class, 'logout']);
         Route::post('me', [AuthController::class, 'me']);
         Route::post('refresh', [AuthController::class, 'refresh']);
     });
 });
+
+Route::post('email/verification-notification', [EmailVerificationController::class, 'sendVerificationEmail'])->middleware('jwt.auth');
+Route::get('verify-email/{id}/{hash}', [EmailVerificationController::class, 'verify'])->middleware('jwt.auth')->name('verification.verify');
 
 Route::group(['namespace' => 'User', 'prefix' => 'users'], function () {
     Route::post('/', [StoreController::class, 'store'] );
@@ -46,8 +48,7 @@ Route::group(['namespace' => 'User', 'prefix' => 'users'], function () {
 
 });
 
-//->middleware('jwt.auth');
-//->middleware('jwt.auth');
+
 
 
 Route::get('/posts', [PostController::class, 'index']);

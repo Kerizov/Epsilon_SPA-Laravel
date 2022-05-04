@@ -33,6 +33,7 @@ class UpdateRequest extends FormRequest
             'inn' => 'string|nullable',
             'mail_index' => 'string|nullable',
             'address' => 'string|nullable',
+            'email_verified_at' => 'date_format:Y-m-d H:i:s'
         ];
     }
 }
