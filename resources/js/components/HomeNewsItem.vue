@@ -39,7 +39,7 @@ export default {
             api.get('/api/posts')
                 .then(res => {
                     this.posts = res.data;
-                    console.log(res.data);
+                    // console.log(res.data);
                 })
         }
     }

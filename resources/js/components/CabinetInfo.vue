@@ -70,12 +70,12 @@ export default {
             firstname: null,
             lastname: null,
             email: null,
-            phone_number: null,
-            passport_series: null,
-            passport_number: null,
-            inn: null,
-            mail_index: null,
-            address: null,
+            phone_number: '',
+            passport_series: '',
+            passport_number: '',
+            inn: '',
+            mail_index: '',
+            address: '',
         }
     },
     mounted() {
