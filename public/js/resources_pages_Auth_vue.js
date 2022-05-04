@@ -112,7 +112,7 @@ __webpack_require__.r(__webpack_exports__);
   name: "SignInForm",
   data: function data() {
     return {
-      login: null,
+      email: null,
       password: null
     };
   },
@@ -121,7 +121,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.post('/api/auth/login', {
-        login: this.login,
+        email: this.email,
         password: this.password
       }).then(function (res) {
         localStorage.setItem('access_token', res.data.access_token);
@@ -148,7 +148,7 @@ __webpack_require__.r(__webpack_exports__);
   name: "SingUpForm",
   data: function data() {
     return {
-      login: null,
+      email: null,
       firstname: null,
       lastname: null,
       password: null,
@@ -165,9 +165,9 @@ __webpack_require__.r(__webpack_exports__);
     store: function store() {
       var _this = this;
 
-      if (this.password === this.password_confirmation && this.login != null && this.firstname != null && this.lastname != null) {
+      if (this.password === this.password_confirmation && this.email != null && this.firstname != null && this.lastname != null) {
         axios.post('/api/users', {
-          login: this.login,
+          email: this.email,
           firstname: this.firstname,
           lastname: this.lastname,
           password: this.password,
@@ -179,7 +179,7 @@ __webpack_require__.r(__webpack_exports__);
         });
       } else {
         if (this.password !== this.password_confirmation) this.isWrongPasswordConf = true;
-        if (this.login === null) this.isWrongLogin = true;
+        if (this.email === null) this.isWrongLogin = true;
         if (this.firstname === null) this.isWrongFirstname = true;
         if (this.lastname === null) this.isWrongLastname = true;
         if (this.password === null) this.isWrongPassword = true;
@@ -533,12 +533,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     type: "text",
     id: "login",
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
-      return $data.login = $event;
+      return $data.email = $event;
     }),
     placeholder: "Email или телефон"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.login]]), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.email]]), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "password",
     id: "pass",
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
@@ -645,16 +645,16 @@ var _hoisted_13 = /*#__PURE__*/_withScopeId(function () {
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, !$data.isWrongLogin ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_3, "Логин")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_4, "Введите корректный email")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
+    type: "email",
     id: "reg-login",
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)($data.isWrongLogin ? 'validation-error-input' : ''),
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
-      return $data.login = $event;
+      return $data.email = $event;
     }),
     placeholder: "Email"
   }, null, 2
   /* CLASS */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.login]]), !$data.isWrongLastname ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_5, "Фамилия")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_6, "Введите корректно фамилию")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.email]]), !$data.isWrongLastname ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_5, "Фамилия")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_6, "Введите корректно фамилию")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
     id: "lastname",
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)($data.isWrongLastname ? 'validation-error-input' : ''),

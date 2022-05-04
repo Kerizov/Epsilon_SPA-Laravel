@@ -101,7 +101,11 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/posts').then(function (res) {
+<<<<<<< HEAD
         _this.posts = res.data; // console.log(res.data);
+=======
+        _this.posts = res.data; //console.log(res.data);
+>>>>>>> 896dc98699a2856646e36a16d1f719ad302fa392
       });
     }
   }
@@ -803,7 +807,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.news__title[data-v-ba71ee86]{\r\n    margin: 0 auto;\r\n    max-width: 1200px;\r\n    display: flex;\n}\n.green-line[data-v-ba71ee86] {\r\n    width: 0;\r\n    border-right: 95px solid #97CA2B;\r\n    margin: 25px 5px 25px 5px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.news__title[data-v-ba71ee86]{\n    margin: 0 auto;\n    max-width: 1200px;\n    display: flex;\n}\n.green-line[data-v-ba71ee86] {\n    width: 0;\n    border-right: 95px solid #97CA2B;\n    margin: 25px 5px 25px 5px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -820,7 +824,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/drop-arrow.svg?d1862e1cf2b3124a00cc4888e4020141");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/drop-arrow.svg?fcaae908d2fc580e7c6cb52b3f39659e");
 
 /***/ }),
 
@@ -848,7 +852,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/menu-button.svg?0b4d9b8f61b9e1b9d5a6e1943f4fad18");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/menu-button.svg?f3ad37198278c8ce96b5240fb4ee3287");
 
 /***/ }),
 
@@ -862,7 +866,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/user.svg?0e8d584d953401bd6741fd1296968eb2");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/user.svg?02032877ca3788c8e7f9bab33afcfa17");
 
 /***/ }),
 

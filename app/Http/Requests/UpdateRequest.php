@@ -24,15 +24,15 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'login' => 'string|email',
-            'firstname' => 'string',
-            'lastname' => 'string',
-            'phone_number' => 'string',
-            'passport_series' => 'string',
-            'passport_number' => 'string',
-            'inn' => 'string',
-            'mail_index' => 'string',
-            'address' => 'string',
+            'email' => 'string|email',
+            'firstname' => 'string|nullable',
+            'lastname' => 'string|nullable',
+            'phone_number' => 'string|nullable',
+            'passport_series' => 'string|nullable',
+            'passport_number' => 'string|nullable',
+            'inn' => 'string|nullable',
+            'mail_index' => 'string|nullable',
+            'address' => 'string|nullable',
         ];
     }
 }

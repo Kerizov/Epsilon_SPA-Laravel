@@ -3,7 +3,7 @@
         <div class="auth-form__title">Регистрация</div>
         <label v-if="!isWrongLogin" for="reg-login">Логин</label>
         <label v-else class="validation-error" for="reg-login">Введите корректный email</label>
-        <input type="text" id="reg-login" :class="isWrongLogin ? 'validation-error-input' : ''" v-model="login" placeholder="Email">
+        <input type="email" id="reg-login" :class="isWrongLogin ? 'validation-error-input' : ''" v-model="email" placeholder="Email">
 
         <label v-if="!isWrongLastname" for="lastname">Фамилия</label>
         <label v-else class="validation-error" for="reg-login">Введите корректно фамилию</label>
@@ -32,7 +32,7 @@ export default {
     name: "SingUpForm",
     data() {
         return {
-            login: null,
+            email: null,
             firstname: null,
             lastname: null,
             password: null,
@@ -49,9 +49,9 @@ export default {
     },
     methods: {
         store() {
-            if(this.password === this.password_confirmation && this.login != null && this.firstname != null && this.lastname != null){
+            if(this.password === this.password_confirmation && this.email != null && this.firstname != null && this.lastname != null){
                 axios.post('/api/users', {
-                    login: this.login,
+                    email: this.email,
                     firstname: this.firstname,
                     lastname: this.lastname,
                     password: this.password,
@@ -62,7 +62,7 @@ export default {
                 })
             }else {
                 if(this.password !== this.password_confirmation) this.isWrongPasswordConf = true;
-                if(this.login === null) this.isWrongLogin = true;
+                if(this.email === null) this.isWrongLogin = true;
                 if(this.firstname === null) this.isWrongFirstname = true;
                 if(this.lastname === null) this.isWrongLastname = true;
                 if(this.password === null) this.isWrongPassword = true;

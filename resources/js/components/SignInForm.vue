@@ -2,7 +2,7 @@
     <div class="auth-form__sign-in">
         <div class="auth-form__title">Вход</div>
         <label for="login">Логин</label>
-        <input type="text" id="login" v-model="login" placeholder="Email или телефон">
+        <input type="text" id="login" v-model="email" placeholder="Email или телефон">
         <label for="pass">Пароль</label>
         <input type="password" id="pass" v-model="password" placeholder="Пароль">
         <p><a href="#">Забыли пароль?</a></p>
@@ -16,13 +16,13 @@ export default {
     name: "SignInForm",
     data() {
         return {
-            login: null,
+            email: null,
             password: null,
         }
     },
     methods: {
         AuthUser() {
-            axios.post('/api/auth/login', {login: this.login, password: this.password})
+            axios.post('/api/auth/login', {email: this.email, password: this.password})
                 .then(res => {
                     localStorage.setItem('access_token', res.data.access_token);
                     this.$router.push('/');

@@ -117,7 +117,7 @@ export default {
                 address: this.address,
             })
                 .then(res => {
-                    console.log(res);
+                    console.log('updated');
                 })
         }
     }

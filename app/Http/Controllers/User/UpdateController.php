@@ -17,7 +17,7 @@ class UpdateController extends Controller
 
         $user->firstname = $data['firstname'];
         $user->lastname = $data['lastname'];
-        $user->login = $data['login'];
+        $user->email = $data['email'];
         $user->phone_number = $data['phone_number'];
         $user->passport_series = $data['passport_series'];
         $user->passport_number = $data['passport_number'];
