@@ -22,27 +22,41 @@
                         </div>
                     </div>
                     <div class="main__form">
-                        <form class="main__search-form">
+                        <form class="main__search-form" method="get" action="">
                             <div class="block">
                                 <div>
                                     <label for="from">Откуда</label>
-                                    <select name="" id="from">
-                                        <option value="" v-for="option in options">{{ option.country }}</option>
+                                    <select name="" v-model="routes.departure_city" id="from">
+<!--                                        <option value=""  v-for="option in options">-->
+<!--                                            {{ option.country }}-->
+<!--                                        </option>-->
+                                        <option value="Москва">Москва</option>
+                                        <option value="USA">USA</option>
+                                        <option value="Austria">Austria</option>
+                                        <option value="Austria">Germany</option>
+                                        <option value="Austria">Czech</option>
                                     </select>
                                 </div>
                                 <div>
                                     <label for="to">Куда</label>
-                                    <select name="" id="to">
-                                        <option value="" v-for="option in options">{{ option.country }}</option>
+                                    <select name="" v-model="routes.destination_city" id="to">
+<!--                                        <option value=""  v-for="option in options" :value="option.country">-->
+<!--                                            {{ option.country }}-->
+<!--                                        </option>-->
+                                        <option value="Russia">Russia</option>
+                                        <option value="USA">USA</option>
+                                        <option value="Austria">Austria</option>
+                                        <option value="Austria">Germany</option>
+                                        <option value="Austria">Czech</option>
                                     </select>
                                 </div>
                                 <div>
                                     <label for="return">Прилет</label>
-                                    <input type="date" id="return">
+                                    <input v-model="routes.destination" type="date" id="return">
                                 </div>
                                 <div>
                                     <label for="depart">Вылет</label>
-                                    <input type="date" id="depart">
+                                    <input v-model="routes.departure" type="date" id="depart">
                                 </div>
                                 <div>
                                     <label for="class">Выберите класс</label>
@@ -56,11 +70,15 @@
                                     <label for="passenger">Кол-во пассажиров</label>
                                     <input type="number" id="passenger" min="1" max="10" value="1">
                                 </div>
+                                <input type="number" v-model="routes.id">
                                 <div class="grid-block">
-                                    <div class="btn-submit">
-                                        <router-link :to="{ name: 'home.air_routes' }">
-                                            Поиск
-                                        </router-link>
+                                    <div class="btn-submit" @click="GetRoutes">
+<!--                                        <router-link :to="{ name: 'home.air_routes' }">-->
+
+                                            <p>Поиск</p>
+
+
+<!--                                        </router-link>-->
                                     </div>
                                 </div>
                             </div>
@@ -79,6 +97,8 @@
 import Footer from "../js/components/Footer";
 import Header from "../js/components/Header";
 import HomeNews from "../js/components/HomeNews";
+import { ref } from 'vue'
+import api from "../js/api";
 
 
 export default {
@@ -90,26 +110,60 @@ export default {
     },
     data() {
         return {
-            options: [
+            // options: [
+            //     {
+            //         country: 'Russia',
+            //         value: '0'
+            //     },
+            //     {
+            //         country: 'USA',
+            //         value: '1'
+            //     },
+            //     {
+            //         country: 'Austria',
+            //         value: '2'
+            //     },
+            //     {
+            //         country: 'Germany',
+            //         value: '3'
+            //     },
+            //     {
+            //         country: 'Czech',
+            //         value: '4'
+            //     },
+            //     {
+            //         country: 'Ukraine',
+            //         value: '5'
+            //     },
+            // ],
+            routes:
                 {
-                    country: 'Russia'
-                },
-                {
-                    country: 'USA'
-                },
-                {
-                    country: 'Austria'
-                },
-                {
-                    country: 'Germany'
-                },
-                {
-                    country: 'Czech'
-                },
-                {
-                    country: 'Ukraine'
-                },
-            ]
+                    id: null,
+                    carrier: null,
+                    departure: null,
+                    departure_city: 'Москва',
+                    destination: null,
+                    destination_city: '',
+                    time: null,
+                    price: null,
+                }
+        }
+    },
+    methods: {
+        GetRoutes() {
+            // console.log(this.options[0].country);
+            // console.log(this.destination_city);
+            // ref(this.options[0].country)
+            // this.$router.push(`/air_routes/${this.routes.id}`);
+            // /air_routes/{id}
+            // ${this.routes.id}
+            this.$router.push(`/air_routes/${this.routes.departure_city}`);
+            // api.get(`/api/air_routes/${this.routes.departure_city}`,
+            // ).then(res => {
+            //         this.routes = res.data;
+            //         console.log(res.data);
+            //
+            //     })
         }
     }
 }

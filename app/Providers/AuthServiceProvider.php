@@ -34,6 +34,7 @@ class AuthServiceProvider extends ServiceProvider
 //            $token = auth()->tokenById(request()->user()->id);
 //            $token = request()->header('Authorization');
             $myUrl =  'http://epsilon/cabinet';
+
             return (new MailMessage)
                 ->subject('Подтвердить почту')
                 ->line('Кликните на кнопку ниже для подтверждения почты')

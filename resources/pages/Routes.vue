@@ -29,75 +29,42 @@
                     </div>
                 </form>
                 <div class="routes__items">
-                    <div class="routes__item">
-                        <div class="routes__item-up">
-                            <div class="routes__air-company-name">British airways</div>
-                            <div class="routes__air-company-depart">7:55</div>
-                            <div class="routes__air-company-time">
-                                <p>6 часов 50 минут</p>
-                                <img src="../images/arrow-2.svg" alt="">
+
+                    <template v-for="route in routes">
+                        <div class="routes__item">
+<!--                            <div class="routes__item-title">-->
+<!--                                Шереметьево -> Абакан-->
+<!--                            </div>-->
+                            <div class="routes__item-up">
+                                <div class="routes__air-company-name"><strong>Перевозчик</strong></div>
+                                <div class="routes__air-company-depart"><strong>Вылет</strong></div>
+                                <div class="routes__air-company-time">
+                                    <strong><p>Время в пути</p></strong>
+                                </div>
+                                <div class="routes__air-company-return"><strong>Прилет</strong></div>
                             </div>
-                            <div class="routes__air-company-return">14:45</div>
-                        </div>
-                        <div class="gray-line"></div>
-                        <div class="routes__item-down">
-                            <div class="routes__air-company-name">British airways</div>
-                            <div class="routes__air-company-depart">9:50</div>
-                            <div class="routes__air-company-time">
-                                <p>18 часов 40 минут</p>
-                                <img src="../images/arrow-2.svg" alt="">
+                            <div class="gray-line"></div>
+                            <div class="routes__item-down">
+                                <div class="routes__air-company-name">{{ route.carrier }}</div>
+                                <div class="routes__air-company-depart">
+                                    {{ route.departure }}<br>
+                                    {{ route.departure_city }}
+                                </div>
+                                <div class="routes__air-company-time">
+                                    <p>{{ route.time }}</p>
+                                    <img src="../images/arrow-2.svg" alt="">
+                                </div>
+                                <div class="routes__air-company-return">
+                                    {{ route.destination }}<br>
+                                    {{ route.destination_city }}
+                                </div>
                             </div>
-                            <div class="routes__air-company-return">11:30(+1)</div>
+                            <div class="routes__price">{{ route.price }} руб.</div>
+                            <button class="routes__item-select">Выбрать</button>
                         </div>
-                        <div class="routes__price">1600$</div>
-                        <button class="routes__item-select">Выбрать</button>
-                    </div>
-                    <div class="routes__item">
-                        <div class="routes__item-up">
-                            <div class="routes__air-company-name">British airways</div>
-                            <div class="routes__air-company-depart">7:55</div>
-                            <div class="routes__air-company-time">
-                                <p>6 часов 50 минут</p>
-                                <img src="../images/arrow-2.svg" alt="">
-                            </div>
-                            <div class="routes__air-company-return">14:45</div>
-                        </div>
-                        <div class="gray-line"></div>
-                        <div class="routes__item-down">
-                            <div class="routes__air-company-name">British airways</div>
-                            <div class="routes__air-company-depart">9:50</div>
-                            <div class="routes__air-company-time">
-                                <p>18 часов 40 минут</p>
-                                <img src="../images/arrow-2.svg" alt="">
-                            </div>
-                            <div class="routes__air-company-return">11:30(+1)</div>
-                        </div>
-                        <div class="routes__price">1600$</div>
-                        <button class="routes__item-select">Выбрать</button>
-                    </div>
-                    <div class="routes__item">
-                        <div class="routes__item-up">
-                            <div class="routes__air-company-name">British airways</div>
-                            <div class="routes__air-company-depart">7:55</div>
-                            <div class="routes__air-company-time">
-                                <p>6 часов 50 минут</p>
-                                <img src="../images/arrow-2.svg" alt="">
-                            </div>
-                            <div class="routes__air-company-return">14:45</div>
-                        </div>
-                        <div class="gray-line"></div>
-                        <div class="routes__item-down">
-                            <div class="routes__air-company-name">British airways</div>
-                            <div class="routes__air-company-depart">9:50</div>
-                            <div class="routes__air-company-time">
-                                <p>18 часов 40 минут</p>
-                                <img src="../images/arrow-2.svg" alt="">
-                            </div>
-                            <div class="routes__air-company-return">11:30(+1)</div>
-                        </div>
-                        <div class="routes__price">1600$</div>
-                        <button class="routes__item-select">Выбрать</button>
-                    </div>
+                    </template>
+
+
                 </div>
             </div>
         </div>
@@ -108,13 +75,54 @@
 <script>
 import HeaderOther from "../js/components/HeaderOther";
 import Footer from "../js/components/Footer";
+import api from "../js/api";
 
 export default {
     name: "Routes",
     components: {
         Footer,
         HeaderOther
+    },
+    data() {
+        return {
+            routes:
+                {
+                    carrier: 'null',
+                    departure: 'null',
+                    departure_city: 'Москва',
+                    destination: 'null',
+                    destination_city: 'null',
+                    time: 'null',
+                    price: 'null',
+                }
+
+        }
+    },
+
+    mounted() {
+        this.GetRoutes();
+    },
+    methods: {
+        GetRoutes() {
+            api.get(`/api/air_routes/${this.routes.departure_city}`,
+            ).then(res => {
+                this.routes = res.data;
+                console.log(res.data);
+            })
+        }
     }
+    // mounted() {
+    //     this.GetRoutes();
+    // },
+    // methods: {
+    //     GetRoutes() {
+    //         api.get('/api/routes')
+    //             .then(res => {
+    //                 this.routes = res.data;
+    //                 console.log(res.data);
+    //             })
+    //     }
+    // }
 }
 </script>
 
@@ -176,6 +184,11 @@ export default {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         margin: 20px auto;
 
+        &-title {
+            padding: 10px;
+            font-size: 24px;
+        }
+
         & > button {
             width: 180px;
             height: 40px;
@@ -198,6 +211,7 @@ export default {
         font-weight: bold;
     }
 }
+
 .block {
     display: block;
     grid-template-columns: 1fr 1fr;

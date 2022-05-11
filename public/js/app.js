@@ -22893,6 +22893,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_components_Footer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../js/components/Footer */ "./resources/js/components/Footer.vue");
 /* harmony import */ var _js_components_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../js/components/Header */ "./resources/js/components/Header.vue");
 /* harmony import */ var _js_components_HomeNews__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../js/components/HomeNews */ "./resources/js/components/HomeNews.vue");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _js_api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../js/api */ "./resources/js/api.js");
+
+
 
 
 
@@ -22905,20 +22909,59 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      options: [{
-        country: 'Russia'
-      }, {
-        country: 'USA'
-      }, {
-        country: 'Austria'
-      }, {
-        country: 'Germany'
-      }, {
-        country: 'Czech'
-      }, {
-        country: 'Ukraine'
-      }]
+      // options: [
+      //     {
+      //         country: 'Russia',
+      //         value: '0'
+      //     },
+      //     {
+      //         country: 'USA',
+      //         value: '1'
+      //     },
+      //     {
+      //         country: 'Austria',
+      //         value: '2'
+      //     },
+      //     {
+      //         country: 'Germany',
+      //         value: '3'
+      //     },
+      //     {
+      //         country: 'Czech',
+      //         value: '4'
+      //     },
+      //     {
+      //         country: 'Ukraine',
+      //         value: '5'
+      //     },
+      // ],
+      routes: {
+        id: null,
+        carrier: null,
+        departure: null,
+        departure_city: 'Москва',
+        destination: null,
+        destination_city: '',
+        time: null,
+        price: null
+      }
     };
+  },
+  methods: {
+    GetRoutes: function GetRoutes() {
+      // console.log(this.options[0].country);
+      // console.log(this.destination_city);
+      // ref(this.options[0].country)
+      // this.$router.push(`/air_routes/${this.routes.id}`);
+      // /air_routes/{id}
+      // ${this.routes.id}
+      this.$router.push("/air_routes/".concat(this.routes.departure_city)); // api.get(`/api/air_routes/${this.routes.departure_city}`,
+      // ).then(res => {
+      //         this.routes = res.data;
+      //         console.log(res.data);
+      //
+      //     })
+    }
   }
 });
 
@@ -23382,7 +23425,9 @@ var _hoisted_10 = {
   "class": "main__form"
 };
 var _hoisted_11 = {
-  "class": "main__search-form"
+  "class": "main__search-form",
+  method: "get",
+  action: ""
 };
 var _hoisted_12 = {
   "class": "block"
@@ -23394,38 +23439,37 @@ var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_14 = {
-  name: "",
-  id: "from"
-};
-var _hoisted_15 = {
-  value: ""
-};
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<option value=\"Москва\">Москва</option><option value=\"USA\">USA</option><option value=\"Austria\">Austria</option><option value=\"Austria\">Germany</option><option value=\"Austria\">Czech</option>", 5);
 
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "to"
 }, "Куда", -1
 /* HOISTED */
 );
 
-var _hoisted_17 = {
-  name: "",
-  id: "to"
-};
-var _hoisted_18 = {
-  value: ""
-};
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<option value=\"Russia\">Russia</option><option value=\"USA\">USA</option><option value=\"Austria\">Austria</option><option value=\"Austria\">Germany</option><option value=\"Austria\">Czech</option>", 5);
 
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div><label for=\"return\">Прилет</label><input type=\"date\" id=\"return\"></div><div><label for=\"depart\">Вылет</label><input type=\"date\" id=\"depart\"></div><div><label for=\"class\">Выберите класс</label><select id=\"class\"><option value=\"\">Эконом</option><option value=\"\">Бизнес</option><option value=\"\">Люкс</option></select></div><div><label for=\"passenger\">Кол-во пассажиров</label><input type=\"number\" id=\"passenger\" min=\"1\" max=\"10\" value=\"1\"></div>", 4);
+var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "return"
+}, "Прилет", -1
+/* HOISTED */
+);
 
-var _hoisted_23 = {
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "depart"
+}, "Вылет", -1
+/* HOISTED */
+);
+
+var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div><label for=\"class\">Выберите класс</label><select id=\"class\"><option value=\"\">Эконом</option><option value=\"\">Бизнес</option><option value=\"\">Люкс</option></select></div><div><label for=\"passenger\">Кол-во пассажиров</label><input type=\"number\" id=\"passenger\" min=\"1\" max=\"10\" value=\"1\"></div>", 2);
+
+var _hoisted_29 = {
   "class": "grid-block"
 };
-var _hoisted_24 = {
-  "class": "btn-submit"
-};
 
-var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Поиск ");
+var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Поиск", -1
+/* HOISTED */
+);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Header = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Header");
@@ -23449,32 +23493,51 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["to"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", _hoisted_14, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.options, function (option) {
-    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(option.country), 1
-    /* TEXT */
-    );
-  }), 256
-  /* UNKEYED_FRAGMENT */
-  ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", _hoisted_17, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.options, function (option) {
-    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(option.country), 1
-    /* TEXT */
-    );
-  }), 256
-  /* UNKEYED_FRAGMENT */
-  ))])]), _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
-    to: {
-      name: 'home.air_routes'
-    }
-  }, {
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_25];
+  , ["to"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+    name: "",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $data.routes.departure_city = $event;
     }),
-    _: 1
-    /* STABLE */
-
-  }, 8
-  /* PROPS */
-  , ["to"])])])])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_HomeNews), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)]);
+    id: "from"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                        <option value=\"\"  v-for=\"option in options\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                            {{ option.country }}"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                        </option>"), _hoisted_14], 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.routes.departure_city]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+    name: "",
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $data.routes.destination_city = $event;
+    }),
+    id: "to"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                        <option value=\"\"  v-for=\"option in options\" :value=\"option.country\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                            {{ option.country }}"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                        </option>"), _hoisted_20], 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.routes.destination_city]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return $data.routes.destination = $event;
+    }),
+    type: "date",
+    id: "return"
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.routes.destination]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+      return $data.routes.departure = $event;
+    }),
+    type: "date",
+    id: "depart"
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.routes.departure]])]), _hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "number",
+    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+      return $data.routes.id = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.routes.id]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "btn-submit",
+    onClick: _cache[5] || (_cache[5] = function () {
+      return $options.GetRoutes && $options.GetRoutes.apply($options, arguments);
+    })
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                        <router-link :to=\"{ name: 'home.air_routes' }\">"), _hoisted_30, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                        </router-link>")])])])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_HomeNews), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)]);
 }
 
 /***/ }),
@@ -27595,7 +27658,7 @@ var routes = [{
   },
   name: 'home.about'
 }, {
-  path: '/air_routes',
+  path: '/air_routes/:catchAll(.*)',
   component: function component() {
     return __webpack_require__.e(/*! import() */ "resources_pages_Routes_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Routes */ "./resources/pages/Routes.vue"));
   },
@@ -27612,17 +27675,15 @@ var routes = [{
     return __webpack_require__.e(/*! import() */ "resources_pages_Cabinet_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Cabinet */ "./resources/pages/Cabinet.vue"));
   },
   name: 'home.cabinet'
-}, {
-  path: '/404',
-  component: function component() {
-    return __webpack_require__.e(/*! import() */ "resources_pages_PageNotExist_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/PageNotExist */ "./resources/pages/PageNotExist.vue"));
-  },
-  name: 'PageNotExist'
-}, {
-  path: "/:catchAll(.*)",
-  // Unrecognized path automatically matches 404
-  redirect: '/404'
-}];
+} // {
+//     path: '/404', component: () => import('../pages/PageNotExist'),
+//     name: 'PageNotExist',
+// },
+// {
+//     path: "/:catchAll(.*)", // Unrecognized path automatically matches 404
+//     redirect: '/404',
+// },
+];
 var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_1__.createRouter)({
   routes: routes,
   history: (0,vue_router__WEBPACK_IMPORTED_MODULE_1__.createWebHistory)(process.env.BASE_URL)
@@ -55177,7 +55238,7 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_pages_Contacts_vue":1,"resources_pages_About_vue":1,"resources_pages_Routes_vue":1,"resources_pages_Auth_vue":1,"resources_pages_Cabinet_vue":1,"resources_pages_PageNotExist_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_pages_Contacts_vue":1,"resources_pages_About_vue":1,"resources_pages_Routes_vue":1,"resources_pages_Auth_vue":1,"resources_pages_Cabinet_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

@@ -86,6 +86,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _js_components_HeaderOther__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../js/components/HeaderOther */ "./resources/js/components/HeaderOther.vue");
 /* harmony import */ var _js_components_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../js/components/Footer */ "./resources/js/components/Footer.vue");
+/* harmony import */ var _js_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../js/api */ "./resources/js/api.js");
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -93,7 +95,45 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Footer: _js_components_Footer__WEBPACK_IMPORTED_MODULE_1__["default"],
     HeaderOther: _js_components_HeaderOther__WEBPACK_IMPORTED_MODULE_0__["default"]
-  }
+  },
+  data: function data() {
+    return {
+      routes: {
+        carrier: 'null',
+        departure: 'null',
+        departure_city: 'Москва',
+        destination: 'null',
+        destination_city: 'null',
+        time: 'null',
+        price: 'null'
+      }
+    };
+  },
+  mounted: function mounted() {
+    this.GetRoutes();
+  },
+  methods: {
+    GetRoutes: function GetRoutes() {
+      var _this = this;
+
+      _js_api__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/air_routes/".concat(this.routes.departure_city)).then(function (res) {
+        _this.routes = res.data;
+        console.log(res.data);
+      });
+    }
+  } // mounted() {
+  //     this.GetRoutes();
+  // },
+  // methods: {
+  //     GetRoutes() {
+  //         api.get('/api/routes')
+  //             .then(res => {
+  //                 this.routes = res.data;
+  //                 console.log(res.data);
+  //             })
+  //     }
+  // }
+
 });
 
 /***/ }),
@@ -316,7 +356,77 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNod
 
 var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Маршруты");
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"routes\" data-v-64d0e74d><div class=\"container\" data-v-64d0e74d><div class=\"routes__inner\" data-v-64d0e74d><div class=\"routes__title\" data-v-64d0e74d>Москва - Санкт Петербург</div><div class=\"orange-line\" data-v-64d0e74d></div><div class=\"routes__text\" data-v-64d0e74d>2 Взрослых, Эконом</div><form class=\"routes__form\" action=\"\" data-v-64d0e74d><div class=\"block\" data-v-64d0e74d><label for=\"depart\" data-v-64d0e74d>Вылет</label><input type=\"datetime-local\" id=\"depart\" data-v-64d0e74d></div><div class=\"block\" data-v-64d0e74d><label for=\"return\" data-v-64d0e74d>Прилет</label><input type=\"datetime-local\" id=\"return\" data-v-64d0e74d></div><div class=\"block\" data-v-64d0e74d><label for=\"sort\" data-v-64d0e74d>Сортировка</label><select name=\"\" id=\"sort\" data-v-64d0e74d><option value=\"\" data-v-64d0e74d>от дешевых к дорогим</option><option value=\"\" data-v-64d0e74d>по рейтингу</option><option value=\"\" selected data-v-64d0e74d>по популярности</option></select></div></form><div class=\"routes__items\" data-v-64d0e74d><div class=\"routes__item\" data-v-64d0e74d><div class=\"routes__item-up\" data-v-64d0e74d><div class=\"routes__air-company-name\" data-v-64d0e74d>British airways</div><div class=\"routes__air-company-depart\" data-v-64d0e74d>7:55</div><div class=\"routes__air-company-time\" data-v-64d0e74d><p data-v-64d0e74d>6 часов 50 минут</p><img src=\"" + _images_arrow_2_svg__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"\" data-v-64d0e74d></div><div class=\"routes__air-company-return\" data-v-64d0e74d>14:45</div></div><div class=\"gray-line\" data-v-64d0e74d></div><div class=\"routes__item-down\" data-v-64d0e74d><div class=\"routes__air-company-name\" data-v-64d0e74d>British airways</div><div class=\"routes__air-company-depart\" data-v-64d0e74d>9:50</div><div class=\"routes__air-company-time\" data-v-64d0e74d><p data-v-64d0e74d>18 часов 40 минут</p><img src=\"" + _images_arrow_2_svg__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"\" data-v-64d0e74d></div><div class=\"routes__air-company-return\" data-v-64d0e74d>11:30(+1)</div></div><div class=\"routes__price\" data-v-64d0e74d>1600$</div><button class=\"routes__item-select\" data-v-64d0e74d>Выбрать</button></div><div class=\"routes__item\" data-v-64d0e74d><div class=\"routes__item-up\" data-v-64d0e74d><div class=\"routes__air-company-name\" data-v-64d0e74d>British airways</div><div class=\"routes__air-company-depart\" data-v-64d0e74d>7:55</div><div class=\"routes__air-company-time\" data-v-64d0e74d><p data-v-64d0e74d>6 часов 50 минут</p><img src=\"" + _images_arrow_2_svg__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"\" data-v-64d0e74d></div><div class=\"routes__air-company-return\" data-v-64d0e74d>14:45</div></div><div class=\"gray-line\" data-v-64d0e74d></div><div class=\"routes__item-down\" data-v-64d0e74d><div class=\"routes__air-company-name\" data-v-64d0e74d>British airways</div><div class=\"routes__air-company-depart\" data-v-64d0e74d>9:50</div><div class=\"routes__air-company-time\" data-v-64d0e74d><p data-v-64d0e74d>18 часов 40 минут</p><img src=\"" + _images_arrow_2_svg__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"\" data-v-64d0e74d></div><div class=\"routes__air-company-return\" data-v-64d0e74d>11:30(+1)</div></div><div class=\"routes__price\" data-v-64d0e74d>1600$</div><button class=\"routes__item-select\" data-v-64d0e74d>Выбрать</button></div><div class=\"routes__item\" data-v-64d0e74d><div class=\"routes__item-up\" data-v-64d0e74d><div class=\"routes__air-company-name\" data-v-64d0e74d>British airways</div><div class=\"routes__air-company-depart\" data-v-64d0e74d>7:55</div><div class=\"routes__air-company-time\" data-v-64d0e74d><p data-v-64d0e74d>6 часов 50 минут</p><img src=\"" + _images_arrow_2_svg__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"\" data-v-64d0e74d></div><div class=\"routes__air-company-return\" data-v-64d0e74d>14:45</div></div><div class=\"gray-line\" data-v-64d0e74d></div><div class=\"routes__item-down\" data-v-64d0e74d><div class=\"routes__air-company-name\" data-v-64d0e74d>British airways</div><div class=\"routes__air-company-depart\" data-v-64d0e74d>9:50</div><div class=\"routes__air-company-time\" data-v-64d0e74d><p data-v-64d0e74d>18 часов 40 минут</p><img src=\"" + _images_arrow_2_svg__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"\" data-v-64d0e74d></div><div class=\"routes__air-company-return\" data-v-64d0e74d>11:30(+1)</div></div><div class=\"routes__price\" data-v-64d0e74d>1600$</div><button class=\"routes__item-select\" data-v-64d0e74d>Выбрать</button></div></div></div></div></div>", 1);
+var _hoisted_4 = {
+  "class": "routes"
+};
+var _hoisted_5 = {
+  "class": "container"
+};
+var _hoisted_6 = {
+  "class": "routes__inner"
+};
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"routes__title\" data-v-64d0e74d>Москва - Санкт Петербург</div><div class=\"orange-line\" data-v-64d0e74d></div><div class=\"routes__text\" data-v-64d0e74d>2 Взрослых, Эконом</div><form class=\"routes__form\" action=\"\" data-v-64d0e74d><div class=\"block\" data-v-64d0e74d><label for=\"depart\" data-v-64d0e74d>Вылет</label><input type=\"datetime-local\" id=\"depart\" data-v-64d0e74d></div><div class=\"block\" data-v-64d0e74d><label for=\"return\" data-v-64d0e74d>Прилет</label><input type=\"datetime-local\" id=\"return\" data-v-64d0e74d></div><div class=\"block\" data-v-64d0e74d><label for=\"sort\" data-v-64d0e74d>Сортировка</label><select name=\"\" id=\"sort\" data-v-64d0e74d><option value=\"\" data-v-64d0e74d>от дешевых к дорогим</option><option value=\"\" data-v-64d0e74d>по рейтингу</option><option value=\"\" selected data-v-64d0e74d>по популярности</option></select></div></form>", 4);
+
+var _hoisted_11 = {
+  "class": "routes__items"
+};
+var _hoisted_12 = {
+  "class": "routes__item"
+};
+
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"routes__item-up\" data-v-64d0e74d><div class=\"routes__air-company-name\" data-v-64d0e74d><strong data-v-64d0e74d>Перевозчик</strong></div><div class=\"routes__air-company-depart\" data-v-64d0e74d><strong data-v-64d0e74d>Вылет</strong></div><div class=\"routes__air-company-time\" data-v-64d0e74d><strong data-v-64d0e74d><p data-v-64d0e74d>Время в пути</p></strong></div><div class=\"routes__air-company-return\" data-v-64d0e74d><strong data-v-64d0e74d>Прилет</strong></div></div><div class=\"gray-line\" data-v-64d0e74d></div>", 2);
+
+var _hoisted_15 = {
+  "class": "routes__item-down"
+};
+var _hoisted_16 = {
+  "class": "routes__air-company-name"
+};
+var _hoisted_17 = {
+  "class": "routes__air-company-depart"
+};
+
+var _hoisted_18 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_19 = {
+  "class": "routes__air-company-time"
+};
+
+var _hoisted_20 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    src: _images_arrow_2_svg__WEBPACK_IMPORTED_MODULE_1__["default"],
+    alt: ""
+  }, null, -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_21 = {
+  "class": "routes__air-company-return"
+};
+
+var _hoisted_22 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_23 = {
+  "class": "routes__price"
+};
+
+var _hoisted_24 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    "class": "routes__item-select"
+  }, "Выбрать", -1
+  /* HOISTED */
+  );
+});
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_HeaderOther = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("HeaderOther");
@@ -336,7 +446,25 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  }), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)], 64
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.routes, function (route) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            <div class=\"routes__item-title\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                Шереметьево -> Абакан"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            </div>"), _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(route.carrier), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(route.departure), 1
+    /* TEXT */
+    ), _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(route.departure_city), 1
+    /* TEXT */
+    )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(route.time), 1
+    /* TEXT */
+    ), _hoisted_20]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(route.destination), 1
+    /* TEXT */
+    ), _hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(route.destination_city), 1
+    /* TEXT */
+    )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(route.price) + " руб.", 1
+    /* TEXT */
+    ), _hoisted_24]);
+  }), 256
+  /* UNKEYED_FRAGMENT */
+  ))])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -434,7 +562,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".routes[data-v-64d0e74d] {\n  text-align: center;\n  max-width: 800px;\n  margin: 0 auto;\n}\n.routes__item-up[data-v-64d0e74d], .routes__item-down[data-v-64d0e74d] {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr 1fr;\n  text-align: center;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.routes__title[data-v-64d0e74d] {\n  font-weight: bold;\n  padding-top: 20px;\n  font-size: 48px;\n}\n.routes > .container > .routes__inner > .orange-line[data-v-64d0e74d] {\n  margin: 20px auto;\n}\n.routes__text[data-v-64d0e74d] {\n  color: rgba(0, 0, 0, 0.5);\n  font-size: 18px;\n}\n.routes__form[data-v-64d0e74d] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.routes__form > .block + .block[data-v-64d0e74d] {\n  margin-left: 50px;\n}\n.routes__form input[data-v-64d0e74d], .routes__form select[data-v-64d0e74d] {\n  width: 200px;\n  /*180px*/\n  height: 40px;\n  border: 1px solid transparent;\n  border-radius: 5px;\n  padding: 10px;\n  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);\n  outline: none;\n}\n.routes__item[data-v-64d0e74d] {\n  padding: 50px;\n  height: 250px;\n  background-color: #fff;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);\n  margin: 20px auto;\n}\n.routes__item > button[data-v-64d0e74d] {\n  width: 180px;\n  height: 40px;\n  color: #fff;\n  margin: 20px;\n  background-color: #F7B903;\n  border-radius: 5px;\n  outline: none;\n  border: none;\n  padding: 5px;\n  font-size: 16px;\n}\n.routes__item > button[data-v-64d0e74d]:hover {\n  background-color: #b98a00;\n}\n.routes__price[data-v-64d0e74d] {\n  font-weight: bold;\n}\n.block[data-v-64d0e74d] {\n  display: block;\n  grid-template-columns: 1fr 1fr;\n  grid-gap: 10px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".routes[data-v-64d0e74d] {\n  text-align: center;\n  max-width: 800px;\n  margin: 0 auto;\n}\n.routes__item-up[data-v-64d0e74d], .routes__item-down[data-v-64d0e74d] {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr 1fr;\n  text-align: center;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.routes__title[data-v-64d0e74d] {\n  font-weight: bold;\n  padding-top: 20px;\n  font-size: 48px;\n}\n.routes > .container > .routes__inner > .orange-line[data-v-64d0e74d] {\n  margin: 20px auto;\n}\n.routes__text[data-v-64d0e74d] {\n  color: rgba(0, 0, 0, 0.5);\n  font-size: 18px;\n}\n.routes__form[data-v-64d0e74d] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.routes__form > .block + .block[data-v-64d0e74d] {\n  margin-left: 50px;\n}\n.routes__form input[data-v-64d0e74d], .routes__form select[data-v-64d0e74d] {\n  width: 200px;\n  /*180px*/\n  height: 40px;\n  border: 1px solid transparent;\n  border-radius: 5px;\n  padding: 10px;\n  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);\n  outline: none;\n}\n.routes__item[data-v-64d0e74d] {\n  padding: 50px;\n  height: 250px;\n  background-color: #fff;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);\n  margin: 20px auto;\n}\n.routes__item-title[data-v-64d0e74d] {\n  padding: 10px;\n  font-size: 24px;\n}\n.routes__item > button[data-v-64d0e74d] {\n  width: 180px;\n  height: 40px;\n  color: #fff;\n  margin: 20px;\n  background-color: #F7B903;\n  border-radius: 5px;\n  outline: none;\n  border: none;\n  padding: 5px;\n  font-size: 16px;\n}\n.routes__item > button[data-v-64d0e74d]:hover {\n  background-color: #b98a00;\n}\n.routes__price[data-v-64d0e74d] {\n  font-weight: bold;\n}\n.block[data-v-64d0e74d] {\n  display: block;\n  grid-template-columns: 1fr 1fr;\n  grid-gap: 10px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
