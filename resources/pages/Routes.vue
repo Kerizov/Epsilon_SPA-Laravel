@@ -7,7 +7,7 @@
     <div class="routes">
         <div class="container">
             <div class="routes__inner">
-                <div class="routes__title">Москва - Санкт Петербург</div>
+                <div class="routes__title">{{ $store.state.values.departure_city }} - {{ this.$store.state.values.destination_city }}</div>
                 <div class="orange-line"></div>
                 <div class="routes__text">2 Взрослых, Эконом</div>
                 <form class="routes__form" action="">
@@ -28,10 +28,10 @@
                         </select>
                     </div>
                 </form>
-                <div class="routes__items">
+                <div class="routes__items" v-if="RoutesIsExists">
 
-                    <template v-for="route in routes">
-                        <div class="routes__item">
+                    <template v-if="routes">
+                        <div class="routes__item" v-for="route in routes">
 <!--                            <div class="routes__item-title">-->
 <!--                                Шереметьево -> Абакан-->
 <!--                            </div>-->
@@ -66,6 +66,9 @@
 
 
                 </div>
+                <div class="routes_ist_exists" v-else>
+                    <h1>По вашему запросу нет результатов!</h1>
+                </div>
             </div>
         </div>
     </div>
@@ -85,31 +88,35 @@ export default {
     },
     data() {
         return {
-            routes:
-                {
-                    carrier: 'null',
-                    departure: 'null',
-                    departure_city: 'Москва',
-                    destination: 'null',
-                    destination_city: 'null',
-                    time: 'null',
-                    price: 'null',
-                }
-
+            RoutesIsExists: true,
+            routes: {
+                carrier: '',
+                departure: '',
+                departure_city: this.$store.state.values.departure_city,
+                destination: '',
+                destination_city: this.$store.state.values.destination_city,
+                time: '',
+                price: '',
+            }
         }
     },
-
     mounted() {
         this.GetRoutes();
     },
     methods: {
         GetRoutes() {
-            api.get(`/api/air_routes/${this.routes.departure_city}`,
-            ).then(res => {
-                this.routes = res.data;
-                console.log(res.data);
-            })
-        }
+
+            // /${this.$store.state.values.departure_city}&${this.$store.state.values.destination_city}
+                api.get(`/api/air_routes`, { params: {departure_city: this.routes.departure_city, destination_city: this.routes.destination_city}})
+                    .then(res => {
+                        (res.data.length === 0) ? this.RoutesIsExists = false : this.RoutesIsExists = true
+
+                    this.routes = res.data;
+                    console.log(res.data);
+                    // console.log(this.$store.state.values.example);
+                })
+
+            }
     }
     // mounted() {
     //     this.GetRoutes();
@@ -131,6 +138,11 @@ export default {
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
+
+    &_ist_exists{
+        height: 300px;
+        padding-top: 125px;
+    }
 
     &__item-up, &__item-down {
         display: grid;

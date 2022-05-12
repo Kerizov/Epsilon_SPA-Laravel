@@ -51,7 +51,7 @@ Route::group(['namespace' => 'User', 'prefix' => 'users'], function () {
 
 
 //Route::get('/routes', [RouteController::class, 'index']);
-Route::get('/air_routes/{departure_city}', [RouteController::class, 'index']);
+Route::get('/air_routes', [RouteController::class, 'index']);
 //Route::get('/routes', [RouteController::class, 'filter']);
 
 

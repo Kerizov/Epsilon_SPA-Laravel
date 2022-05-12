@@ -26,37 +26,43 @@
                             <div class="block">
                                 <div>
                                     <label for="from">Откуда</label>
-                                    <select name="" v-model="routes.departure_city" id="from">
+                                    <select name="" v-model="departure_city" id="from">
 <!--                                        <option value=""  v-for="option in options">-->
 <!--                                            {{ option.country }}-->
 <!--                                        </option>-->
                                         <option value="Москва">Москва</option>
-                                        <option value="USA">USA</option>
-                                        <option value="Austria">Austria</option>
-                                        <option value="Austria">Germany</option>
-                                        <option value="Austria">Czech</option>
+                                        <option value="Солт Сте Мари">Солт Сте Мари</option>
+                                        <option value="Абакан">Абакан</option>
+                                        <option value="Санкт Петербург">Санкт Петербург</option>
+                                        <option value="Самара">Самара</option>
+<!--                                        <option value="Austria">Austria</option>-->
+<!--                                        <option value="Austria">Germany</option>-->
+<!--                                        <option value="Austria">Czech</option>-->
                                     </select>
                                 </div>
                                 <div>
                                     <label for="to">Куда</label>
-                                    <select name="" v-model="routes.destination_city" id="to">
+                                    <select name="" v-model="destination_city" id="to">
 <!--                                        <option value=""  v-for="option in options" :value="option.country">-->
 <!--                                            {{ option.country }}-->
 <!--                                        </option>-->
-                                        <option value="Russia">Russia</option>
-                                        <option value="USA">USA</option>
-                                        <option value="Austria">Austria</option>
-                                        <option value="Austria">Germany</option>
-                                        <option value="Austria">Czech</option>
+                                        <option value="Москва">Москва</option>
+                                        <option value="Солт Сте Мари">Солт Сте Мари</option>
+                                        <option value="Абакан">Абакан</option>
+                                        <option value="Санкт Петербург">Санкт Петербург</option>
+                                        <option value="Самара">Самара</option>
+<!--                                        <option value="Austria">Austria</option>-->
+<!--                                        <option value="Austria">Germany</option>-->
+<!--                                        <option value="Austria">Czech</option>-->
                                     </select>
                                 </div>
                                 <div>
                                     <label for="return">Прилет</label>
-                                    <input v-model="routes.destination" type="date" id="return">
+                                    <input type="date" id="return">
                                 </div>
                                 <div>
                                     <label for="depart">Вылет</label>
-                                    <input v-model="routes.departure" type="date" id="depart">
+                                    <input type="date" id="depart">
                                 </div>
                                 <div>
                                     <label for="class">Выберите класс</label>
@@ -70,7 +76,7 @@
                                     <label for="passenger">Кол-во пассажиров</label>
                                     <input type="number" id="passenger" min="1" max="10" value="1">
                                 </div>
-                                <input type="number" v-model="routes.id">
+<!--                                <input type="text" v-model="departure_city" name="departure_city">-->
                                 <div class="grid-block">
                                     <div class="btn-submit" @click="GetRoutes">
 <!--                                        <router-link :to="{ name: 'home.air_routes' }">-->
@@ -97,7 +103,7 @@
 import Footer from "../js/components/Footer";
 import Header from "../js/components/Header";
 import HomeNews from "../js/components/HomeNews";
-import { ref } from 'vue'
+import { mapState } from "vuex";
 import api from "../js/api";
 
 
@@ -136,17 +142,38 @@ export default {
             //         value: '5'
             //     },
             // ],
-            routes:
-                {
-                    id: null,
-                    carrier: null,
-                    departure: null,
-                    departure_city: 'Москва',
-                    destination: null,
-                    destination_city: '',
-                    time: null,
-                    price: null,
-                }
+            // routes:
+            //     {
+            //         id: null,
+            //         carrier: 'null',
+            //         departure: null,
+            //         // departure_city: '',
+            //         destination: null,
+            //         // destination_city: '',
+            //         time: null,
+            //         price: null,
+            //     }
+        }
+    },
+    computed: {
+        ...mapState(["values"]),
+        departure_city: {
+            set(departure_city) {
+                this.$store.commit("setValues", { departure_city });
+            },
+            get() {
+                // Or remove mapState and use this.$store.state.values.example
+                return this.values.departure_city;
+            }
+        },
+        destination_city: {
+            set(destination_city) {
+                this.$store.commit("setValues", { destination_city });
+            },
+            get() {
+                // Or remove mapState and use this.$store.state.values.example
+                return this.values.destination_city;
+            }
         }
     },
     methods: {
@@ -157,14 +184,18 @@ export default {
             // this.$router.push(`/air_routes/${this.routes.id}`);
             // /air_routes/{id}
             // ${this.routes.id}
-            this.$router.push(`/air_routes/${this.routes.departure_city}`);
+        // &destination_city=${this.$store.state.values.destination_city}
+        //         ?departure_city=${this.$store.state.values.departure_city}
+            this.$router.push(`/air_routes`);
+
+
             // api.get(`/api/air_routes/${this.routes.departure_city}`,
             // ).then(res => {
             //         this.routes = res.data;
             //         console.log(res.data);
             //
             //     })
-        }
+        },
     }
 }
 </script>

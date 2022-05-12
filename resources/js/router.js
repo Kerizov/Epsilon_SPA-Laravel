@@ -16,7 +16,7 @@ const routes = [
         name: 'home.about'
     },
     {
-        path: '/air_routes/:catchAll(.*)', component: () => import('../pages/Routes'),
+        path: '/air_routes', component: () => import('../pages/Routes'),//:catchAll(.*)
         name: 'home.air_routes'
     },
     {
