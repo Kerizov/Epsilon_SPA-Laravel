@@ -55,7 +55,8 @@
             <div class="cabinet-info__btn btn-submit" @click.prevent="UpdatePersonInfo">Сохранить обновленные данные
             </div>
         </div>
-
+        <div class="d-none" :class="{'update-success': isSuccess === true}">Данные успешно обновлены!</div>
+        <div class="d-none" :class="{'update-failure': isFailure === true}">Что-то пошло не так!</div>
     </div>
 </template>
 
@@ -76,6 +77,8 @@ export default {
             inn: null,
             mail_index: null,
             address: null,
+            isSuccess: false,
+            isFailure: false,
         }
     },
     mounted() {
@@ -116,7 +119,9 @@ export default {
                 mail_index: this.mail_index,
                 address: this.address,
             })
-                .then(res => {
+                .then(() => {
+                    this.isSuccess = true;
+                    setTimeout(() => this.isSuccess = false, 3000);
                     console.log('updated');
                 })
         }
@@ -181,6 +186,7 @@ export default {
         outline: none;
         text-align: center;
         float: right;
+        z-index: 1;
     }
 }
 
@@ -193,6 +199,46 @@ export default {
     &-number {
         width: 145px !important;
         outline: none;
+    }
+}
+
+.update-success, .update-failure {
+    animation: update-anim 3s forwards;
+    text-align: center;
+    width: 335px;
+    float: right;
+    margin-top: -10px;
+    padding: 5px;
+    color: black;
+    font-size: 16px;
+    display: block !important;
+    z-index: 0;
+}
+
+@keyframes update-anim {
+    0% {
+        margin-top: -50px;
+        opacity: 0;
+    }
+    15% {
+        margin-top: -10px;
+        opacity: 1;
+    }
+    80% {
+        margin-top: -10px;
+        opacity: 1;
+    }
+    90% {
+        margin-top: -10px;
+        opacity: 0.1;
+    }
+    95% {
+        margin-top: -10px;
+        opacity: 0;
+    }
+    100% {
+        margin-top: -10px;
+        opacity: 0;
     }
 }
 

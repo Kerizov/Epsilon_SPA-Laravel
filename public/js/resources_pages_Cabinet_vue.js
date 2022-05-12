@@ -27,7 +27,9 @@ __webpack_require__.r(__webpack_exports__);
       passport_number: null,
       inn: null,
       mail_index: null,
-      address: null
+      address: null,
+      isSuccess: false,
+      isFailure: false
     };
   },
   mounted: function mounted() {
@@ -58,6 +60,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     UpdatePersonInfo: function UpdatePersonInfo() {
+      var _this2 = this;
+
       _api__WEBPACK_IMPORTED_MODULE_0__["default"].post('api/users/update', {
         firstname: this.firstname,
         lastname: this.lastname,
@@ -68,7 +72,11 @@ __webpack_require__.r(__webpack_exports__);
         inn: this.inn,
         mail_index: this.mail_index,
         address: this.address
-      }).then(function (res) {
+      }).then(function () {
+        _this2.isSuccess = true;
+        setTimeout(function () {
+          return _this2.isSuccess = false;
+        }, 3000);
         console.log('updated');
       });
     }
@@ -430,7 +438,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[10] || (_cache[10] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.UpdatePersonInfo && $options.UpdatePersonInfo.apply($options, arguments);
     }, ["prevent"]))
-  }, "Сохранить обновленные данные ")])]);
+  }, "Сохранить обновленные данные ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["d-none", {
+      'update-success': $data.isSuccess === true
+    }])
+  }, "Данные успешно обновлены!", 2
+  /* CLASS */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["d-none", {
+      'update-failure': $data.isFailure === true
+    }])
+  }, "Что-то пошло не так!", 2
+  /* CLASS */
+  )]);
 }
 
 /***/ }),
@@ -691,7 +711,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".cabinet-info[data-v-4e3a470b] {\n  max-width: 990px;\n  margin: 100px auto;\n}\n.cabinet-info-flex[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 90px;\n}\n.cabinet-info__main[data-v-4e3a470b] {\n  width: 370px;\n}\n.cabinet-info__main-title[data-v-4e3a470b] {\n  font-size: 24px;\n}\n.cabinet-info__main-info-item[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 30px;\n  align-items: center;\n}\n.cabinet-info__main-info-item div[data-v-4e3a470b] {\n  width: 270px;\n  display: flex;\n  justify-content: space-between;\n}\n.cabinet-info__main-info-item input[data-v-4e3a470b] {\n  width: 270px;\n  height: 30px;\n  padding-left: 5px;\n  outline: none;\n}\n.cabinet-info__legal[data-v-4e3a470b] {\n  width: 430px;\n}\n.cabinet-info__btn[data-v-4e3a470b] {\n  width: 335px;\n  height: 45px;\n  border-radius: 5px;\n  padding-top: 11px;\n  border: none;\n  outline: none;\n  text-align: center;\n  float: right;\n}\n.passport-input-series[data-v-4e3a470b] {\n  width: 100px !important;\n  outline: none;\n}\n.passport-input-number[data-v-4e3a470b] {\n  width: 145px !important;\n  outline: none;\n}\n.gray-line[data-v-4e3a470b] {\n  max-width: 990px;\n  margin: 30px auto;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".cabinet-info[data-v-4e3a470b] {\n  max-width: 990px;\n  margin: 100px auto;\n}\n.cabinet-info-flex[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 90px;\n}\n.cabinet-info__main[data-v-4e3a470b] {\n  width: 370px;\n}\n.cabinet-info__main-title[data-v-4e3a470b] {\n  font-size: 24px;\n}\n.cabinet-info__main-info-item[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 30px;\n  align-items: center;\n}\n.cabinet-info__main-info-item div[data-v-4e3a470b] {\n  width: 270px;\n  display: flex;\n  justify-content: space-between;\n}\n.cabinet-info__main-info-item input[data-v-4e3a470b] {\n  width: 270px;\n  height: 30px;\n  padding-left: 5px;\n  outline: none;\n}\n.cabinet-info__legal[data-v-4e3a470b] {\n  width: 430px;\n}\n.cabinet-info__btn[data-v-4e3a470b] {\n  width: 335px;\n  height: 45px;\n  border-radius: 5px;\n  padding-top: 11px;\n  border: none;\n  outline: none;\n  text-align: center;\n  float: right;\n  z-index: 1;\n}\n.passport-input-series[data-v-4e3a470b] {\n  width: 100px !important;\n  outline: none;\n}\n.passport-input-number[data-v-4e3a470b] {\n  width: 145px !important;\n  outline: none;\n}\n.update-success[data-v-4e3a470b], .update-failure[data-v-4e3a470b] {\n  -webkit-animation: update-anim-4e3a470b 3s forwards;\n          animation: update-anim-4e3a470b 3s forwards;\n  text-align: center;\n  width: 335px;\n  float: right;\n  margin-top: -10px;\n  padding: 5px;\n  color: black;\n  font-size: 16px;\n  display: block !important;\n  z-index: 0;\n}\n@-webkit-keyframes update-anim-4e3a470b {\n0% {\n    margin-top: -50px;\n    opacity: 0;\n}\n15% {\n    margin-top: -10px;\n    opacity: 1;\n}\n80% {\n    margin-top: -10px;\n    opacity: 1;\n}\n90% {\n    margin-top: -10px;\n    opacity: 0.1;\n}\n95% {\n    margin-top: -10px;\n    opacity: 0;\n}\n100% {\n    margin-top: -10px;\n    opacity: 0;\n}\n}\n@keyframes update-anim-4e3a470b {\n0% {\n    margin-top: -50px;\n    opacity: 0;\n}\n15% {\n    margin-top: -10px;\n    opacity: 1;\n}\n80% {\n    margin-top: -10px;\n    opacity: 1;\n}\n90% {\n    margin-top: -10px;\n    opacity: 0.1;\n}\n95% {\n    margin-top: -10px;\n    opacity: 0;\n}\n100% {\n    margin-top: -10px;\n    opacity: 0;\n}\n}\n.gray-line[data-v-4e3a470b] {\n  max-width: 990px;\n  margin: 30px auto;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
