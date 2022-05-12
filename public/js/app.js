@@ -22914,43 +22914,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     Footer: _js_components_Footer__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
-    return {// options: [
-      //     {
-      //         country: 'Russia',
-      //         value: '0'
-      //     },
-      //     {
-      //         country: 'USA',
-      //         value: '1'
-      //     },
-      //     {
-      //         country: 'Austria',
-      //         value: '2'
-      //     },
-      //     {
-      //         country: 'Germany',
-      //         value: '3'
-      //     },
-      //     {
-      //         country: 'Czech',
-      //         value: '4'
-      //     },
-      //     {
-      //         country: 'Ukraine',
-      //         value: '5'
-      //     },
-      // ],
-      // routes:
-      //     {
-      //         id: null,
-      //         carrier: 'null',
-      //         departure: null,
-      //         // departure_city: '',
-      //         destination: null,
-      //         // destination_city: '',
-      //         time: null,
-      //         price: null,
-      //     }
+    return {
+      cities: {
+        city_name: ''
+      }
     };
   },
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_4__.mapState)(["values"])), {}, {
@@ -22977,22 +22944,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     }
   }),
+  mounted: function mounted() {
+    this.GetCities();
+  },
   methods: {
+    GetCities: function GetCities() {
+      var _this = this;
+
+      _js_api__WEBPACK_IMPORTED_MODULE_3__["default"].get('/api/city').then(function (res) {
+        _this.cities = res.data;
+        console.log(res.data);
+      });
+    },
     GetRoutes: function GetRoutes() {
-      // console.log(this.options[0].country);
-      // console.log(this.destination_city);
-      // ref(this.options[0].country)
-      // this.$router.push(`/air_routes/${this.routes.id}`);
-      // /air_routes/{id}
-      // ${this.routes.id}
-      // &destination_city=${this.$store.state.values.destination_city}
-      //         ?departure_city=${this.$store.state.values.departure_city}
-      this.$router.push("/air_routes"); // api.get(`/api/air_routes/${this.routes.departure_city}`,
-      // ).then(res => {
-      //         this.routes = res.data;
-      //         console.log(res.data);
-      //
-      //     })
+      this.$router.push("/air_routes");
     }
   }
 });
@@ -23471,26 +23436,27 @@ var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<option value=\"Москва\">Москва</option><option value=\"Солт Сте Мари\">Солт Сте Мари</option><option value=\"Абакан\">Абакан</option><option value=\"Санкт Петербург\">Санкт Петербург</option><option value=\"Самара\">Самара</option>", 5);
+var _hoisted_14 = ["value"];
 
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "to"
 }, "Куда", -1
 /* HOISTED */
 );
 
-var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<option value=\"Москва\">Москва</option><option value=\"Солт Сте Мари\">Солт Сте Мари</option><option value=\"Абакан\">Абакан</option><option value=\"Санкт Петербург\">Санкт Петербург</option><option value=\"Самара\">Самара</option>", 5);
+var _hoisted_16 = ["value"];
 
-var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div><label for=\"return\">Прилет</label><input type=\"date\" id=\"return\"></div><div><label for=\"depart\">Вылет</label><input type=\"date\" id=\"depart\"></div><div><label for=\"class\">Выберите класс</label><select id=\"class\"><option value=\"\">Эконом</option><option value=\"\">Бизнес</option><option value=\"\">Люкс</option></select></div><div><label for=\"passenger\">Кол-во пассажиров</label><input type=\"number\" id=\"passenger\" min=\"1\" max=\"10\" value=\"1\"></div>", 4);
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div><label for=\"return\">Прилет</label><input type=\"date\" id=\"return\"></div><div><label for=\"depart\">Вылет</label><input type=\"date\" id=\"depart\"></div><div><label for=\"class\">Выберите класс</label><select id=\"class\"><option value=\"\">Эконом</option><option value=\"\">Бизнес</option><option value=\"\">Люкс</option></select></div><div><label for=\"passenger\">Кол-во пассажиров</label><input type=\"number\" id=\"passenger\" min=\"1\" max=\"10\" value=\"1\"></div>", 4);
 
-var _hoisted_29 = {
+var _hoisted_21 = {
   "class": "grid-block"
 };
 
-var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Поиск", -1
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Поиск", -1
 /* HOISTED */
 );
 
+var _hoisted_23 = [_hoisted_22];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Header = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Header");
 
@@ -23519,22 +23485,38 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $options.departure_city = $event;
     }),
     id: "from"
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                        <option value=\"\"  v-for=\"option in options\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                            {{ option.country }}"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                        </option>"), _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                        <option value=\"Austria\">Austria</option>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                        <option value=\"Austria\">Germany</option>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                        <option value=\"Austria\">Czech</option>")], 512
+  }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.cities, function (city) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
+      value: city.city_name
+    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(city.city_name), 9
+    /* TEXT, PROPS */
+    , _hoisted_14);
+  }), 256
+  /* UNKEYED_FRAGMENT */
+  ))], 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $options.departure_city]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $options.departure_city]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
     name: "",
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return $options.destination_city = $event;
     }),
     id: "to"
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                        <option value=\"\"  v-for=\"option in options\" :value=\"option.country\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                            {{ option.country }}"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                        </option>"), _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                        <option value=\"Austria\">Austria</option>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                        <option value=\"Austria\">Germany</option>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                        <option value=\"Austria\">Czech</option>")], 512
+  }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.cities, function (city) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
+      value: city.city_name
+    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(city.city_name), 9
+    /* TEXT, PROPS */
+    , _hoisted_16);
+  }), 256
+  /* UNKEYED_FRAGMENT */
+  ))], 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $options.destination_city]])]), _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                <input type=\"text\" v-model=\"departure_city\" name=\"departure_city\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $options.destination_city]])]), _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "btn-submit",
     onClick: _cache[2] || (_cache[2] = function () {
       return $options.GetRoutes && $options.GetRoutes.apply($options, arguments);
     })
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                        <router-link :to=\"{ name: 'home.air_routes' }\">"), _hoisted_30, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                        </router-link>")])])])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_HomeNews), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)]);
+  }, _hoisted_23)])])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_HomeNews), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)]);
 }
 
 /***/ }),
@@ -27661,7 +27643,6 @@ var routes = [{
   component: function component() {
     return __webpack_require__.e(/*! import() */ "resources_pages_Routes_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Routes */ "./resources/pages/Routes.vue"));
   },
-  //:catchAll(.*)
   name: 'home.air_routes'
 }, {
   path: '/auth',
@@ -27675,15 +27656,17 @@ var routes = [{
     return __webpack_require__.e(/*! import() */ "resources_pages_Cabinet_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Cabinet */ "./resources/pages/Cabinet.vue"));
   },
   name: 'home.cabinet'
-} // {
-//     path: '/404', component: () => import('../pages/PageNotExist'),
-//     name: 'PageNotExist',
-// },
-// {
-//     path: "/:catchAll(.*)", // Unrecognized path automatically matches 404
-//     redirect: '/404',
-// },
-];
+}, {
+  path: '/404',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_pages_PageNotExist_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/PageNotExist */ "./resources/pages/PageNotExist.vue"));
+  },
+  name: 'PageNotExist'
+}, {
+  path: "/:catchAll(.*)",
+  // Unrecognized path automatically matches 404
+  redirect: '/404'
+}];
 var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_1__.createRouter)({
   routes: routes,
   history: (0,vue_router__WEBPACK_IMPORTED_MODULE_1__.createWebHistory)(process.env.BASE_URL)
@@ -56756,7 +56739,7 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_pages_Contacts_vue":1,"resources_pages_About_vue":1,"resources_pages_Routes_vue":1,"resources_pages_Auth_vue":1,"resources_pages_Cabinet_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_pages_Contacts_vue":1,"resources_pages_About_vue":1,"resources_pages_Routes_vue":1,"resources_pages_Auth_vue":1,"resources_pages_Cabinet_vue":1,"resources_pages_PageNotExist_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

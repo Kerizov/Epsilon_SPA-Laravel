@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CityController;
 use App\Http\Controllers\EmailVerificationController;
 use App\Http\Controllers\mailController;
 use App\Http\Controllers\PostController;
@@ -49,6 +50,7 @@ Route::group(['namespace' => 'User', 'prefix' => 'users'], function () {
 
 });
 
+Route::get('/city', [CityController::class, 'index']);
 
 //Route::get('/routes', [RouteController::class, 'index']);
 Route::get('/air_routes', [RouteController::class, 'index']);
@@ -56,6 +58,7 @@ Route::get('/air_routes', [RouteController::class, 'index']);
 
 
 Route::get('/posts', [PostController::class, 'index']);
+
 Route::post('/posts', [PostController::class, 'store']);
 
 

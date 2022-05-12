@@ -7,7 +7,9 @@
     <div class="routes">
         <div class="container">
             <div class="routes__inner">
-                <div class="routes__title">{{ $store.state.values.departure_city }} - {{ this.$store.state.values.destination_city }}</div>
+                <div class="routes__title">{{ $store.state.values.departure_city }} -
+                    {{ this.$store.state.values.destination_city }}
+                </div>
                 <div class="orange-line"></div>
                 <div class="routes__text">2 Взрослых, Эконом</div>
                 <form class="routes__form" action="">
@@ -32,9 +34,9 @@
 
                     <template v-if="routes">
                         <div class="routes__item" v-for="route in routes">
-<!--                            <div class="routes__item-title">-->
-<!--                                Шереметьево -> Абакан-->
-<!--                            </div>-->
+                            <!--                            <div class="routes__item-title">-->
+                            <!--                                Шереметьево -> Абакан-->
+                            <!--                            </div>-->
                             <div class="routes__item-up">
                                 <div class="routes__air-company-name"><strong>Перевозчик</strong></div>
                                 <div class="routes__air-company-depart"><strong>Вылет</strong></div>
@@ -63,11 +65,11 @@
                             <button class="routes__item-select">Выбрать</button>
                         </div>
                     </template>
-
-
                 </div>
                 <div class="routes_ist_exists" v-else>
-                    <h1>По вашему запросу нет результатов!</h1>
+                    <h1>К сожалению</h1>
+                    <h1>по вашему запросу нет результатов!</h1>
+                    <h1>:(</h1>
                 </div>
             </div>
         </div>
@@ -105,31 +107,18 @@ export default {
     },
     methods: {
         GetRoutes() {
-
-            // /${this.$store.state.values.departure_city}&${this.$store.state.values.destination_city}
-                api.get(`/api/air_routes`, { params: {departure_city: this.routes.departure_city, destination_city: this.routes.destination_city}})
-                    .then(res => {
-                        (res.data.length === 0) ? this.RoutesIsExists = false : this.RoutesIsExists = true
-
+            api.get(`/api/air_routes`, {
+                params: {
+                    departure_city: this.routes.departure_city,
+                    destination_city: this.routes.destination_city
+                }})
+                .then(res => {
+                    (res.data.length === 0) ? this.RoutesIsExists = false : this.RoutesIsExists = true
                     this.routes = res.data;
                     console.log(res.data);
-                    // console.log(this.$store.state.values.example);
                 })
-
-            }
+        }
     }
-    // mounted() {
-    //     this.GetRoutes();
-    // },
-    // methods: {
-    //     GetRoutes() {
-    //         api.get('/api/routes')
-    //             .then(res => {
-    //                 this.routes = res.data;
-    //                 console.log(res.data);
-    //             })
-    //     }
-    // }
 }
 </script>
 
@@ -139,9 +128,9 @@ export default {
     max-width: 800px;
     margin: 0 auto;
 
-    &_ist_exists{
+    &_ist_exists {
         height: 300px;
-        padding-top: 125px;
+        padding-top: 75px;
     }
 
     &__item-up, &__item-down {

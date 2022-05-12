@@ -27,33 +27,17 @@
                                 <div>
                                     <label for="from">Откуда</label>
                                     <select name="" v-model="departure_city" id="from">
-<!--                                        <option value=""  v-for="option in options">-->
-<!--                                            {{ option.country }}-->
-<!--                                        </option>-->
-                                        <option value="Москва">Москва</option>
-                                        <option value="Солт Сте Мари">Солт Сте Мари</option>
-                                        <option value="Абакан">Абакан</option>
-                                        <option value="Санкт Петербург">Санкт Петербург</option>
-                                        <option value="Самара">Самара</option>
-<!--                                        <option value="Austria">Austria</option>-->
-<!--                                        <option value="Austria">Germany</option>-->
-<!--                                        <option value="Austria">Czech</option>-->
+                                        <option v-for="city in cities" :value="city.city_name">
+                                            {{ city.city_name }}
+                                        </option>
                                     </select>
                                 </div>
                                 <div>
                                     <label for="to">Куда</label>
                                     <select name="" v-model="destination_city" id="to">
-<!--                                        <option value=""  v-for="option in options" :value="option.country">-->
-<!--                                            {{ option.country }}-->
-<!--                                        </option>-->
-                                        <option value="Москва">Москва</option>
-                                        <option value="Солт Сте Мари">Солт Сте Мари</option>
-                                        <option value="Абакан">Абакан</option>
-                                        <option value="Санкт Петербург">Санкт Петербург</option>
-                                        <option value="Самара">Самара</option>
-<!--                                        <option value="Austria">Austria</option>-->
-<!--                                        <option value="Austria">Germany</option>-->
-<!--                                        <option value="Austria">Czech</option>-->
+                                        <option v-for="city in cities" :value="city.city_name">
+                                            {{ city.city_name }}
+                                        </option>
                                     </select>
                                 </div>
                                 <div>
@@ -76,15 +60,9 @@
                                     <label for="passenger">Кол-во пассажиров</label>
                                     <input type="number" id="passenger" min="1" max="10" value="1">
                                 </div>
-<!--                                <input type="text" v-model="departure_city" name="departure_city">-->
                                 <div class="grid-block">
                                     <div class="btn-submit" @click="GetRoutes">
-<!--                                        <router-link :to="{ name: 'home.air_routes' }">-->
-
                                             <p>Поиск</p>
-
-
-<!--                                        </router-link>-->
                                     </div>
                                 </div>
                             </div>
@@ -116,43 +94,9 @@ export default {
     },
     data() {
         return {
-            // options: [
-            //     {
-            //         country: 'Russia',
-            //         value: '0'
-            //     },
-            //     {
-            //         country: 'USA',
-            //         value: '1'
-            //     },
-            //     {
-            //         country: 'Austria',
-            //         value: '2'
-            //     },
-            //     {
-            //         country: 'Germany',
-            //         value: '3'
-            //     },
-            //     {
-            //         country: 'Czech',
-            //         value: '4'
-            //     },
-            //     {
-            //         country: 'Ukraine',
-            //         value: '5'
-            //     },
-            // ],
-            // routes:
-            //     {
-            //         id: null,
-            //         carrier: 'null',
-            //         departure: null,
-            //         // departure_city: '',
-            //         destination: null,
-            //         // destination_city: '',
-            //         time: null,
-            //         price: null,
-            //     }
+            cities: {
+                city_name: '',
+            },
         }
     },
     computed: {
@@ -176,25 +120,20 @@ export default {
             }
         }
     },
+    mounted() {
+        this.GetCities();
+    },
     methods: {
+        GetCities() {
+            api.get('/api/city')
+                .then(res => {
+                    this.cities = res.data;
+                    console.log(res.data);
+                })
+        },
+
         GetRoutes() {
-            // console.log(this.options[0].country);
-            // console.log(this.destination_city);
-            // ref(this.options[0].country)
-            // this.$router.push(`/air_routes/${this.routes.id}`);
-            // /air_routes/{id}
-            // ${this.routes.id}
-        // &destination_city=${this.$store.state.values.destination_city}
-        //         ?departure_city=${this.$store.state.values.departure_city}
             this.$router.push(`/air_routes`);
-
-
-            // api.get(`/api/air_routes/${this.routes.departure_city}`,
-            // ).then(res => {
-            //         this.routes = res.data;
-            //         console.log(res.data);
-            //
-            //     })
         },
     }
 }

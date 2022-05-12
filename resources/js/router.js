@@ -16,7 +16,7 @@ const routes = [
         name: 'home.about'
     },
     {
-        path: '/air_routes', component: () => import('../pages/Routes'),//:catchAll(.*)
+        path: '/air_routes', component: () => import('../pages/Routes'),
         name: 'home.air_routes'
     },
     {
@@ -27,14 +27,14 @@ const routes = [
         path: '/cabinet', component: () => import('../pages/Cabinet'),
         name: 'home.cabinet'
     },
-    // {
-    //     path: '/404', component: () => import('../pages/PageNotExist'),
-    //     name: 'PageNotExist',
-    // },
-    // {
-    //     path: "/:catchAll(.*)", // Unrecognized path automatically matches 404
-    //     redirect: '/404',
-    // },
+    {
+        path: '/404', component: () => import('../pages/PageNotExist'),
+        name: 'PageNotExist',
+    },
+    {
+        path: "/:catchAll(.*)", // Unrecognized path automatically matches 404
+        redirect: '/404',
+    },
 ]
 
 const router = createRouter({
