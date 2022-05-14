@@ -23668,7 +23668,7 @@ api.interceptors.response.use(function (config) {
 
   return config;
 }, function (error) {
-  if (error.response.data.message === 'Token has expired') {
+  if (error.response.data.message === 'Unauthenticated.') {
     return axios__WEBPACK_IMPORTED_MODULE_0___default().post('api/auth/refresh', {}, {
       headers: {
         'authorization': "Bearer ".concat(localStorage.getItem('access_token'))

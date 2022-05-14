@@ -34,11 +34,12 @@ Auth::routes();
 
 Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
     Route::post('login', [AuthController::class, 'login']);
+    Route::post('refresh', [AuthController::class, 'refresh']);
     Route::get('email-verify', [StoreController::class, 'verification']);
     Route::group(['middleware' => 'jwt.auth'], function() {
         Route::post('logout', [AuthController::class, 'logout']);
         Route::post('me', [AuthController::class, 'me']);
-        Route::post('refresh', [AuthController::class, 'refresh']);
+
     });
 });
 
