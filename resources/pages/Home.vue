@@ -1,79 +1,81 @@
 <template>
-    <div class="page">
-        <Header></Header>
-        <main class="main">
-            <div class="container">
-                <div class="main__inner">
-                    <div class="desc">
-                        <div class="main__slogan">
-                            <h1>
-                                Небеса ждут тебя
-                            </h1>
+
+        <div class="page">
+            <Header></Header>
+            <main class="main">
+                <div class="container">
+                    <div class="main__inner">
+                        <div class="desc">
+                            <div class="main__slogan">
+                                <h1>
+                                    Небеса ждут тебя
+                                </h1>
+                            </div>
+                            <div class="main__info">
+                                <p>
+                                    Вместе с Epsilon вы сможете быстро заказать
+                                    билеты на самолет и как можно скорее насладится своим
+                                    отпуском
+                                </p>
+                            </div>
+                            <div class="main__btn">
+                                <router-link :to="{ name: 'home.about' }">Подробнее</router-link>
+                            </div>
                         </div>
-                        <div class="main__info">
-                            <p>
-                                Вместе с Epsilon вы сможете быстро заказать
-                                билеты на самолет и как можно скорее насладится своим
-                                отпуском
-                            </p>
-                        </div>
-                        <div class="main__btn">
-                            <router-link :to="{ name: 'home.about' }">Подробнее</router-link>
-                        </div>
-                    </div>
-                    <div class="main__form">
-                        <form class="main__search-form" method="get" action="">
-                            <div class="block">
-                                <div>
-                                    <label for="from">Откуда</label>
-                                    <select name="" v-model="departure_city" id="from">
-                                        <option v-for="city in cities" :value="city.city_name">
-                                            {{ city.city_name }}
-                                        </option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label for="to">Куда</label>
-                                    <select name="" v-model="destination_city" id="to">
-                                        <option v-for="city in cities" :value="city.city_name">
-                                            {{ city.city_name }}
-                                        </option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label for="return">Прилет</label>
-                                    <input type="date" id="return">
-                                </div>
-                                <div>
-                                    <label for="depart">Вылет</label>
-                                    <input type="date" id="depart">
-                                </div>
-                                <div>
-                                    <label for="class">Выберите класс</label>
-                                    <select id="class">
-                                        <option value="">Эконом</option>
-                                        <option value="">Бизнес</option>
-                                        <option value="">Люкс</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label for="passenger">Кол-во пассажиров</label>
-                                    <input type="number" id="passenger" min="1" max="10" value="1">
-                                </div>
-                                <div class="grid-block">
-                                    <div class="btn-submit" @click="GetRoutes">
+                        <div class="main__form">
+                            <form class="main__search-form" method="get" action="">
+                                <div class="block">
+                                    <div>
+                                        <label for="from">Откуда</label>
+                                        <select name="" v-model="departure_city" id="from">
+                                            <option v-for="city in cities" :value="city.city_name">
+                                                {{ city.city_name }}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="to">Куда</label>
+                                        <select name="" v-model="destination_city" id="to">
+                                            <option v-for="city in cities" :value="city.city_name">
+                                                {{ city.city_name }}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="depart">Вылет</label>
+                                        <input type="date" v-model="departure_date" id="depart">
+                                    </div>
+                                    <div>
+                                        <label for="return">Прилет</label>
+                                        <input type="date" v-model="arrival_date" id="return">
+                                    </div>
+                                    <div>
+                                        <label for="class">Выберите класс</label>
+                                        <select v-model="status_of_places" id="class">
+                                            <option v-for="status in statuses" :value="status.status_name">
+                                                {{ status.status_name }}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="passenger">Кол-во пассажиров</label>
+                                        <input type="number" v-model="amount_people" id="passenger" min="1" max="10">
+                                    </div>
+                                    <div class="grid-block">
+                                        <div class="btn-submit" @click="GetRoutes">
                                             <p>Поиск</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </main>
-        <HomeNews></HomeNews>
-        <Footer></Footer>
-    </div>
+            </main>
+            <HomeNews></HomeNews>
+            <Footer></Footer>
+        </div>
+
 </template>
 
 <script>
@@ -81,7 +83,7 @@
 import Footer from "../js/components/Footer";
 import Header from "../js/components/Header";
 import HomeNews from "../js/components/HomeNews";
-import { mapState } from "vuex";
+import {mapState} from "vuex";
 import api from "../js/api";
 
 
@@ -97,37 +99,77 @@ export default {
             cities: {
                 city_name: '',
             },
+            statuses: {
+                status_name: '',
+            },
         }
     },
     computed: {
         ...mapState(["values"]),
         departure_city: {
             set(departure_city) {
-                this.$store.commit("setValues", { departure_city });
+                this.$store.commit("setValues", {departure_city});
             },
             get() {
-                // Or remove mapState and use this.$store.state.values.example
                 return this.values.departure_city;
             }
         },
         destination_city: {
             set(destination_city) {
-                this.$store.commit("setValues", { destination_city });
+                this.$store.commit("setValues", {destination_city});
             },
             get() {
-                // Or remove mapState and use this.$store.state.values.example
                 return this.values.destination_city;
+            }
+        },
+        arrival_date: {
+            set(arrival_date) {
+                this.$store.commit("setValues", {arrival_date});
+            },
+            get() {
+                return this.values.arrival_date;
+            }
+        },
+        departure_date: {
+            set(departure_date) {
+                this.$store.commit("setValues", {departure_date});
+            },
+            get() {
+                return this.values.departure_date;
+            }
+        },
+        status_of_places: {
+            set(status_of_places) {
+                this.$store.commit("setValues", {status_of_places});
+            },
+            get() {
+                return this.values.status_of_places;
+            }
+        },
+        amount_people: {
+            set(amount_people) {
+                this.$store.commit("setValues", {amount_people});
+            },
+            get() {
+                return this.values.amount_people;
             }
         }
     },
     mounted() {
         this.GetCities();
+        this.GetStatuses();
     },
     methods: {
         GetCities() {
             api.get('/api/city')
                 .then(res => {
                     this.cities = res.data;
+                })
+        },
+        GetStatuses() {
+            api.get('/api/status')
+                .then(res => {
+                    this.statuses = res.data;
                     console.log(res.data);
                 })
         },
@@ -242,17 +284,19 @@ export default {
     cursor: pointer;
     background-color: #F7B903;
     color: #ffffff;
-    width: 180px;
+    //width: 180px;
     height: 40px;
     margin-bottom: 20px;
     border-radius: 5px;
     padding: 11px;
     text-align: center;
     font-size: 16px;
-    & a{
+
+    & a {
         text-decoration: none;
         color: #fff;
     }
+
     &:hover {
         background-color: #b98a00;
     }

@@ -102,9 +102,13 @@ __webpack_require__.r(__webpack_exports__);
       routes: {
         carrier: '',
         departure: '',
+        departure_date: this.$store.state.values.departure_date,
         departure_city: this.$store.state.values.departure_city,
         destination: '',
+        arrival_date: this.$store.state.values.arrival_date,
         destination_city: this.$store.state.values.destination_city,
+        amount_people: this.$store.state.values.amount_people,
+        status_of_places: this.$store.state.values.status_of_places,
         time: '',
         price: ''
       }
@@ -120,7 +124,11 @@ __webpack_require__.r(__webpack_exports__);
       _js_api__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/air_routes", {
         params: {
           departure_city: this.routes.departure_city,
-          destination_city: this.routes.destination_city
+          destination_city: this.routes.destination_city,
+          departure_date: this.routes.departure_date,
+          arrival_date: this.routes.arrival_date,
+          status_of_places: this.routes.status_of_places,
+          amount_people: this.routes.amount_people
         }
       }).then(function (res) {
         res.data.length === 0 ? _this.RoutesIsExists = false : _this.RoutesIsExists = true;
@@ -347,9 +355,9 @@ var _withScopeId = function _withScopeId(n) {
 
 var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Поиск по маршрутам");
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Маршруты");
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Рейсы");
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Маршруты");
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Рейсы");
 
 var _hoisted_4 = {
   "class": "routes"

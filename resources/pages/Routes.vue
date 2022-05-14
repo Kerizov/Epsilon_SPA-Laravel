@@ -1,8 +1,8 @@
 <template>
     <HeaderOther>
         <template v-slot:subtitle>Поиск по маршрутам</template>
-        <template v-slot:title>Маршруты</template>
-        <template v-slot:path>Маршруты</template>
+        <template v-slot:title>Рейсы</template>
+        <template v-slot:path>Рейсы</template>
     </HeaderOther>
     <div class="routes">
         <div class="container">
@@ -94,9 +94,13 @@ export default {
             routes: {
                 carrier: '',
                 departure: '',
+                departure_date: this.$store.state.values.departure_date,
                 departure_city: this.$store.state.values.departure_city,
                 destination: '',
+                arrival_date: this.$store.state.values.arrival_date,
                 destination_city: this.$store.state.values.destination_city,
+                amount_people: this.$store.state.values.amount_people,
+                status_of_places: this.$store.state.values.status_of_places,
                 time: '',
                 price: '',
             }
@@ -110,7 +114,11 @@ export default {
             api.get(`/api/air_routes`, {
                 params: {
                     departure_city: this.routes.departure_city,
-                    destination_city: this.routes.destination_city
+                    destination_city: this.routes.destination_city,
+                    departure_date: this.routes.departure_date,
+                    arrival_date: this.routes.arrival_date,
+                    status_of_places: this.routes.status_of_places,
+                    amount_people: this.routes.amount_people,
                 }})
                 .then(res => {
                     (res.data.length === 0) ? this.RoutesIsExists = false : this.RoutesIsExists = true

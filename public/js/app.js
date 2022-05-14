@@ -22917,6 +22917,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       cities: {
         city_name: ''
+      },
+      statuses: {
+        status_name: ''
       }
     };
   },
@@ -22928,7 +22931,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         });
       },
       get: function get() {
-        // Or remove mapState and use this.$store.state.values.example
         return this.values.departure_city;
       }
     },
@@ -22939,13 +22941,53 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         });
       },
       get: function get() {
-        // Or remove mapState and use this.$store.state.values.example
         return this.values.destination_city;
+      }
+    },
+    arrival_date: {
+      set: function set(arrival_date) {
+        this.$store.commit("setValues", {
+          arrival_date: arrival_date
+        });
+      },
+      get: function get() {
+        return this.values.arrival_date;
+      }
+    },
+    departure_date: {
+      set: function set(departure_date) {
+        this.$store.commit("setValues", {
+          departure_date: departure_date
+        });
+      },
+      get: function get() {
+        return this.values.departure_date;
+      }
+    },
+    status_of_places: {
+      set: function set(status_of_places) {
+        this.$store.commit("setValues", {
+          status_of_places: status_of_places
+        });
+      },
+      get: function get() {
+        return this.values.status_of_places;
+      }
+    },
+    amount_people: {
+      set: function set(amount_people) {
+        this.$store.commit("setValues", {
+          amount_people: amount_people
+        });
+      },
+      get: function get() {
+        return this.values.amount_people;
       }
     }
   }),
   mounted: function mounted() {
     this.GetCities();
+    this.GetStatuses();
   },
   methods: {
     GetCities: function GetCities() {
@@ -22953,6 +22995,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       _js_api__WEBPACK_IMPORTED_MODULE_3__["default"].get('/api/city').then(function (res) {
         _this.cities = res.data;
+      });
+    },
+    GetStatuses: function GetStatuses() {
+      var _this2 = this;
+
+      _js_api__WEBPACK_IMPORTED_MODULE_3__["default"].get('/api/status').then(function (res) {
+        _this2.statuses = res.data;
         console.log(res.data);
       });
     },
@@ -23446,17 +23495,41 @@ var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_16 = ["value"];
 
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div><label for=\"return\">Прилет</label><input type=\"date\" id=\"return\"></div><div><label for=\"depart\">Вылет</label><input type=\"date\" id=\"depart\"></div><div><label for=\"class\">Выберите класс</label><select id=\"class\"><option value=\"\">Эконом</option><option value=\"\">Бизнес</option><option value=\"\">Люкс</option></select></div><div><label for=\"passenger\">Кол-во пассажиров</label><input type=\"number\" id=\"passenger\" min=\"1\" max=\"10\" value=\"1\"></div>", 4);
-
-var _hoisted_21 = {
-  "class": "grid-block"
-};
-
-var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Поиск", -1
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "depart"
+}, "Вылет", -1
 /* HOISTED */
 );
 
-var _hoisted_23 = [_hoisted_22];
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "return"
+}, "Прилет", -1
+/* HOISTED */
+);
+
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "class"
+}, "Выберите класс", -1
+/* HOISTED */
+);
+
+var _hoisted_20 = ["value"];
+
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "passenger"
+}, "Кол-во пассажиров", -1
+/* HOISTED */
+);
+
+var _hoisted_22 = {
+  "class": "grid-block"
+};
+
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Поиск", -1
+/* HOISTED */
+);
+
+var _hoisted_24 = [_hoisted_23];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Header = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Header");
 
@@ -23511,12 +23584,53 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* UNKEYED_FRAGMENT */
   ))], 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $options.destination_city]])]), _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $options.destination_city]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "date",
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return $options.departure_date = $event;
+    }),
+    id: "depart"
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $options.departure_date]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "date",
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+      return $options.arrival_date = $event;
+    }),
+    id: "return"
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $options.arrival_date]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+      return $options.status_of_places = $event;
+    }),
+    id: "class"
+  }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.statuses, function (status) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
+      value: status.status_name
+    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(status.status_name), 9
+    /* TEXT, PROPS */
+    , _hoisted_20);
+  }), 256
+  /* UNKEYED_FRAGMENT */
+  ))], 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $options.status_of_places]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "number",
+    "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+      return $options.amount_people = $event;
+    }),
+    id: "passenger",
+    min: "1",
+    max: "10"
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $options.amount_people]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "btn-submit",
-    onClick: _cache[2] || (_cache[2] = function () {
+    onClick: _cache[6] || (_cache[6] = function () {
       return $options.GetRoutes && $options.GetRoutes.apply($options, arguments);
     })
-  }, _hoisted_23)])])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_HomeNews), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)]);
+  }, _hoisted_24)])])])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_HomeNews), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)]);
 }
 
 /***/ }),
@@ -27707,11 +27821,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
 
+var today = new Date();
+var tomorrow = new Date();
+tomorrow.setDate(new Date().getDate() + 1);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vuex__WEBPACK_IMPORTED_MODULE_0__.createStore)({
   state: {
     values: {
       departure_city: 'Москва',
-      destination_city: 'Абакан'
+      destination_city: 'Санкт Петербург',
+      arrival_date: tomorrow.toJSON().slice(0, 10).replace(/-/g, '-'),
+      departure_date: today.toJSON().slice(0, 10).replace(/-/g, '-'),
+      status_of_places: "Эконом",
+      amount_people: 1
     }
   },
   mutations: {
@@ -32815,7 +32936,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".news {\n  margin-top: 400px;\n}\n.news__items {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  justify-content: space-evenly;\n  margin: 0 auto;\n  max-width: 1200px;\n}\n.news__item {\n  margin: 50px;\n  background-color: #f3f3f3;\n}\n.news__item img {\n  max-width: 500px;\n}\n.news__item-text {\n  padding: 35px 30px 10px 30px;\n  font-size: 18px;\n  max-width: 500px;\n}\n.news__item-text h1 {\n  font-size: 24px;\n}\n.news__item-link {\n  width: 24px;\n  height: auto;\n  margin: 20px auto 0 auto;\n  transform: rotate(180deg);\n}\n.main {\n  color: white;\n  margin-top: 100px;\n  min-height: 500px;\n}\n.main__inner {\n  display: flex;\n  justify-content: space-around;\n}\n.main__info {\n  width: 700px;\n  margin-top: 25px;\n  font-size: 18px;\n}\n.main__btn {\n  width: 200px;\n  height: 50px;\n  margin-top: 25px;\n  border: 1px solid #ffffff;\n}\n.main__btn:hover {\n  background-color: #fff;\n}\n.main__btn:hover a {\n  color: black;\n}\n.main__btn a {\n  display: inline-block;\n  width: 200px;\n  height: 50px;\n  color: white;\n  text-align: center;\n  line-height: 50px;\n  text-decoration: none;\n  font-size: 18px;\n}\n.main__form {\n  width: 500px;\n  height: 400px;\n  background-color: #3499DD;\n  border-radius: 10px;\n  padding: 30px 30px;\n}\n.main__search-form {\n  display: flex;\n  justify-content: space-around;\n}\n.btn-submit {\n  cursor: pointer;\n  background-color: #F7B903;\n  color: #ffffff;\n  width: 180px;\n  height: 40px;\n  margin-bottom: 20px;\n  border-radius: 5px;\n  padding: 11px;\n  text-align: center;\n  font-size: 16px;\n}\n.btn-submit a {\n  text-decoration: none;\n  color: #fff;\n}\n.btn-submit:hover {\n  background-color: #b98a00;\n}\n.block {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  grid-gap: 10px;\n  grid-column-gap: 40px;\n}\n.block label {\n  margin-bottom: 10px;\n}\n.grid-block {\n  grid-column-start: 2;\n}\n.main__search-form input,\nlabel {\n  display: block;\n}\n.main__search-form input, .main__search-form select {\n  width: 180px;\n  height: 40px;\n  margin-bottom: 20px;\n  border-radius: 5px;\n  outline: none;\n  border: none;\n  padding: 5px;\n  font-size: 16px;\n}\n@-webkit-keyframes myFade {\n0% {\n    opacity: 0;\n}\n100% {\n    opacity: 1;\n}\n}\n@keyframes myFade {\n0% {\n    opacity: 0;\n}\n100% {\n    opacity: 1;\n}\n}\n.myFade {\n  -webkit-animation: myFade 2s;\n          animation: myFade 2s;\n}\n#loadingBlock {\n  position: fixed;\n  z-index: 9999;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  background-color: #fff;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n#loadingBlock img {\n  -webkit-animation: 2s loading-part-2 linear infinite;\n          animation: 2s loading-part-2 linear infinite;\n}\n@-webkit-keyframes loading-part-1 {\n0% {\n    opacity: 0;\n}\n10% {\n    opacity: 0;\n}\n100% {\n    opacity: 1;\n}\n}\n@keyframes loading-part-1 {\n0% {\n    opacity: 0;\n}\n10% {\n    opacity: 0;\n}\n100% {\n    opacity: 1;\n}\n}\n@-webkit-keyframes loading-part-2 {\n0% {\n    z-index: 9999;\n    transform: rotate(0deg);\n}\n50% {\n    transform: rotate(180deg);\n    z-index: 9999;\n}\n100% {\n    transform: rotate(360deg);\n    z-index: 9999;\n}\n}\n@keyframes loading-part-2 {\n0% {\n    z-index: 9999;\n    transform: rotate(0deg);\n}\n50% {\n    transform: rotate(180deg);\n    z-index: 9999;\n}\n100% {\n    transform: rotate(360deg);\n    z-index: 9999;\n}\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".news {\n  margin-top: 400px;\n}\n.news__items {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  justify-content: space-evenly;\n  margin: 0 auto;\n  max-width: 1200px;\n}\n.news__item {\n  margin: 50px;\n  background-color: #f3f3f3;\n}\n.news__item img {\n  max-width: 500px;\n}\n.news__item-text {\n  padding: 35px 30px 10px 30px;\n  font-size: 18px;\n  max-width: 500px;\n}\n.news__item-text h1 {\n  font-size: 24px;\n}\n.news__item-link {\n  width: 24px;\n  height: auto;\n  margin: 20px auto 0 auto;\n  transform: rotate(180deg);\n}\n.main {\n  color: white;\n  margin-top: 100px;\n  min-height: 500px;\n}\n.main__inner {\n  display: flex;\n  justify-content: space-around;\n}\n.main__info {\n  width: 700px;\n  margin-top: 25px;\n  font-size: 18px;\n}\n.main__btn {\n  width: 200px;\n  height: 50px;\n  margin-top: 25px;\n  border: 1px solid #ffffff;\n}\n.main__btn:hover {\n  background-color: #fff;\n}\n.main__btn:hover a {\n  color: black;\n}\n.main__btn a {\n  display: inline-block;\n  width: 200px;\n  height: 50px;\n  color: white;\n  text-align: center;\n  line-height: 50px;\n  text-decoration: none;\n  font-size: 18px;\n}\n.main__form {\n  width: 500px;\n  height: 400px;\n  background-color: #3499DD;\n  border-radius: 10px;\n  padding: 30px 30px;\n}\n.main__search-form {\n  display: flex;\n  justify-content: space-around;\n}\n.btn-submit {\n  cursor: pointer;\n  background-color: #F7B903;\n  color: #ffffff;\n  height: 40px;\n  margin-bottom: 20px;\n  border-radius: 5px;\n  padding: 11px;\n  text-align: center;\n  font-size: 16px;\n}\n.btn-submit a {\n  text-decoration: none;\n  color: #fff;\n}\n.btn-submit:hover {\n  background-color: #b98a00;\n}\n.block {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  grid-gap: 10px;\n  grid-column-gap: 40px;\n}\n.block label {\n  margin-bottom: 10px;\n}\n.grid-block {\n  grid-column-start: 2;\n}\n.main__search-form input,\nlabel {\n  display: block;\n}\n.main__search-form input, .main__search-form select {\n  width: 180px;\n  height: 40px;\n  margin-bottom: 20px;\n  border-radius: 5px;\n  outline: none;\n  border: none;\n  padding: 5px;\n  font-size: 16px;\n}\n@-webkit-keyframes myFade {\n0% {\n    opacity: 0;\n}\n100% {\n    opacity: 1;\n}\n}\n@keyframes myFade {\n0% {\n    opacity: 0;\n}\n100% {\n    opacity: 1;\n}\n}\n.myFade {\n  -webkit-animation: myFade 2s;\n          animation: myFade 2s;\n}\n#loadingBlock {\n  position: fixed;\n  z-index: 9999;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  background-color: #fff;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n#loadingBlock img {\n  -webkit-animation: 2s loading-part-2 linear infinite;\n          animation: 2s loading-part-2 linear infinite;\n}\n@-webkit-keyframes loading-part-1 {\n0% {\n    opacity: 0;\n}\n10% {\n    opacity: 0;\n}\n100% {\n    opacity: 1;\n}\n}\n@keyframes loading-part-1 {\n0% {\n    opacity: 0;\n}\n10% {\n    opacity: 0;\n}\n100% {\n    opacity: 1;\n}\n}\n@-webkit-keyframes loading-part-2 {\n0% {\n    z-index: 9999;\n    transform: rotate(0deg);\n}\n50% {\n    transform: rotate(180deg);\n    z-index: 9999;\n}\n100% {\n    transform: rotate(360deg);\n    z-index: 9999;\n}\n}\n@keyframes loading-part-2 {\n0% {\n    z-index: 9999;\n    transform: rotate(0deg);\n}\n50% {\n    transform: rotate(180deg);\n    z-index: 9999;\n}\n100% {\n    transform: rotate(360deg);\n    z-index: 9999;\n}\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -32838,7 +32959,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _fonts_Exo2_Regular_ttf__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../fonts/Exo2-Regular.ttf */ "./resources/fonts/Exo2-Regular.ttf");
-/* harmony import */ var _images_bg_80_min_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../images/bg-80-min.jpg */ "./resources/images/bg-80-min.jpg");
+/* harmony import */ var _images_bg_90_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../images/bg-90.jpg */ "./resources/images/bg-90.jpg");
 // Imports
 
 
@@ -32846,9 +32967,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_Exo2_Regular_ttf__WEBPACK_IMPORTED_MODULE_2__["default"]);
-var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_images_bg_80_min_jpg__WEBPACK_IMPORTED_MODULE_3__["default"]);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_images_bg_90_jpg__WEBPACK_IMPORTED_MODULE_3__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\n    font-family: 'Exo 2', sans-serif;\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n}\n* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n    font-family: 'Exo 2';\n}\nbody {\n    min-height: 100vh;\n    flex-direction: column;\n    display: flex;\n    line-height: normal !important;\n    font-size: medium !important;\n}\n.page {\n    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") top center no-repeat;\n    background-size: contain;\n    padding-top: 50px;\n}\n.container {\n    margin: 0 auto;\n    max-width: 1800px;\n    padding: 0 45px;\n}\nul, p {\n    margin: 0;\n    padding: 0;\n}\n\n/*lines*/\n.green-line {\n    width: 150px;\n    border-bottom: 2px solid #97CA2B;\n    margin-top: 5px;\n}\n.orange-line {\n    width: 150px;\n    border-bottom: 2px solid #F7B903;\n    margin-top: 5px;\n}\n.gray-line {\n    max-width: 500px;\n    margin: 10px auto;\n    border-bottom: 1px solid rgba(0, 0, 0, 0.5);\n}\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\n    font-family: 'Exo 2', sans-serif;\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n}\n* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n    font-family: 'Exo 2';\n}\nbody {\n    min-height: 100vh;\n    flex-direction: column;\n    display: flex;\n    line-height: normal !important;\n    font-size: medium !important;\n}\n.page {\n    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") top center no-repeat;\n    background-size: contain;\n    background-color: white;\n    padding-top: 50px;\n}\n.container {\n    margin: 0 auto;\n    max-width: 1800px;\n    padding: 0 45px;\n}\nul, p {\n    margin: 0;\n    padding: 0;\n}\n\n/*lines*/\n.green-line {\n    width: 150px;\n    border-bottom: 2px solid #97CA2B;\n    margin-top: 5px;\n}\n.orange-line {\n    width: 150px;\n    border-bottom: 2px solid #F7B903;\n    margin-top: 5px;\n}\n.gray-line {\n    max-width: 500px;\n    margin: 10px auto;\n    border-bottom: 1px solid rgba(0, 0, 0, 0.5);\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -32999,10 +33120,10 @@ module.exports = function (url, options) {
 
 /***/ }),
 
-/***/ "./resources/images/bg-80-min.jpg":
-/*!****************************************!*\
-  !*** ./resources/images/bg-80-min.jpg ***!
-  \****************************************/
+/***/ "./resources/images/bg-90.jpg":
+/*!************************************!*\
+  !*** ./resources/images/bg-90.jpg ***!
+  \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -33010,7 +33131,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/bg-80-min.jpg?ac0a57ff8b304fdad59fe29466af3fa7");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/bg-90.jpg?0033832e30ea50322346c4b69ca231dd");
 
 /***/ }),
 

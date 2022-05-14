@@ -6,6 +6,7 @@ use App\Http\Controllers\EmailVerificationController;
 use App\Http\Controllers\mailController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RouteController;
+use App\Http\Controllers\StatusController;
 use App\Http\Controllers\User\StoreController;
 use App\Http\Controllers\User\UpdateController;
 use App\Http\Controllers\VerificationController;
@@ -51,6 +52,7 @@ Route::group(['namespace' => 'User', 'prefix' => 'users'], function () {
 });
 
 Route::get('/city', [CityController::class, 'index']);
+Route::get('/status', [StatusController::class, 'index']);
 
 //Route::get('/routes', [RouteController::class, 'index']);
 Route::get('/air_routes', [RouteController::class, 'index']);

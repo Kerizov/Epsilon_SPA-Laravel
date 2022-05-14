@@ -26,6 +26,10 @@ class FilterRequest extends FormRequest
         return [
             'departure_city' => 'required|string',
             'destination_city' => 'required|string',
+            'departure_date' => 'required|date',
+            'arrival_date' => 'required|date',
+            'status_of_places' => 'required|string',
+            'amount_people' => 'required|integer',
         ];
     }
 }
