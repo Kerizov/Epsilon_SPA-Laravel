@@ -87,7 +87,7 @@ export default {
                 .then(res => {
                     this.firstname = res.data.firstname;
                     this.lastname = res.data.lastname;
-                    this.email = res.data.login;
+                    this.email = res.data.email;
                     this.phone_number = res.data.phone_number;
                     this.passport_series = res.data.passport_series;
                     this.passport_number = res.data.passport_number;
@@ -108,7 +108,7 @@ export default {
             api.post('api/users/update', {
                 firstname: this.firstname,
                 lastname: this.lastname,
-                login: this.email,
+                email: this.email,
                 phone_number: this.phone_number,
                 passport_series: this.passport_series,
                 passport_number: this.passport_number,

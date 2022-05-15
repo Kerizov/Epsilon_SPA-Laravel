@@ -40,7 +40,7 @@ __webpack_require__.r(__webpack_exports__);
       _api__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/auth/me').then(function (res) {
         _this.firstname = res.data.firstname;
         _this.lastname = res.data.lastname;
-        _this.email = res.data.login;
+        _this.email = res.data.email;
         _this.phone_number = res.data.phone_number;
         _this.passport_series = res.data.passport_series;
         _this.passport_number = res.data.passport_number;
@@ -61,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
       _api__WEBPACK_IMPORTED_MODULE_0__["default"].post('api/users/update', {
         firstname: this.firstname,
         lastname: this.lastname,
-        login: this.email,
+        email: this.email,
         phone_number: this.phone_number,
         passport_series: this.passport_series,
         passport_number: this.passport_number,
