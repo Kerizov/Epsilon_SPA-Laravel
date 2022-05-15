@@ -27828,7 +27828,7 @@ tomorrow.setDate(new Date().getDate() + 1);
   state: {
     values: {
       departure_city: 'Москва',
-      destination_city: 'Санкт Петербург',
+      destination_city: 'Абакан',
       arrival_date: tomorrow.toJSON().slice(0, 10).replace(/-/g, '-'),
       departure_date: today.toJSON().slice(0, 10).replace(/-/g, '-'),
       status_of_places: "Эконом",
@@ -32959,7 +32959,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _fonts_Exo2_Regular_ttf__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../fonts/Exo2-Regular.ttf */ "./resources/fonts/Exo2-Regular.ttf");
-/* harmony import */ var _images_bg_90_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../images/bg-90.jpg */ "./resources/images/bg-90.jpg");
+/* harmony import */ var _images_bg_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../images/bg.jpg */ "./resources/images/bg.jpg");
 // Imports
 
 
@@ -32967,7 +32967,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_Exo2_Regular_ttf__WEBPACK_IMPORTED_MODULE_2__["default"]);
-var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_images_bg_90_jpg__WEBPACK_IMPORTED_MODULE_3__["default"]);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_images_bg_jpg__WEBPACK_IMPORTED_MODULE_3__["default"]);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\n    font-family: 'Exo 2', sans-serif;\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n}\n* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n    font-family: 'Exo 2';\n}\nbody {\n    min-height: 100vh;\n    flex-direction: column;\n    display: flex;\n    line-height: normal !important;\n    font-size: medium !important;\n}\n.page {\n    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") top center no-repeat;\n    background-size: contain;\n    background-color: white;\n    padding-top: 50px;\n}\n.container {\n    margin: 0 auto;\n    max-width: 1800px;\n    padding: 0 45px;\n}\nul, p {\n    margin: 0;\n    padding: 0;\n}\n\n/*lines*/\n.green-line {\n    width: 150px;\n    border-bottom: 2px solid #97CA2B;\n    margin-top: 5px;\n}\n.orange-line {\n    width: 150px;\n    border-bottom: 2px solid #F7B903;\n    margin-top: 5px;\n}\n.gray-line {\n    max-width: 500px;\n    margin: 10px auto;\n    border-bottom: 1px solid rgba(0, 0, 0, 0.5);\n}\n\n\n", ""]);
 // Exports
@@ -33120,10 +33120,10 @@ module.exports = function (url, options) {
 
 /***/ }),
 
-/***/ "./resources/images/bg-90.jpg":
-/*!************************************!*\
-  !*** ./resources/images/bg-90.jpg ***!
-  \************************************/
+/***/ "./resources/images/bg.jpg":
+/*!*********************************!*\
+  !*** ./resources/images/bg.jpg ***!
+  \*********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -33131,7 +33131,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/bg-90.jpg?0033832e30ea50322346c4b69ca231dd");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/bg.jpg?ac0a57ff8b304fdad59fe29466af3fa7");
 
 /***/ }),
 

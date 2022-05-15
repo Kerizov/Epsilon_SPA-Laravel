@@ -372,7 +372,19 @@ var _hoisted_7 = {
   "class": "routes__title"
 };
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"orange-line\" data-v-64d0e74d></div><div class=\"routes__text\" data-v-64d0e74d>2 Взрослых, Эконом</div><form class=\"routes__form\" action=\"\" data-v-64d0e74d><div class=\"block\" data-v-64d0e74d><label for=\"depart\" data-v-64d0e74d>Вылет</label><input type=\"datetime-local\" id=\"depart\" data-v-64d0e74d></div><div class=\"block\" data-v-64d0e74d><label for=\"return\" data-v-64d0e74d>Прилет</label><input type=\"datetime-local\" id=\"return\" data-v-64d0e74d></div><div class=\"block\" data-v-64d0e74d><label for=\"sort\" data-v-64d0e74d>Сортировка</label><select name=\"\" id=\"sort\" data-v-64d0e74d><option value=\"\" data-v-64d0e74d>от дешевых к дорогим</option><option value=\"\" data-v-64d0e74d>по рейтингу</option><option value=\"\" selected data-v-64d0e74d>по популярности</option></select></div></form>", 3);
+var _hoisted_8 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "orange-line"
+  }, null, -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_9 = {
+  "class": "routes__text"
+};
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<form class=\"routes__form\" action=\"\" data-v-64d0e74d><div class=\"block\" data-v-64d0e74d><label for=\"depart\" data-v-64d0e74d>Вылет</label><input type=\"datetime-local\" id=\"depart\" data-v-64d0e74d></div><div class=\"block\" data-v-64d0e74d><label for=\"return\" data-v-64d0e74d>Прилет</label><input type=\"datetime-local\" id=\"return\" data-v-64d0e74d></div><div class=\"block\" data-v-64d0e74d><label for=\"sort\" data-v-64d0e74d>Сортировка</label><select name=\"\" id=\"sort\" data-v-64d0e74d><option value=\"\" data-v-64d0e74d>от дешевых к дорогим</option><option value=\"\" data-v-64d0e74d>по рейтингу</option><option value=\"\" selected data-v-64d0e74d>по популярности</option></select></div></form>", 1);
 
 var _hoisted_11 = {
   key: 0,
@@ -479,7 +491,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$store.state.values.departure_city) + " - " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(this.$store.state.values.destination_city), 1
   /* TEXT */
-  ), _hoisted_8, $data.RoutesIsExists ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_11, [$data.routes ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+  ), _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(this.$store.state.values.amount_people) + " Взрослых, " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(this.$store.state.values.status_of_places), 1
+  /* TEXT */
+  ), _hoisted_10, $data.RoutesIsExists ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_11, [$data.routes ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     key: 0
   }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.routes, function (route) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            <div class=\"routes__item-title\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                Шереметьево -> Абакан"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            </div>"), _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(route.carrier), 1

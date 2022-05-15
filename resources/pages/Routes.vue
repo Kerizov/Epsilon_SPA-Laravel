@@ -11,7 +11,7 @@
                     {{ this.$store.state.values.destination_city }}
                 </div>
                 <div class="orange-line"></div>
-                <div class="routes__text">2 Взрослых, Эконом</div>
+                <div class="routes__text">{{ this.$store.state.values.amount_people }} Взрослых, {{ this.$store.state.values.status_of_places }}</div>
                 <form class="routes__form" action="">
                     <div class="block">
                         <label for="depart">Вылет</label>

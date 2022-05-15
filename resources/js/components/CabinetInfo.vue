@@ -18,7 +18,7 @@
                     </div>
                     <div class="cabinet-info__main-info-item">
                         <label for="phone">Телефон</label>
-                        <input type="text" id="phone" placeholder="не указано" v-model="phone_number">
+                        <input :class="{'incorrect': phone_number === ''}" type="text" id="phone" placeholder="не указано" v-model="phone_number">
                     </div>
                 </div>
             </div>
@@ -28,23 +28,23 @@
                     <div class="cabinet-info__main-info-item">
                         <label for="passport">Паспорт</label>
                         <div>
-                            <input class="passport-input-series" type="text" id="passport" placeholder="Серия"
+                            <input class="passport-input-series" :class="{'incorrect': passport_series === ''}" type="text" id="passport" placeholder="Серия"
                                    v-model="passport_series">
-                            <input class="passport-input-number" type="text" placeholder="Номер"
+                            <input class="passport-input-number" :class="{'incorrect': passport_number === ''}" type="text" placeholder="Номер"
                                    v-model="passport_number">
                         </div>
                     </div>
                     <div class="cabinet-info__main-info-item">
                         <label for="INN">ИНН</label>
-                        <input type="text" id="INN" placeholder="не указано" v-model="inn">
+                        <input :class="{'incorrect': inn === ''}" type="text" id="INN" placeholder="не указано" v-model="inn">
                     </div>
                     <div class="cabinet-info__main-info-item">
                         <label for="mail-index">Почтовый индекс</label>
-                        <input type="text" id="mail-index" placeholder="не указано" v-model="mail_index">
+                        <input :class="{'incorrect': mail_index === ''}" type="text" id="mail-index" placeholder="не указано" v-model="mail_index">
                     </div>
                     <div class="cabinet-info__main-info-item">
                         <label for="address">Адрес</label>
-                        <input type="text" id="address" placeholder="не указано" v-model="address">
+                        <input :class="{'incorrect': address === ''}" type="text" id="address" placeholder="не указано" v-model="address">
                     </div>
                 </div>
             </div>
@@ -63,6 +63,7 @@
 <script>
 import api from "../api";
 import router from "../router";
+import {nextTick} from "vue";
 
 export default {
     name: "CabinetInfo",
@@ -85,29 +86,64 @@ export default {
         this.PersonalInfo();
     },
     methods: {
-        PersonalInfo() {
-            api.post('/api/auth/me')
-                .then(res => {
-                    this.firstname = res.data.firstname;
-                    this.lastname = res.data.lastname;
-                    this.email = res.data.email;
-                    this.phone_number = res.data.phone_number;
-                    this.passport_series = res.data.passport_series;
-                    this.passport_number = res.data.passport_number;
-                    this.inn = res.data.inn;
-                    this.mail_index = res.data.mail_index;
-                    this.address = res.data.address;
-                });
-        },
-        Logout() {
-            api.post('/api/auth/logout')
-                .then(res => {
-                        localStorage.removeItem('access_token');
-                        router.push({name: 'home.auth'});
-                    }
-                )
-        },
-        UpdatePersonInfo() {
+        ValidateData() {
+            const regexPhone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+            const regexPassportSeries = /^[0-9]{4}$/;
+            const regexPassportNumber = /^[0-9]{6}$/;
+            const regexInn = /^[0-9]{12}$/;
+            const regexMailIndex = /^[0-9]{6}$/;
+            const regexAddress = /^[а-яА-Я0-9,\.\s]+$/;
+
+            if (this.phone_number) {
+                if (regexPhone.test(this.phone_number)) nextTick();
+                else {this.phone_number = ''; return false;}
+            }
+            if (this.passport_series) {
+                if (regexPassportSeries.test(this.passport_series)) nextTick();
+                else {this.passport_series = ''; return false;}
+            }
+            if (this.passport_number) {
+                if (regexPassportNumber.test(this.passport_number)) nextTick();
+                else {this.passport_number = ''; return false;}
+            }
+            if (this.inn) {
+                if (regexInn.test(this.inn)) nextTick();
+                else {this.inn = ''; return false;}
+            }
+            if (this.mail_index) {
+                if (regexMailIndex.test(this.mail_index)) nextTick();
+                else {this.mail_index = ''; return false;}
+            }
+            if (this.address) {
+                if (regexAddress.test(this.address)) nextTick();
+                else {this.address = ''; return false;}
+            }
+            return true;
+    },
+    PersonalInfo() {
+        api.post('/api/auth/me')
+            .then(res => {
+                this.firstname = res.data.firstname;
+                this.lastname = res.data.lastname;
+                this.email = res.data.email;
+                this.phone_number = res.data.phone_number;
+                this.passport_series = res.data.passport_series;
+                this.passport_number = res.data.passport_number;
+                this.inn = res.data.inn;
+                this.mail_index = res.data.mail_index;
+                this.address = res.data.address;
+            });
+    },
+    Logout() {
+        api.post('/api/auth/logout')
+            .then(res => {
+                    localStorage.removeItem('access_token');
+                    router.push({name: 'home.auth'});
+                }
+            )
+    },
+    UpdatePersonInfo() {
+        if (this.ValidateData()) {
             api.post('api/users/update', {
                 firstname: this.firstname,
                 lastname: this.lastname,
@@ -124,8 +160,14 @@ export default {
                     setTimeout(() => this.isSuccess = false, 3000);
                     console.log('updated');
                 })
+        } else {
+            this.isFailure = true;
+            setTimeout(() => this.isFailure = false, 3000);
         }
+
+
     }
+}
 }
 </script>
 
@@ -240,6 +282,10 @@ export default {
         margin-top: -10px;
         opacity: 0;
     }
+}
+
+.incorrect{
+    border-color: red;
 }
 
 .gray-line {

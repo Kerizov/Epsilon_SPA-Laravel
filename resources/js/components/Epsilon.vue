@@ -37,7 +37,7 @@ body {
 
 
 .page {
-    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(../../images/bg-90.jpg) top center no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(../../images/bg.jpg) top center no-repeat;
     background-size: contain;
     background-color: white;
     padding-top: 50px;
