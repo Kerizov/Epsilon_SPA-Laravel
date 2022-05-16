@@ -44,7 +44,7 @@
                             <li>
                                 <router-link :to="{ name: 'home.auth' }">
                                     <template v-if="AuthChecked">
-                                        <div class="cabinet-link">Личный кабинет</div>
+                                        <div class="cabinet-link">Личный кабинет<img src="../../images/user.svg" alt=""></div>
                                     </template>
                                     <template v-else>
                                         Авторизация
