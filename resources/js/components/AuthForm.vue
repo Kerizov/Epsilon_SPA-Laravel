@@ -4,6 +4,14 @@
         <div class="gray-line"></div>
         <SingUpForm></SingUpForm>
     </form>
+    <form class="auth-form-mob">
+        <template :class="[toggleShow ? 'd-flex' : 'd-none']">
+            <SignInForm><p class="auth-form-mob__link">Вы еще не регистрировались? <span @click="toggleShow = !toggleShow">Регистрироваться</span></p></SignInForm>
+        </template>
+        <template :class="[!toggleShow ? 'd-flex' : 'd-none']">
+            <SingUpForm><p class="auth-form-mob__link">У вас уже есть аккаунт? <span @click="toggleShow = !toggleShow">Авторизоваться</span></p></SingUpForm>
+        </template>
+    </form>
 </template>
 
 <script>
@@ -12,7 +20,12 @@ import SingUpForm from "./SingUpForm";
 
 export default {
     name: "AuthForm",
-    components: {SingUpForm, SignInForm}
+    components: {SingUpForm, SignInForm},
+    data(){
+        return{
+            toggleShow: true,
+        }
+    }
 }
 </script>
 
@@ -26,6 +39,26 @@ export default {
     padding: 25px 50px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     position: relative;
+}
+.auth-form-mob {
+    display: none;
+    max-width: 450px;
+    min-height: 300px;
+    margin: 50px auto 80px auto;
+    justify-content: center;
+    padding: 25px 50px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+
+    &__link{
+        margin-top: 15px;
+        font-size: 14px;
+        opacity: .9;
+        & > span{
+            text-decoration: underline;
+            text-decoration-color: #0D6EFD;
+        }
+    }
 }
 
 

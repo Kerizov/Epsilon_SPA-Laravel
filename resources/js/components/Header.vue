@@ -25,8 +25,8 @@
                 </nav>
                 <div class="mobile_buttons">
                     <span class="mob-menu_btn">
-                        <img @click="isMobMenuVisible = !isMobMenuVisible" src="../../images/menu-button.svg" alt="Меню"></span>
-                    <!--<span class="close_btn"><img src="../../images/menu-button.svg" alt="Меню"></span>-->
+                        <img @click="isMobMenuVisible = !isMobMenuVisible" src="../../images/menu-button.svg" alt="Меню">
+                    </span>
                 </div>
                 <transition name="fade">
                 <div class="mob__menu" v-show="isMobMenuVisible">
@@ -47,7 +47,7 @@
                                         <div class="cabinet-link">Личный кабинет</div>
                                     </template>
                                     <template v-else>
-                                        Авторизация
+                                        <div><span class="underline">Авторизация</span></div>
                                     </template>
 <!--                                    <img src="../../images/user.svg" alt="">-->
                                 </router-link>
@@ -85,6 +85,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.cabinet-link{
+    color: #000;
+    text-decoration: underline;
+    text-decoration-color: #0D6EFD;
+    padding-right: 10px;
+}
+.underline{
+    border-bottom: 2px solid #0D6EFD;
+}
 .fade-enter-active,
 .fade-leave-active {
     transition: all 0.3s ease-out;

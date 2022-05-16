@@ -10,7 +10,6 @@
                         </template>
                         <img src="../../images/user.svg" alt="">
                     </div>
-
                 </router-link>
             </div>
             <Crumbs>

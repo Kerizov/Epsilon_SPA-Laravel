@@ -11291,6 +11291,11 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+@media (max-width: 1500px) {
+  .news {
+    margin-top: 200px !important;
+  }
+}
 @media (max-width: 1300px) {
   .block {
     display: block !important;
@@ -11298,6 +11303,10 @@ textarea.form-control-lg {
 
   .desc {
     text-align: center !important;
+  }
+
+  .news {
+    margin-top: 25px !important;
   }
 
   .main__inner {
@@ -11316,8 +11325,32 @@ textarea.form-control-lg {
     width: 350px !important;
   }
 
+  .news__item {
+    margin: 50px auto !important;
+    max-width: 450px !important;
+    height: auto !important;
+  }
+
+  .news__item img {
+    max-width: 450px !important;
+  }
+}
+@media (max-width: 1100px) {
   .news__items {
     grid-template-columns: none !important;
+  }
+
+  .auth-form {
+    display: none !important;
+  }
+  .auth-form-mob {
+    display: flex !important;
+  }
+  .auth-form-mob input {
+    width: 100% !important;
+  }
+  .auth-form__btn {
+    position: inherit !important;
   }
 }
 @media (min-width: 850px) {
@@ -11392,6 +11425,16 @@ textarea.form-control-lg {
   .contacts__form-text {
     font-size: 18px !important;
   }
+  .contacts__info {
+    grid-template-columns: 1fr !important;
+  }
+  .contacts__info-item {
+    margin: 0 auto !important;
+    width: 275px !important;
+  }
+  .contacts__info-item > .gray-line {
+    width: 275px !important;
+  }
 }
 @media (max-width: 500px) {
   .container {
@@ -11423,6 +11466,11 @@ textarea.form-control-lg {
     height: auto !important;
   }
 
+  .menu-list {
+    margin-top: 25px !important;
+    margin-right: -25px !important;
+  }
+
   .mob__menu {
     top: 66px !important;
   }
@@ -11434,8 +11482,14 @@ textarea.form-control-lg {
     width: 200px !important;
   }
 
-  .contacts__info {
-    grid-template-columns: 1fr !important;
+  .news__item {
+    margin: 50px auto !important;
+    max-width: 350px !important;
+    height: auto !important;
+  }
+
+  .news__item img {
+    max-width: 350px !important;
   }
 
   .footer__inner {
@@ -11444,5 +11498,16 @@ textarea.form-control-lg {
   .footer__copyright {
     text-align: left !important;
     margin-top: 10px !important;
+  }
+}
+@media (max-width: 400px) {
+  .news__item {
+    margin: 50px auto !important;
+    max-width: 275px !important;
+    height: auto !important;
+  }
+
+  .news__item img {
+    max-width: 275px !important;
   }
 }

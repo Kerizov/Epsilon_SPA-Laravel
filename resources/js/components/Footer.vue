@@ -26,7 +26,7 @@ export default {
 <style lang="scss" scoped>
 .footer {
     background-color: #fff;
-    height: 200px;
+    min-height: 200px;
     margin-top: auto;
     bottom: 0;
     left: 0;

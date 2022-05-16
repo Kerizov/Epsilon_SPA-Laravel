@@ -20,6 +20,11 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     SingUpForm: _SingUpForm__WEBPACK_IMPORTED_MODULE_1__["default"],
     SignInForm: _SignInForm__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      toggleShow: true
+    };
   }
 });
 
@@ -184,25 +189,7 @@ __webpack_require__.r(__webpack_exports__);
         if (this.lastname === null) this.isWrongLastname = true;
         if (this.password === null) this.isWrongPassword = true;
       }
-    } // Registration() {
-    //     if (this.password === this.password_confirmation && this.login != null && this.firstname != null && this.lastname != null) {
-    //         axios.post('/api/auth', {
-    //             login: this.login,
-    //             firstname: this.firstname,
-    //             lastname: this.lastname,
-    //             password: this.password,
-    //             password_confirmation: this.password_confirmation
-    //         })
-    //             .then(res => {
-    //                 console.log('Регистрация успешна!');
-    //                 this.$router.push({path: '/'});
-    //             })
-    //     } else {
-    //         this.isWrongPassword = false;
-    //     }
-    //
-    // }
-
+    }
   }
 });
 
@@ -264,12 +251,59 @@ var _hoisted_2 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
+var _hoisted_3 = {
+  "class": "auth-form-mob"
+};
+var _hoisted_4 = {
+  "class": "auth-form-mob__link"
+};
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Вы еще не регистрировались? ");
+
+var _hoisted_6 = {
+  "class": "auth-form-mob__link"
+};
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("У вас уже есть аккаунт? ");
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_SignInForm = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("SignInForm");
 
   var _component_SingUpForm = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("SingUpForm");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("form", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SignInForm), _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SingUpForm)]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SignInForm), _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SingUpForm)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("template", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$data.toggleShow ? 'd-flex' : 'd-none'])
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SignInForm, null, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+        onClick: _cache[0] || (_cache[0] = function ($event) {
+          return $data.toggleShow = !$data.toggleShow;
+        })
+      }, "Регистрироваться")])];
+    }),
+    _: 1
+    /* STABLE */
+
+  })], 2
+  /* CLASS */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("template", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([!$data.toggleShow ? 'd-flex' : 'd-none'])
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SingUpForm, null, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+        onClick: _cache[1] || (_cache[1] = function ($event) {
+          return $data.toggleShow = !$data.toggleShow;
+        })
+      }, "Авторизоваться")])];
+    }),
+    _: 1
+    /* STABLE */
+
+  })], 2
+  /* CLASS */
+  )])], 64
+  /* STABLE_FRAGMENT */
+  );
 }
 
 /***/ }),
@@ -555,7 +589,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     id: "auth-btn",
     "class": "auth-form__btn",
     value: "Войти"
-  })]);
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default", {}, undefined, true)]);
 }
 
 /***/ }),
@@ -702,7 +736,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     id: "reg-btn",
     "class": "auth-form__btn",
     value: "Зарегистрироваться"
-  })]);
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default", {}, undefined, true)]);
 }
 
 /***/ }),
@@ -770,7 +804,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".auth-form[data-v-1e2f39f7] {\n  max-width: 850px;\n  height: auto;\n  display: flex;\n  margin: 50px auto 80px auto;\n  justify-content: space-between;\n  padding: 25px 50px;\n  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);\n  position: relative;\n}\n.gray-line[data-v-1e2f39f7] {\n  width: 1px;\n  min-height: 550px;\n  margin: 0 auto;\n  border-right: 1px solid rgba(0, 0, 0, 0.5);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".auth-form[data-v-1e2f39f7] {\n  max-width: 850px;\n  height: auto;\n  display: flex;\n  margin: 50px auto 80px auto;\n  justify-content: space-between;\n  padding: 25px 50px;\n  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);\n  position: relative;\n}\n.auth-form-mob[data-v-1e2f39f7] {\n  display: none;\n  max-width: 450px;\n  min-height: 300px;\n  margin: 50px auto 80px auto;\n  justify-content: center;\n  padding: 25px 50px;\n  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);\n  position: relative;\n}\n.auth-form-mob__link[data-v-1e2f39f7] {\n  margin-top: 15px;\n  font-size: 14px;\n  opacity: 0.9;\n}\n.auth-form-mob__link > span[data-v-1e2f39f7] {\n  text-decoration: underline;\n  -webkit-text-decoration-color: #0D6EFD;\n          text-decoration-color: #0D6EFD;\n}\n.gray-line[data-v-1e2f39f7] {\n  width: 1px;\n  min-height: 550px;\n  margin: 0 auto;\n  border-right: 1px solid rgba(0, 0, 0, 0.5);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -868,7 +902,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".auth-form__title[data-v-672ea551] {\n  font-size: 36px;\n  margin-bottom: 10px;\n}\n.auth-form input[data-v-672ea551] {\n  width: 333px;\n  padding: 10px;\n  outline: none;\n}\n.auth-form label[data-v-672ea551] {\n  padding: 10px;\n  display: block;\n}\n.auth-form__btn[data-v-672ea551] {\n  position: absolute;\n  bottom: 25px;\n  padding-bottom: 11px !important;\n  width: 290px;\n  height: 50px;\n  font-size: 24px;\n  background-color: #F7B903;\n  color: #fff;\n  outline: none;\n  border: none;\n  border-radius: 5px;\n}\n.auth-form__btn[data-v-672ea551]:hover {\n  background-color: #b98a00;\n}\n.validation-error[data-v-672ea551] {\n  color: #ac0000;\n}\n.validation-error-input[data-v-672ea551] {\n  background-color: rgba(199, 41, 41, 0.53);\n  border: 1px solid black;\n  border-radius: 3px;\n}\np[data-v-672ea551] {\n  margin-top: 10px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".auth-form__title[data-v-672ea551], .auth-form-mob__title[data-v-672ea551] {\n  font-size: 36px;\n  margin-bottom: 10px;\n}\n.auth-form input[data-v-672ea551], .auth-form-mob input[data-v-672ea551] {\n  width: 333px;\n  padding: 10px;\n  outline: none;\n}\n.auth-form label[data-v-672ea551], .auth-form-mob label[data-v-672ea551] {\n  padding: 10px;\n  display: block;\n}\n.auth-form__btn[data-v-672ea551], .auth-form-mob__btn[data-v-672ea551] {\n  position: absolute;\n  bottom: 25px;\n  padding-bottom: 11px !important;\n  width: 290px;\n  height: 50px;\n  font-size: 24px;\n  background-color: #F7B903;\n  color: #fff;\n  outline: none;\n  border: none;\n  border-radius: 5px;\n}\n.auth-form__btn[data-v-672ea551]:hover, .auth-form-mob__btn[data-v-672ea551]:hover {\n  background-color: #b98a00;\n}\n.validation-error[data-v-672ea551] {\n  color: #ac0000;\n}\n.validation-error-input[data-v-672ea551] {\n  background-color: rgba(199, 41, 41, 0.53);\n  border: 1px solid black;\n  border-radius: 3px;\n}\np[data-v-672ea551] {\n  margin-top: 10px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -891,7 +925,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".auth-form__title[data-v-26c37319] {\n  font-size: 36px;\n  margin-bottom: 10px;\n}\n.auth-form input[data-v-26c37319] {\n  width: 333px;\n  padding: 10px;\n  outline: none;\n}\n.auth-form label[data-v-26c37319] {\n  padding: 10px;\n  display: block;\n}\n.auth-form__btn[data-v-26c37319] {\n  position: absolute;\n  bottom: 25px;\n  padding-bottom: 11px !important;\n  width: 290px;\n  height: 50px;\n  font-size: 24px;\n  background-color: #F7B903;\n  color: #fff;\n  outline: none;\n  border: none;\n  border-radius: 5px;\n}\n.auth-form__btn[data-v-26c37319]:hover {\n  background-color: #b98a00;\n}\n.validation-error[data-v-26c37319] {\n  color: #ac0000;\n}\n.validation-error-input[data-v-26c37319] {\n  background-color: rgba(199, 41, 41, 0.53);\n  border: 1px solid black;\n  border-radius: 3px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".auth-form__title[data-v-26c37319], .auth-form-mob__title[data-v-26c37319] {\n  font-size: 36px;\n  margin-bottom: 10px;\n}\n.auth-form input[data-v-26c37319], .auth-form-mob input[data-v-26c37319] {\n  width: 333px;\n  padding: 10px;\n  outline: none;\n}\n.auth-form label[data-v-26c37319], .auth-form-mob label[data-v-26c37319] {\n  padding: 10px;\n  display: block;\n}\n.auth-form__btn[data-v-26c37319], .auth-form-mob__btn[data-v-26c37319] {\n  position: absolute;\n  bottom: 25px;\n  padding-bottom: 11px !important;\n  width: 290px;\n  height: 50px;\n  font-size: 24px;\n  background-color: #F7B903;\n  color: #fff;\n  outline: none;\n  border: none;\n  border-radius: 5px;\n}\n.auth-form__btn[data-v-26c37319]:hover, .auth-form-mob__btn[data-v-26c37319]:hover {\n  background-color: #b98a00;\n}\n.validation-error[data-v-26c37319] {\n  color: #ac0000;\n}\n.validation-error-input[data-v-26c37319] {\n  background-color: rgba(199, 41, 41, 0.53);\n  border: 1px solid black;\n  border-radius: 3px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
