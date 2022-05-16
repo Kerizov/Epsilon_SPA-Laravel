@@ -1,6 +1,7 @@
 import { createApp, withDirectives } from 'vue';
 import router from "./router";
 import store from './store'
+import VueTheMask from 'vue-the-mask'
 require('./bootstrap');
 require('./main.min')
 
@@ -16,6 +17,7 @@ app.component('epsilon', require('./components/Epsilon.vue').default);
 app
     .use(router)
     .use(store)
+    .use(VueTheMask)
     .mount("#app");
 
 
