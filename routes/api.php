@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CityController;
 use App\Http\Controllers\EmailVerificationController;
 use App\Http\Controllers\mailController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RouteController;
+use App\Http\Controllers\StatusController;
 use App\Http\Controllers\User\StoreController;
 use App\Http\Controllers\User\UpdateController;
 use App\Http\Controllers\VerificationController;
@@ -31,11 +34,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
     Route::post('login', [AuthController::class, 'login']);
+    Route::post('refresh', [AuthController::class, 'refresh']);
     Route::get('email-verify', [StoreController::class, 'verification']);
     Route::group(['middleware' => 'jwt.auth'], function() {
         Route::post('logout', [AuthController::class, 'logout']);
         Route::post('me', [AuthController::class, 'me']);
-        Route::post('refresh', [AuthController::class, 'refresh']);
+
     });
 });
 
@@ -48,11 +52,19 @@ Route::group(['namespace' => 'User', 'prefix' => 'users'], function () {
 
 });
 
+Route::get('/city', [CityController::class, 'index']);
+Route::get('/status', [StatusController::class, 'index']);
 
+//Route::get('/routes', [RouteController::class, 'index']);
+Route::get('/air_routes', [RouteController::class, 'index']);
+//Route::get('/routes', [RouteController::class, 'filter']);
 
 
 Route::get('/posts', [PostController::class, 'index']);
+
 Route::post('/posts', [PostController::class, 'store']);
+
+
 
 
 

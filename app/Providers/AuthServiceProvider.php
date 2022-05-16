@@ -30,14 +30,17 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         VerifyEmail::toMailUsing(function ($notifiable, $url) {
-//            $token = request()->user()->BearerToken();
-//            $token = auth()->tokenById(request()->user()->id);
+
+
             $myToken = request()->header('Authorization');
-            $myUrl =  $url . '*' . $myToken . '*';
+//            $myUrl =  $url . '*' . $myToken . '*';
+//         $token = request()->header('Authorization');
+//            $myUrl =  'http://epsilon/cabinet';
+
             return (new MailMessage)
                 ->subject('Подтвердить почту')
                 ->line('Кликните на кнопку ниже для подтверждения почты')
-                ->action('Подтвердить почту', $myUrl);
+                ->action('Подтвердить почту', $url);
         });
     }
 }

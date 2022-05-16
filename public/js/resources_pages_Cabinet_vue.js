@@ -13,6 +13,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../api */ "./resources/js/api.js");
 /* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../router */ "./resources/js/router.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -22,18 +24,72 @@ __webpack_require__.r(__webpack_exports__);
       firstname: null,
       lastname: null,
       email: null,
-      phone_number: '',
-      passport_series: '',
-      passport_number: '',
-      inn: '',
-      mail_index: '',
-      address: ''
+      phone_number: null,
+      passport_series: null,
+      passport_number: null,
+      inn: null,
+      mail_index: null,
+      address: null,
+      isSuccess: false,
+      isFailure: false
     };
   },
   mounted: function mounted() {
     this.PersonalInfo();
   },
   methods: {
+    ValidateData: function ValidateData() {
+      var regexPhone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+      var regexPassportSeries = /^[0-9]{4}$/;
+      var regexPassportNumber = /^[0-9]{6}$/;
+      var regexInn = /^[0-9]{12}$/;
+      var regexMailIndex = /^[0-9]{6}$/;
+      var regexAddress = /^[а-яА-Я0-9,\.\s]+$/;
+
+      if (this.phone_number) {
+        if (regexPhone.test(this.phone_number)) (0,vue__WEBPACK_IMPORTED_MODULE_2__.nextTick)();else {
+          this.phone_number = '';
+          return false;
+        }
+      }
+
+      if (this.passport_series) {
+        if (regexPassportSeries.test(this.passport_series)) (0,vue__WEBPACK_IMPORTED_MODULE_2__.nextTick)();else {
+          this.passport_series = '';
+          return false;
+        }
+      }
+
+      if (this.passport_number) {
+        if (regexPassportNumber.test(this.passport_number)) (0,vue__WEBPACK_IMPORTED_MODULE_2__.nextTick)();else {
+          this.passport_number = '';
+          return false;
+        }
+      }
+
+      if (this.inn) {
+        if (regexInn.test(this.inn)) (0,vue__WEBPACK_IMPORTED_MODULE_2__.nextTick)();else {
+          this.inn = '';
+          return false;
+        }
+      }
+
+      if (this.mail_index) {
+        if (regexMailIndex.test(this.mail_index)) (0,vue__WEBPACK_IMPORTED_MODULE_2__.nextTick)();else {
+          this.mail_index = '';
+          return false;
+        }
+      }
+
+      if (this.address) {
+        if (regexAddress.test(this.address)) (0,vue__WEBPACK_IMPORTED_MODULE_2__.nextTick)();else {
+          this.address = '';
+          return false;
+        }
+      }
+
+      return true;
+    },
     PersonalInfo: function PersonalInfo() {
       var _this = this;
 
@@ -58,19 +114,32 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     UpdatePersonInfo: function UpdatePersonInfo() {
-      _api__WEBPACK_IMPORTED_MODULE_0__["default"].post('api/users/update', {
-        firstname: this.firstname,
-        lastname: this.lastname,
-        email: this.email,
-        phone_number: this.phone_number,
-        passport_series: this.passport_series,
-        passport_number: this.passport_number,
-        inn: this.inn,
-        mail_index: this.mail_index,
-        address: this.address
-      }).then(function (res) {
-        console.log('updated');
-      });
+      var _this2 = this;
+
+      if (this.ValidateData()) {
+        _api__WEBPACK_IMPORTED_MODULE_0__["default"].post('api/users/update', {
+          firstname: this.firstname,
+          lastname: this.lastname,
+          email: this.email,
+          phone_number: this.phone_number,
+          passport_series: this.passport_series,
+          passport_number: this.passport_number,
+          inn: this.inn,
+          mail_index: this.mail_index,
+          address: this.address
+        }).then(function () {
+          _this2.isSuccess = true;
+          setTimeout(function () {
+            return _this2.isSuccess = false;
+          }, 3000);
+          console.log('updated');
+        });
+      } else {
+        this.isFailure = true;
+        setTimeout(function () {
+          return _this2.isFailure = false;
+        }, 3000);
+      }
     }
   }
 });
@@ -366,60 +435,76 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.email]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
+      'incorrect': $data.phone_number === ''
+    }),
     type: "text",
     id: "phone",
     placeholder: "не указано",
     "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
       return $data.phone_number = $event;
     })
-  }, null, 512
-  /* NEED_PATCH */
+  }, null, 2
+  /* CLASS */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.phone_number]])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    "class": "passport-input-series",
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["passport-input-series", {
+      'incorrect': $data.passport_series === ''
+    }]),
     type: "text",
     id: "passport",
     placeholder: "Серия",
     "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
       return $data.passport_series = $event;
     })
-  }, null, 512
-  /* NEED_PATCH */
+  }, null, 2
+  /* CLASS */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.passport_series]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    "class": "passport-input-number",
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["passport-input-number", {
+      'incorrect': $data.passport_number === ''
+    }]),
     type: "text",
     placeholder: "Номер",
     "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
       return $data.passport_number = $event;
     })
-  }, null, 512
-  /* NEED_PATCH */
+  }, null, 2
+  /* CLASS */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.passport_number]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [_hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
+      'incorrect': $data.inn === ''
+    }),
     type: "text",
     id: "INN",
     placeholder: "не указано",
     "onUpdate:modelValue": _cache[6] || (_cache[6] = function ($event) {
       return $data.inn = $event;
     })
-  }, null, 512
-  /* NEED_PATCH */
+  }, null, 2
+  /* CLASS */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.inn]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
+      'incorrect': $data.mail_index === ''
+    }),
     type: "text",
     id: "mail-index",
     placeholder: "не указано",
     "onUpdate:modelValue": _cache[7] || (_cache[7] = function ($event) {
       return $data.mail_index = $event;
     })
-  }, null, 512
-  /* NEED_PATCH */
+  }, null, 2
+  /* CLASS */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.mail_index]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [_hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
+      'incorrect': $data.address === ''
+    }),
     type: "text",
     id: "address",
     placeholder: "не указано",
     "onUpdate:modelValue": _cache[8] || (_cache[8] = function ($event) {
       return $data.address = $event;
     })
-  }, null, 512
-  /* NEED_PATCH */
+  }, null, 2
+  /* CLASS */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.address]])])])])]), _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "cabinet-info__btn btn-submit",
     onClick: _cache[9] || (_cache[9] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
@@ -430,7 +515,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[10] || (_cache[10] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.UpdatePersonInfo && $options.UpdatePersonInfo.apply($options, arguments);
     }, ["prevent"]))
-  }, "Сохранить обновленные данные ")])]);
+  }, "Сохранить обновленные данные ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["d-none", {
+      'update-success': $data.isSuccess === true
+    }])
+  }, "Данные успешно обновлены!", 2
+  /* CLASS */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["d-none", {
+      'update-failure': $data.isFailure === true
+    }])
+  }, "Что-то пошло не так!", 2
+  /* CLASS */
+  )]);
 }
 
 /***/ }),
@@ -691,7 +788,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".cabinet-info[data-v-4e3a470b] {\n  max-width: 990px;\n  margin: 100px auto;\n}\n.cabinet-info-flex[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 90px;\n}\n.cabinet-info__main[data-v-4e3a470b] {\n  width: 370px;\n}\n.cabinet-info__main-title[data-v-4e3a470b] {\n  font-size: 24px;\n}\n.cabinet-info__main-info-item[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 30px;\n  align-items: center;\n}\n.cabinet-info__main-info-item div[data-v-4e3a470b] {\n  width: 270px;\n  display: flex;\n  justify-content: space-between;\n}\n.cabinet-info__main-info-item input[data-v-4e3a470b] {\n  width: 270px;\n  height: 30px;\n  padding-left: 5px;\n  outline: none;\n}\n.cabinet-info__legal[data-v-4e3a470b] {\n  width: 430px;\n}\n.cabinet-info__btn[data-v-4e3a470b] {\n  width: 335px;\n  height: 45px;\n  border-radius: 5px;\n  padding-top: 11px;\n  border: none;\n  outline: none;\n  text-align: center;\n  float: right;\n}\n.passport-input-series[data-v-4e3a470b] {\n  width: 100px !important;\n  outline: none;\n}\n.passport-input-number[data-v-4e3a470b] {\n  width: 145px !important;\n  outline: none;\n}\n.gray-line[data-v-4e3a470b] {\n  max-width: 990px;\n  margin: 30px auto;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".cabinet-info[data-v-4e3a470b] {\n  max-width: 990px;\n  margin: 100px auto;\n}\n.cabinet-info-flex[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 90px;\n}\n.cabinet-info__main[data-v-4e3a470b] {\n  width: 370px;\n}\n.cabinet-info__main-title[data-v-4e3a470b] {\n  font-size: 24px;\n}\n.cabinet-info__main-info-item[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 30px;\n  align-items: center;\n}\n.cabinet-info__main-info-item div[data-v-4e3a470b] {\n  width: 270px;\n  display: flex;\n  justify-content: space-between;\n}\n.cabinet-info__main-info-item input[data-v-4e3a470b] {\n  width: 270px;\n  height: 30px;\n  padding-left: 5px;\n  outline: none;\n}\n.cabinet-info__legal[data-v-4e3a470b] {\n  width: 430px;\n}\n.cabinet-info__btn[data-v-4e3a470b] {\n  width: 335px;\n  height: 45px;\n  border-radius: 5px;\n  padding-top: 11px;\n  border: none;\n  outline: none;\n  text-align: center;\n  float: right;\n  z-index: 1;\n}\n.passport-input-series[data-v-4e3a470b] {\n  width: 100px !important;\n  outline: none;\n}\n.passport-input-number[data-v-4e3a470b] {\n  width: 145px !important;\n  outline: none;\n}\n.update-success[data-v-4e3a470b], .update-failure[data-v-4e3a470b] {\n  -webkit-animation: update-anim-4e3a470b 3s forwards;\n          animation: update-anim-4e3a470b 3s forwards;\n  text-align: center;\n  width: 335px;\n  float: right;\n  margin-top: -10px;\n  padding: 5px;\n  color: black;\n  font-size: 16px;\n  display: block !important;\n  z-index: 0;\n}\n@-webkit-keyframes update-anim-4e3a470b {\n0% {\n    margin-top: -50px;\n    opacity: 0;\n}\n15% {\n    margin-top: -10px;\n    opacity: 1;\n}\n80% {\n    margin-top: -10px;\n    opacity: 1;\n}\n90% {\n    margin-top: -10px;\n    opacity: 0.1;\n}\n95% {\n    margin-top: -10px;\n    opacity: 0;\n}\n100% {\n    margin-top: -10px;\n    opacity: 0;\n}\n}\n@keyframes update-anim-4e3a470b {\n0% {\n    margin-top: -50px;\n    opacity: 0;\n}\n15% {\n    margin-top: -10px;\n    opacity: 1;\n}\n80% {\n    margin-top: -10px;\n    opacity: 1;\n}\n90% {\n    margin-top: -10px;\n    opacity: 0.1;\n}\n95% {\n    margin-top: -10px;\n    opacity: 0;\n}\n100% {\n    margin-top: -10px;\n    opacity: 0;\n}\n}\n.incorrect[data-v-4e3a470b] {\n  border-color: red;\n}\n.gray-line[data-v-4e3a470b] {\n  max-width: 990px;\n  margin: 30px auto;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -23,7 +23,7 @@ api.interceptors.response.use(config => {
     }
     return config;
 }, error => {
-    if (error.response.data.message === 'Token has expired') {
+    if (error.response.data.message === 'Unauthenticated.') {
         return axios.post('api/auth/refresh', {}, {
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('access_token')}`

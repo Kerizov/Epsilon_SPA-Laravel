@@ -18,7 +18,7 @@
                     </div>
                     <div class="cabinet-info__main-info-item">
                         <label for="phone">Телефон</label>
-                        <input type="text" id="phone" placeholder="не указано" v-model="phone_number">
+                        <input :class="{'incorrect': phone_number === ''}" type="text" id="phone" placeholder="не указано" v-model="phone_number">
                     </div>
                 </div>
             </div>
@@ -28,23 +28,23 @@
                     <div class="cabinet-info__main-info-item">
                         <label for="passport">Паспорт</label>
                         <div>
-                            <input class="passport-input-series" type="text" id="passport" placeholder="Серия"
+                            <input class="passport-input-series" :class="{'incorrect': passport_series === ''}" type="text" id="passport" placeholder="Серия"
                                    v-model="passport_series">
-                            <input class="passport-input-number" type="text" placeholder="Номер"
+                            <input class="passport-input-number" :class="{'incorrect': passport_number === ''}" type="text" placeholder="Номер"
                                    v-model="passport_number">
                         </div>
                     </div>
                     <div class="cabinet-info__main-info-item">
                         <label for="INN">ИНН</label>
-                        <input type="text" id="INN" placeholder="не указано" v-model="inn">
+                        <input :class="{'incorrect': inn === ''}" type="text" id="INN" placeholder="не указано" v-model="inn">
                     </div>
                     <div class="cabinet-info__main-info-item">
                         <label for="mail-index">Почтовый индекс</label>
-                        <input type="text" id="mail-index" placeholder="не указано" v-model="mail_index">
+                        <input :class="{'incorrect': mail_index === ''}" type="text" id="mail-index" placeholder="не указано" v-model="mail_index">
                     </div>
                     <div class="cabinet-info__main-info-item">
                         <label for="address">Адрес</label>
-                        <input type="text" id="address" placeholder="не указано" v-model="address">
+                        <input :class="{'incorrect': address === ''}" type="text" id="address" placeholder="не указано" v-model="address">
                     </div>
                 </div>
             </div>
@@ -55,13 +55,15 @@
             <div class="cabinet-info__btn btn-submit" @click.prevent="UpdatePersonInfo">Сохранить обновленные данные
             </div>
         </div>
-
+        <div class="d-none" :class="{'update-success': isSuccess === true}">Данные успешно обновлены!</div>
+        <div class="d-none" :class="{'update-failure': isFailure === true}">Что-то пошло не так!</div>
     </div>
 </template>
 
 <script>
 import api from "../api";
 import router from "../router";
+import {nextTick} from "vue";
 
 export default {
     name: "CabinetInfo",
@@ -70,41 +72,79 @@ export default {
             firstname: null,
             lastname: null,
             email: null,
-            phone_number: '',
-            passport_series: '',
-            passport_number: '',
-            inn: '',
-            mail_index: '',
-            address: '',
+
+            phone_number: null,
+            passport_series: null,
+            passport_number: null,
+            inn: null,
+            mail_index: null,
+            address: null,
+            isSuccess: false,
+            isFailure: false,
         }
     },
     mounted() {
         this.PersonalInfo();
     },
     methods: {
-        PersonalInfo() {
-            api.post('/api/auth/me')
-                .then(res => {
-                    this.firstname = res.data.firstname;
-                    this.lastname = res.data.lastname;
-                    this.email = res.data.email;
-                    this.phone_number = res.data.phone_number;
-                    this.passport_series = res.data.passport_series;
-                    this.passport_number = res.data.passport_number;
-                    this.inn = res.data.inn;
-                    this.mail_index = res.data.mail_index;
-                    this.address = res.data.address;
-                });
-        },
-        Logout() {
-            api.post('/api/auth/logout')
-                .then(res => {
-                        localStorage.removeItem('access_token');
-                        router.push({name: 'home.auth'});
-                    }
-                )
-        },
-        UpdatePersonInfo() {
+        ValidateData() {
+            const regexPhone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+            const regexPassportSeries = /^[0-9]{4}$/;
+            const regexPassportNumber = /^[0-9]{6}$/;
+            const regexInn = /^[0-9]{12}$/;
+            const regexMailIndex = /^[0-9]{6}$/;
+            const regexAddress = /^[а-яА-Я0-9,\.\s]+$/;
+
+            if (this.phone_number) {
+                if (regexPhone.test(this.phone_number)) nextTick();
+                else {this.phone_number = ''; return false;}
+            }
+            if (this.passport_series) {
+                if (regexPassportSeries.test(this.passport_series)) nextTick();
+                else {this.passport_series = ''; return false;}
+            }
+            if (this.passport_number) {
+                if (regexPassportNumber.test(this.passport_number)) nextTick();
+                else {this.passport_number = ''; return false;}
+            }
+            if (this.inn) {
+                if (regexInn.test(this.inn)) nextTick();
+                else {this.inn = ''; return false;}
+            }
+            if (this.mail_index) {
+                if (regexMailIndex.test(this.mail_index)) nextTick();
+                else {this.mail_index = ''; return false;}
+            }
+            if (this.address) {
+                if (regexAddress.test(this.address)) nextTick();
+                else {this.address = ''; return false;}
+            }
+            return true;
+    },
+    PersonalInfo() {
+        api.post('/api/auth/me')
+            .then(res => {
+                this.firstname = res.data.firstname;
+                this.lastname = res.data.lastname;
+                this.email = res.data.email;
+                this.phone_number = res.data.phone_number;
+                this.passport_series = res.data.passport_series;
+                this.passport_number = res.data.passport_number;
+                this.inn = res.data.inn;
+                this.mail_index = res.data.mail_index;
+                this.address = res.data.address;
+            });
+    },
+    Logout() {
+        api.post('/api/auth/logout')
+            .then(res => {
+                    localStorage.removeItem('access_token');
+                    router.push({name: 'home.auth'});
+                }
+            )
+    },
+    UpdatePersonInfo() {
+        if (this.ValidateData()) {
             api.post('api/users/update', {
                 firstname: this.firstname,
                 lastname: this.lastname,
@@ -116,11 +156,19 @@ export default {
                 mail_index: this.mail_index,
                 address: this.address,
             })
-                .then(res => {
+                .then(() => {
+                    this.isSuccess = true;
+                    setTimeout(() => this.isSuccess = false, 3000);
                     console.log('updated');
                 })
+        } else {
+            this.isFailure = true;
+            setTimeout(() => this.isFailure = false, 3000);
         }
+
+
     }
+}
 }
 </script>
 
@@ -181,6 +229,7 @@ export default {
         outline: none;
         text-align: center;
         float: right;
+        z-index: 1;
     }
 }
 
@@ -194,6 +243,50 @@ export default {
         width: 145px !important;
         outline: none;
     }
+}
+
+.update-success, .update-failure {
+    animation: update-anim 3s forwards;
+    text-align: center;
+    width: 335px;
+    float: right;
+    margin-top: -10px;
+    padding: 5px;
+    color: black;
+    font-size: 16px;
+    display: block !important;
+    z-index: 0;
+}
+
+@keyframes update-anim {
+    0% {
+        margin-top: -50px;
+        opacity: 0;
+    }
+    15% {
+        margin-top: -10px;
+        opacity: 1;
+    }
+    80% {
+        margin-top: -10px;
+        opacity: 1;
+    }
+    90% {
+        margin-top: -10px;
+        opacity: 0.1;
+    }
+    95% {
+        margin-top: -10px;
+        opacity: 0;
+    }
+    100% {
+        margin-top: -10px;
+        opacity: 0;
+    }
+}
+
+.incorrect{
+    border-color: red;
 }
 
 .gray-line {

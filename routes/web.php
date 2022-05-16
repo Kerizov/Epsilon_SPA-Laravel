@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\RouteController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -22,4 +23,5 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/{page}', [IndexController::class, '__invoke'])->where('page', '.*');
+
 

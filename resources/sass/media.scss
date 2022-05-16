@@ -2,6 +2,11 @@
     .block {
         display: block !important;
     }
+    //.grid-block {
+    //    width: 180px;
+    //    margin: 0 auto;
+    //    justify-content: center;
+    //}
     .desc {
         text-align: center !important;
     }
@@ -25,7 +30,7 @@
             width: 350px !important;
         }
     }
-    .news__items{
+    .news__items {
         grid-template-columns: none !important;
     }
 }
@@ -37,16 +42,16 @@
 }
 
 @media (max-width: 850px) {
-    .mob__menu{
+    .mob__menu {
         z-index: 0;
         position: absolute;
         right: 45px;
         transition: 1s;
     }
-    .menu{
+    .menu {
         display: none;
     }
-    .mobile_buttons{
+    .mobile_buttons {
         float: right;
         z-index: 1;
     }

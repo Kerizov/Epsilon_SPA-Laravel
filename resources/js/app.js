@@ -1,5 +1,6 @@
 import { createApp } from 'vue';
 import router from "./router";
+import store from './store'
 require('./bootstrap');
 require('./main.min')
 
@@ -13,4 +14,5 @@ let app=createApp({})
 app.component('epsilon', require('./components/Epsilon.vue').default);
 app
     .use(router)
+    .use(store)
     .mount("#app");
