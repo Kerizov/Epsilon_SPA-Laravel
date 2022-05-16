@@ -14,7 +14,7 @@
                     </div>
                     <div class="cabinet-info__main-info-item">
                         <label for="email">E-mail</label>
-                        <input type="text" id="email" placeholder="email" v-model="email">
+                        <input :class="{'incorrect': email === ''}" type="email" id="email" placeholder="email" v-model="email">
                     </div>
                     <div class="cabinet-info__main-info-item">
                         <label for="phone">Телефон</label>
@@ -88,6 +88,7 @@ export default {
     methods: {
         ValidateData() {
             const regexPhone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+            const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             const regexPassportSeries = /^[0-9]{4}$/;
             const regexPassportNumber = /^[0-9]{6}$/;
             const regexInn = /^[0-9]{12}$/;
@@ -97,6 +98,10 @@ export default {
             if (this.phone_number) {
                 if (regexPhone.test(this.phone_number)) nextTick();
                 else {this.phone_number = ''; return false;}
+            }
+            if (this.email) {
+                if (regexEmail.test(this.email)) nextTick();
+                else {this.email = ''; return false;}
             }
             if (this.passport_series) {
                 if (regexPassportSeries.test(this.passport_series)) nextTick();
@@ -158,7 +163,6 @@ export default {
                 .then(() => {
                     this.isSuccess = true;
                     setTimeout(() => this.isSuccess = false, 3000);
-                    console.log('updated');
                 })
         } else {
             this.isFailure = true;

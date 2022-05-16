@@ -40,6 +40,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     ValidateData: function ValidateData() {
       var regexPhone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+      var regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       var regexPassportSeries = /^[0-9]{4}$/;
       var regexPassportNumber = /^[0-9]{6}$/;
       var regexInn = /^[0-9]{12}$/;
@@ -49,6 +50,13 @@ __webpack_require__.r(__webpack_exports__);
       if (this.phone_number) {
         if (regexPhone.test(this.phone_number)) (0,vue__WEBPACK_IMPORTED_MODULE_2__.nextTick)();else {
           this.phone_number = '';
+          return false;
+        }
+      }
+
+      if (this.email) {
+        if (regexEmail.test(this.email)) (0,vue__WEBPACK_IMPORTED_MODULE_2__.nextTick)();else {
+          this.email = '';
           return false;
         }
       }
@@ -132,7 +140,6 @@ __webpack_require__.r(__webpack_exports__);
           setTimeout(function () {
             return _this2.isSuccess = false;
           }, 3000);
-          console.log('updated');
         });
       } else {
         this.isFailure = true;
@@ -426,14 +433,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.lastname]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
+      'incorrect': $data.email === ''
+    }),
+    type: "email",
     id: "email",
     placeholder: "email",
     "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
       return $data.email = $event;
     })
-  }, null, 512
-  /* NEED_PATCH */
+  }, null, 2
+  /* CLASS */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.email]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
       'incorrect': $data.phone_number === ''

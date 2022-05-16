@@ -1,5 +1,4 @@
 <template>
-
         <div class="page">
             <Header></Header>
             <main class="main">
@@ -75,7 +74,6 @@
             <HomeNews></HomeNews>
             <Footer></Footer>
         </div>
-
 </template>
 
 <script>
@@ -170,10 +168,8 @@ export default {
             api.get('/api/status')
                 .then(res => {
                     this.statuses = res.data;
-                    console.log(res.data);
                 })
         },
-
         GetRoutes() {
             this.$router.push(`/air_routes`);
         },

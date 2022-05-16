@@ -9,11 +9,8 @@
             <div class="contacts__inner">
                 <div class="contacts__form-title">Связь с нами</div>
                 <div class="orange-line"></div>
-                <div class="contacts__form-text">Вы можете связаться с нами любым удобным для вас способом. Мы доступны
-                    24/7
-                    по факсу или электронной почте. Вы также можете воспользоваться контактной формой ниже или посетить
-                    наш
-                    офис лично. Будем рады ответить на ваши вопросы.
+                <div class="contacts__form-text">
+                    Вы можете связаться с нами любым удобным для вас способом. Мы доступны 24/7 по факсу или электронной почте. Вы также можете воспользоваться контактной формой ниже или посетить наш офис лично. Будем рады ответить на ваши вопросы.
                 </div>
                 <form class="contacts__form" action="" method="post">
                     <div>
@@ -97,7 +94,7 @@ export default {
 
 &__inner {
      text-align: center;
-     width: 800px;
+     max-width: 800px;
      margin: 0 auto;
  }
 
@@ -108,8 +105,9 @@ export default {
  }
 
 &__form-text {
-     font-size: 24px;
-     color: rgba(0, 0, 0, 0.5);
+    //max-width: 800px;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.5);
  }
 
 & > .container > .contacts__inner > .orange-line {
@@ -118,7 +116,7 @@ export default {
 
 &__form{
      margin: 20px auto;
-     width: 700px;
+     max-width: 700px;
      display: grid;
      grid-template-columns: 1fr 1fr;
      grid-gap: 20px;
@@ -128,7 +126,7 @@ export default {
   }
 
 & input,textarea{
-      width: 100%;
+      width: 90%;
       padding: 10px;
       min-height: 50px;
       resize: none;

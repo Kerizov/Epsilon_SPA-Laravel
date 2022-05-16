@@ -31,12 +31,8 @@
                     </div>
                 </form>
                 <div class="routes__items" v-if="RoutesIsExists">
-
                     <template v-if="routes">
                         <div class="routes__item" v-for="route in routes">
-                            <!--                            <div class="routes__item-title">-->
-                            <!--                                Шереметьево -> Абакан-->
-                            <!--                            </div>-->
                             <div class="routes__item-up">
                                 <div class="routes__air-company-name"><strong>Перевозчик</strong></div>
                                 <div class="routes__air-company-depart"><strong>Вылет</strong></div>
@@ -123,7 +119,6 @@ export default {
                 .then(res => {
                     (res.data.length === 0) ? this.RoutesIsExists = false : this.RoutesIsExists = true
                     this.routes = res.data;
-                    console.log(res.data);
                 })
         }
     }

@@ -184,25 +184,7 @@ __webpack_require__.r(__webpack_exports__);
         if (this.lastname === null) this.isWrongLastname = true;
         if (this.password === null) this.isWrongPassword = true;
       }
-    } // Registration() {
-    //     if (this.password === this.password_confirmation && this.login != null && this.firstname != null && this.lastname != null) {
-    //         axios.post('/api/auth', {
-    //             login: this.login,
-    //             firstname: this.firstname,
-    //             lastname: this.lastname,
-    //             password: this.password,
-    //             password_confirmation: this.password_confirmation
-    //         })
-    //             .then(res => {
-    //                 console.log('Регистрация успешна!');
-    //                 this.$router.push({path: '/'});
-    //             })
-    //     } else {
-    //         this.isWrongPassword = false;
-    //     }
-    //
-    // }
-
+    }
   }
 });
 

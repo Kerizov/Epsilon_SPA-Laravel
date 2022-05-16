@@ -22871,7 +22871,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/posts').then(function (res) {
-        _this.posts = res.data; //console.log(res.data);
+        _this.posts = res.data;
       });
     }
   }
@@ -23002,7 +23002,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       _js_api__WEBPACK_IMPORTED_MODULE_3__["default"].get('/api/status').then(function (res) {
         _this2.statuses = res.data;
-        console.log(res.data);
       });
     },
     GetRoutes: function GetRoutes() {
@@ -23408,7 +23407,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       alt: "#"
     }, null, 8
     /* PROPS */
-    , _hoisted_3)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            <div class=\"news__item-img\"><img src=\"../../images/air-news1.jpg\" alt=\"#\"></div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.title), 1
+    , _hoisted_3)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.title), 1
     /* TEXT */
     ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.text), 1
     /* TEXT */
@@ -32969,7 +32968,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_Exo2_Regular_ttf__WEBPACK_IMPORTED_MODULE_2__["default"]);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_images_bg_jpg__WEBPACK_IMPORTED_MODULE_3__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\n    font-family: 'Exo 2', sans-serif;\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n}\n* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n    font-family: 'Exo 2';\n}\nbody {\n    min-height: 100vh;\n    flex-direction: column;\n    display: flex;\n    line-height: normal !important;\n    font-size: medium !important;\n}\n.page {\n    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") top center no-repeat;\n    background-size: contain;\n    background-color: white;\n    padding-top: 50px;\n}\n.container {\n    margin: 0 auto;\n    max-width: 1800px;\n    padding: 0 45px;\n}\nul, p {\n    margin: 0;\n    padding: 0;\n}\n\n/*lines*/\n.green-line {\n    width: 150px;\n    border-bottom: 2px solid #97CA2B;\n    margin-top: 5px;\n}\n.orange-line {\n    width: 150px;\n    border-bottom: 2px solid #F7B903;\n    margin-top: 5px;\n}\n.gray-line {\n    max-width: 500px;\n    margin: 10px auto;\n    border-bottom: 1px solid rgba(0, 0, 0, 0.5);\n}\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\n    font-family: 'Exo 2', sans-serif;\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n}\n* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n    font-family: 'Exo 2';\n}\nbody {\n    min-height: 100vh;\n    flex-direction: column;\n    display: flex;\n    line-height: normal !important;\n    font-size: medium !important;\n}\n.page {\n    background: linear-gradient(rgba(0, 0, 100, 0.2), rgba(0, 0, 0, 0)), url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") top center no-repeat;\n    background-size: contain;\n    background-color: white;\n    padding-top: 50px;\n}\n.container {\n    margin: 0 auto;\n    max-width: 1800px;\n    padding: 0 45px;\n}\nul, p {\n    margin: 0;\n    padding: 0;\n}\n\n/*lines*/\n.green-line {\n    width: 150px;\n    border-bottom: 2px solid #97CA2B;\n    margin-top: 5px;\n}\n.orange-line {\n    width: 150px;\n    border-bottom: 2px solid #F7B903;\n    margin-top: 5px;\n}\n.gray-line {\n    max-width: 500px;\n    margin: 10px auto;\n    border-bottom: 1px solid rgba(0, 0, 0, 0.5);\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
