@@ -7,19 +7,18 @@
     <div class="routes">
         <div class="container">
             <div class="routes__inner">
-                <div class="routes__title">{{ $store.state.values.departure_city }} -
-                    {{ this.$store.state.values.destination_city }}
+                <div class="routes__title">{{ $store.state.values.departure_city }} - {{ this.$store.state.values.destination_city }}
                 </div>
                 <div class="orange-line"></div>
                 <div class="routes__text">{{ this.$store.state.values.amount_people }} Взрослых, {{ this.$store.state.values.status_of_places }}</div>
                 <form class="routes__form" action="">
                     <div class="block">
                         <label for="depart">Вылет</label>
-                        <input type="datetime-local" id="depart">
+                        <input type="date" id="depart" @change="GetRoutes" v-model="departure_date">
                     </div>
                     <div class="block">
                         <label for="return">Прилет</label>
-                        <input type="datetime-local" id="return">
+                        <input type="date" id="return" @change="GetRoutes" v-model="arrival_date">
                     </div>
                     <div class="block">
                         <label for="sort">Сортировка</label>
@@ -77,6 +76,7 @@
 import HeaderOther from "../js/components/HeaderOther";
 import Footer from "../js/components/Footer";
 import api from "../js/api";
+import {mapState} from "vuex";
 
 export default {
     name: "Routes",
@@ -102,6 +102,25 @@ export default {
             }
         }
     },
+    computed: {
+        ...mapState(["values"]),
+        arrival_date: {
+            set(arrival_date) {
+                this.$store.commit("setValues", {arrival_date});
+            },
+            get() {
+                return this.values.arrival_date;
+            }
+        },
+        departure_date: {
+            set(departure_date) {
+                this.$store.commit("setValues", {departure_date});
+            },
+            get() {
+                return this.values.departure_date;
+            }
+        },
+    },
     mounted() {
         this.GetRoutes();
     },
@@ -109,12 +128,18 @@ export default {
         GetRoutes() {
             api.get(`/api/air_routes`, {
                 params: {
-                    departure_city: this.routes.departure_city,
-                    destination_city: this.routes.destination_city,
-                    departure_date: this.routes.departure_date,
-                    arrival_date: this.routes.arrival_date,
-                    status_of_places: this.routes.status_of_places,
-                    amount_people: this.routes.amount_people,
+                    departure_date: this.$store.state.values.departure_date,
+                    departure_city: this.$store.state.values.departure_city,
+                    arrival_date: this.$store.state.values.arrival_date,
+                    destination_city: this.$store.state.values.destination_city,
+                    amount_people: this.$store.state.values.amount_people,
+                    status_of_places: this.$store.state.values.status_of_places,
+                    // departure_city: this.routes.departure_city,
+                    // destination_city: this.routes.destination_city,
+                    // departure_date: this.routes.departure_date,
+                    // arrival_date: this.routes.arrival_date,
+                    // status_of_places: this.routes.status_of_places,
+                    // amount_people: this.routes.amount_people,
                 }})
                 .then(res => {
                     (res.data.length === 0) ? this.RoutesIsExists = false : this.RoutesIsExists = true

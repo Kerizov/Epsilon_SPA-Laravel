@@ -4,41 +4,32 @@
             <div class="header__inner">
                 <router-link to="/"><img class="logo" src="../../images/logo.svg" alt="logo"></router-link>
                 <nav class="menu">
-                    <div class="header__inner">
-                        <router-link :to="{ name: 'home.index' }">Главная</router-link>
-                    </div>
-                    <div class="header__inner">
-                        <router-link :to="{ name: 'home.about' }">О нас</router-link>
-                    </div>
-                    <div class="header__inner">
-                        <router-link :to="{ name: 'home.contacts' }">Контакты</router-link>
-                    </div>
-                    <div>
-                        <router-link :to="{ name: 'home.auth' }">
-
-                            <template v-if="AuthChecked">
-                                <div class="flex">
-                                    <div class="cabinet-link">Личный&nbsp;кабинет</div><img src="../../images/user.svg" alt="">
-                                </div>
-                            </template>
-                            <template v-else>
-                                <div>
-                                    <img src="../../images/user.svg" alt="">
-                                </div>
-                            </template>
-
-
-
-                        </router-link>
-                    </div>
-
-
-                    <!--                        <li>-->
-                    <!--                            <router-link :to="{ name: 'home.auth' }">-->
-                    <!--                                <img src="../../images/user.svg" alt="">-->
-                    <!--                            </router-link>-->
-                    <!--                        </li>-->
-
+                    <ul>
+                        <li>
+                            <router-link :to="{ name: 'home.index' }">Главная</router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{ name: 'home.about' }">О нас</router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{ name: 'home.contacts' }">Контакты</router-link>
+                        </li>
+                        <li>
+                            <router-link :to="{ name: 'home.auth' }">
+                                <template v-if="AuthChecked">
+                                    <div class="flex">
+                                        <div class="cabinet-link">Личный&nbsp;кабинет</div>
+                                        <img src="../../images/user.svg" alt="">
+                                    </div>
+                                </template>
+                                <template v-else>
+                                    <div>
+                                        <img src="../../images/user.svg" alt="">
+                                    </div>
+                                </template>
+                            </router-link>
+                        </li>
+                    </ul>
                 </nav>
                 <div class="mobile_buttons">
                     <span class="mob-menu_btn">
@@ -125,35 +116,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.menu {
-    display: flex;
-    align-items: baseline;
-
-    & div:last-child {
-        margin-left: 10px;
-    }
-
-    & > .header__inner {
-        text-align: center;
-        list-style: none;
-        min-width: 150px;
-        justify-content: center;
-        height: 100px;
-        border-top: 5px solid transparent;
-        line-height: 93px;
-
-        & a {
-            color: #000;
-            text-decoration: none;
-        }
-
-        &:hover {
-            border-top: 5px solid #97CA2B;
-            background-color: #A9A9A930;
-        }
-
-    }
-}
 
 .header__inner {
     height: 100px;
@@ -188,10 +150,13 @@ export default {
     }
 
     & li:last-child {
-        width: 30px;
-        height: 30px;
-        margin-left: 20px;
-        line-height: inherit;
+        min-width: 150px;
+        margin-left: 10px;
+
+        //width: 30px;
+        //height: 30px;
+        //margin-left: 20px;
+        //line-height: inherit;
     }
 
     & li:last-child:hover {
@@ -210,9 +175,8 @@ export default {
     }
 
     & li:last-child a {
-        height: 20px;
-        width: 20px;
-        padding: 0;
+        text-decoration: underline;
+        text-decoration-color: #0D6EFD;
     }
 }
 

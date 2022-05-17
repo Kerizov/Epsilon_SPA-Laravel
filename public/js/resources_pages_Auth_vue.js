@@ -445,36 +445,39 @@ var _hoisted_3 = /*#__PURE__*/_withScopeId(function () {
 var _hoisted_4 = {
   "class": "menu"
 };
-var _hoisted_5 = {
-  "class": "header__inner"
-};
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Главная");
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Главная");
 
-var _hoisted_7 = {
-  "class": "header__inner"
-};
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("О нас");
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("О нас");
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Контакты");
 
-var _hoisted_9 = {
-  "class": "header__inner"
-};
-
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Контакты");
-
-var _hoisted_11 = {
+var _hoisted_8 = {
   key: 0,
   "class": "flex"
 };
 
-var _hoisted_12 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_9 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "cabinet-link"
   }, "Личный кабинет", -1
   /* HOISTED */
   );
 });
+
+var _hoisted_10 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    src: _images_user_svg__WEBPACK_IMPORTED_MODULE_2__["default"],
+    alt: ""
+  }, null, -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_11 = [_hoisted_9, _hoisted_10];
+var _hoisted_12 = {
+  key: 1
+};
 
 var _hoisted_13 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
@@ -485,52 +488,38 @@ var _hoisted_13 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_14 = [_hoisted_12, _hoisted_13];
+var _hoisted_14 = [_hoisted_13];
 var _hoisted_15 = {
-  key: 1
-};
-
-var _hoisted_16 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    src: _images_user_svg__WEBPACK_IMPORTED_MODULE_2__["default"],
-    alt: ""
-  }, null, -1
-  /* HOISTED */
-  );
-});
-
-var _hoisted_17 = [_hoisted_16];
-var _hoisted_18 = {
   "class": "mobile_buttons"
 };
-var _hoisted_19 = {
+var _hoisted_16 = {
   "class": "mob-menu_btn"
 };
-var _hoisted_20 = {
+var _hoisted_17 = {
   "class": "mob__menu"
 };
-var _hoisted_21 = {
+var _hoisted_18 = {
   "class": "mob-menu__list"
 };
-var _hoisted_22 = {
+var _hoisted_19 = {
   "class": "menu-list"
 };
 
-var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Главная");
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Главная");
 
-var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("О нас");
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("О нас");
 
-var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Контакты");
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Контакты");
 
-var _hoisted_26 = {
+var _hoisted_23 = {
   key: 0,
   "class": "cabinet-link__mob"
 };
-var _hoisted_27 = {
+var _hoisted_24 = {
   key: 1
 };
 
-var _hoisted_28 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_25 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     "class": "underline"
   }, "Авторизация", -1
@@ -538,7 +527,7 @@ var _hoisted_28 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_29 = [_hoisted_28];
+var _hoisted_26 = [_hoisted_25];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
@@ -553,9 +542,22 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
       name: 'home.index'
+    }
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_5];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["to"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    to: {
+      name: 'home.about'
     }
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -566,46 +568,33 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["to"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
-    to: {
-      name: 'home.about'
-    }
-  }, {
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_8];
-    }),
-    _: 1
-    /* STABLE */
-
-  }, 8
-  /* PROPS */
-  , ["to"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  , ["to"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
       name: 'home.contacts'
     }
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_10];
+      return [_hoisted_7];
     }),
     _: 1
     /* STABLE */
 
   }, 8
   /* PROPS */
-  , ["to"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  , ["to"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
       name: 'home.auth'
     }
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [$data.AuthChecked ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_11, _hoisted_14)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_15, _hoisted_17))];
+      return [$data.AuthChecked ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_8, _hoisted_11)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_12, _hoisted_14))];
     }),
     _: 1
     /* STABLE */
 
   }, 8
   /* PROPS */
-  , ["to"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <li>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            <router-link :to=\"{ name: 'home.auth' }\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                                <img src=\"../../images/user.svg\" alt=\"\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            </router-link>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        </li>")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  , ["to"])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return $data.isMobMenuVisible = !$data.isMobMenuVisible;
     }),
@@ -615,13 +604,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     name: "fade"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
         to: {
           name: 'home.index'
         }
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_23];
+          return [_hoisted_20];
         }),
         _: 1
         /* STABLE */
@@ -634,7 +623,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_24];
+          return [_hoisted_21];
         }),
         _: 1
         /* STABLE */
@@ -647,7 +636,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_25];
+          return [_hoisted_22];
         }),
         _: 1
         /* STABLE */
@@ -660,7 +649,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [$data.AuthChecked ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_26, "Личный кабинет")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_27, _hoisted_29))];
+          return [$data.AuthChecked ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_23, "Личный кабинет")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_24, _hoisted_26))];
         }),
         _: 1
         /* STABLE */
@@ -745,14 +734,6 @@ var _hoisted_5 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_6 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-    "for": "auth-btn"
-  }, null, -1
-  /* HOISTED */
-  );
-});
-
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
@@ -772,7 +753,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     placeholder: "Пароль"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.password]]), _hoisted_5, _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.password]]), _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     onClick: _cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.AuthUser && $options.AuthUser.apply($options, arguments);
     }, ["prevent"])),
@@ -859,15 +840,6 @@ var _hoisted_12 = {
   "class": "validation-error",
   "for": "reg-pass-repeat"
 };
-
-var _hoisted_13 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-    "for": "reg-btn"
-  }, null, -1
-  /* HOISTED */
-  );
-});
-
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, !$data.isWrongLogin ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_3, "Логин")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_4, "Введите корректный email")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "email",
@@ -919,7 +891,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     placeholder: "Повтор пароля"
   }, null, 2
   /* CLASS */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.password_confirmation]]), _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.password_confirmation]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     onClick: _cache[5] || (_cache[5] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.store && $options.store.apply($options, arguments);
     }, ["prevent"])),
@@ -1070,7 +1042,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".menu[data-v-73ae3de8] {\n  display: flex;\n  align-items: baseline;\n}\n.menu div[data-v-73ae3de8]:last-child {\n  margin-left: 10px;\n}\n.menu > .header__inner[data-v-73ae3de8] {\n  text-align: center;\n  list-style: none;\n  min-width: 150px;\n  justify-content: center;\n  height: 100px;\n  border-top: 5px solid transparent;\n  line-height: 93px;\n}\n.menu > .header__inner a[data-v-73ae3de8] {\n  color: #000;\n  text-decoration: none;\n}\n.menu > .header__inner[data-v-73ae3de8]:hover {\n  border-top: 5px solid #97CA2B;\n  background-color: rgba(169, 169, 169, 0.1882352941);\n}\n.header__inner[data-v-73ae3de8] {\n  height: 100px;\n  background-color: #fff;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0 40px;\n}\n.header__inner > a > .logo[data-v-73ae3de8] {\n  width: 150px;\n  height: auto;\n}\n.header__inner ul[data-v-73ae3de8] {\n  display: flex;\n  align-items: center;\n}\n.header__inner li[data-v-73ae3de8] {\n  text-align: center;\n  list-style: none;\n  width: 150px;\n  height: 100px;\n  border-top: 5px solid transparent;\n  line-height: 93px;\n}\n.header__inner li[data-v-73ae3de8]:hover {\n  border-top: 5px solid #97CA2B;\n  background-color: rgba(169, 169, 169, 0.1882352941);\n}\n.header__inner li[data-v-73ae3de8]:last-child {\n  width: 30px;\n  height: 30px;\n  margin-left: 20px;\n  line-height: inherit;\n}\n.header__inner li[data-v-73ae3de8]:last-child:hover {\n  cursor: pointer;\n  border-top: 5px solid transparent;\n  background-color: #fff;\n}\n.header__inner ul a[data-v-73ae3de8] {\n  display: inline-block;\n  width: 150px;\n  height: 100px;\n  text-decoration: none;\n  color: black;\n  font-size: 18px;\n}\n.header__inner li:last-child a[data-v-73ae3de8] {\n  height: 20px;\n  width: 20px;\n  padding: 0;\n}\n.cabinet-link[data-v-73ae3de8] {\n  color: #000;\n  text-decoration: none;\n  padding-right: 10px;\n}\n.flex[data-v-73ae3de8] {\n  display: flex;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".header__inner[data-v-73ae3de8] {\n  height: 100px;\n  background-color: #fff;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0 40px;\n}\n.header__inner > a > .logo[data-v-73ae3de8] {\n  width: 150px;\n  height: auto;\n}\n.header__inner ul[data-v-73ae3de8] {\n  display: flex;\n  align-items: center;\n}\n.header__inner li[data-v-73ae3de8] {\n  text-align: center;\n  list-style: none;\n  width: 150px;\n  height: 100px;\n  border-top: 5px solid transparent;\n  line-height: 93px;\n}\n.header__inner li[data-v-73ae3de8]:hover {\n  border-top: 5px solid #97CA2B;\n  background-color: rgba(169, 169, 169, 0.1882352941);\n}\n.header__inner li[data-v-73ae3de8]:last-child {\n  min-width: 150px;\n  margin-left: 10px;\n}\n.header__inner li[data-v-73ae3de8]:last-child:hover {\n  cursor: pointer;\n  border-top: 5px solid transparent;\n  background-color: #fff;\n}\n.header__inner ul a[data-v-73ae3de8] {\n  display: inline-block;\n  width: 150px;\n  height: 100px;\n  text-decoration: none;\n  color: black;\n  font-size: 18px;\n}\n.header__inner li:last-child a[data-v-73ae3de8] {\n  text-decoration: underline;\n  -webkit-text-decoration-color: #0D6EFD;\n          text-decoration-color: #0D6EFD;\n}\n.cabinet-link[data-v-73ae3de8] {\n  color: #000;\n  text-decoration: none;\n  padding-right: 10px;\n}\n.flex[data-v-73ae3de8] {\n  display: flex;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1093,7 +1065,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".auth-form__title[data-v-672ea551], .auth-form-mob__title[data-v-672ea551] {\n  font-size: 36px;\n  margin-bottom: 10px;\n}\n.auth-form input[data-v-672ea551], .auth-form-mob input[data-v-672ea551] {\n  width: 333px;\n  padding: 10px;\n  outline: none;\n}\n.auth-form label[data-v-672ea551], .auth-form-mob label[data-v-672ea551] {\n  padding: 10px;\n  display: block;\n}\n.auth-form__btn[data-v-672ea551], .auth-form-mob__btn[data-v-672ea551] {\n  position: absolute;\n  bottom: 25px;\n  padding-bottom: 11px !important;\n  width: 290px;\n  height: 50px;\n  font-size: 24px;\n  background-color: #F7B903;\n  color: #fff;\n  outline: none;\n  border: none;\n  border-radius: 5px;\n}\n.auth-form__btn[data-v-672ea551]:hover, .auth-form-mob__btn[data-v-672ea551]:hover {\n  background-color: #b98a00;\n}\n.validation-error[data-v-672ea551] {\n  color: #ac0000;\n}\n.validation-error-input[data-v-672ea551] {\n  background-color: rgba(199, 41, 41, 0.53);\n  border: 1px solid black;\n  border-radius: 3px;\n}\np[data-v-672ea551] {\n  margin-top: 10px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".auth-form__title[data-v-672ea551], .auth-form-mob__title[data-v-672ea551] {\n  font-size: 36px;\n  margin-bottom: 10px;\n}\n.auth-form input[data-v-672ea551], .auth-form-mob input[data-v-672ea551] {\n  width: 333px;\n  padding: 10px;\n  outline: none;\n}\n.auth-form label[data-v-672ea551], .auth-form-mob label[data-v-672ea551] {\n  padding: 10px;\n  display: block;\n}\n.auth-form__btn[data-v-672ea551], .auth-form-mob__btn[data-v-672ea551] {\n  position: absolute;\n  margin-top: 15px;\n  bottom: 25px;\n  padding-bottom: 11px !important;\n  width: 290px;\n  height: 50px;\n  font-size: 24px;\n  background-color: #F7B903;\n  color: #fff;\n  outline: none;\n  border: none;\n  border-radius: 5px;\n}\n.auth-form__btn[data-v-672ea551]:hover, .auth-form-mob__btn[data-v-672ea551]:hover {\n  background-color: #b98a00;\n}\n.validation-error[data-v-672ea551] {\n  color: #ac0000;\n}\n.validation-error-input[data-v-672ea551] {\n  background-color: rgba(199, 41, 41, 0.53);\n  border: 1px solid black;\n  border-radius: 3px;\n}\np[data-v-672ea551] {\n  margin-top: 10px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1116,7 +1088,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".auth-form__title[data-v-26c37319], .auth-form-mob__title[data-v-26c37319] {\n  font-size: 36px;\n  margin-bottom: 10px;\n}\n.auth-form input[data-v-26c37319], .auth-form-mob input[data-v-26c37319] {\n  width: 333px;\n  padding: 10px;\n  outline: none;\n}\n.auth-form label[data-v-26c37319], .auth-form-mob label[data-v-26c37319] {\n  padding: 10px;\n  display: block;\n}\n.auth-form__btn[data-v-26c37319], .auth-form-mob__btn[data-v-26c37319] {\n  position: absolute;\n  bottom: 25px;\n  padding-bottom: 11px !important;\n  width: 290px;\n  height: 50px;\n  font-size: 24px;\n  background-color: #F7B903;\n  color: #fff;\n  outline: none;\n  border: none;\n  border-radius: 5px;\n}\n.auth-form__btn[data-v-26c37319]:hover, .auth-form-mob__btn[data-v-26c37319]:hover {\n  background-color: #b98a00;\n}\n.validation-error[data-v-26c37319] {\n  color: #ac0000;\n}\n.validation-error-input[data-v-26c37319] {\n  background-color: rgba(199, 41, 41, 0.53);\n  border: 1px solid black;\n  border-radius: 3px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".auth-form__title[data-v-26c37319], .auth-form-mob__title[data-v-26c37319] {\n  font-size: 36px;\n  margin-bottom: 10px;\n}\n.auth-form input[data-v-26c37319], .auth-form-mob input[data-v-26c37319] {\n  width: 333px;\n  padding: 10px;\n  outline: none;\n}\n.auth-form label[data-v-26c37319], .auth-form-mob label[data-v-26c37319] {\n  padding: 10px;\n  display: block;\n}\n.auth-form__btn[data-v-26c37319], .auth-form-mob__btn[data-v-26c37319] {\n  position: absolute;\n  margin-top: 15px;\n  bottom: 25px;\n  right: 50px;\n  padding-bottom: 11px !important;\n  width: 290px;\n  height: 50px;\n  font-size: 24px;\n  background-color: #F7B903;\n  color: #fff;\n  outline: none;\n  border: none;\n  border-radius: 5px;\n}\n.auth-form__btn[data-v-26c37319]:hover, .auth-form-mob__btn[data-v-26c37319]:hover {\n  background-color: #b98a00;\n}\n.validation-error[data-v-26c37319] {\n  color: #ac0000;\n}\n.validation-error-input[data-v-26c37319] {\n  background-color: rgba(199, 41, 41, 0.53);\n  border: 1px solid black;\n  border-radius: 3px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

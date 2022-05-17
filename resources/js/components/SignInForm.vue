@@ -6,7 +6,6 @@
         <label for="pass">Пароль</label>
         <input type="password" id="pass" v-model="password" placeholder="Пароль">
         <p><a href="#">Забыли пароль?</a></p>
-        <label for="auth-btn"></label>
         <input @click.prevent="AuthUser" type="submit" id="auth-btn" class="auth-form__btn" value="Войти">
         <slot></slot>
     </div>
@@ -53,6 +52,7 @@ export default {
 
     &__btn {
         position: absolute;
+        margin-top: 15px;
         bottom: 25px;
         padding-bottom: 11px !important;
         width: 290px;

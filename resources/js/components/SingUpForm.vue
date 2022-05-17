@@ -21,7 +21,6 @@
         <label v-else class="validation-error" for="reg-pass-repeat">Пароли не совпадают</label>
         <input type="password" id="reg-pass-repeat" :class="isWrongPasswordConf ? 'validation-error-input' : ''"
                v-model="password_confirmation" placeholder="Повтор пароля">
-        <label for="reg-btn"></label>
         <input @click.prevent="store" type="submit" id="reg-btn" class="auth-form__btn"
                value="Зарегистрироваться">
         <slot></slot>
@@ -93,7 +92,9 @@ export default {
 
     &__btn {
         position: absolute;
+        margin-top: 15px;
         bottom: 25px;
+        right: 50px;
         padding-bottom: 11px !important;
         width: 290px;
         height: 50px;
