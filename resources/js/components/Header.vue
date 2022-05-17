@@ -21,12 +21,11 @@
                             </router-link>
                         </li>
                     </ul>
-
                 </nav>
                 <div class="mobile_buttons">
                     <span class="mob-menu_btn">
-                        <img @click="isMobMenuVisible = !isMobMenuVisible" src="../../images/menu-button.svg" alt="Меню"></span>
-                    <!--<span class="close_btn"><img src="../../images/menu-button.svg" alt="Меню"></span>-->
+                        <img @click="isMobMenuVisible = !isMobMenuVisible" src="../../images/menu-button.svg" alt="Меню">
+                    </span>
                 </div>
                 <transition name="fade">
                 <div class="mob__menu" v-show="isMobMenuVisible">
@@ -44,12 +43,11 @@
                             <li>
                                 <router-link :to="{ name: 'home.auth' }">
                                     <template v-if="AuthChecked">
-                                        <div class="cabinet-link">Личный кабинет<img src="../../images/user.svg" alt=""></div>
+                                        <div class="cabinet-link__mob">Личный кабинет</div>
                                     </template>
                                     <template v-else>
-                                        Авторизация
+                                        <div><span class="underline">Авторизация</span></div>
                                     </template>
-<!--                                    <img src="../../images/user.svg" alt="">-->
                                 </router-link>
                             </li>
                         </ul>
@@ -85,6 +83,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.cabinet-link__mob{
+    color: #000;
+    text-decoration: underline;
+    text-decoration-color: #0D6EFD;
+    padding-right: 10px;
+}
+.underline{
+    border-bottom: 2px solid #0D6EFD;
+}
 .fade-enter-active,
 .fade-leave-active {
     transition: all 0.3s ease-out;

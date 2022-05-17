@@ -27,6 +27,10 @@ export default {
     font-family: 'Exo 2';
 }
 
+:root{
+    --index: calc(1vw + 1vh);
+}
+
 body {
     min-height: 100vh;
     flex-direction: column;

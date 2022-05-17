@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Auth::routes();
 //Authorization, logout and refreshing token
 Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {

@@ -10,7 +10,9 @@
                 <div class="contacts__form-title">Связь с нами</div>
                 <div class="orange-line"></div>
                 <div class="contacts__form-text">
-                    Вы можете связаться с нами любым удобным для вас способом. Мы доступны 24/7 по факсу или электронной почте. Вы также можете воспользоваться контактной формой ниже или посетить наш офис лично. Будем рады ответить на ваши вопросы.
+                    Вы можете связаться с нами любым удобным для вас способом. Мы доступны 24/7 по факсу или электронной
+                    почте. Вы также можете воспользоваться контактной формой ниже или посетить наш офис лично. Будем
+                    рады ответить на ваши вопросы.
                 </div>
                 <form class="contacts__form" action="" method="post">
                     <div>
@@ -92,73 +94,79 @@ export default {
 .contacts {
     text-align: center;
 
-&__inner {
-     text-align: center;
-     max-width: 800px;
-     margin: 0 auto;
- }
+    &__inner {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+    }
 
-&__form-title {
-     font-weight: bold;
-     padding-top: 20px;
-     font-size: 48px;
- }
+    &__form-title {
+        font-weight: bold;
+        padding-top: 20px;
+        font-size: 48px;
+    }
 
-&__form-text {
-    //max-width: 800px;
-    font-size: 24px;
-    color: rgba(0, 0, 0, 0.5);
- }
+    &__form-text {
+        //max-width: 800px;
+        //font-size: 24px;
+        font-size: calc(var(--index) * 0.9);
+        color: rgba(0, 0, 0, 0.5);
+    }
 
-& > .container > .contacts__inner > .orange-line {
-      margin: 20px auto;
-  }
+    & > .container > .contacts__inner > .orange-line {
+        margin: 20px auto;
+    }
 
-&__form{
-     margin: 20px auto;
-     max-width: 700px;
-     display: grid;
-     grid-template-columns: 1fr 1fr;
-     grid-gap: 20px;
-& > .textarea,.btn{
-      grid-column-start: 1;
-      grid-column-end: 3;
-  }
+    &__form {
+        margin: 20px auto;
+        max-width: 700px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
 
-& input,textarea{
-      width: 90%;
-      padding: 10px;
-      min-height: 50px;
-      resize: none;
-      outline: none;
-  }
+        & > .textarea, .btn {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
 
-& > .btn input{
-      margin: 20px auto 25px auto;
-      width: 200px;
-      font-size: 18px;
+        & input, textarea {
+            width: 100%;
+            padding: 10px;
+            min-height: 50px;
+            resize: none;
+            outline: none;
+        }
 
-      background-color: #F7B903;
-      color: #ffffff;
-      border: none;
-      box-shadow: 0 0 5px rgba(0,0,0,0.5);
-  }
-}
-&__info{
-     display: grid;
-     grid-template-columns: repeat(2, 1fr);
-     grid-gap: 20px;
-     font-size: 18px;
-     margin-bottom: 50px;
-&-item >.gray-line{
-     width: 300px;
-     margin: 10px auto;
-     border-bottom: 1px solid rgba(0, 0, 0, 0.5);
- }
-&-text{
-     color: rgba(0, 0, 0, 0.5);
- }
-}
+        & > .btn input {
+            margin: 20px auto 25px auto;
+            width: 200px;
+            font-size: 18px;
+
+            background-color: #F7B903;
+            color: #ffffff;
+            border: none;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+    }
+
+    &__info {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+        font-size: 18px;
+        //font-size: calc(var(--index) * 0.75);
+        margin-bottom: 50px;
+
+        &-item > .gray-line {
+            width: 200px;
+            margin: 10px auto;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+        }
+
+        &-text {
+            color: rgba(0, 0, 0, 0.5);
+        }
+    }
 }
 
 </style>

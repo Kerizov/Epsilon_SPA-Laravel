@@ -101,7 +101,11 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/posts').then(function (res) {
+<<<<<<< HEAD
+        _this.posts = res.data; // console.log(res.data);
+=======
         _this.posts = res.data; //console.log(res.data);
+>>>>>>> 896dc98699a2856646e36a16d1f719ad302fa392
       });
     }
   }

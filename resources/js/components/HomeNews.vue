@@ -21,16 +21,20 @@ export default {
 }
 </script>
 
-<style scoped>
-.news__title{
+<style lang="scss" scoped>
+.news__title {
     margin: 0 auto;
     max-width: 1200px;
     display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+
 }
 
 .green-line {
     width: 0;
-    border-right: 95px solid #97CA2B;
+    border-right: 80px solid #97CA2B;
     margin: 25px 5px 25px 5px;
 }
 </style>

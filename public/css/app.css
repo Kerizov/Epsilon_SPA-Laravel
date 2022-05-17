@@ -11339,6 +11339,19 @@ textarea.form-control-lg {
   .news__items {
     grid-template-columns: none !important;
   }
+
+  .auth-form {
+    display: none !important;
+  }
+  .auth-form-mob {
+    display: flex !important;
+  }
+  .auth-form-mob input {
+    width: 100% !important;
+  }
+  .auth-form__btn {
+    position: inherit !important;
+  }
 }
 @media (min-width: 850px) {
   .mob__menu, .mobile_buttons {
@@ -11354,7 +11367,7 @@ textarea.form-control-lg {
   }
 
   .menu {
-    display: none;
+    display: none !important;
   }
 
   .mobile_buttons {
@@ -11417,10 +11430,10 @@ textarea.form-control-lg {
   }
   .contacts__info-item {
     margin: 0 auto !important;
-    width: 275px !important;
+    max-width: 275px !important;
   }
   .contacts__info-item > .gray-line {
-    width: 275px !important;
+    max-width: 250px !important;
   }
 }
 @media (max-width: 500px) {
@@ -11469,6 +11482,10 @@ textarea.form-control-lg {
     width: 200px !important;
   }
 
+  .news__title > h1, .news__title > .h1 {
+    font-size: calc(var(--index) * 1.8);
+  }
+
   .news__item {
     margin: 50px auto !important;
     max-width: 350px !important;
@@ -11496,5 +11513,9 @@ textarea.form-control-lg {
 
   .news__item img {
     max-width: 275px !important;
+  }
+
+  .cabinet-link {
+    display: none !important;
   }
 }

@@ -24,6 +24,7 @@
         <label for="reg-btn"></label>
         <input @click.prevent="store" type="submit" id="reg-btn" class="auth-form__btn"
                value="Зарегистрироваться">
+        <slot></slot>
     </div>
 </template>
 
@@ -73,7 +74,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.auth-form {
+.auth-form, .auth-form-mob  {
     &__title {
         font-size: 36px;
         margin-bottom: 10px;

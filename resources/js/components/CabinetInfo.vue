@@ -18,7 +18,7 @@
                     </div>
                     <div class="cabinet-info__main-info-item">
                         <label for="phone">Телефон</label>
-                        <input :class="{'incorrect': phone_number === ''}" type="text" id="phone" placeholder="не указано" v-model="phone_number">
+                        <input :class="{'incorrect': phone_number === ''}" v-mask="'+7 (###) ###-##-##'" type="text" id="phone" placeholder="не указано" v-model="phone_number">
                     </div>
                 </div>
             </div>
@@ -28,19 +28,19 @@
                     <div class="cabinet-info__main-info-item">
                         <label for="passport">Паспорт</label>
                         <div>
-                            <input class="passport-input-series" :class="{'incorrect': passport_series === ''}" type="text" id="passport" placeholder="Серия"
+                            <input class="passport-input-series" :class="{'incorrect': passport_series === ''}" v-mask="'####'" type="text" id="passport" placeholder="Серия"
                                    v-model="passport_series">
-                            <input class="passport-input-number" :class="{'incorrect': passport_number === ''}" type="text" placeholder="Номер"
+                            <input class="passport-input-number" :class="{'incorrect': passport_number === ''}" v-mask="'######'" type="text" placeholder="Номер"
                                    v-model="passport_number">
                         </div>
                     </div>
                     <div class="cabinet-info__main-info-item">
                         <label for="INN">ИНН</label>
-                        <input :class="{'incorrect': inn === ''}" type="text" id="INN" placeholder="не указано" v-model="inn">
+                        <input :class="{'incorrect': inn === ''}" v-mask="'############'" type="text" id="INN" placeholder="не указано" v-model="inn">
                     </div>
                     <div class="cabinet-info__main-info-item">
                         <label for="mail-index">Почтовый индекс</label>
-                        <input :class="{'incorrect': mail_index === ''}" type="text" id="mail-index" placeholder="не указано" v-model="mail_index">
+                        <input :class="{'incorrect': mail_index === ''}" v-mask="'######'" type="text" id="mail-index" placeholder="не указано" v-model="mail_index">
                     </div>
                     <div class="cabinet-info__main-info-item">
                         <label for="address">Адрес</label>
@@ -51,7 +51,7 @@
         </div>
         <div class="gray-line"></div>
         <div class="d-flex justify-content-between">
-            <div class="cabinet-info__btn btn-submit" @click.prevent="Logout">Выйти из аккаунта</div>
+            <div class="cabinet-info__btn btn-disable" @click.prevent="Logout">Выйти из аккаунта</div>
             <div class="cabinet-info__btn btn-submit" @click.prevent="UpdatePersonInfo">Сохранить обновленные данные
             </div>
         </div>
@@ -95,7 +95,7 @@ export default {
             const regexMailIndex = /^[0-9]{6}$/;
             const regexAddress = /^[а-яА-Я0-9,\.\s]+$/;
 
-            if (this.phone_number) {
+            if (this.phone_number.replace(/[^+\d]/g, '')) {
                 if (regexPhone.test(this.phone_number)) nextTick();
                 else {this.phone_number = ''; return false;}
             }
@@ -153,7 +153,7 @@ export default {
                 firstname: this.firstname,
                 lastname: this.lastname,
                 email: this.email,
-                phone_number: this.phone_number,
+                phone_number: this.phone_number.replace(/[^+\d]/g, ''),
                 passport_series: this.passport_series,
                 passport_number: this.passport_number,
                 inn: this.inn,
@@ -234,6 +234,15 @@ export default {
         float: right;
         z-index: 1;
     }
+}
+.btn-disable{
+    border: 1px solid #6c757d;
+    color: #6c757d;
+    cursor: pointer;
+}
+.btn-disable:hover{
+    background-color: #5b6166;
+    color: #fff;
 }
 
 .passport-input {
