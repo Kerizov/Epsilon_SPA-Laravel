@@ -38,7 +38,7 @@
                     </span>
                 </div>
                 <transition name="fade">
-                    <div class="mob__menu" v-show="isMobMenuVisible">
+                    <div class="mob__menu-other" v-show="isMobMenuVisible">
                         <nav class="mob-menu__list">
                             <ul class="menu-list">
                                 <li>
@@ -184,6 +184,16 @@ export default {
     color: #000;
     text-decoration: none;
     padding-right: 10px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: all 0.3s ease-out;
+}
+.fade-enter-from,
+.fade-leave-to{
+    transform: translateY(-20px);
+    opacity: 0;
 }
 
 .flex {

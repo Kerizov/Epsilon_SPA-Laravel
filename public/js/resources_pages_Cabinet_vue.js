@@ -368,10 +368,13 @@ var _hoisted_18 = /*#__PURE__*/_withScopeId(function () {
 });
 
 var _hoisted_19 = {
+  "class": "passport-input"
+};
+var _hoisted_20 = {
   "class": "cabinet-info__main-info-item"
 };
 
-var _hoisted_20 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_21 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
     "for": "INN"
   }, "ИНН", -1
@@ -379,11 +382,11 @@ var _hoisted_20 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_21 = {
+var _hoisted_22 = {
   "class": "cabinet-info__main-info-item"
 };
 
-var _hoisted_22 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_23 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
     "for": "mail-index"
   }, "Почтовый индекс", -1
@@ -391,11 +394,11 @@ var _hoisted_22 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_23 = {
+var _hoisted_24 = {
   "class": "cabinet-info__main-info-item"
 };
 
-var _hoisted_24 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_25 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
     "for": "address"
   }, "Адрес", -1
@@ -403,7 +406,7 @@ var _hoisted_24 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_25 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_26 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "gray-line"
   }, null, -1
@@ -411,8 +414,13 @@ var _hoisted_25 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_26 = {
-  "class": "d-flex justify-content-between"
+var _hoisted_27 = {
+  "class": "cabinet-info__buttons"
+};
+var _hoisted_28 = {
+  style: {
+    "height": "10px"
+  }
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _directive_mask = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveDirective)("mask");
@@ -459,7 +467,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }, null, 2
   /* CLASS */
-  ), [[_directive_mask, '+7 (###) ###-##-##'], [vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.phone_number]])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  ), [[_directive_mask, '+7 (###) ###-##-##'], [vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.phone_number]])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["passport-input-series", {
       'incorrect': $data.passport_series === ''
     }]),
@@ -482,7 +490,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }, null, 2
   /* CLASS */
-  ), [[_directive_mask, '######'], [vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.passport_number]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [_hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  ), [[_directive_mask, '######'], [vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.passport_number]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
       'incorrect': $data.inn === ''
     }),
@@ -494,7 +502,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }, null, 2
   /* CLASS */
-  ), [[_directive_mask, '############'], [vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.inn]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  ), [[_directive_mask, '############'], [vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.inn]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [_hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
       'incorrect': $data.mail_index === ''
     }),
@@ -506,7 +514,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }, null, 2
   /* CLASS */
-  ), [[_directive_mask, '######'], [vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.mail_index]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [_hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  ), [[_directive_mask, '######'], [vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.mail_index]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [_hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
       'incorrect': $data.address === ''
     }),
@@ -518,7 +526,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }, null, 2
   /* CLASS */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.address]])])])])]), _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.address]])])])])]), _hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "cabinet-info__btn btn-disable",
     onClick: _cache[9] || (_cache[9] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.Logout && $options.Logout.apply($options, arguments);
@@ -528,7 +536,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[10] || (_cache[10] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.UpdatePersonInfo && $options.UpdatePersonInfo.apply($options, arguments);
     }, ["prevent"]))
-  }, "Сохранить обновленные данные ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  }, "Сохранить обновленные данные ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["d-none", {
       'update-success': $data.isSuccess === true
     }])
@@ -540,7 +548,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }])
   }, "Что-то пошло не так!", 2
   /* CLASS */
-  )]);
+  )])]);
 }
 
 /***/ }),
@@ -732,7 +740,7 @@ var _hoisted_16 = {
   "class": "mob-menu_btn"
 };
 var _hoisted_17 = {
-  "class": "mob__menu"
+  "class": "mob__menu-other"
 };
 var _hoisted_18 = {
   "class": "mob-menu__list"
@@ -980,7 +988,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".cabinet-info[data-v-4e3a470b] {\n  max-width: 990px;\n  margin: 100px auto;\n}\n.cabinet-info-flex[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 90px;\n}\n.cabinet-info__main[data-v-4e3a470b] {\n  width: 370px;\n}\n.cabinet-info__main-title[data-v-4e3a470b] {\n  font-size: 24px;\n}\n.cabinet-info__main-info-item[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 30px;\n  align-items: center;\n}\n.cabinet-info__main-info-item div[data-v-4e3a470b] {\n  width: 270px;\n  display: flex;\n  justify-content: space-between;\n}\n.cabinet-info__main-info-item input[data-v-4e3a470b] {\n  width: 270px;\n  height: 30px;\n  padding-left: 5px;\n  outline: none;\n}\n.cabinet-info__legal[data-v-4e3a470b] {\n  width: 430px;\n}\n.cabinet-info__btn[data-v-4e3a470b] {\n  width: 335px;\n  height: 45px;\n  border-radius: 5px;\n  padding-top: 11px;\n  border: none;\n  outline: none;\n  text-align: center;\n  float: right;\n  z-index: 1;\n}\n.btn-disable[data-v-4e3a470b] {\n  border: 1px solid #6c757d;\n  color: #6c757d;\n  cursor: pointer;\n}\n.btn-disable[data-v-4e3a470b]:hover {\n  background-color: #5b6166;\n  color: #fff;\n}\n.passport-input-series[data-v-4e3a470b] {\n  width: 100px !important;\n  outline: none;\n}\n.passport-input-number[data-v-4e3a470b] {\n  width: 145px !important;\n  outline: none;\n}\n.update-success[data-v-4e3a470b], .update-failure[data-v-4e3a470b] {\n  -webkit-animation: update-anim-4e3a470b 3s forwards;\n          animation: update-anim-4e3a470b 3s forwards;\n  text-align: center;\n  width: 335px;\n  float: right;\n  margin-top: -10px;\n  padding: 5px;\n  color: black;\n  font-size: 16px;\n  display: block !important;\n  z-index: 0;\n}\n@-webkit-keyframes update-anim-4e3a470b {\n0% {\n    margin-top: -50px;\n    opacity: 0;\n}\n15% {\n    margin-top: -10px;\n    opacity: 1;\n}\n80% {\n    margin-top: -10px;\n    opacity: 1;\n}\n90% {\n    margin-top: -10px;\n    opacity: 0.1;\n}\n95% {\n    margin-top: -10px;\n    opacity: 0;\n}\n100% {\n    margin-top: -10px;\n    opacity: 0;\n}\n}\n@keyframes update-anim-4e3a470b {\n0% {\n    margin-top: -50px;\n    opacity: 0;\n}\n15% {\n    margin-top: -10px;\n    opacity: 1;\n}\n80% {\n    margin-top: -10px;\n    opacity: 1;\n}\n90% {\n    margin-top: -10px;\n    opacity: 0.1;\n}\n95% {\n    margin-top: -10px;\n    opacity: 0;\n}\n100% {\n    margin-top: -10px;\n    opacity: 0;\n}\n}\n.incorrect[data-v-4e3a470b] {\n  border-color: red;\n}\n.gray-line[data-v-4e3a470b] {\n  max-width: 990px;\n  margin: 30px auto;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".cabinet-info[data-v-4e3a470b] {\n  max-width: 990px;\n  margin: 100px auto;\n}\n.cabinet-info-flex[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n}\n.cabinet-info__main[data-v-4e3a470b] {\n  width: 370px;\n}\n.cabinet-info__main-title[data-v-4e3a470b] {\n  font-size: 24px;\n}\n.cabinet-info__main-info-item[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 30px;\n  align-items: center;\n}\n.cabinet-info__main-info-item > .passport-input[data-v-4e3a470b] {\n  max-width: 270px;\n  display: flex;\n  justify-content: space-between;\n}\n.cabinet-info__main-info-item input[data-v-4e3a470b] {\n  width: 270px;\n  height: 30px;\n  padding-left: 5px;\n  outline: none;\n}\n.cabinet-info__main-info-item label[data-v-4e3a470b] {\n  margin-right: 10px;\n}\n.cabinet-info__legal[data-v-4e3a470b] {\n  max-width: 430px;\n}\n.cabinet-info__buttons[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n}\n.cabinet-info__btn[data-v-4e3a470b] {\n  width: 335px;\n  height: 45px;\n  border-radius: 5px;\n  padding-top: 11px;\n  margin-top: 20px;\n  border: none;\n  outline: none;\n  text-align: center;\n  float: right;\n  z-index: 1;\n}\n.btn-disable[data-v-4e3a470b] {\n  border: 1px solid #6c757d;\n  color: #6c757d;\n  cursor: pointer;\n}\n.btn-disable[data-v-4e3a470b]:hover {\n  background-color: #5b6166;\n  color: #fff;\n}\n.passport-input-series[data-v-4e3a470b] {\n  width: 40% !important;\n  outline: none;\n}\n.passport-input-number[data-v-4e3a470b] {\n  width: 55% !important;\n  outline: none;\n}\n.update-success[data-v-4e3a470b], .update-failure[data-v-4e3a470b] {\n  -webkit-animation: update-anim-4e3a470b 3s forwards;\n          animation: update-anim-4e3a470b 3s forwards;\n  text-align: center;\n  width: 335px;\n  float: right;\n  margin-top: -10px;\n  padding: 5px;\n  color: black;\n  font-size: 16px;\n  display: block !important;\n  z-index: 0;\n}\n@-webkit-keyframes update-anim-4e3a470b {\n0% {\n    margin-top: -50px;\n    opacity: 0;\n}\n15% {\n    margin-top: -10px;\n    opacity: 1;\n}\n80% {\n    margin-top: -10px;\n    opacity: 1;\n}\n90% {\n    margin-top: -10px;\n    opacity: 0.1;\n}\n95% {\n    margin-top: -10px;\n    opacity: 0;\n}\n100% {\n    margin-top: -10px;\n    opacity: 0;\n}\n}\n@keyframes update-anim-4e3a470b {\n0% {\n    margin-top: -50px;\n    opacity: 0;\n}\n15% {\n    margin-top: -10px;\n    opacity: 1;\n}\n80% {\n    margin-top: -10px;\n    opacity: 1;\n}\n90% {\n    margin-top: -10px;\n    opacity: 0.1;\n}\n95% {\n    margin-top: -10px;\n    opacity: 0;\n}\n100% {\n    margin-top: -10px;\n    opacity: 0;\n}\n}\n.incorrect[data-v-4e3a470b] {\n  border-color: red;\n}\n.gray-line[data-v-4e3a470b] {\n  max-width: 990px;\n  margin: 30px auto;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1055,7 +1063,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".header__inner[data-v-73ae3de8] {\n  height: 100px;\n  background-color: #fff;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0 40px;\n}\n.header__inner > a > .logo[data-v-73ae3de8] {\n  width: 150px;\n  height: auto;\n}\n.header__inner ul[data-v-73ae3de8] {\n  display: flex;\n  align-items: center;\n}\n.header__inner li[data-v-73ae3de8] {\n  text-align: center;\n  list-style: none;\n  width: 150px;\n  height: 100px;\n  border-top: 5px solid transparent;\n  line-height: 93px;\n}\n.header__inner li[data-v-73ae3de8]:hover {\n  border-top: 5px solid #97CA2B;\n  background-color: rgba(169, 169, 169, 0.1882352941);\n}\n.header__inner li[data-v-73ae3de8]:last-child {\n  min-width: 150px;\n  margin-left: 10px;\n}\n.header__inner li[data-v-73ae3de8]:last-child:hover {\n  cursor: pointer;\n  border-top: 5px solid transparent;\n  background-color: #fff;\n}\n.header__inner ul a[data-v-73ae3de8] {\n  display: inline-block;\n  width: 150px;\n  height: 100px;\n  text-decoration: none;\n  color: black;\n  font-size: 18px;\n}\n.header__inner li:last-child a[data-v-73ae3de8] {\n  text-decoration: underline;\n  -webkit-text-decoration-color: #0D6EFD;\n          text-decoration-color: #0D6EFD;\n}\n.cabinet-link[data-v-73ae3de8] {\n  color: #000;\n  text-decoration: none;\n  padding-right: 10px;\n}\n.flex[data-v-73ae3de8] {\n  display: flex;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".header__inner[data-v-73ae3de8] {\n  height: 100px;\n  background-color: #fff;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0 40px;\n}\n.header__inner > a > .logo[data-v-73ae3de8] {\n  width: 150px;\n  height: auto;\n}\n.header__inner ul[data-v-73ae3de8] {\n  display: flex;\n  align-items: center;\n}\n.header__inner li[data-v-73ae3de8] {\n  text-align: center;\n  list-style: none;\n  width: 150px;\n  height: 100px;\n  border-top: 5px solid transparent;\n  line-height: 93px;\n}\n.header__inner li[data-v-73ae3de8]:hover {\n  border-top: 5px solid #97CA2B;\n  background-color: rgba(169, 169, 169, 0.1882352941);\n}\n.header__inner li[data-v-73ae3de8]:last-child {\n  min-width: 150px;\n  margin-left: 10px;\n}\n.header__inner li[data-v-73ae3de8]:last-child:hover {\n  cursor: pointer;\n  border-top: 5px solid transparent;\n  background-color: #fff;\n}\n.header__inner ul a[data-v-73ae3de8] {\n  display: inline-block;\n  width: 150px;\n  height: 100px;\n  text-decoration: none;\n  color: black;\n  font-size: 18px;\n}\n.header__inner li:last-child a[data-v-73ae3de8] {\n  text-decoration: underline;\n  -webkit-text-decoration-color: #0D6EFD;\n          text-decoration-color: #0D6EFD;\n}\n.cabinet-link[data-v-73ae3de8] {\n  color: #000;\n  text-decoration: none;\n  padding-right: 10px;\n}\n.fade-enter-active[data-v-73ae3de8],\n.fade-leave-active[data-v-73ae3de8] {\n  transition: all 0.3s ease-out;\n}\n.fade-enter-from[data-v-73ae3de8],\n.fade-leave-to[data-v-73ae3de8] {\n  transform: translateY(-20px);\n  opacity: 0;\n}\n.flex[data-v-73ae3de8] {\n  display: flex;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

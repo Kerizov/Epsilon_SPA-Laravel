@@ -14,11 +14,13 @@
                     </div>
                     <div class="cabinet-info__main-info-item">
                         <label for="email">E-mail</label>
-                        <input :class="{'incorrect': email === ''}" type="email" id="email" placeholder="email" v-model="email">
+                        <input :class="{'incorrect': email === ''}" type="email" id="email" placeholder="email"
+                               v-model="email">
                     </div>
                     <div class="cabinet-info__main-info-item">
                         <label for="phone">Телефон</label>
-                        <input :class="{'incorrect': phone_number === ''}" v-mask="'+7 (###) ###-##-##'" type="text" id="phone" placeholder="не указано" v-model="phone_number">
+                        <input :class="{'incorrect': phone_number === ''}" v-mask="'+7 (###) ###-##-##'" type="text"
+                               id="phone" placeholder="не указано" v-model="phone_number">
                     </div>
                 </div>
             </div>
@@ -27,36 +29,43 @@
                 <div class="cabinet-info__main-info">
                     <div class="cabinet-info__main-info-item">
                         <label for="passport">Паспорт</label>
-                        <div>
-                            <input class="passport-input-series" :class="{'incorrect': passport_series === ''}" v-mask="'####'" type="text" id="passport" placeholder="Серия"
+                        <div class="passport-input">
+                            <input class="passport-input-series" :class="{'incorrect': passport_series === ''}"
+                                   v-mask="'####'" type="text" id="passport" placeholder="Серия"
                                    v-model="passport_series">
-                            <input class="passport-input-number" :class="{'incorrect': passport_number === ''}" v-mask="'######'" type="text" placeholder="Номер"
+                            <input class="passport-input-number" :class="{'incorrect': passport_number === ''}"
+                                   v-mask="'######'" type="text" placeholder="Номер"
                                    v-model="passport_number">
                         </div>
                     </div>
                     <div class="cabinet-info__main-info-item">
                         <label for="INN">ИНН</label>
-                        <input :class="{'incorrect': inn === ''}" v-mask="'############'" type="text" id="INN" placeholder="не указано" v-model="inn">
+                        <input :class="{'incorrect': inn === ''}" v-mask="'############'" type="text" id="INN"
+                               placeholder="не указано" v-model="inn">
                     </div>
                     <div class="cabinet-info__main-info-item">
                         <label for="mail-index">Почтовый индекс</label>
-                        <input :class="{'incorrect': mail_index === ''}" v-mask="'######'" type="text" id="mail-index" placeholder="не указано" v-model="mail_index">
+                        <input :class="{'incorrect': mail_index === ''}" v-mask="'######'" type="text" id="mail-index"
+                               placeholder="не указано" v-model="mail_index">
                     </div>
                     <div class="cabinet-info__main-info-item">
                         <label for="address">Адрес</label>
-                        <input :class="{'incorrect': address === ''}" type="text" id="address" placeholder="не указано" v-model="address">
+                        <input :class="{'incorrect': address === ''}" type="text" id="address" placeholder="не указано"
+                               v-model="address">
                     </div>
                 </div>
             </div>
         </div>
         <div class="gray-line"></div>
-        <div class="d-flex justify-content-between">
+        <div class="cabinet-info__buttons">
             <div class="cabinet-info__btn btn-disable" @click.prevent="Logout">Выйти из аккаунта</div>
             <div class="cabinet-info__btn btn-submit" @click.prevent="UpdatePersonInfo">Сохранить обновленные данные
             </div>
         </div>
-        <div class="d-none" :class="{'update-success': isSuccess === true}">Данные успешно обновлены!</div>
-        <div class="d-none" :class="{'update-failure': isFailure === true}">Что-то пошло не так!</div>
+        <div style="height: 10px">
+            <div class="d-none" :class="{'update-success': isSuccess === true}">Данные успешно обновлены!</div>
+            <div class="d-none" :class="{'update-failure': isFailure === true}">Что-то пошло не так!</div>
+        </div>
     </div>
 </template>
 
@@ -97,81 +106,102 @@ export default {
 
             if (this.phone_number.replace(/[^+\d]/g, '')) {
                 if (regexPhone.test(this.phone_number)) nextTick();
-                else {this.phone_number = ''; return false;}
+                else {
+                    this.phone_number = '';
+                    return false;
+                }
             }
             if (this.email) {
                 if (regexEmail.test(this.email)) nextTick();
-                else {this.email = ''; return false;}
+                else {
+                    this.email = '';
+                    return false;
+                }
             }
             if (this.passport_series) {
                 if (regexPassportSeries.test(this.passport_series)) nextTick();
-                else {this.passport_series = ''; return false;}
+                else {
+                    this.passport_series = '';
+                    return false;
+                }
             }
             if (this.passport_number) {
                 if (regexPassportNumber.test(this.passport_number)) nextTick();
-                else {this.passport_number = ''; return false;}
+                else {
+                    this.passport_number = '';
+                    return false;
+                }
             }
             if (this.inn) {
                 if (regexInn.test(this.inn)) nextTick();
-                else {this.inn = ''; return false;}
+                else {
+                    this.inn = '';
+                    return false;
+                }
             }
             if (this.mail_index) {
                 if (regexMailIndex.test(this.mail_index)) nextTick();
-                else {this.mail_index = ''; return false;}
+                else {
+                    this.mail_index = '';
+                    return false;
+                }
             }
             if (this.address) {
                 if (regexAddress.test(this.address)) nextTick();
-                else {this.address = ''; return false;}
+                else {
+                    this.address = '';
+                    return false;
+                }
             }
             return true;
-    },
-    PersonalInfo() {
-        api.post('/api/auth/me')
-            .then(res => {
-                this.firstname = res.data.firstname;
-                this.lastname = res.data.lastname;
-                this.email = res.data.email;
-                this.phone_number = res.data.phone_number;
-                this.passport_series = res.data.passport_series;
-                this.passport_number = res.data.passport_number;
-                this.inn = res.data.inn;
-                this.mail_index = res.data.mail_index;
-                this.address = res.data.address;
-            });
-    },
-    Logout() {
-        api.post('/api/auth/logout')
-            .then(res => {
-                    localStorage.removeItem('access_token');
-                    router.push({name: 'home.auth'});
-                }
-            )
-    },
-    UpdatePersonInfo() {
-        if (this.ValidateData()) {
-            api.post('api/users/update', {
-                firstname: this.firstname,
-                lastname: this.lastname,
-                email: this.email,
-                phone_number: this.phone_number.replace(/[^+\d]/g, ''),
-                passport_series: this.passport_series,
-                passport_number: this.passport_number,
-                inn: this.inn,
-                mail_index: this.mail_index,
-                address: this.address,
-            })
-                .then(() => {
-                    this.isSuccess = true;
-                    setTimeout(() => this.isSuccess = false, 3000);
+        },
+        PersonalInfo() {
+            api.post('/api/auth/me')
+                .then(res => {
+                    this.firstname = res.data.firstname;
+                    this.lastname = res.data.lastname;
+                    this.email = res.data.email;
+                    this.phone_number = res.data.phone_number;
+                    this.passport_series = res.data.passport_series;
+                    this.passport_number = res.data.passport_number;
+                    this.inn = res.data.inn;
+                    this.mail_index = res.data.mail_index;
+                    this.address = res.data.address;
+                });
+        },
+        Logout() {
+            api.post('/api/auth/logout')
+                .then(res => {
+                        localStorage.removeItem('access_token');
+                        router.push({name: 'home.auth'});
+                    }
+                )
+        },
+        UpdatePersonInfo() {
+            if (this.ValidateData()) {
+                api.post('api/users/update', {
+                    firstname: this.firstname,
+                    lastname: this.lastname,
+                    email: this.email,
+                    phone_number: this.phone_number.replace(/[^+\d]/g, ''),
+                    passport_series: this.passport_series,
+                    passport_number: this.passport_number,
+                    inn: this.inn,
+                    mail_index: this.mail_index,
+                    address: this.address,
                 })
-        } else {
-            this.isFailure = true;
-            setTimeout(() => this.isFailure = false, 3000);
+                    .then(() => {
+                        this.isSuccess = true;
+                        setTimeout(() => this.isSuccess = false, 3000);
+                    })
+            } else {
+                this.isFailure = true;
+                setTimeout(() => this.isFailure = false, 3000);
+            }
+
+
         }
-
-
     }
-}
 }
 </script>
 
@@ -183,7 +213,7 @@ export default {
     &-flex {
         display: flex;
         justify-content: space-between;
-        margin-top: 90px;
+        //margin-top: 90px;
     }
 
     &__main {
@@ -203,8 +233,8 @@ export default {
                 margin-top: 30px;
                 align-items: center;
 
-                & div {
-                    width: 270px;
+                & > .passport-input {
+                    max-width: 270px;
                     display: flex;
                     justify-content: space-between;
                 }
@@ -215,12 +245,21 @@ export default {
                     padding-left: 5px;
                     outline: none;
                 }
+
+                & label{
+                    margin-right: 10px;
+                }
             }
         }
     }
 
     &__legal {
-        width: 430px;
+        max-width: 430px;
+    }
+
+    &__buttons{
+        display: flex;
+        justify-content: space-between;
     }
 
     &__btn {
@@ -228,6 +267,7 @@ export default {
         height: 45px;
         border-radius: 5px;
         padding-top: 11px;
+        margin-top: 20px;
         border: none;
         outline: none;
         text-align: center;
@@ -235,24 +275,26 @@ export default {
         z-index: 1;
     }
 }
-.btn-disable{
+
+.btn-disable {
     border: 1px solid #6c757d;
     color: #6c757d;
     cursor: pointer;
 }
-.btn-disable:hover{
+
+.btn-disable:hover {
     background-color: #5b6166;
     color: #fff;
 }
 
 .passport-input {
     &-series {
-        width: 100px !important;
+        width: 40% !important;
         outline: none;
     }
 
     &-number {
-        width: 145px !important;
+        width: 55% !important;
         outline: none;
     }
 }
@@ -297,7 +339,7 @@ export default {
     }
 }
 
-.incorrect{
+.incorrect {
     border-color: red;
 }
 

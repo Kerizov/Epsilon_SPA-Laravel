@@ -1,8 +1,9 @@
 @media (max-width: 1500px) {
-    .news{
+    .news {
         margin-top: 200px !important;
     }
 }
+
 @media (max-width: 1300px) {
     .block {
         display: block !important;
@@ -10,7 +11,7 @@
     .desc {
         text-align: center !important;
     }
-    .news{
+    .news {
         margin-top: 25px !important;
     }
     .main {
@@ -33,12 +34,12 @@
             width: 350px !important;
         }
     }
-    .news__item{
+    .news__item {
         margin: 50px auto !important;
         max-width: 450px !important;
         height: auto !important;
     }
-    .news__item img{
+    .news__item img {
         max-width: 450px !important;
     }
 }
@@ -47,18 +48,56 @@
     .news__items {
         grid-template-columns: none !important;
     }
-    .auth-form{
+    .auth-form {
         display: none !important;
 
-        &-mob{
+        &-mob {
             display: flex !important;
 
             & input {
                 width: 100% !important;
             }
         }
-        &__btn{
+
+        &__btn {
             position: inherit !important;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .header__inner {
+        & li {
+            width: 130px !important;
+
+        }
+
+        & ul a {
+            font-size: 16px !important;
+        }
+    }
+    .cabinet-info {
+        //max-width: 990px;
+        margin: 50px auto !important;
+
+        &-flex {
+            display: grid !important;
+            grid-gap: 35px !important;
+            justify-content: center !important;
+            //margin-top: 90px;
+        }
+
+        &__main {
+            width: auto !important;
+
+            //&-info {
+            //    &-item {
+            //        display: block !important;
+            //        justify-content: center !important;
+            //        margin-top: 15px !important;
+            //        align-items: center !important;
+            //    }
+            //}
         }
     }
 }
@@ -70,7 +109,7 @@
 }
 
 @media (max-width: 850px) {
-    .mob__menu {
+    .mob__menu, .mob__menu-other {
         z-index: 0;
         position: absolute;
         right: 45px;
@@ -114,7 +153,7 @@
         }
 
         & li {
-            border: 1px solid #F3F3F3;
+            border: 1px solid #F3F3F3 !important;
             line-height: inherit !important;
             width: auto !important;
             height: 40px !important;
@@ -126,6 +165,14 @@
     }
     .about-us__benefits-title, .contacts__form-title {
         font-size: 30px !important;
+    }
+    .cabinet-info {
+        &__btn {
+            width: 280px !important;
+        }
+    }
+    .update-success, .update-failure {
+        width: 280px !important;
     }
     .contacts {
         &__form {
@@ -140,19 +187,101 @@
             font-size: 18px !important;
         }
 
-        &__info{
+        &__info {
             grid-template-columns: 1fr !important;
-            &-item{
+
+            &-item {
                 margin: 0 auto !important;
                 max-width: 275px !important;
             }
-            &-item > .gray-line{
+
+            &-item > .gray-line {
                 max-width: 250px !important;
             }
         }
 
     }
+    .routes__form {
+        display: grid !important;
 
+        & > .block + .block {
+            margin: 0 auto !important;
+        }
+
+        & input, select {
+            width: 50vw !important;
+        }
+    }
+
+}
+
+@media (max-width: 670px) {
+    .cabinet-info {
+        &__buttons {
+            display: grid !important;
+            max-width: 400px !important;
+            margin: 0 auto !important;
+            justify-content: center !important;
+        }
+
+        &__btn {
+            width: auto !important;
+        }
+    }
+    .update-success, .update-failure {
+        float: none !important;
+        margin: 0 auto !important;
+    }
+
+    .routes__item {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-rows: 1fr 30px 50px !important;
+        padding: 25px 25px !important;
+        height: auto !important;
+
+        & > button {
+            grid-row-start: 3 !important;
+            grid-column-start: 1 !important;
+            grid-column-end: 3 !important;
+            margin: 10px auto !important;
+        }
+
+        & > .gray-line {
+            display: none !important;
+        }
+
+        &-up {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+        }
+
+        &-down {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+
+        }
+
+        & > div > div {
+            border-bottom: 1px solid #00000061 !important;
+            height: 50px !important;
+            text-align: left !important;
+            padding-left: 30px !important;
+            padding-top: 5px !important;
+
+            & img {
+                display: none !important;
+            }
+        }
+    }
+    .routes__price {
+        display: flex !important;
+        grid-row-start: 2 !important;
+        grid-column-start: 1 !important;
+        grid-column-end: 3 !important;
+        align-items: center !important;
+        margin: 0 auto !important;
+    }
 }
 
 @media (max-width: 500px) {
@@ -187,6 +316,9 @@
     .mob__menu {
         top: 66px !important;
     }
+    .mob__menu-other {
+        top: 41px !important;
+    }
     .main {
         &__form {
             padding: 20px 20px !important;
@@ -196,18 +328,32 @@
             width: 200px !important;
         }
     }
-    .news__title{
+    .news__title {
         & > h1 {
             font-size: calc(var(--index) * 1.8);
         }
     }
-    .news__item{
+    .news__item {
         margin: 50px auto !important;
         max-width: 350px !important;
         height: auto !important;
     }
-    .news__item img{
+    .news__item img {
         max-width: 350px !important;
+    }
+    .cabinet-info__main {
+        &-info {
+            &-item {
+                display: block !important;
+                justify-content: center !important;
+                margin-top: 15px !important;
+                align-items: center !important;
+
+                & > label {
+                    padding-bottom: 5px !important;
+                }
+            }
+        }
     }
     .footer {
         &__inner {
@@ -220,6 +366,7 @@
         }
     }
 }
+
 @media (max-width: 400px) {
     .news__item {
         margin: 50px auto !important;
@@ -229,7 +376,16 @@
     .news__item img {
         max-width: 275px !important;
     }
-    .cabinet-link{
+    .cabinet-link {
         display: none !important;
     }
+    .routes__item {
+        & > div > div {
+            font-size: 14px !important;
+        }
+    }
 }
+
+
+
+

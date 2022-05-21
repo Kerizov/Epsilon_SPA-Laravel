@@ -7,10 +7,13 @@
     <div class="routes">
         <div class="container">
             <div class="routes__inner">
-                <div class="routes__title">{{ $store.state.values.departure_city }} - {{ this.$store.state.values.destination_city }}
+                <div class="routes__title">{{ $store.state.values.departure_city }} -
+                    {{ this.$store.state.values.destination_city }}
                 </div>
                 <div class="orange-line"></div>
-                <div class="routes__text">{{ this.$store.state.values.amount_people }} Взрослых, {{ this.$store.state.values.status_of_places }}</div>
+                <div class="routes__text">{{ this.$store.state.values.amount_people }} Взрослых,
+                    {{ this.$store.state.values.status_of_places }}
+                </div>
                 <form class="routes__form" action="">
                     <div class="block">
                         <label for="depart">Вылет</label>
@@ -40,6 +43,7 @@
                                 </div>
                                 <div class="routes__air-company-return"><strong>Прилет</strong></div>
                             </div>
+
                             <div class="gray-line"></div>
                             <div class="routes__item-down">
                                 <div class="routes__air-company-name">{{ route.carrier }}</div>
@@ -140,7 +144,8 @@ export default {
                     // arrival_date: this.routes.arrival_date,
                     // status_of_places: this.routes.status_of_places,
                     // amount_people: this.routes.amount_people,
-                }})
+                }
+            })
                 .then(res => {
                     (res.data.length === 0) ? this.RoutesIsExists = false : this.RoutesIsExists = true
                     this.routes = res.data;
@@ -247,3 +252,39 @@ export default {
     grid-gap: 10px;
 }
 </style>
+
+
+<!--                            <table border="1">-->
+<!--                                <tr>-->
+<!--                                    <th>-->
+<!--                                        <strong>Перевозчик</strong>-->
+<!--                                    </th>-->
+<!--                                    <th>-->
+<!--                                        <strong>Вылет</strong>-->
+<!--                                    </th>-->
+<!--                                    <th>-->
+<!--                                        <strong><p>Время в пути</p></strong>-->
+<!--                                    </th>-->
+<!--                                    <th>-->
+<!--                                        <strong>Прилет</strong>-->
+<!--                                    </th>-->
+<!--                                </tr>-->
+<!--                                <div class="gray-line"></div>-->
+<!--                                <tr>-->
+<!--                                    <td>-->
+<!--                                        {{ route.carrier }}-->
+<!--                                    </td>-->
+<!--                                    <td>-->
+<!--                                        {{ route.departure }}<br>-->
+<!--                                        {{ route.departure_city }}-->
+<!--                                    </td>-->
+<!--                                    <td>-->
+<!--                                        <p>{{ route.time }}</p>-->
+<!--                                        <img src="../images/arrow-2.svg" alt="">-->
+<!--                                    </td>-->
+<!--                                    <td>-->
+<!--                                        {{ route.destination }}<br>-->
+<!--                                        {{ route.destination_city }}-->
+<!--                                    </td>-->
+<!--                                </tr>-->
+<!--                            </table>-->
