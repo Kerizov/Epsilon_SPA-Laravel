@@ -11488,6 +11488,7 @@ textarea.form-control-lg {
   .update-success, .update-failure {
     float: none !important;
     margin: 0 auto !important;
+    width: 240px !important;
   }
 
   .routes__item {
@@ -11518,7 +11519,6 @@ textarea.form-control-lg {
     border-bottom: 1px solid rgba(0, 0, 0, 0.3803921569) !important;
     height: 50px !important;
     text-align: left !important;
-    padding-left: 30px !important;
     padding-top: 5px !important;
   }
   .routes__item > div > div img {
@@ -11598,6 +11598,10 @@ textarea.form-control-lg {
     max-width: 350px !important;
   }
 
+  .cabinet-info__main {
+    display: block !important;
+    margin: 0 auto !important;
+  }
   .cabinet-info__main-info-item {
     display: block !important;
     justify-content: center !important;
@@ -11606,6 +11610,15 @@ textarea.form-control-lg {
   }
   .cabinet-info__main-info-item > label {
     padding-bottom: 5px !important;
+  }
+  .cabinet-info__legal {
+    max-width: 270px !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+  .cabinet-info__btn {
+    font-size: 14px !important;
+    padding-top: 13px !important;
   }
 
   .footer__inner {
@@ -11632,6 +11645,11 @@ textarea.form-control-lg {
   }
 
   .routes__item > div > div {
+    font-size: 13px !important;
+  }
+
+  .routes__form input, .routes__form select {
     font-size: 14px !important;
+    width: 60vw !important;
   }
 }

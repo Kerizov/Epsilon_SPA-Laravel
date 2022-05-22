@@ -36,7 +36,7 @@ export default {
     display: flex;
     margin: 50px auto 80px auto;
     justify-content: space-between;
-    padding: 25px 50px;
+    padding: 25px 25px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     position: relative;
 }
@@ -46,7 +46,7 @@ export default {
     min-height: 300px;
     margin: 50px auto 80px auto;
     justify-content: center;
-    padding: 25px 50px;
+    padding: 25px 25px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     position: relative;
 

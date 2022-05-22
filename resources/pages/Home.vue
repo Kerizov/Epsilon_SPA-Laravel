@@ -329,17 +329,6 @@ label {
     font-size: 16px;
 }
 
-//.btn-submit {
-//    background-color: #F7B903;
-//    color: #ffffff;
-//}
-
-//.page {
-//    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(../images/bg-80-min.jpg) top center no-repeat;
-//    background-size: contain;
-//    padding-top: 50px;
-//}
-
 @keyframes myFade {
     0% {
         opacity: 0;

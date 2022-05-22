@@ -90,7 +90,7 @@ export default {
     padding-right: 10px;
 }
 .underline{
-    border-bottom: 2px solid #0D6EFD;
+    border-bottom: 1px solid #0D6EFD;
 }
 .fade-enter-active,
 .fade-leave-active {

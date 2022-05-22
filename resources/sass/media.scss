@@ -231,6 +231,7 @@
     .update-success, .update-failure {
         float: none !important;
         margin: 0 auto !important;
+        width: 240px !important;
     }
 
     .routes__item {
@@ -266,7 +267,6 @@
             border-bottom: 1px solid #00000061 !important;
             height: 50px !important;
             text-align: left !important;
-            padding-left: 30px !important;
             padding-top: 5px !important;
 
             & img {
@@ -341,19 +341,33 @@
     .news__item img {
         max-width: 350px !important;
     }
-    .cabinet-info__main {
-        &-info {
-            &-item {
-                display: block !important;
-                justify-content: center !important;
-                margin-top: 15px !important;
-                align-items: center !important;
+    .cabinet-info {
+        &__main{
+            display: block !important;
+            margin: 0 auto !important;
+            &-info {
+                &-item {
+                    display: block !important;
+                    justify-content: center !important;
+                    margin-top: 15px !important;
+                    align-items: center !important;
 
-                & > label {
-                    padding-bottom: 5px !important;
+                    & > label {
+                        padding-bottom: 5px !important;
+                    }
                 }
             }
         }
+        &__legal{
+            max-width: 270px !important;
+            display: block !important;
+            margin: 0 auto !important;
+        }
+        &__btn{
+            font-size: 14px !important;
+            padding-top: 13px !important;
+        }
+
     }
     .footer {
         &__inner {
@@ -381,9 +395,14 @@
     }
     .routes__item {
         & > div > div {
-            font-size: 14px !important;
+            font-size: 13px !important;
         }
     }
+    .routes__form input,.routes__form select{
+        font-size: 14px !important;
+        width: 60vw !important;
+    }
+
 }
 
 

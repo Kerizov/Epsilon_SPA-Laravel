@@ -242,8 +242,13 @@ export default {
                 & input {
                     width: 270px;
                     height: 30px;
+                    border: 1px solid #ddd;
+                    border-radius: 3px;
                     padding-left: 5px;
                     outline: none;
+                }
+                & input:focus {
+                    background-color: #efefef;
                 }
 
                 & label{

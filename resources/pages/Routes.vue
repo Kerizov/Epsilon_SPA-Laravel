@@ -39,7 +39,7 @@
                                 <div class="routes__air-company-name"><strong>Перевозчик</strong></div>
                                 <div class="routes__air-company-depart"><strong>Вылет</strong></div>
                                 <div class="routes__air-company-time">
-                                    <strong><p>Время в пути</p></strong>
+                                    <strong><p>Время&nbsp;в&nbsp;пути</p></strong>
                                 </div>
                                 <div class="routes__air-company-return"><strong>Прилет</strong></div>
                             </div>

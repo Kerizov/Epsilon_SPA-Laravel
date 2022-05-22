@@ -636,7 +636,7 @@ var _hoisted_17 = {
   "class": "routes__item"
 };
 
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"routes__item-up\" data-v-64d0e74d><div class=\"routes__air-company-name\" data-v-64d0e74d><strong data-v-64d0e74d>Перевозчик</strong></div><div class=\"routes__air-company-depart\" data-v-64d0e74d><strong data-v-64d0e74d>Вылет</strong></div><div class=\"routes__air-company-time\" data-v-64d0e74d><strong data-v-64d0e74d><p data-v-64d0e74d>Время в пути</p></strong></div><div class=\"routes__air-company-return\" data-v-64d0e74d><strong data-v-64d0e74d>Прилет</strong></div></div><div class=\"gray-line\" data-v-64d0e74d></div>", 2);
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"routes__item-up\" data-v-64d0e74d><div class=\"routes__air-company-name\" data-v-64d0e74d><strong data-v-64d0e74d>Перевозчик</strong></div><div class=\"routes__air-company-depart\" data-v-64d0e74d><strong data-v-64d0e74d>Вылет</strong></div><div class=\"routes__air-company-time\" data-v-64d0e74d><strong data-v-64d0e74d><p data-v-64d0e74d>Время в пути</p></strong></div><div class=\"routes__air-company-return\" data-v-64d0e74d><strong data-v-64d0e74d>Прилет</strong></div></div><div class=\"gray-line\" data-v-64d0e74d></div>", 2);
 
 var _hoisted_20 = {
   "class": "routes__item-down"
