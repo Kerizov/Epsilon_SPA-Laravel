@@ -1,6 +1,20 @@
 <template>
-    <template v-for="post in posts">
-        <div class="news__item">
+    <template v-for="post in posts" :key="post.id">
+        <div class="news__item"
+             v-motion
+             :initial="{
+             y: 50,
+             x: 50,
+             rotate: 10,
+             opacity: 0,
+             }"
+             :visibleOnce="{
+             y: 0,
+             x: 0,
+             rotate: 0,
+             opacity: 1,
+             }"
+        >
             <div class="news__item-img"><img :src="`../../images/air-news${post.img}.jpg`" alt="#"></div>
             <div class="news__item-text">
                 <h3>{{ post.title }}</h3>
@@ -38,7 +52,7 @@ export default {
                     this.posts = res.data;
                 })
         }
-    }
+    },
 }
 </script>
 
