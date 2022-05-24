@@ -633,7 +633,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/airplane.svg?7ed44e64cb95f063016514fb2d43f74a");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/airplane.svg?8b2b80f0cbda4f4bea3911e1970140f0");
 
 /***/ }),
 
@@ -647,7 +647,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/arrow.svg?a0a4c65e39daed4db1e12a84919b8bd0");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/arrow.svg?3a35f96ef6c68043f734d12a21154a54");
 
 /***/ }),
 
@@ -675,7 +675,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/quote.svg?ed381ce96f1855a8e7198a24bc64fc2e");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/quote.svg?05b27e3fbeb9479945b102c23523f93f");
 
 /***/ }),
 

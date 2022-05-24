@@ -11652,4 +11652,8 @@ textarea.form-control-lg {
     font-size: 14px !important;
     width: 60vw !important;
   }
+
+  .auth-form__btn, .auth-form-mob__btn {
+    font-size: 20px !important;
+  }
 }
