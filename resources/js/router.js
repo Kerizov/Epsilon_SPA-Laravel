@@ -48,7 +48,7 @@ router.beforeEach((to, from, next) => {
     if(to.name === 'home.cabinet' || to.name === 'home.air_routes'){
         if(!access_token){
             return next({
-                name : 'home.auth'
+                name : 'home.auth',
             })
         }
     }
