@@ -61,7 +61,6 @@ export default {
     }
 }
 
-
 .gray-line {
     width: 1px;
     min-height: 550px;
