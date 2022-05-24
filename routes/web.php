@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 //    return view('index');
 //});
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/{page}', [IndexController::class, '__invoke'])->where('page', '.*');
 

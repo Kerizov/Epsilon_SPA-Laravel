@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 //Authorization, logout and refreshing token
 Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
     Route::post('login', [AuthController::class, 'login']);
@@ -50,8 +50,7 @@ Route::get('/status', [StatusController::class, 'index']);
 Route::get('/air_routes', [RouteController::class, 'index']);
 //Adding and getting posts
 Route::get('/posts', [PostController::class, 'index']);
-Route::post('/posts', [PostController::class, 'store']);
-
+//Route::post('/posts', [PostController::class, 'store']);
 
 
 

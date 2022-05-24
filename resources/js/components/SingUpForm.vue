@@ -3,33 +3,66 @@
         <div class="auth-form__title">Регистрация</div>
         <label v-if="!isWrongLogin" for="reg-login">Логин</label>
         <label v-else class="validation-error" for="reg-login">Введите корректный email</label>
-        <input type="email" id="reg-login" :class="isWrongLogin ? 'validation-error-input' : ''" v-model="email" placeholder="Email">
-
+        <UiInput
+            type="email"
+            id="reg-login"
+            :class="isWrongLogin ? 'validation-error-input' : ''"
+            v-model="email"
+            placeholder="Email"
+        />
         <label v-if="!isWrongLastname" for="lastname">Фамилия</label>
         <label v-else class="validation-error" for="reg-login">Введите корректно фамилию</label>
-        <input type="text" id="lastname" :class="isWrongLastname ? 'validation-error-input' : ''" v-model="lastname" placeholder="Латинскими буквами">
-
+        <UiInput
+            id="lastname"
+            :class="isWrongLastname ? 'validation-error-input' : ''"
+            v-model="lastname"
+            placeholder="Латинскими буквами"
+        />
         <label v-if="!isWrongFirstname" for="firstname">Имя</label>
         <label v-else class="validation-error" for="reg-login">Введите корректно имя</label>
-        <input type="text" id="firstname" :class="isWrongFirstname ? 'validation-error-input' : ''" v-model="firstname" placeholder="Латинскими буквами">
-
+        <UiInput
+            id="firstname"
+            :class="isWrongFirstname ? 'validation-error-input' : ''"
+            v-model="firstname"
+            placeholder="Латинскими буквами"
+        />
         <label v-if="!isWrongPasswordConf" for="reg-pass">Пароль</label>
         <label v-else class="validation-error" for="reg-pass">Пароли не совпадают</label>
-        <input type="password" id="reg-pass" :class="isWrongPasswordConf ? 'validation-error-input' : ''" v-model="password"
-               placeholder="Пароль">
+        <UiInput
+            type="password"
+            id="reg-pass"
+            :class="isWrongPasswordConf ? 'validation-error-input' : ''"
+            v-model="password"
+            placeholder="Пароль"
+        />
         <label v-if="!isWrongPasswordConf" for="reg-pass-repeat">Повтор пароля</label>
         <label v-else class="validation-error" for="reg-pass-repeat">Пароли не совпадают</label>
-        <input type="password" id="reg-pass-repeat" :class="isWrongPasswordConf ? 'validation-error-input' : ''"
-               v-model="password_confirmation" placeholder="Повтор пароля">
-        <input @click.prevent="store" type="submit" id="reg-btn" class="auth-form__btn"
-               value="Зарегистрироваться">
-        <slot></slot>
+        <UiInput
+            type="password"
+            id="reg-pass-repeat"
+            :class="isWrongPasswordConf ? 'validation-error-input' : ''"
+            v-model="password_confirmation"
+            placeholder="Повтор пароля"
+        />
+        <input
+            @click.prevent="store"
+            type="submit"
+            id="reg-btn"
+            class="auth-form__btn"
+            value="Зарегистрироваться"
+        >
+        <slot></slot> <!-- For mobile version -->
     </div>
 </template>
 
 <script>
+import UiInput from "./UI/UiInput";
+
 export default {
     name: "SingUpForm",
+    components: {
+        UiInput
+    },
     data() {
         return {
             email: null,
@@ -49,7 +82,7 @@ export default {
     },
     methods: {
         store() {
-            if(this.password === this.password_confirmation && this.email != null && this.firstname != null && this.lastname != null){
+            if (this.password === this.password_confirmation && this.email != null && this.firstname != null && this.lastname != null) {
                 axios.post('/api/users', {
                     email: this.email,
                     firstname: this.firstname,
@@ -60,12 +93,12 @@ export default {
                     localStorage.setItem('access_token', res.data.access_token);
                     this.$router.push('/');
                 })
-            }else {
-                if(this.password !== this.password_confirmation) this.isWrongPasswordConf = true;
-                if(this.email === null) this.isWrongLogin = true;
-                if(this.firstname === null) this.isWrongFirstname = true;
-                if(this.lastname === null) this.isWrongLastname = true;
-                if(this.password === null) this.isWrongPassword = true;
+            } else {
+                if (this.password !== this.password_confirmation) this.isWrongPasswordConf = true;
+                if (this.email === null) this.isWrongLogin = true;
+                if (this.firstname === null) this.isWrongFirstname = true;
+                if (this.lastname === null) this.isWrongLastname = true;
+                if (this.password === null) this.isWrongPassword = true;
             }
         },
     }
@@ -73,7 +106,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.auth-form, .auth-form-mob  {
+.auth-form, .auth-form-mob {
     &__title {
         font-size: 36px;
         margin-bottom: 10px;

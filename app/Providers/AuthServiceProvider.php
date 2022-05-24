@@ -32,8 +32,7 @@ class AuthServiceProvider extends ServiceProvider
         VerifyEmail::toMailUsing(function ($notifiable, $url) {
 
 
-            $myToken = request()->header('Authorization');
-//            $myUrl =  $url . '*' . $myToken . '*';
+//            $myUrl =  $url . '*' . $this->boot() . '*';
 //         $token = request()->header('Authorization');
 //            $myUrl =  'http://epsilon/cabinet';
 

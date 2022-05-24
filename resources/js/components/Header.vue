@@ -87,7 +87,6 @@ export default {
     color: #000;
     text-decoration: underline;
     text-decoration-color: #0D6EFD;
-    padding-right: 10px;
 }
 .underline{
     border-bottom: 1px solid #0D6EFD;
