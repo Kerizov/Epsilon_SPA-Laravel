@@ -13,12 +13,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../api */ "./resources/js/api.js");
 /* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../router */ "./resources/js/router.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _mixins_validateMixin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../mixins/validateMixin */ "./resources/js/mixins/validateMixin.js");
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "CabinetInfo",
+  mixins: [_mixins_validateMixin__WEBPACK_IMPORTED_MODULE_2__["default"]],
   data: function data() {
     return {
       firstname: null,
@@ -38,66 +39,6 @@ __webpack_require__.r(__webpack_exports__);
     this.PersonalInfo();
   },
   methods: {
-    ValidateData: function ValidateData() {
-      var regexPhone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
-      var regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      var regexPassportSeries = /^[0-9]{4}$/;
-      var regexPassportNumber = /^[0-9]{6}$/;
-      var regexInn = /^[0-9]{12}$/;
-      var regexMailIndex = /^[0-9]{6}$/;
-      var regexAddress = /^[а-яА-Я0-9,\.\s]+$/;
-
-      if (this.phone_number.replace(/[^+\d]/g, '')) {
-        if (regexPhone.test(this.phone_number)) (0,vue__WEBPACK_IMPORTED_MODULE_2__.nextTick)();else {
-          this.phone_number = '';
-          return false;
-        }
-      }
-
-      if (this.email) {
-        if (regexEmail.test(this.email)) (0,vue__WEBPACK_IMPORTED_MODULE_2__.nextTick)();else {
-          this.email = '';
-          return false;
-        }
-      }
-
-      if (this.passport_series) {
-        if (regexPassportSeries.test(this.passport_series)) (0,vue__WEBPACK_IMPORTED_MODULE_2__.nextTick)();else {
-          this.passport_series = '';
-          return false;
-        }
-      }
-
-      if (this.passport_number) {
-        if (regexPassportNumber.test(this.passport_number)) (0,vue__WEBPACK_IMPORTED_MODULE_2__.nextTick)();else {
-          this.passport_number = '';
-          return false;
-        }
-      }
-
-      if (this.inn) {
-        if (regexInn.test(this.inn)) (0,vue__WEBPACK_IMPORTED_MODULE_2__.nextTick)();else {
-          this.inn = '';
-          return false;
-        }
-      }
-
-      if (this.mail_index) {
-        if (regexMailIndex.test(this.mail_index)) (0,vue__WEBPACK_IMPORTED_MODULE_2__.nextTick)();else {
-          this.mail_index = '';
-          return false;
-        }
-      }
-
-      if (this.address) {
-        if (regexAddress.test(this.address)) (0,vue__WEBPACK_IMPORTED_MODULE_2__.nextTick)();else {
-          this.address = '';
-          return false;
-        }
-      }
-
-      return true;
-    },
     PersonalInfo: function PersonalInfo() {
       var _this = this;
 
@@ -124,7 +65,7 @@ __webpack_require__.r(__webpack_exports__);
     UpdatePersonInfo: function UpdatePersonInfo() {
       var _this2 = this;
 
-      if (this.ValidateData()) {
+      if (this.ValidateData() && this.firstname !== '' && this.lastname !== '' && this.email !== '') {
         _api__WEBPACK_IMPORTED_MODULE_0__["default"].post('api/users/update', {
           firstname: this.firstname,
           lastname: this.lastname,
@@ -969,6 +910,85 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* STABLE_FRAGMENT */
   );
 }
+
+/***/ }),
+
+/***/ "./resources/js/mixins/validateMixin.js":
+/*!**********************************************!*\
+  !*** ./resources/js/mixins/validateMixin.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  methods: {
+    ValidateData: function ValidateData() {
+      var regexPhone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+      var regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      var regexPassportSeries = /^[0-9]{4}$/;
+      var regexPassportNumber = /^[0-9]{6}$/;
+      var regexInn = /^[0-9]{12}$/;
+      var regexMailIndex = /^[0-9]{6}$/;
+      var regexAddress = /^[а-яА-Я0-9,\.\s]+$/;
+
+      if (this.phone_number.replace(/[^+\d]/g, '')) {
+        if (regexPhone.test(this.phone_number)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
+          this.phone_number = '';
+          return false;
+        }
+      }
+
+      if (this.email) {
+        if (regexEmail.test(this.email)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
+          this.email = '';
+          return false;
+        }
+      }
+
+      if (this.passport_series) {
+        if (regexPassportSeries.test(this.passport_series)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
+          this.passport_series = '';
+          return false;
+        }
+      }
+
+      if (this.passport_number) {
+        if (regexPassportNumber.test(this.passport_number)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
+          this.passport_number = '';
+          return false;
+        }
+      }
+
+      if (this.inn) {
+        if (regexInn.test(this.inn)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
+          this.inn = '';
+          return false;
+        }
+      }
+
+      if (this.mail_index) {
+        if (regexMailIndex.test(this.mail_index)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
+          this.mail_index = '';
+          return false;
+        }
+      }
+
+      if (this.address) {
+        if (regexAddress.test(this.address)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
+          this.address = '';
+          return false;
+        }
+      }
+
+      return true;
+    }
+  }
+});
 
 /***/ }),
 

@@ -24,9 +24,9 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'string|email',
-            'firstname' => 'string|nullable',
-            'lastname' => 'string|nullable',
+            'email' => 'required|string|email',
+            'firstname' => 'required|string|nullable',
+            'lastname' => 'required|string|nullable',
             'phone_number' => 'string|nullable',
             'passport_series' => 'string|max:4|nullable',
             'passport_number' => 'string|max:6|nullable',

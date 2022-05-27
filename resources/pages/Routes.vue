@@ -34,7 +34,7 @@
                 </form>
                 <div class="routes__items" v-if="RoutesIsExists">
                     <template v-if="routes">
-                        <div class="routes__item" v-for="route in routes">
+                        <div class="routes__item" v-for="route in routes" :key="route.id">
                             <div class="routes__item-up">
                                 <div class="routes__air-company-name"><strong>Перевозчик</strong></div>
                                 <div class="routes__air-company-depart"><strong>Вылет</strong></div>
@@ -43,7 +43,6 @@
                                 </div>
                                 <div class="routes__air-company-return"><strong>Прилет</strong></div>
                             </div>
-
                             <div class="gray-line"></div>
                             <div class="routes__item-down">
                                 <div class="routes__air-company-name">{{ route.carrier }}</div>

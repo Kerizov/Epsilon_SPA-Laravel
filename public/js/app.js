@@ -23413,7 +23413,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       initial: {
         y: 50,
         x: 50,
-        rotate: 10,
+        rotate: 5,
         opacity: 0
       },
       visibleOnce: {
