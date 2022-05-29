@@ -61,10 +61,21 @@
                                 </div>
                             </div>
                             <div class="routes__price">{{ route.price }} руб.</div>
-                            <button @click="Booking(route.id)" class="routes__item-select">Выбрать</button>
+                            <div class="modal-wrapper" v-if="isModalVisible">
+                                <div class="modal-window">
+                                    <p>Вы хотите забронировать этот рейс?</p>
+                                    <button @click="Booking(currentRouteId)" class="modal__button">Да</button>
+                                    <button @click="isModalVisible = !isModalVisible" class="modal__button">Нет
+                                    </button>
+                                </div>
+                                <div class="overlay" @click="isModalVisible = !isModalVisible"></div>
+                            </div>
+                            <button @click="currentRouteId = route.id; isModalVisible = !isModalVisible" class="routes__item-select">Выбрать
+                            </button>
                         </div>
                     </template>
                 </div>
+
                 <div class="routes_ist_exists" v-else>
                     <h1>К сожалению</h1>
                     <h1>по вашему запросу нет результатов!</h1>
@@ -91,7 +102,9 @@ export default {
     data() {
         return {
             RoutesIsExists: true,
+            isModalVisible: false,
             user_id: null,
+            currentRouteId: null,
             routes: {
                 id: '',
                 carrier: '',
@@ -146,20 +159,20 @@ export default {
                 .then(res => {
                     (res.data.length === 0) ? this.RoutesIsExists = false : this.RoutesIsExists = true
                     this.routes = res.data;
-                    console.log(res.data);
                 })
         },
-        Booking(route_id){
-          api.post('/api/booking/create', {
-              user_id: this.user_id,
-              air_route_id: route_id,
-              confirm: true,
-          }).then(res => {
-              console.log(this.user_id);
-              console.log(route_id);
-          })
+        Booking(route_id) {
+            api.post('/api/booking/create', {
+                user_id: this.user_id,
+                air_route_id: route_id,
+                confirm: false,
+            })
+                .then(res => {
+                    this.isModalVisible = !this.isModalVisible
+                    this.$router.push('/cabinet');
+                })
         },
-        userId(){
+        userId() {
             api.post('/api/auth/me')
                 .then(res => {
                     this.user_id = res.data.id;
@@ -267,6 +280,48 @@ export default {
     }
 }
 
+.modal{
+    &-wrapper {
+        position: fixed;
+        display: flex;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, .2);
+        z-index: 100;
+    }
+    &-window {
+        width: 500px;
+        height: 180px;
+        padding: 50px;
+        background-color: #fff;
+        z-index: 2;
+        & > p{
+            font-size: 18px;
+        }
+    }
+    &__button{
+        width: 150px;
+        height: 40px;
+        margin: 25px 20px;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        background-color: #F7B903;
+    }
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
 .block {
     display: block;
     grid-template-columns: 1fr 1fr;
@@ -274,38 +329,3 @@ export default {
 }
 </style>
 
-
-<!--                            <table border="1">-->
-<!--                                <tr>-->
-<!--                                    <th>-->
-<!--                                        <strong>Перевозчик</strong>-->
-<!--                                    </th>-->
-<!--                                    <th>-->
-<!--                                        <strong>Вылет</strong>-->
-<!--                                    </th>-->
-<!--                                    <th>-->
-<!--                                        <strong><p>Время в пути</p></strong>-->
-<!--                                    </th>-->
-<!--                                    <th>-->
-<!--                                        <strong>Прилет</strong>-->
-<!--                                    </th>-->
-<!--                                </tr>-->
-<!--                                <div class="gray-line"></div>-->
-<!--                                <tr>-->
-<!--                                    <td>-->
-<!--                                        {{ route.carrier }}-->
-<!--                                    </td>-->
-<!--                                    <td>-->
-<!--                                        {{ route.departure }}<br>-->
-<!--                                        {{ route.departure_city }}-->
-<!--                                    </td>-->
-<!--                                    <td>-->
-<!--                                        <p>{{ route.time }}</p>-->
-<!--                                        <img src="../images/arrow-2.svg" alt="">-->
-<!--                                    </td>-->
-<!--                                    <td>-->
-<!--                                        {{ route.destination }}<br>-->
-<!--                                        {{ route.destination_city }}-->
-<!--                                    </td>-->
-<!--                                </tr>-->
-<!--                            </table>-->

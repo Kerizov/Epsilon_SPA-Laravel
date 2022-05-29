@@ -108,7 +108,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {
       RoutesIsExists: true,
+      isModalVisible: false,
       user_id: null,
+      currentRouteId: null,
       routes: {
         id: '',
         carrier: '',
@@ -167,7 +169,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }).then(function (res) {
         res.data.length === 0 ? _this.RoutesIsExists = false : _this.RoutesIsExists = true;
         _this.routes = res.data;
-        console.log(res.data);
       });
     },
     Booking: function Booking(route_id) {
@@ -176,10 +177,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       _js_api__WEBPACK_IMPORTED_MODULE_2__["default"].post('/api/booking/create', {
         user_id: this.user_id,
         air_route_id: route_id,
-        confirm: true
+        confirm: false
       }).then(function (res) {
-        console.log(_this2.user_id);
-        console.log(route_id);
+        _this2.isModalVisible = !_this2.isModalVisible;
+
+        _this2.$router.push('/cabinet');
       });
     },
     userId: function userId() {
@@ -697,31 +699,45 @@ var _hoisted_27 = /*#__PURE__*/_withScopeId(function () {
 var _hoisted_28 = {
   "class": "routes__price"
 };
-var _hoisted_29 = ["onClick"];
+var _hoisted_29 = {
+  key: 0,
+  "class": "modal-wrapper"
+};
 var _hoisted_30 = {
+  "class": "modal-window"
+};
+
+var _hoisted_31 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Вы хотите забронировать этот рейс?", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_32 = ["onClick"];
+var _hoisted_33 = {
   key: 1,
   "class": "routes_ist_exists"
 };
 
-var _hoisted_31 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_34 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "К сожалению", -1
   /* HOISTED */
   );
 });
 
-var _hoisted_32 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_35 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "по вашему запросу нет результатов!", -1
   /* HOISTED */
   );
 });
 
-var _hoisted_33 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_36 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, ":(", -1
   /* HOISTED */
   );
 });
 
-var _hoisted_34 = [_hoisted_31, _hoisted_32, _hoisted_33];
+var _hoisted_37 = [_hoisted_34, _hoisted_35, _hoisted_36];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_HeaderOther = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("HeaderOther");
 
@@ -788,17 +804,33 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* TEXT */
     )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(route.price) + " руб.", 1
     /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    ), $data.isModalVisible ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [_hoisted_31, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      onClick: _cache[4] || (_cache[4] = function ($event) {
+        return $options.Booking($data.currentRouteId);
+      }),
+      "class": "modal__button"
+    }, "Да"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      onClick: _cache[5] || (_cache[5] = function ($event) {
+        return $data.isModalVisible = !$data.isModalVisible;
+      }),
+      "class": "modal__button"
+    }, "Нет ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+      "class": "overlay",
+      onClick: _cache[6] || (_cache[6] = function ($event) {
+        return $data.isModalVisible = !$data.isModalVisible;
+      })
+    })])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
       onClick: function onClick($event) {
-        return $options.Booking(route.id);
+        $data.currentRouteId = route.id;
+        $data.isModalVisible = !$data.isModalVisible;
       },
       "class": "routes__item-select"
-    }, "Выбрать", 8
+    }, "Выбрать ", 8
     /* PROPS */
-    , _hoisted_29)]);
+    , _hoisted_32)]);
   }), 128
   /* KEYED_FRAGMENT */
-  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_30, _hoisted_34))])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)], 64
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_33, _hoisted_37))])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -896,7 +928,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".routes[data-v-64d0e74d] {\n  text-align: center;\n  max-width: 800px;\n  margin: 0 auto;\n}\n.routes__vendor-code[data-v-64d0e74d] {\n  position: absolute;\n  top: 10px;\n  left: 15px;\n}\n.routes_ist_exists[data-v-64d0e74d] {\n  height: 300px;\n  padding-top: 75px;\n}\n.routes__item-up[data-v-64d0e74d], .routes__item-down[data-v-64d0e74d] {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr 1fr;\n  text-align: center;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.routes__title[data-v-64d0e74d] {\n  font-weight: bold;\n  padding-top: 20px;\n  font-size: 48px;\n}\n.routes > .container > .routes__inner > .orange-line[data-v-64d0e74d] {\n  margin: 20px auto;\n}\n.routes__text[data-v-64d0e74d] {\n  color: rgba(0, 0, 0, 0.5);\n  font-size: 18px;\n}\n.routes__form[data-v-64d0e74d] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.routes__form > .block + .block[data-v-64d0e74d] {\n  margin-left: 50px;\n}\n.routes__form input[data-v-64d0e74d], .routes__form select[data-v-64d0e74d] {\n  width: 200px;\n  /*180px*/\n  height: 40px;\n  border: 1px solid transparent;\n  border-radius: 5px;\n  padding: 10px;\n  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);\n  outline: none;\n}\n.routes__item[data-v-64d0e74d] {\n  position: relative;\n  padding: 50px;\n  height: 250px;\n  background-color: #fff;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);\n  margin: 20px auto;\n}\n.routes__item-title[data-v-64d0e74d] {\n  padding: 10px;\n  font-size: 24px;\n}\n.routes__item > button[data-v-64d0e74d] {\n  width: 180px;\n  height: 40px;\n  color: #fff;\n  margin: 20px;\n  background-color: #F7B903;\n  border-radius: 5px;\n  outline: none;\n  border: none;\n  padding: 5px;\n  font-size: 16px;\n}\n.routes__item > button[data-v-64d0e74d]:hover {\n  background-color: #b98a00;\n}\n.routes__price[data-v-64d0e74d] {\n  font-weight: bold;\n}\n.block[data-v-64d0e74d] {\n  display: block;\n  grid-template-columns: 1fr 1fr;\n  grid-gap: 10px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".routes[data-v-64d0e74d] {\n  text-align: center;\n  max-width: 800px;\n  margin: 0 auto;\n}\n.routes__vendor-code[data-v-64d0e74d] {\n  position: absolute;\n  top: 10px;\n  left: 15px;\n}\n.routes_ist_exists[data-v-64d0e74d] {\n  height: 300px;\n  padding-top: 75px;\n}\n.routes__item-up[data-v-64d0e74d], .routes__item-down[data-v-64d0e74d] {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr 1fr;\n  text-align: center;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.routes__title[data-v-64d0e74d] {\n  font-weight: bold;\n  padding-top: 20px;\n  font-size: 48px;\n}\n.routes > .container > .routes__inner > .orange-line[data-v-64d0e74d] {\n  margin: 20px auto;\n}\n.routes__text[data-v-64d0e74d] {\n  color: rgba(0, 0, 0, 0.5);\n  font-size: 18px;\n}\n.routes__form[data-v-64d0e74d] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.routes__form > .block + .block[data-v-64d0e74d] {\n  margin-left: 50px;\n}\n.routes__form input[data-v-64d0e74d], .routes__form select[data-v-64d0e74d] {\n  width: 200px;\n  /*180px*/\n  height: 40px;\n  border: 1px solid transparent;\n  border-radius: 5px;\n  padding: 10px;\n  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);\n  outline: none;\n}\n.routes__item[data-v-64d0e74d] {\n  position: relative;\n  padding: 50px;\n  height: 250px;\n  background-color: #fff;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);\n  margin: 20px auto;\n}\n.routes__item-title[data-v-64d0e74d] {\n  padding: 10px;\n  font-size: 24px;\n}\n.routes__item > button[data-v-64d0e74d] {\n  width: 180px;\n  height: 40px;\n  color: #fff;\n  margin: 20px;\n  background-color: #F7B903;\n  border-radius: 5px;\n  outline: none;\n  border: none;\n  padding: 5px;\n  font-size: 16px;\n}\n.routes__item > button[data-v-64d0e74d]:hover {\n  background-color: #b98a00;\n}\n.routes__price[data-v-64d0e74d] {\n  font-weight: bold;\n}\n.modal-wrapper[data-v-64d0e74d] {\n  position: fixed;\n  display: flex;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  justify-content: center;\n  align-items: center;\n  background: rgba(0, 0, 0, 0.2);\n  z-index: 100;\n}\n.modal-window[data-v-64d0e74d] {\n  width: 500px;\n  height: 180px;\n  padding: 50px;\n  background-color: #fff;\n  z-index: 2;\n}\n.modal-window > p[data-v-64d0e74d] {\n  font-size: 18px;\n}\n.modal__button[data-v-64d0e74d] {\n  width: 150px;\n  height: 40px;\n  margin: 25px 20px;\n  outline: none;\n  border: none;\n  border-radius: 5px;\n  color: #fff;\n  background-color: #F7B903;\n}\n.overlay[data-v-64d0e74d] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n}\n.block[data-v-64d0e74d] {\n  display: block;\n  grid-template-columns: 1fr 1fr;\n  grid-gap: 10px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

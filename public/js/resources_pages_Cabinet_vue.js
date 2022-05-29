@@ -1095,8 +1095,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
           user_id: this.user_id
         }
       }).then(function (res) {
-        console.log(res.data);
-
         _this2.BookingInfo();
       });
     }
