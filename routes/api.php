@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\EmailVerificationController;
 use App\Http\Controllers\PostController;
@@ -48,6 +49,12 @@ Route::get('/city', [CityController::class, 'index']);
 Route::get('/status', [StatusController::class, 'index']);
 //Getting and filter air routes
 Route::get('/air_routes', [RouteController::class, 'index']);
+
+Route::get('/booking', [BookingController::class, 'index']);
+Route::post('/booking/create', [BookingController::class, 'store']);
+Route::get('/booking/delete', [BookingController::class, 'delete']);
+Route::get('/booking/air_routes', [BookingController::class, 'getUserRoute']);
+
 //Adding and getting posts
 Route::get('/posts', [PostController::class, 'index']);
 //Route::post('/posts', [PostController::class, 'store']);

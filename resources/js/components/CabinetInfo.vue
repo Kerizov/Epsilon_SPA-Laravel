@@ -57,6 +57,45 @@
             </div>
         </div>
         <div class="gray-line"></div>
+        <div class="cabinet-info__main-title">Забронированные рейсы:</div>
+        <div class="routes__items">
+            <template v-if="bookings">
+                <div class="routes__item" v-for="booking in bookings" :key="booking.id">
+                    <h6 class="routes__vendor-code">рейс #{{ booking.id }}</h6>
+                    <div class="routes__item-up">
+                        <div class="routes__air-company-name"><strong>Перевозчик</strong></div>
+                        <div class="routes__air-company-depart"><strong>Вылет</strong></div>
+                        <div class="routes__air-company-time">
+                            <strong><p>Время&nbsp;в&nbsp;пути</p></strong>
+                        </div>
+                        <div class="routes__air-company-return"><strong>Прилет</strong></div>
+                    </div>
+                    <div class="gray-line"></div>
+                    <div class="routes__item-down">
+                        <div class="routes__air-company-name">{{ booking.carrier }}</div>
+                        <div class="routes__air-company-depart">
+                            {{ booking.departure }}<br>
+                            {{ booking.departure_city }}
+                        </div>
+                        <div class="routes__air-company-time">
+                            <p>{{ booking.time }}</p>
+                            <img src="../../images/arrow-2.svg" alt="">
+                        </div>
+                        <div class="routes__air-company-return">
+                            {{ booking.destination }}<br>
+                            {{ booking.destination_city }}
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="routes__price">{{ booking.price }} руб.</div>
+                        <button @click="DeleteBooking(booking.id)" class="routes__item-select">Отменить</button>
+                        <button class="routes__item-select">Оплатить</button>
+                    </div>
+
+                </div>
+            </template>
+        </div>
+
         <div class="cabinet-info__buttons">
             <div class="cabinet-info__btn btn-disable" @click.prevent="Logout">Выйти из аккаунта</div>
             <div class="cabinet-info__btn btn-submit" @click.prevent="UpdatePersonInfo">Сохранить обновленные данные
@@ -73,43 +112,36 @@
 import api from "../api";
 import router from "../router";
 import validateMixin from "../mixins/validateMixin";
+import bookingRequestMixin from "../mixins/bookingRequestMixin";
+import personalInfoMixin from "../mixins/personalInfoMixin";
 
 export default {
     name: "CabinetInfo",
-    mixins: [validateMixin],
+    mixins: [validateMixin, bookingRequestMixin, personalInfoMixin],
     data() {
         return {
-            firstname: null,
-            lastname: null,
-            email: null,
-            phone_number: null,
-            passport_series: null,
-            passport_number: null,
-            inn: null,
-            mail_index: null,
-            address: null,
-            isSuccess: false,
-            isFailure: false,
+            bookings: {
+                id: '',
+                carrier: '',
+                departure: '',
+                departure_date: '',
+                departure_city: '',
+                destination: '',
+                arrival_date: '',
+                destination_city: '',
+                amount_people: '',
+                status_of_places: '',
+                time: '',
+                price: '',
+            },
         }
     },
-    mounted() {
-        this.PersonalInfo();
+    async mounted() {
+        await this.PersonalInfo();
+        this.BookingInfo();
     },
     methods: {
-        PersonalInfo() {
-            api.post('/api/auth/me')
-                .then(res => {
-                    this.firstname = res.data.firstname;
-                    this.lastname = res.data.lastname;
-                    this.email = res.data.email;
-                    this.phone_number = res.data.phone_number;
-                    this.passport_series = res.data.passport_series;
-                    this.passport_number = res.data.passport_number;
-                    this.inn = res.data.inn;
-                    this.mail_index = res.data.mail_index;
-                    this.address = res.data.address;
-                });
-        },
+
         Logout() {
             api.post('/api/auth/logout')
                 .then(res => {
@@ -118,28 +150,6 @@ export default {
                     }
                 )
         },
-        UpdatePersonInfo() {
-            if (this.ValidateData() && this.firstname !== '' && this.lastname !== '' && this.email !== '') {
-                api.post('api/users/update', {
-                    firstname: this.firstname,
-                    lastname: this.lastname,
-                    email: this.email,
-                    phone_number: this.phone_number.replace(/[^+\d]/g, ''),
-                    passport_series: this.passport_series,
-                    passport_number: this.passport_number,
-                    inn: this.inn,
-                    mail_index: this.mail_index,
-                    address: this.address,
-                })
-                    .then(() => {
-                        this.isSuccess = true;
-                        setTimeout(() => this.isSuccess = false, 3000);
-                    })
-            } else {
-                this.isFailure = true;
-                setTimeout(() => this.isFailure = false, 3000);
-            }
-        }
     }
 }
 </script>
@@ -218,6 +228,105 @@ export default {
         text-align: center;
         float: right;
         z-index: 1;
+    }
+}
+
+.routes {
+    &__items {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    &__vendor-code {
+        position: absolute;
+        top: 10px;
+        left: 15px;
+    }
+
+    &__item-up, &__item-down {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        text-align: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    &__title {
+        font-weight: bold;
+        padding-top: 20px;
+        font-size: 48px;
+    }
+
+    & > .container > .routes__inner > .orange-line {
+        margin: 20px auto;
+    }
+
+    &__text {
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 18px;
+    }
+
+    &__form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & > .block + .block {
+            margin-left: 50px;
+        }
+
+        & input, select {
+            width: 200px;
+            height: 40px;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            outline: none;
+
+
+        }
+    }
+
+    &__item {
+        position: relative;
+        padding: 50px;
+        height: 280px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        margin: 20px auto;
+
+        &-title {
+            padding: 10px;
+            font-size: 24px;
+        }
+
+        & > div {
+            align-items: center;
+            justify-content: flex-end;
+
+            & > button {
+                width: 180px;
+                height: 40px;
+                color: #fff;
+                margin: 20px;
+                background-color: #F7B903;
+                border-radius: 5px;
+                outline: none;
+                border: none;
+                padding: 5px;
+                font-size: 16px;
+            }
+
+            & > button:hover {
+                background-color: #b98a00;
+            }
+        }
+    }
+
+    &__price {
+        font-weight: bold;
     }
 }
 

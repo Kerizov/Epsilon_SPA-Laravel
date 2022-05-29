@@ -35,6 +35,7 @@
                 <div class="routes__items" v-if="RoutesIsExists">
                     <template v-if="routes">
                         <div class="routes__item" v-for="route in routes" :key="route.id">
+                            <h6 class="routes__vendor-code">рейс #{{ route.id }}</h6>
                             <div class="routes__item-up">
                                 <div class="routes__air-company-name"><strong>Перевозчик</strong></div>
                                 <div class="routes__air-company-depart"><strong>Вылет</strong></div>
@@ -60,7 +61,7 @@
                                 </div>
                             </div>
                             <div class="routes__price">{{ route.price }} руб.</div>
-                            <button class="routes__item-select">Выбрать</button>
+                            <button @click="Booking(route.id)" class="routes__item-select">Выбрать</button>
                         </div>
                     </template>
                 </div>
@@ -90,7 +91,9 @@ export default {
     data() {
         return {
             RoutesIsExists: true,
+            user_id: null,
             routes: {
+                id: '',
                 carrier: '',
                 departure: '',
                 departure_date: this.$store.state.values.departure_date,
@@ -126,6 +129,7 @@ export default {
     },
     mounted() {
         this.GetRoutes();
+        this.userId();
     },
     methods: {
         GetRoutes() {
@@ -137,18 +141,29 @@ export default {
                     destination_city: this.$store.state.values.destination_city,
                     amount_people: this.$store.state.values.amount_people,
                     status_of_places: this.$store.state.values.status_of_places,
-                    // departure_city: this.routes.departure_city,
-                    // destination_city: this.routes.destination_city,
-                    // departure_date: this.routes.departure_date,
-                    // arrival_date: this.routes.arrival_date,
-                    // status_of_places: this.routes.status_of_places,
-                    // amount_people: this.routes.amount_people,
                 }
             })
                 .then(res => {
                     (res.data.length === 0) ? this.RoutesIsExists = false : this.RoutesIsExists = true
                     this.routes = res.data;
+                    console.log(res.data);
                 })
+        },
+        Booking(route_id){
+          api.post('/api/booking/create', {
+              user_id: this.user_id,
+              air_route_id: route_id,
+              confirm: true,
+          }).then(res => {
+              console.log(this.user_id);
+              console.log(route_id);
+          })
+        },
+        userId(){
+            api.post('/api/auth/me')
+                .then(res => {
+                    this.user_id = res.data.id;
+                });
         }
     }
 }
@@ -159,6 +174,12 @@ export default {
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
+
+    &__vendor-code {
+        position: absolute;
+        top: 10px;
+        left: 15px;
+    }
 
     &_ist_exists {
         height: 300px;
@@ -211,6 +232,7 @@ export default {
     }
 
     &__item {
+        position: relative;
         padding: 50px;
         height: 250px;
         background-color: #fff;
