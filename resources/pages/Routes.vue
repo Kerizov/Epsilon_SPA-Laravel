@@ -70,12 +70,12 @@
                                 </div>
                                 <div class="overlay" @click="isModalVisible = !isModalVisible"></div>
                             </div>
-                            <button @click="currentRouteId = route.id; isModalVisible = !isModalVisible" class="routes__item-select">Выбрать
+                            <button @click="currentRouteId = route.id; isModalVisible = !isModalVisible"
+                                    class="routes__item-select">Выбрать
                             </button>
                         </div>
                     </template>
                 </div>
-
                 <div class="routes_ist_exists" v-else>
                     <h1>К сожалению</h1>
                     <h1>по вашему запросу нет результатов!</h1>
@@ -245,10 +245,10 @@ export default {
     }
 
     &__item {
+        background-color: rgba(0, 0, 100, 0.05);
         position: relative;
         padding: 50px;
         height: 250px;
-        background-color: #fff;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         margin: 20px auto;
 
@@ -280,7 +280,7 @@ export default {
     }
 }
 
-.modal{
+.modal {
     &-wrapper {
         position: fixed;
         display: flex;
@@ -293,17 +293,20 @@ export default {
         background: rgba(0, 0, 0, .2);
         z-index: 100;
     }
+
     &-window {
         width: 500px;
         height: 180px;
         padding: 50px;
         background-color: #fff;
         z-index: 2;
-        & > p{
+
+        & > p {
             font-size: 18px;
         }
     }
-    &__button{
+
+    &__button {
         width: 150px;
         height: 40px;
         margin: 25px 20px;

@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes(['verify' => true]);
+
 //Authorization, logout and refreshing token
 Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
     Route::post('login', [AuthController::class, 'login']);
@@ -36,20 +37,25 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
 
     });
 });
+
 //Email verification
 Route::post('email/verification-notification', [EmailVerificationController::class, 'sendVerificationEmail'])->middleware('jwt.auth');
 Route::get('verify-email/{id}/{hash}', [EmailVerificationController::class, 'verify'])->middleware('jwt.auth')->name('verification.verify');
+
 //Adding and updating users
 Route::group(['namespace' => 'User', 'prefix' => 'users'], function () {
     Route::post('/', [StoreController::class, 'store'] );
     Route::post('/update', [UpdateController::class, 'update'] );
 });
+
 //Getting cities and statuses to search form
 Route::get('/city', [CityController::class, 'index']);
 Route::get('/status', [StatusController::class, 'index']);
+
 //Getting and filter air routes
 Route::get('/air_routes', [RouteController::class, 'index']);
 
+//Getting and editing booking
 Route::get('/booking', [BookingController::class, 'index']);
 Route::post('/booking/create', [BookingController::class, 'store']);
 Route::get('/booking/delete', [BookingController::class, 'delete']);

@@ -23,7 +23,8 @@
                                     </div>
                                 </template>
                                 <template v-else>
-                                    <div>
+                                    <div class="flex">
+                                        <div class="cabinet-link">Авторизация</div>
                                         <img src="../../images/user.svg" alt="">
                                     </div>
                                 </template>

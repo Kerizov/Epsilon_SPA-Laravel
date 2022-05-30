@@ -422,21 +422,21 @@ var _hoisted_39 = /*#__PURE__*/_withScopeId(function () {
 });
 
 var _hoisted_40 = {
-  "class": "d-flex"
+  "class": "cabinet-info__buttons"
 };
-var _hoisted_41 = {
-  "class": "routes__price"
-};
-var _hoisted_42 = ["onClick"];
+var _hoisted_41 = ["onClick"];
 
-var _hoisted_43 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_42 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     "class": "routes__item-select"
-  }, "Оплатить", -1
+  }, " Оплатить ", -1
   /* HOISTED */
   );
 });
 
+var _hoisted_43 = {
+  "class": "routes__price"
+};
 var _hoisted_44 = {
   "class": "cabinet-info__buttons"
 };
@@ -569,16 +569,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* TEXT */
     ), _hoisted_39, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(booking.destination_city), 1
     /* TEXT */
-    )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_40, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_41, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(booking.price) + " руб.", 1
-    /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_40, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
       onClick: function onClick($event) {
         return _ctx.DeleteBooking(booking.id);
       },
       "class": "routes__item-select"
-    }, "Отменить", 8
+    }, " Отменить ", 8
     /* PROPS */
-    , _hoisted_42), _hoisted_43])]);
+    , _hoisted_41), _hoisted_42, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_43, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(booking.price) + " руб.", 1
+    /* TEXT */
+    )])]);
   }), 128
   /* KEYED_FRAGMENT */
   )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_44, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -778,10 +778,19 @@ var _hoisted_10 = /*#__PURE__*/_withScopeId(function () {
 
 var _hoisted_11 = [_hoisted_9, _hoisted_10];
 var _hoisted_12 = {
-  key: 1
+  key: 1,
+  "class": "flex"
 };
 
 var _hoisted_13 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "cabinet-link"
+  }, "Авторизация", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_14 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     src: _images_user_svg__WEBPACK_IMPORTED_MODULE_2__["default"],
     alt: ""
@@ -790,38 +799,38 @@ var _hoisted_13 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_14 = [_hoisted_13];
-var _hoisted_15 = {
+var _hoisted_15 = [_hoisted_13, _hoisted_14];
+var _hoisted_16 = {
   "class": "mobile_buttons"
 };
-var _hoisted_16 = {
+var _hoisted_17 = {
   "class": "mob-menu_btn"
 };
-var _hoisted_17 = {
+var _hoisted_18 = {
   "class": "mob__menu-other"
 };
-var _hoisted_18 = {
+var _hoisted_19 = {
   "class": "mob-menu__list"
 };
-var _hoisted_19 = {
+var _hoisted_20 = {
   "class": "menu-list"
 };
 
-var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Главная");
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Главная");
 
-var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("О нас");
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("О нас");
 
-var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Контакты");
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Контакты");
 
-var _hoisted_23 = {
+var _hoisted_24 = {
   key: 0,
   "class": "cabinet-link__mob"
 };
-var _hoisted_24 = {
+var _hoisted_25 = {
   key: 1
 };
 
-var _hoisted_25 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_26 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     "class": "underline"
   }, "Авторизация", -1
@@ -829,7 +838,7 @@ var _hoisted_25 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_26 = [_hoisted_25];
+var _hoisted_27 = [_hoisted_26];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
@@ -889,14 +898,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [$data.AuthChecked ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_8, _hoisted_11)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_12, _hoisted_14))];
+      return [$data.AuthChecked ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_8, _hoisted_11)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_12, _hoisted_15))];
     }),
     _: 1
     /* STABLE */
 
   }, 8
   /* PROPS */
-  , ["to"])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  , ["to"])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return $data.isMobMenuVisible = !$data.isMobMenuVisible;
     }),
@@ -906,22 +915,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     name: "fade"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
         to: {
           name: 'home.index'
-        }
-      }, {
-        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_20];
-        }),
-        _: 1
-        /* STABLE */
-
-      }, 8
-      /* PROPS */
-      , ["to"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
-        to: {
-          name: 'home.about'
         }
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -934,7 +930,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , ["to"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
         to: {
-          name: 'home.contacts'
+          name: 'home.about'
         }
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -947,11 +943,24 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , ["to"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
         to: {
+          name: 'home.contacts'
+        }
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [_hoisted_23];
+        }),
+        _: 1
+        /* STABLE */
+
+      }, 8
+      /* PROPS */
+      , ["to"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+        to: {
           name: 'home.auth'
         }
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [$data.AuthChecked ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_23, "Личный кабинет")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_24, _hoisted_26))];
+          return [$data.AuthChecked ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_24, "Личный кабинет")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_25, _hoisted_27))];
         }),
         _: 1
         /* STABLE */
@@ -1301,7 +1310,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".cabinet-info[data-v-4e3a470b] {\n  max-width: 990px;\n  margin: 100px auto;\n}\n.cabinet-info-flex[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n}\n.cabinet-info__main[data-v-4e3a470b] {\n  width: 370px;\n}\n.cabinet-info__main-title[data-v-4e3a470b] {\n  font-size: 24px;\n}\n.cabinet-info__main-info-item[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 30px;\n  align-items: center;\n}\n.cabinet-info__main-info-item > .passport-input[data-v-4e3a470b] {\n  max-width: 270px;\n  display: flex;\n  justify-content: space-between;\n}\n.cabinet-info__main-info-item input[data-v-4e3a470b] {\n  width: 270px;\n  height: 30px;\n  border: 1px solid #ddd;\n  border-radius: 3px;\n  padding-left: 5px;\n  outline: none;\n}\n.cabinet-info__main-info-item input[data-v-4e3a470b]:focus {\n  background-color: #efefef;\n}\n.cabinet-info__main-info-item label[data-v-4e3a470b] {\n  margin-right: 10px;\n}\n.cabinet-info__legal[data-v-4e3a470b] {\n  max-width: 430px;\n}\n.cabinet-info__buttons[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n}\n.cabinet-info__btn[data-v-4e3a470b] {\n  width: 335px;\n  height: 45px;\n  border-radius: 5px;\n  padding-top: 11px;\n  margin-top: 20px;\n  border: none;\n  outline: none;\n  text-align: center;\n  float: right;\n  z-index: 1;\n}\n.routes__items[data-v-4e3a470b] {\n  text-align: center;\n  max-width: 800px;\n  margin: 0 auto;\n}\n.routes__vendor-code[data-v-4e3a470b] {\n  position: absolute;\n  top: 10px;\n  left: 15px;\n}\n.routes__item-up[data-v-4e3a470b], .routes__item-down[data-v-4e3a470b] {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr 1fr;\n  text-align: center;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.routes__title[data-v-4e3a470b] {\n  font-weight: bold;\n  padding-top: 20px;\n  font-size: 48px;\n}\n.routes > .container > .routes__inner > .orange-line[data-v-4e3a470b] {\n  margin: 20px auto;\n}\n.routes__text[data-v-4e3a470b] {\n  color: rgba(0, 0, 0, 0.5);\n  font-size: 18px;\n}\n.routes__form[data-v-4e3a470b] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.routes__form > .block + .block[data-v-4e3a470b] {\n  margin-left: 50px;\n}\n.routes__form input[data-v-4e3a470b], .routes__form select[data-v-4e3a470b] {\n  width: 200px;\n  height: 40px;\n  border: 1px solid transparent;\n  border-radius: 5px;\n  padding: 10px;\n  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);\n  outline: none;\n}\n.routes__item[data-v-4e3a470b] {\n  position: relative;\n  padding: 50px;\n  height: 280px;\n  background-color: #fff;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);\n  margin: 20px auto;\n}\n.routes__item-title[data-v-4e3a470b] {\n  padding: 10px;\n  font-size: 24px;\n}\n.routes__item > div[data-v-4e3a470b] {\n  align-items: center;\n  justify-content: flex-end;\n}\n.routes__item > div > button[data-v-4e3a470b] {\n  width: 180px;\n  height: 40px;\n  color: #fff;\n  margin: 20px;\n  background-color: #F7B903;\n  border-radius: 5px;\n  outline: none;\n  border: none;\n  padding: 5px;\n  font-size: 16px;\n}\n.routes__item > div > button[data-v-4e3a470b]:hover {\n  background-color: #b98a00;\n}\n.routes__price[data-v-4e3a470b] {\n  font-weight: bold;\n}\n.btn-disable[data-v-4e3a470b] {\n  border: 1px solid #6c757d;\n  color: #6c757d;\n  cursor: pointer;\n}\n.btn-disable[data-v-4e3a470b]:hover {\n  background-color: #5b6166;\n  color: #fff;\n}\n.passport-input-series[data-v-4e3a470b] {\n  width: 40% !important;\n  outline: none;\n}\n.passport-input-number[data-v-4e3a470b] {\n  width: 55% !important;\n  outline: none;\n}\n.update-success[data-v-4e3a470b], .update-failure[data-v-4e3a470b] {\n  -webkit-animation: update-anim-4e3a470b 3s forwards;\n          animation: update-anim-4e3a470b 3s forwards;\n  text-align: center;\n  width: 335px;\n  float: right;\n  margin-top: -10px;\n  padding: 5px;\n  color: black;\n  font-size: 16px;\n  display: block !important;\n  z-index: 0;\n}\n@-webkit-keyframes update-anim-4e3a470b {\n0% {\n    margin-top: -50px;\n    opacity: 0;\n}\n15% {\n    margin-top: -10px;\n    opacity: 1;\n}\n80% {\n    margin-top: -10px;\n    opacity: 1;\n}\n90% {\n    margin-top: -10px;\n    opacity: 0.1;\n}\n95% {\n    margin-top: -10px;\n    opacity: 0;\n}\n100% {\n    margin-top: -10px;\n    opacity: 0;\n}\n}\n@keyframes update-anim-4e3a470b {\n0% {\n    margin-top: -50px;\n    opacity: 0;\n}\n15% {\n    margin-top: -10px;\n    opacity: 1;\n}\n80% {\n    margin-top: -10px;\n    opacity: 1;\n}\n90% {\n    margin-top: -10px;\n    opacity: 0.1;\n}\n95% {\n    margin-top: -10px;\n    opacity: 0;\n}\n100% {\n    margin-top: -10px;\n    opacity: 0;\n}\n}\n.incorrect[data-v-4e3a470b] {\n  border-color: red;\n}\n.gray-line[data-v-4e3a470b] {\n  max-width: 990px;\n  margin: 30px auto;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".cabinet-info[data-v-4e3a470b] {\n  max-width: 990px;\n  margin: 100px auto;\n}\n.cabinet-info-flex[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n}\n.cabinet-info__main[data-v-4e3a470b] {\n  width: 370px;\n}\n.cabinet-info__main-title[data-v-4e3a470b] {\n  font-size: 24px;\n}\n.cabinet-info__main-info-item[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 30px;\n  align-items: center;\n}\n.cabinet-info__main-info-item > .passport-input[data-v-4e3a470b] {\n  max-width: 270px;\n  display: flex;\n  justify-content: space-between;\n}\n.cabinet-info__main-info-item input[data-v-4e3a470b] {\n  width: 270px;\n  height: 30px;\n  border: 1px solid #ddd;\n  border-radius: 3px;\n  padding-left: 5px;\n  outline: none;\n}\n.cabinet-info__main-info-item input[data-v-4e3a470b]:focus {\n  background-color: #efefef;\n}\n.cabinet-info__main-info-item label[data-v-4e3a470b] {\n  margin-right: 10px;\n}\n.cabinet-info__legal[data-v-4e3a470b] {\n  max-width: 430px;\n}\n.cabinet-info__buttons[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n}\n.cabinet-info__btn[data-v-4e3a470b] {\n  width: 335px;\n  height: 45px;\n  border-radius: 5px;\n  padding-top: 11px;\n  margin-top: 20px;\n  border: none;\n  outline: none;\n  text-align: center;\n  float: right;\n  z-index: 1;\n}\n.routes__items[data-v-4e3a470b] {\n  text-align: center;\n  max-width: 800px;\n  margin: 0 auto;\n}\n.routes__vendor-code[data-v-4e3a470b] {\n  position: absolute;\n  top: 10px;\n  left: 15px;\n}\n.routes__item-up[data-v-4e3a470b], .routes__item-down[data-v-4e3a470b] {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr 1fr;\n  text-align: center;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.routes__title[data-v-4e3a470b] {\n  font-weight: bold;\n  padding-top: 20px;\n  font-size: 48px;\n}\n.routes > .container > .routes__inner > .orange-line[data-v-4e3a470b] {\n  margin: 20px auto;\n}\n.routes__text[data-v-4e3a470b] {\n  color: rgba(0, 0, 0, 0.5);\n  font-size: 18px;\n}\n.routes__form[data-v-4e3a470b] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.routes__form > .block + .block[data-v-4e3a470b] {\n  margin-left: 50px;\n}\n.routes__form input[data-v-4e3a470b], .routes__form select[data-v-4e3a470b] {\n  width: 200px;\n  height: 40px;\n  border: 1px solid transparent;\n  border-radius: 5px;\n  padding: 10px;\n  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);\n  outline: none;\n}\n.routes__item[data-v-4e3a470b] {\n  background-color: rgba(0, 0, 100, 0.05);\n  position: relative;\n  padding: 50px;\n  height: 280px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);\n  margin: 20px auto;\n}\n.routes__item-title[data-v-4e3a470b] {\n  padding: 10px;\n  font-size: 24px;\n}\n.routes__item > div[data-v-4e3a470b] {\n  align-items: center;\n  justify-content: flex-end;\n}\n.routes__item > div > button[data-v-4e3a470b] {\n  width: 180px;\n  height: 40px;\n  color: #fff;\n  margin: 20px;\n  background-color: #F7B903;\n  border-radius: 5px;\n  outline: none;\n  border: none;\n  padding: 5px;\n  font-size: 16px;\n}\n.routes__item > div > button[data-v-4e3a470b]:hover {\n  background-color: #b98a00;\n}\n.routes__price[data-v-4e3a470b] {\n  font-weight: bold;\n}\n.btn-disable[data-v-4e3a470b] {\n  border: 1px solid #6c757d;\n  color: #6c757d;\n  cursor: pointer;\n}\n.btn-disable[data-v-4e3a470b]:hover {\n  background-color: #5b6166;\n  color: #fff;\n}\n.passport-input-series[data-v-4e3a470b] {\n  width: 40% !important;\n  outline: none;\n}\n.passport-input-number[data-v-4e3a470b] {\n  width: 55% !important;\n  outline: none;\n}\n.update-success[data-v-4e3a470b], .update-failure[data-v-4e3a470b] {\n  -webkit-animation: update-anim-4e3a470b 3s forwards;\n          animation: update-anim-4e3a470b 3s forwards;\n  text-align: center;\n  width: 335px;\n  float: right;\n  margin-top: -10px;\n  padding: 5px;\n  color: black;\n  font-size: 16px;\n  display: block !important;\n  z-index: 0;\n}\n@-webkit-keyframes update-anim-4e3a470b {\n0% {\n    margin-top: -50px;\n    opacity: 0;\n}\n15% {\n    margin-top: -10px;\n    opacity: 1;\n}\n80% {\n    margin-top: -10px;\n    opacity: 1;\n}\n90% {\n    margin-top: -10px;\n    opacity: 0.1;\n}\n95% {\n    margin-top: -10px;\n    opacity: 0;\n}\n100% {\n    margin-top: -10px;\n    opacity: 0;\n}\n}\n@keyframes update-anim-4e3a470b {\n0% {\n    margin-top: -50px;\n    opacity: 0;\n}\n15% {\n    margin-top: -10px;\n    opacity: 1;\n}\n80% {\n    margin-top: -10px;\n    opacity: 1;\n}\n90% {\n    margin-top: -10px;\n    opacity: 0.1;\n}\n95% {\n    margin-top: -10px;\n    opacity: 0;\n}\n100% {\n    margin-top: -10px;\n    opacity: 0;\n}\n}\n.incorrect[data-v-4e3a470b] {\n  border-color: red;\n}\n.gray-line[data-v-4e3a470b] {\n  max-width: 990px;\n  margin: 30px auto;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1397,7 +1406,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/arrow-2.svg?be9d3afd68cea88c959a4eb264647808");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/arrow-2.svg?a1989cd7cde4ab351e09a8c09f386a60");
 
 /***/ }),
 
