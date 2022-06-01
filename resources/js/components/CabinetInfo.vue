@@ -86,10 +86,14 @@
                             {{ booking.destination_city }}
                         </div>
                     </div>
-                    <div class="d-flex">
+                    <div class="cabinet-info__buttons">
+                        <button @click="DeleteBooking(booking.id)" class="routes__item-select">
+                            Отменить
+                        </button>
+                        <button class="routes__item-select">
+                            Оплатить
+                        </button>
                         <div class="routes__price">{{ booking.price }} руб.</div>
-                        <button @click="DeleteBooking(booking.id)" class="routes__item-select">Отменить</button>
-                        <button class="routes__item-select">Оплатить</button>
                     </div>
 
                 </div>
@@ -284,16 +288,15 @@ export default {
             padding: 10px;
             box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
             outline: none;
-
-
         }
     }
 
     &__item {
+        background-color: rgba(0, 0, 100, 0.05);
+        border: 1px solid rgba(0,0,0,0.25);
         position: relative;
         padding: 50px;
         height: 280px;
-        background-color: #fff;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         margin: 20px auto;
 
@@ -322,6 +325,8 @@ export default {
             & > button:hover {
                 background-color: #b98a00;
             }
+
+
         }
     }
 

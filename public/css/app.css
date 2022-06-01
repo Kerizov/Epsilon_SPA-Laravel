@@ -11511,17 +11511,26 @@ textarea.form-control-lg {
     display: grid !important;
     grid-template-columns: 1fr !important;
   }
-  .routes__item-down {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-  }
-  .routes__item > div > div {
+  .routes__item-up > div {
     border-bottom: 1px solid rgba(0, 0, 0, 0.3803921569) !important;
     height: 50px !important;
     text-align: left !important;
     padding-top: 5px !important;
   }
-  .routes__item > div > div img {
+  .routes__item-up > div img {
+    display: none !important;
+  }
+  .routes__item-down {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+  .routes__item-down > div {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3803921569) !important;
+    height: 50px !important;
+    text-align: left !important;
+    padding-top: 5px !important;
+  }
+  .routes__item-down > div img {
     display: none !important;
   }
 
@@ -11598,6 +11607,11 @@ textarea.form-control-lg {
     max-width: 350px !important;
   }
 
+  .modal__button {
+    margin: 10px 15px !important;
+    width: 120px !important;
+  }
+
   .cabinet-info__main {
     display: block !important;
     margin: 0 auto !important;
@@ -11655,5 +11669,10 @@ textarea.form-control-lg {
 
   .auth-form__btn, .auth-form-mob__btn {
     font-size: 20px !important;
+  }
+}
+@media (max-width: 360px) {
+  .modal-window {
+    padding: 25px 15px !important;
   }
 }

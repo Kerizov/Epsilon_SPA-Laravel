@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Май 15 2022 г., 14:24
+-- Время создания: Май 30 2022 г., 22:38
 -- Версия сервера: 10.4.24-MariaDB
 -- Версия PHP: 8.1.4
 
@@ -79,6 +79,27 @@ INSERT INTO `air_routes` (`id`, `carrier`, `departure`, `departure_city`, `time`
 (35, 'Delta airline', '12:30 CIU', 'Солт Сте Мари', '5 часа 20 минут', '17:50 SVO', 'Москва', '2022-05-18', '2022-05-17', 'Бизнес', 25, '17 500', NULL, NULL),
 (36, 'Delta airline', '13:30 CIU', 'Солт Сте Мари', '5 часа 20 минут', '18:50 SVO', 'Москва', '2022-05-18', '2022-05-17', 'Люкс', 25, '32 800', NULL, NULL),
 (37, 'Delta airline', '15:30 CIU', 'Солт Сте Мари', '5 часа 20 минут', '20:50 SVO', 'Москва', '2022-05-18', '2022-05-17', 'Люкс', 25, '31 800', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `bookings`
+--
+
+CREATE TABLE `bookings` (
+                            `user_id` int(11) NOT NULL,
+                            `air_route_id` int(11) NOT NULL,
+                            `confirm` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Дамп данных таблицы `bookings`
+--
+
+INSERT INTO `bookings` (`user_id`, `air_route_id`, `confirm`) VALUES
+(147, 1, 0),
+(139, 19, 1),
+(152, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -272,8 +293,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `firstname`, `lastname`, `phone_number`, `passport_series`, `passport_number`, `inn`, `mail_index`, `address`, `password`, `email_verified_at`, `role_id`, `created_at`, `updated_at`) VALUES
-(62, 'stepanok2200@gmail.com', 'Степан', 'Коротаев', NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$giS3xCg8OGA/vNBY.GwKDOsjr94dDs7GuLGkjE6It2JQr905uqwz2', '2022-05-02 13:39:43', NULL, '2022-05-02 08:08:58', '2022-05-02 13:39:43'),
-(139, 'stepanok980@gmail.com', 'Степан', 'Коротаев', '79773459983', '8989', '234546', '198354981651', '107497', 'ул. Новосибирская, д. 4', '$2y$10$ND2Kzgi.fy0btGhKKe4Zu.UCyO05mLS.AVQNWAQDpgLttlBqYnh4W', NULL, NULL, '2022-05-14 05:12:25', '2022-05-15 09:11:06');
+(139, 'someMail@gmail.com', 'Степан', 'Коротаев', '+79773459983', '5555', '555555', '555555555555', '555555', 'ул. Тверская, д 6', '$2y$10$ND2Kzgi.fy0btGhKKe4Zu.UCyO05mLS.AVQNWAQDpgLttlBqYnh4W', NULL, NULL, '2022-05-14 05:12:25', '2022-05-29 15:11:47'),
+(141, 'epsilon@gmail.com', 'Администратор', 'Главный', '+77777777777', '6666', '666666', '666666666666', '666666', 'не скажу', '$2y$10$o.yHJpXBHuLW243kX53FMOvACOV3UtE4zs1izgUscfBUHwfP094c.', NULL, NULL, '2022-05-17 17:03:32', '2022-05-22 15:32:30'),
+(147, 'stepanok2200@gmail.com', 'Степан', 'Коротаев', NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$BypQ6sfzAMf831yWfYuc6uXCS7dXWADcbsyQe5FbPDi7priUPBGCu', NULL, NULL, '2022-05-23 17:49:56', '2022-05-23 17:49:56'),
+(152, 'stepanok980@gmail.com', 'Степан', 'Коротаев', NULL, NULL, NULL, NULL, NULL, NULL, '$2y$10$lEYvtNsdF5TNryLADHEnYu5cMA5eErZ5R9JdSKW5Rd3I4za1d.apy', NULL, NULL, '2022-05-30 03:49:41', '2022-05-30 03:49:41');
 
 --
 -- Индексы сохранённых таблиц
@@ -399,5 +422,5 @@ ALTER TABLE `statuses`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-    MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
+    MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
 COMMIT;

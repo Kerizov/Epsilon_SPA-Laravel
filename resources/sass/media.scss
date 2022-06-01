@@ -255,22 +255,32 @@
         &-up {
             display: grid !important;
             grid-template-columns: 1fr !important;
+
+            & > div {
+                border-bottom: 1px solid #00000061 !important;
+                height: 50px !important;
+                text-align: left !important;
+                padding-top: 5px !important;
+
+                & img {
+                    display: none !important;
+                }
+            }
         }
 
         &-down {
             display: grid !important;
             grid-template-columns: 1fr !important;
 
-        }
+            & > div {
+                border-bottom: 1px solid #00000061 !important;
+                height: 50px !important;
+                text-align: left !important;
+                padding-top: 5px !important;
 
-        & > div > div {
-            border-bottom: 1px solid #00000061 !important;
-            height: 50px !important;
-            text-align: left !important;
-            padding-top: 5px !important;
-
-            & img {
-                display: none !important;
+                & img {
+                    display: none !important;
+                }
             }
         }
     }
@@ -341,10 +351,17 @@
     .news__item img {
         max-width: 350px !important;
     }
+    .modal {
+        &__button {
+            margin: 10px 15px !important;
+            width: 120px !important;
+        }
+    }
     .cabinet-info {
-        &__main{
+        &__main {
             display: block !important;
             margin: 0 auto !important;
+
             &-info {
                 &-item {
                     display: block !important;
@@ -358,12 +375,14 @@
                 }
             }
         }
-        &__legal{
+
+        &__legal {
             max-width: 270px !important;
             display: block !important;
             margin: 0 auto !important;
         }
-        &__btn{
+
+        &__btn {
             font-size: 14px !important;
             padding-top: 13px !important;
         }
@@ -398,14 +417,22 @@
             font-size: 13px !important;
         }
     }
-    .routes__form input,.routes__form select{
+    .routes__form input, .routes__form select {
         font-size: 14px !important;
         width: 60vw !important;
     }
-    .auth-form__btn, .auth-form-mob__btn{
+    .auth-form__btn, .auth-form-mob__btn {
         font-size: 20px !important;
     }
 
+}
+
+@media (max-width: 360px) {
+    .modal {
+        &-window {
+            padding: 25px 15px !important;
+        }
+    }
 }
 
 
