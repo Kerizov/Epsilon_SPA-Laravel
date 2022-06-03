@@ -1,8 +1,9 @@
 <template>
     <div class="auth-form__sign-up">
         <div class="auth-form__title">Регистрация</div>
-        <label v-if="!isWrongLogin" for="reg-login">Логин</label>
-        <label v-else class="validation-error" for="reg-login">Введите корректный email</label>
+        <label v-if="(!isWrongLogin && !emailIsAlreadyExists)" for="reg-login">Логин</label>
+        <label v-if="emailIsAlreadyExists" class="validation-error" for="reg-login">Такой Email уже существует!</label>
+        <label v-if="(isWrongLogin && !emailIsAlreadyExists)" class="validation-error" for="reg-login">Введите корректный email</label>
         <UiInput
             type="email"
             id="reg-login"
@@ -73,6 +74,7 @@ export default {
             isWrongPasswordConf: false,
             isWrongPassword: false,
             isWrongLogin: false,
+            emailIsAlreadyExists: false,
             isWrongLastname: false,
             isWrongFirstname: false,
         }
@@ -90,8 +92,17 @@ export default {
                     password: this.password,
                     password_confirmation: this.password_confirmation
                 }).then(res => {
-                    localStorage.setItem('access_token', res.data.access_token);
-                    this.$router.push('/');
+                    console.log(res);
+                    if(res.data.message === 'Такая почта уже занята!'){
+                        this.emailIsAlreadyExists = true;
+                        console.log('error');
+                    }else if(res.data.message === 'The email must be a valid email address.'){
+                        console.log('error email');
+                    }else{
+                        localStorage.setItem('access_token', res.data.access_token);
+                        this.$router.push('/');
+                    }
+                    // console.log(res.data.message)
                 })
             } else {
                 if (this.password !== this.password_confirmation) this.isWrongPasswordConf = true;

@@ -178,6 +178,7 @@ __webpack_require__.r(__webpack_exports__);
       isWrongPasswordConf: false,
       isWrongPassword: false,
       isWrongLogin: false,
+      emailIsAlreadyExists: false,
       isWrongLastname: false,
       isWrongFirstname: false
     };
@@ -195,9 +196,19 @@ __webpack_require__.r(__webpack_exports__);
           password: this.password,
           password_confirmation: this.password_confirmation
         }).then(function (res) {
-          localStorage.setItem('access_token', res.data.access_token);
+          console.log(res);
 
-          _this.$router.push('/');
+          if (res.data.message === 'Такая почта уже занята!') {
+            _this.emailIsAlreadyExists = true;
+            console.log('error');
+          } else if (res.data.message === 'The email must be a valid email address.') {
+            console.log('error email');
+          } else {
+            localStorage.setItem('access_token', res.data.access_token);
+
+            _this.$router.push('/');
+          } // console.log(res.data.message)
+
         });
       } else {
         if (this.password !== this.password_confirmation) this.isWrongPasswordConf = true;
@@ -859,44 +870,49 @@ var _hoisted_4 = {
 };
 var _hoisted_5 = {
   key: 2,
-  "for": "lastname"
+  "class": "validation-error",
+  "for": "reg-login"
 };
 var _hoisted_6 = {
   key: 3,
-  "class": "validation-error",
-  "for": "reg-login"
+  "for": "lastname"
 };
 var _hoisted_7 = {
   key: 4,
-  "for": "firstname"
-};
-var _hoisted_8 = {
-  key: 5,
   "class": "validation-error",
   "for": "reg-login"
 };
+var _hoisted_8 = {
+  key: 5,
+  "for": "firstname"
+};
 var _hoisted_9 = {
   key: 6,
-  "for": "reg-pass"
+  "class": "validation-error",
+  "for": "reg-login"
 };
 var _hoisted_10 = {
   key: 7,
-  "class": "validation-error",
   "for": "reg-pass"
 };
 var _hoisted_11 = {
   key: 8,
-  "for": "reg-pass-repeat"
+  "class": "validation-error",
+  "for": "reg-pass"
 };
 var _hoisted_12 = {
   key: 9,
+  "for": "reg-pass-repeat"
+};
+var _hoisted_13 = {
+  key: 10,
   "class": "validation-error",
   "for": "reg-pass-repeat"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_UiInput = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("UiInput");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, !$data.isWrongLogin ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_3, "Логин")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_4, "Введите корректный email")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, !$data.isWrongLogin && !$data.emailIsAlreadyExists ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_3, "Логин")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.emailIsAlreadyExists ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_4, "Такой Email уже существует!")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.isWrongLogin && !$data.emailIsAlreadyExists ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_5, "Введите корректный email")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
     type: "email",
     id: "reg-login",
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)($data.isWrongLogin ? 'validation-error-input' : ''),
@@ -907,7 +923,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     placeholder: "Email"
   }, null, 8
   /* PROPS */
-  , ["class", "modelValue"]), !$data.isWrongLastname ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_5, "Фамилия")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_6, "Введите корректно фамилию")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
+  , ["class", "modelValue"]), !$data.isWrongLastname ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_6, "Фамилия")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_7, "Введите корректно фамилию")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
     id: "lastname",
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)($data.isWrongLastname ? 'validation-error-input' : ''),
     modelValue: $data.lastname,
@@ -917,7 +933,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     placeholder: "Латинскими буквами"
   }, null, 8
   /* PROPS */
-  , ["class", "modelValue"]), !$data.isWrongFirstname ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_7, "Имя")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_8, "Введите корректно имя")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
+  , ["class", "modelValue"]), !$data.isWrongFirstname ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_8, "Имя")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_9, "Введите корректно имя")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
     id: "firstname",
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)($data.isWrongFirstname ? 'validation-error-input' : ''),
     modelValue: $data.firstname,
@@ -927,7 +943,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     placeholder: "Латинскими буквами"
   }, null, 8
   /* PROPS */
-  , ["class", "modelValue"]), !$data.isWrongPasswordConf ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_9, "Пароль")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_10, "Пароли не совпадают")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
+  , ["class", "modelValue"]), !$data.isWrongPasswordConf ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_10, "Пароль")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_11, "Пароли не совпадают")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
     type: "password",
     id: "reg-pass",
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)($data.isWrongPasswordConf ? 'validation-error-input' : ''),
@@ -938,7 +954,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     placeholder: "Пароль"
   }, null, 8
   /* PROPS */
-  , ["class", "modelValue"]), !$data.isWrongPasswordConf ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_11, "Повтор пароля")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_12, "Пароли не совпадают")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
+  , ["class", "modelValue"]), !$data.isWrongPasswordConf ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_12, "Повтор пароля")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_13, "Пароли не совпадают")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
     type: "password",
     id: "reg-pass-repeat",
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)($data.isWrongPasswordConf ? 'validation-error-input' : ''),
