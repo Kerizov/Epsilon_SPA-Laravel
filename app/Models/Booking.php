@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Booking extends Model
 {
+//    protected $primaryKey = 'id';
     protected $guarded = false;
     public $timestamps = false;
     use HasFactory;

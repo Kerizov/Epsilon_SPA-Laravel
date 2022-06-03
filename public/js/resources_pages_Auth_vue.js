@@ -778,7 +778,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "for": "login"
   }, "Логин", 2
   /* CLASS */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("        <label v-else class=\"unauthorized-error\" for=\"login\">Логин</label>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
     id: "login",
     modelValue: $data.email,
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
@@ -793,7 +793,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "for": "pass"
   }, "Пароль", 2
   /* CLASS */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("        <label v-else class=\"unauthorized-error\" for=\"pass\">Пароль</label>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
     type: "password",
     id: "pass",
     modelValue: $data.password,

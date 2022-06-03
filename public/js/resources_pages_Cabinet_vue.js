@@ -374,22 +374,22 @@ var _hoisted_27 = /*#__PURE__*/_withScopeId(function () {
 });
 
 var _hoisted_28 = {
-  "class": "routes__items"
+  "class": "bookings__items"
 };
 var _hoisted_29 = {
-  "class": "routes__vendor-code"
+  "class": "bookings__vendor-code"
 };
 
-var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"routes__item-up\" data-v-4e3a470b><div class=\"routes__air-company-name\" data-v-4e3a470b><strong data-v-4e3a470b>Перевозчик</strong></div><div class=\"routes__air-company-depart\" data-v-4e3a470b><strong data-v-4e3a470b>Вылет</strong></div><div class=\"routes__air-company-time\" data-v-4e3a470b><strong data-v-4e3a470b><p data-v-4e3a470b>Время в пути</p></strong></div><div class=\"routes__air-company-return\" data-v-4e3a470b><strong data-v-4e3a470b>Прилет</strong></div></div><div class=\"gray-line\" data-v-4e3a470b></div>", 2);
+var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"bookings__item-up\" data-v-4e3a470b><div class=\"bookings__air-company-name\" data-v-4e3a470b><strong data-v-4e3a470b>Перевозчик</strong></div><div class=\"bookings__air-company-depart\" data-v-4e3a470b><strong data-v-4e3a470b>Вылет</strong></div><div class=\"bookings__air-company-time\" data-v-4e3a470b><strong data-v-4e3a470b><p data-v-4e3a470b>Время в пути</p></strong></div><div class=\"bookings__air-company-return\" data-v-4e3a470b><strong data-v-4e3a470b>Прилет</strong></div></div><div class=\"gray-line\" data-v-4e3a470b></div>", 2);
 
 var _hoisted_32 = {
-  "class": "routes__item-down"
+  "class": "bookings__item-down"
 };
 var _hoisted_33 = {
-  "class": "routes__air-company-name"
+  "class": "bookings__air-company-name"
 };
 var _hoisted_34 = {
-  "class": "routes__air-company-depart"
+  "class": "bookings__air-company-depart"
 };
 
 var _hoisted_35 = /*#__PURE__*/_withScopeId(function () {
@@ -399,7 +399,7 @@ var _hoisted_35 = /*#__PURE__*/_withScopeId(function () {
 });
 
 var _hoisted_36 = {
-  "class": "routes__air-company-time"
+  "class": "bookings__air-company-time"
 };
 
 var _hoisted_37 = /*#__PURE__*/_withScopeId(function () {
@@ -412,7 +412,7 @@ var _hoisted_37 = /*#__PURE__*/_withScopeId(function () {
 });
 
 var _hoisted_38 = {
-  "class": "routes__air-company-return"
+  "class": "bookings__air-company-return"
 };
 
 var _hoisted_39 = /*#__PURE__*/_withScopeId(function () {
@@ -428,14 +428,17 @@ var _hoisted_41 = ["onClick"];
 
 var _hoisted_42 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    "class": "routes__item-select"
+    "class": "bookings__item-select",
+    style: {
+      "background-color": "#97CA2B"
+    }
   }, " Оплатить ", -1
   /* HOISTED */
   );
 });
 
 var _hoisted_43 = {
-  "class": "routes__price"
+  "class": "booking__price"
 };
 var _hoisted_44 = {
   "class": "cabinet-info__buttons"
@@ -553,7 +556,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     key: 0
   }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.bookings, function (booking) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-      "class": "routes__item",
+      "class": "bookings__item",
       key: booking.id
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", _hoisted_29, "рейс #" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(booking.id), 1
     /* TEXT */
@@ -573,7 +576,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       onClick: function onClick($event) {
         return _ctx.DeleteBooking(booking.id);
       },
-      "class": "routes__item-select"
+      "class": "bookings__item-select",
+      style: {
+        "background-color": "#6C757D"
+      }
     }, " Отменить ", 8
     /* PROPS */
     , _hoisted_41), _hoisted_42, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_43, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(booking.price) + " руб.", 1
@@ -1310,7 +1316,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".cabinet-info[data-v-4e3a470b] {\n  max-width: 990px;\n  margin: 100px auto;\n}\n.cabinet-info-flex[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n}\n.cabinet-info__main[data-v-4e3a470b] {\n  width: 370px;\n}\n.cabinet-info__main-title[data-v-4e3a470b] {\n  font-size: 24px;\n}\n.cabinet-info__main-info-item[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 30px;\n  align-items: center;\n}\n.cabinet-info__main-info-item > .passport-input[data-v-4e3a470b] {\n  max-width: 270px;\n  display: flex;\n  justify-content: space-between;\n}\n.cabinet-info__main-info-item input[data-v-4e3a470b] {\n  width: 270px;\n  height: 30px;\n  border: 1px solid #ddd;\n  border-radius: 3px;\n  padding-left: 5px;\n  outline: none;\n}\n.cabinet-info__main-info-item input[data-v-4e3a470b]:focus {\n  background-color: #efefef;\n}\n.cabinet-info__main-info-item label[data-v-4e3a470b] {\n  margin-right: 10px;\n}\n.cabinet-info__legal[data-v-4e3a470b] {\n  max-width: 430px;\n}\n.cabinet-info__buttons[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n}\n.cabinet-info__btn[data-v-4e3a470b] {\n  width: 335px;\n  height: 45px;\n  border-radius: 5px;\n  padding-top: 11px;\n  margin-top: 20px;\n  border: none;\n  outline: none;\n  text-align: center;\n  float: right;\n  z-index: 1;\n}\n.routes__items[data-v-4e3a470b] {\n  text-align: center;\n  max-width: 800px;\n  margin: 0 auto;\n}\n.routes__vendor-code[data-v-4e3a470b] {\n  position: absolute;\n  top: 10px;\n  left: 15px;\n}\n.routes__item-up[data-v-4e3a470b], .routes__item-down[data-v-4e3a470b] {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr 1fr;\n  text-align: center;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.routes__title[data-v-4e3a470b] {\n  font-weight: bold;\n  padding-top: 20px;\n  font-size: 48px;\n}\n.routes > .container > .routes__inner > .orange-line[data-v-4e3a470b] {\n  margin: 20px auto;\n}\n.routes__text[data-v-4e3a470b] {\n  color: rgba(0, 0, 0, 0.5);\n  font-size: 18px;\n}\n.routes__form[data-v-4e3a470b] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.routes__form > .block + .block[data-v-4e3a470b] {\n  margin-left: 50px;\n}\n.routes__form input[data-v-4e3a470b], .routes__form select[data-v-4e3a470b] {\n  width: 200px;\n  height: 40px;\n  border: 1px solid transparent;\n  border-radius: 5px;\n  padding: 10px;\n  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);\n  outline: none;\n}\n.routes__item[data-v-4e3a470b] {\n  background-color: rgba(0, 0, 100, 0.05);\n  border: 1px solid rgba(0, 0, 0, 0.25);\n  position: relative;\n  padding: 50px;\n  height: 280px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);\n  margin: 20px auto;\n}\n.routes__item-title[data-v-4e3a470b] {\n  padding: 10px;\n  font-size: 24px;\n}\n.routes__item > div[data-v-4e3a470b] {\n  align-items: center;\n  justify-content: flex-end;\n}\n.routes__item > div > button[data-v-4e3a470b] {\n  width: 180px;\n  height: 40px;\n  color: #fff;\n  margin: 20px;\n  background-color: #F7B903;\n  border-radius: 5px;\n  outline: none;\n  border: none;\n  padding: 5px;\n  font-size: 16px;\n}\n.routes__item > div > button[data-v-4e3a470b]:hover {\n  background-color: #b98a00;\n}\n.routes__price[data-v-4e3a470b] {\n  font-weight: bold;\n}\n.btn-disable[data-v-4e3a470b] {\n  border: 1px solid #6c757d;\n  color: #6c757d;\n  cursor: pointer;\n}\n.btn-disable[data-v-4e3a470b]:hover {\n  background-color: #5b6166;\n  color: #fff;\n}\n.passport-input-series[data-v-4e3a470b] {\n  width: 40% !important;\n  outline: none;\n}\n.passport-input-number[data-v-4e3a470b] {\n  width: 55% !important;\n  outline: none;\n}\n.update-success[data-v-4e3a470b], .update-failure[data-v-4e3a470b] {\n  -webkit-animation: update-anim-4e3a470b 3s forwards;\n          animation: update-anim-4e3a470b 3s forwards;\n  text-align: center;\n  width: 335px;\n  float: right;\n  margin-top: -10px;\n  padding: 5px;\n  color: black;\n  font-size: 16px;\n  display: block !important;\n  z-index: 0;\n}\n@-webkit-keyframes update-anim-4e3a470b {\n0% {\n    margin-top: -50px;\n    opacity: 0;\n}\n15% {\n    margin-top: -10px;\n    opacity: 1;\n}\n80% {\n    margin-top: -10px;\n    opacity: 1;\n}\n90% {\n    margin-top: -10px;\n    opacity: 0.1;\n}\n95% {\n    margin-top: -10px;\n    opacity: 0;\n}\n100% {\n    margin-top: -10px;\n    opacity: 0;\n}\n}\n@keyframes update-anim-4e3a470b {\n0% {\n    margin-top: -50px;\n    opacity: 0;\n}\n15% {\n    margin-top: -10px;\n    opacity: 1;\n}\n80% {\n    margin-top: -10px;\n    opacity: 1;\n}\n90% {\n    margin-top: -10px;\n    opacity: 0.1;\n}\n95% {\n    margin-top: -10px;\n    opacity: 0;\n}\n100% {\n    margin-top: -10px;\n    opacity: 0;\n}\n}\n.incorrect[data-v-4e3a470b] {\n  border-color: red;\n}\n.gray-line[data-v-4e3a470b] {\n  max-width: 990px;\n  margin: 30px auto;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".cabinet-info[data-v-4e3a470b] {\n  max-width: 990px;\n  margin: 100px auto;\n}\n.cabinet-info-flex[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n}\n.cabinet-info__main[data-v-4e3a470b] {\n  width: 370px;\n}\n.cabinet-info__main-title[data-v-4e3a470b] {\n  font-size: 24px;\n}\n.cabinet-info__main-info-item[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 30px;\n  align-items: center;\n}\n.cabinet-info__main-info-item > .passport-input[data-v-4e3a470b] {\n  max-width: 270px;\n  display: flex;\n  justify-content: space-between;\n}\n.cabinet-info__main-info-item input[data-v-4e3a470b] {\n  width: 270px;\n  height: 30px;\n  border: 1px solid #ddd;\n  border-radius: 3px;\n  padding-left: 5px;\n  outline: none;\n}\n.cabinet-info__main-info-item input[data-v-4e3a470b]:focus {\n  background-color: #efefef;\n}\n.cabinet-info__main-info-item label[data-v-4e3a470b] {\n  margin-right: 10px;\n}\n.cabinet-info__legal[data-v-4e3a470b] {\n  max-width: 430px;\n}\n.cabinet-info__buttons[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n}\n.cabinet-info__btn[data-v-4e3a470b] {\n  width: 335px;\n  height: 45px;\n  border-radius: 5px;\n  padding-top: 11px;\n  margin-top: 20px;\n  border: none;\n  outline: none;\n  text-align: center;\n  float: right;\n  z-index: 1;\n}\n.bookings__items[data-v-4e3a470b] {\n  text-align: center;\n  max-width: 800px;\n  margin: 0 auto;\n}\n.bookings__vendor-code[data-v-4e3a470b] {\n  position: absolute;\n  top: 10px;\n  left: 15px;\n}\n.bookings__item-up[data-v-4e3a470b], .bookings__item-down[data-v-4e3a470b] {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr 1fr;\n  text-align: center;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.bookings__title[data-v-4e3a470b] {\n  font-weight: bold;\n  padding-top: 20px;\n  font-size: 48px;\n}\n.bookings > .container > .routes__inner > .orange-line[data-v-4e3a470b] {\n  margin: 20px auto;\n}\n.bookings__text[data-v-4e3a470b] {\n  color: rgba(0, 0, 0, 0.5);\n  font-size: 18px;\n}\n.bookings__form[data-v-4e3a470b] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.bookings__form > .block + .block[data-v-4e3a470b] {\n  margin-left: 50px;\n}\n.bookings__form input[data-v-4e3a470b], .bookings__form select[data-v-4e3a470b] {\n  width: 200px;\n  height: 40px;\n  border: 1px solid transparent;\n  border-radius: 5px;\n  padding: 10px;\n  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);\n  outline: none;\n}\n.bookings__item[data-v-4e3a470b] {\n  background-color: rgba(0, 0, 100, 0.05);\n  border: 1px solid rgba(0, 0, 0, 0.25);\n  position: relative;\n  padding: 50px;\n  height: 280px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);\n  margin: 20px auto;\n}\n.bookings__item-title[data-v-4e3a470b] {\n  padding: 10px;\n  font-size: 24px;\n}\n.bookings__item > div[data-v-4e3a470b] {\n  align-items: center;\n  justify-content: flex-end;\n}\n.bookings__item > div > button[data-v-4e3a470b] {\n  width: 180px;\n  height: 40px;\n  color: #fff;\n  margin: 20px auto;\n  border-radius: 5px;\n  outline: none;\n  border: none;\n  padding: 5px;\n  font-size: 16px;\n}\n.bookings__item > div > button[data-v-4e3a470b]:hover {\n  background-color: #b98a00;\n}\n.bookings__price[data-v-4e3a470b] {\n  font-weight: bold;\n}\n.btn-disable[data-v-4e3a470b] {\n  border: 1px solid #6c757d;\n  color: #6c757d;\n  cursor: pointer;\n}\n.btn-disable[data-v-4e3a470b]:hover {\n  background-color: #5b6166;\n  color: #fff;\n}\n.passport-input-series[data-v-4e3a470b] {\n  width: 40% !important;\n  outline: none;\n}\n.passport-input-number[data-v-4e3a470b] {\n  width: 55% !important;\n  outline: none;\n}\n.update-success[data-v-4e3a470b], .update-failure[data-v-4e3a470b] {\n  -webkit-animation: update-anim-4e3a470b 3s forwards;\n          animation: update-anim-4e3a470b 3s forwards;\n  text-align: center;\n  width: 335px;\n  float: right;\n  margin-top: -10px;\n  padding: 5px;\n  color: black;\n  font-size: 16px;\n  display: block !important;\n  z-index: 0;\n}\n@-webkit-keyframes update-anim-4e3a470b {\n0% {\n    margin-top: -50px;\n    opacity: 0;\n}\n15% {\n    margin-top: -10px;\n    opacity: 1;\n}\n80% {\n    margin-top: -10px;\n    opacity: 1;\n}\n90% {\n    margin-top: -10px;\n    opacity: 0.1;\n}\n95% {\n    margin-top: -10px;\n    opacity: 0;\n}\n100% {\n    margin-top: -10px;\n    opacity: 0;\n}\n}\n@keyframes update-anim-4e3a470b {\n0% {\n    margin-top: -50px;\n    opacity: 0;\n}\n15% {\n    margin-top: -10px;\n    opacity: 1;\n}\n80% {\n    margin-top: -10px;\n    opacity: 1;\n}\n90% {\n    margin-top: -10px;\n    opacity: 0.1;\n}\n95% {\n    margin-top: -10px;\n    opacity: 0;\n}\n100% {\n    margin-top: -10px;\n    opacity: 0;\n}\n}\n.incorrect[data-v-4e3a470b] {\n  border-color: red;\n}\n.gray-line[data-v-4e3a470b] {\n  max-width: 990px;\n  margin: 30px auto;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

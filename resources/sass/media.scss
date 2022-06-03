@@ -103,7 +103,7 @@
 }
 
 @media (min-width: 850px) {
-    .mob__menu, .mobile_buttons {
+    .mob__menu,.mob__menu-other,.mobile_buttons {
         display: none !important;
     }
 }
@@ -218,10 +218,14 @@
 @media (max-width: 670px) {
     .cabinet-info {
         &__buttons {
-            display: grid !important;
-            max-width: 400px !important;
-            margin: 0 auto !important;
-            justify-content: center !important;
+            //display: grid !important;
+            //max-width: 400px !important;
+            //margin: 0 auto !important;
+            justify-content: space-between !important;
+
+            grid-row-start: 2 !important;
+            grid-column-start: 1 !important;
+            grid-column-end: 3 !important;
         }
 
         &__btn {
@@ -235,9 +239,11 @@
     }
 
     .routes__item {
+        grid-template-rows: 1fr 30px 50px !important;
+    }
+    .routes__item, .bookings__item {
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
-        grid-template-rows: 1fr 30px 50px !important;
         padding: 25px 15px !important;
         height: auto !important;
 
@@ -291,6 +297,25 @@
         grid-column-end: 3 !important;
         align-items: center !important;
         margin: 0 auto !important;
+    }
+}
+
+@media (max-width: 580px) {
+    .cabinet-info {
+        &__buttons {
+            display: grid !important;
+            max-width: 400px !important;
+            margin: 0 auto !important;
+            justify-content: center !important;
+            grid-row-start: 2 !important;
+            grid-column-start: 1 !important;
+            grid-column-end: 3 !important;
+        }
+    }
+    .bookings {
+        &__item > div > button{
+            width: 60vw !important;
+        }
     }
 }
 
@@ -412,7 +437,12 @@
     .cabinet-link {
         display: none !important;
     }
-    .routes__item {
+    .bookings {
+        &__item > div > button{
+            margin: 10px auto !important;
+        }
+    }
+    .routes__item, .bookings__item {
         & > div > div {
             font-size: 13px !important;
         }

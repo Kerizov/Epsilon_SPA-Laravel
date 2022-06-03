@@ -58,42 +58,43 @@
         </div>
         <div class="gray-line"></div>
         <div class="cabinet-info__main-title">Забронированные рейсы:</div>
-        <div class="routes__items">
+        <div class="bookings__items">
             <template v-if="bookings">
-                <div class="routes__item" v-for="booking in bookings" :key="booking.id">
-                    <h6 class="routes__vendor-code">рейс #{{ booking.id }}</h6>
-                    <div class="routes__item-up">
-                        <div class="routes__air-company-name"><strong>Перевозчик</strong></div>
-                        <div class="routes__air-company-depart"><strong>Вылет</strong></div>
-                        <div class="routes__air-company-time">
+                <div class="bookings__item" v-for="booking in bookings" :key="booking.id">
+                    <h6 class="bookings__vendor-code">рейс #{{ booking.id }}</h6>
+                    <div class="bookings__item-up">
+                        <div class="bookings__air-company-name"><strong>Перевозчик</strong></div>
+                        <div class="bookings__air-company-depart"><strong>Вылет</strong></div>
+                        <div class="bookings__air-company-time">
                             <strong><p>Время&nbsp;в&nbsp;пути</p></strong>
                         </div>
-                        <div class="routes__air-company-return"><strong>Прилет</strong></div>
+                        <div class="bookings__air-company-return"><strong>Прилет</strong></div>
                     </div>
                     <div class="gray-line"></div>
-                    <div class="routes__item-down">
-                        <div class="routes__air-company-name">{{ booking.carrier }}</div>
-                        <div class="routes__air-company-depart">
+                    <div class="bookings__item-down">
+                        <div class="bookings__air-company-name">{{ booking.carrier }}</div>
+                        <div class="bookings__air-company-depart">
                             {{ booking.departure }}<br>
                             {{ booking.departure_city }}
                         </div>
-                        <div class="routes__air-company-time">
+                        <div class="bookings__air-company-time">
                             <p>{{ booking.time }}</p>
                             <img src="../../images/arrow-2.svg" alt="">
                         </div>
-                        <div class="routes__air-company-return">
+                        <div class="bookings__air-company-return">
                             {{ booking.destination }}<br>
                             {{ booking.destination_city }}
                         </div>
                     </div>
                     <div class="cabinet-info__buttons">
-                        <button @click="DeleteBooking(booking.id)" class="routes__item-select">
+                        <button @click="DeleteBooking(booking.id)"
+                                class="bookings__item-select" style="background-color: #6C757D;">
                             Отменить
                         </button>
-                        <button class="routes__item-select">
+                        <button class="bookings__item-select" style="background-color:#97CA2B;">
                             Оплатить
                         </button>
-                        <div class="routes__price">{{ booking.price }} руб.</div>
+                        <div class="booking__price">{{ booking.price }} руб.</div>
                     </div>
 
                 </div>
@@ -235,7 +236,7 @@ export default {
     }
 }
 
-.routes {
+.bookings {
     &__items {
         text-align: center;
         max-width: 800px;
@@ -313,8 +314,8 @@ export default {
                 width: 180px;
                 height: 40px;
                 color: #fff;
-                margin: 20px;
-                background-color: #F7B903;
+                margin: 20px auto;
+                //background-color: #F7B903;
                 border-radius: 5px;
                 outline: none;
                 border: none;

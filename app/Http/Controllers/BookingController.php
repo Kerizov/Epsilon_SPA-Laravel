@@ -37,7 +37,7 @@ class BookingController extends Controller
 
         $query->where('user_id', $bookings['user_id'])->where('air_route_id', $bookings['air_route_id']);
 
-        $query->delete();
+        $query->first()->delete();
     }
 
     public function getUserRoute(BookingRequest $request){
