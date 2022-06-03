@@ -89,6 +89,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_components_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../js/components/Footer */ "./resources/js/components/Footer.vue");
 /* harmony import */ var _js_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../js/api */ "./resources/js/api.js");
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -111,7 +123,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       isModalVisible: false,
       user_id: null,
       currentRouteId: null,
-      routes: {
+      selectedSort: 'id',
+      routes: [{
         id: '',
         carrier: '',
         departure: '',
@@ -124,7 +137,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         status_of_places: this.$store.state.values.status_of_places,
         time: '',
         price: ''
-      }
+      }]
     };
   },
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapState)(["values"])), {}, {
@@ -147,6 +160,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       get: function get() {
         return this.values.departure_date;
       }
+    },
+    sortedPosts: function sortedPosts() {
+      var _this = this;
+
+      return _toConsumableArray(this.routes).sort(function (a, b) {
+        return a[_this.selectedSort] > b[_this.selectedSort] ? 1 : -1;
+      });
     }
   }),
   mounted: function mounted() {
@@ -155,7 +175,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: {
     GetRoutes: function GetRoutes() {
-      var _this = this;
+      var _this2 = this;
 
       _js_api__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/air_routes", {
         params: {
@@ -167,28 +187,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           status_of_places: this.$store.state.values.status_of_places
         }
       }).then(function (res) {
-        res.data.length === 0 ? _this.RoutesIsExists = false : _this.RoutesIsExists = true;
-        _this.routes = res.data;
+        res.data.length === 0 ? _this2.RoutesIsExists = false : _this2.RoutesIsExists = true;
+        _this2.routes = res.data;
       });
     },
     Booking: function Booking(route_id) {
-      var _this2 = this;
+      var _this3 = this;
 
       _js_api__WEBPACK_IMPORTED_MODULE_2__["default"].post('/api/booking/create', {
         user_id: this.user_id,
         air_route_id: route_id,
         confirm: false
       }).then(function (res) {
-        _this2.isModalVisible = !_this2.isModalVisible;
+        _this3.isModalVisible = !_this3.isModalVisible;
 
-        _this2.$router.push('/cabinet');
+        _this3.$router.push('/cabinet');
       });
     },
     userId: function userId() {
-      var _this3 = this;
+      var _this4 = this;
 
       _js_api__WEBPACK_IMPORTED_MODULE_2__["default"].post('/api/auth/me').then(function (res) {
-        _this3.user_id = res.data.id;
+        _this4.user_id = res.data.id;
       });
     }
   }
@@ -654,39 +674,75 @@ var _hoisted_14 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"block\" data-v-64d0e74d><label for=\"sort\" data-v-64d0e74d>Сортировка</label><select name=\"\" id=\"sort\" data-v-64d0e74d><option value=\"\" data-v-64d0e74d>от дешевых к дорогим</option><option value=\"\" data-v-64d0e74d>по рейтингу</option><option value=\"\" selected data-v-64d0e74d>по популярности</option></select></div>", 1);
+var _hoisted_15 = {
+  "class": "block"
+};
 
-var _hoisted_16 = {
+var _hoisted_16 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+    "for": "sort"
+  }, "Сортировка", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_17 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+    value: "price"
+  }, "от дешевых к дорогим", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_18 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+    value: "carrier"
+  }, "по авиакомпании", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_19 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+    value: "id",
+    selected: ""
+  }, "по популярности", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_20 = [_hoisted_17, _hoisted_18, _hoisted_19];
+var _hoisted_21 = {
   key: 0,
   "class": "routes__items"
 };
-var _hoisted_17 = {
+var _hoisted_22 = {
   "class": "routes__vendor-code"
 };
 
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"routes__item-up\" data-v-64d0e74d><div class=\"routes__air-company-name\" data-v-64d0e74d><strong data-v-64d0e74d>Перевозчик</strong></div><div class=\"routes__air-company-depart\" data-v-64d0e74d><strong data-v-64d0e74d>Вылет</strong></div><div class=\"routes__air-company-time\" data-v-64d0e74d><strong data-v-64d0e74d><p data-v-64d0e74d>Время в пути</p></strong></div><div class=\"routes__air-company-return\" data-v-64d0e74d><strong data-v-64d0e74d>Прилет</strong></div></div><div class=\"gray-line\" data-v-64d0e74d></div>", 2);
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"routes__item-up\" data-v-64d0e74d><div class=\"routes__air-company-name\" data-v-64d0e74d><strong data-v-64d0e74d>Перевозчик</strong></div><div class=\"routes__air-company-depart\" data-v-64d0e74d><strong data-v-64d0e74d>Вылет</strong></div><div class=\"routes__air-company-time\" data-v-64d0e74d><strong data-v-64d0e74d><p data-v-64d0e74d>Время в пути</p></strong></div><div class=\"routes__air-company-return\" data-v-64d0e74d><strong data-v-64d0e74d>Прилет</strong></div></div><div class=\"gray-line\" data-v-64d0e74d></div>", 2);
 
-var _hoisted_20 = {
+var _hoisted_25 = {
   "class": "routes__item-down"
 };
-var _hoisted_21 = {
+var _hoisted_26 = {
   "class": "routes__air-company-name"
 };
-var _hoisted_22 = {
+var _hoisted_27 = {
   "class": "routes__air-company-depart"
 };
 
-var _hoisted_23 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_28 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
   /* HOISTED */
   );
 });
 
-var _hoisted_24 = {
+var _hoisted_29 = {
   "class": "routes__air-company-time"
 };
 
-var _hoisted_25 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_30 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     src: _images_arrow_2_svg__WEBPACK_IMPORTED_MODULE_1__["default"],
     alt: ""
@@ -695,58 +751,58 @@ var _hoisted_25 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_26 = {
+var _hoisted_31 = {
   "class": "routes__air-company-return"
 };
 
-var _hoisted_27 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_32 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("br", null, null, -1
   /* HOISTED */
   );
 });
 
-var _hoisted_28 = {
+var _hoisted_33 = {
   "class": "routes__price"
 };
-var _hoisted_29 = {
+var _hoisted_34 = {
   key: 0,
   "class": "modal-wrapper"
 };
-var _hoisted_30 = {
+var _hoisted_35 = {
   "class": "modal-window"
 };
 
-var _hoisted_31 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_36 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Вы хотите забронировать этот рейс?", -1
   /* HOISTED */
   );
 });
 
-var _hoisted_32 = ["onClick"];
-var _hoisted_33 = {
+var _hoisted_37 = ["onClick"];
+var _hoisted_38 = {
   key: 1,
   "class": "routes_ist_exists"
 };
 
-var _hoisted_34 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_39 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "К сожалению", -1
   /* HOISTED */
   );
 });
 
-var _hoisted_35 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_40 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "по вашему запросу нет результатов!", -1
   /* HOISTED */
   );
 });
 
-var _hoisted_36 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_41 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, ":(", -1
   /* HOISTED */
   );
 });
 
-var _hoisted_37 = [_hoisted_34, _hoisted_35, _hoisted_36];
+var _hoisted_42 = [_hoisted_39, _hoisted_40, _hoisted_41];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_HeaderOther = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("HeaderOther");
 
@@ -791,41 +847,49 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }, null, 544
   /* HYDRATE_EVENTS, NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $options.arrival_date]])]), _hoisted_15]), $data.RoutesIsExists ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_16, [$data.routes ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $options.arrival_date]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+      return $data.selectedSort = $event;
+    }),
+    name: "",
+    id: "sort"
+  }, _hoisted_20, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.selectedSort]])])]), $data.RoutesIsExists ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_21, [$data.routes ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     key: 0
-  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.routes, function (route) {
+  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.sortedPosts, function (route) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       "class": "routes__item",
       key: route.id
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", _hoisted_17, "рейс #" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(route.id), 1
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", _hoisted_22, "рейс #" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(route.id), 1
     /* TEXT */
-    ), _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(route.carrier), 1
+    ), _hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(route.carrier), 1
     /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(route.departure), 1
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(route.departure), 1
     /* TEXT */
-    ), _hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(route.departure_city), 1
+    ), _hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(route.departure_city), 1
     /* TEXT */
-    )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(route.time), 1
+    )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(route.time), 1
     /* TEXT */
-    ), _hoisted_25]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(route.destination), 1
+    ), _hoisted_30]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_31, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(route.destination), 1
     /* TEXT */
-    ), _hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(route.destination_city), 1
+    ), _hoisted_32, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(route.destination_city), 1
     /* TEXT */
-    )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(route.price) + " руб.", 1
+    )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(route.price) + " руб.", 1
     /* TEXT */
-    ), $data.isModalVisible ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [_hoisted_31, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-      onClick: _cache[4] || (_cache[4] = function ($event) {
+    ), $data.isModalVisible ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, [_hoisted_36, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      onClick: _cache[5] || (_cache[5] = function ($event) {
         return $options.Booking($data.currentRouteId);
       }),
       "class": "modal__button"
     }, "Да"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-      onClick: _cache[5] || (_cache[5] = function ($event) {
+      onClick: _cache[6] || (_cache[6] = function ($event) {
         return $data.isModalVisible = !$data.isModalVisible;
       }),
       "class": "modal__button"
     }, "Нет ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
       "class": "overlay",
-      onClick: _cache[6] || (_cache[6] = function ($event) {
+      onClick: _cache[7] || (_cache[7] = function ($event) {
         return $data.isModalVisible = !$data.isModalVisible;
       })
     })])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
@@ -836,10 +900,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "class": "routes__item-select"
     }, "Выбрать ", 8
     /* PROPS */
-    , _hoisted_32)]);
+    , _hoisted_37)]);
   }), 128
   /* KEYED_FRAGMENT */
-  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_33, _hoisted_37))])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)], 64
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_38, _hoisted_42))])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -937,7 +1001,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".routes[data-v-64d0e74d] {\n  text-align: center;\n  max-width: 800px;\n  margin: 0 auto;\n}\n.routes__vendor-code[data-v-64d0e74d] {\n  position: absolute;\n  top: 10px;\n  left: 15px;\n}\n.routes_ist_exists[data-v-64d0e74d] {\n  height: 300px;\n  padding-top: 75px;\n}\n.routes__item-up[data-v-64d0e74d], .routes__item-down[data-v-64d0e74d] {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr 1fr;\n  text-align: center;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.routes__title[data-v-64d0e74d] {\n  font-weight: bold;\n  padding-top: 20px;\n  font-size: 48px;\n}\n.routes > .container > .routes__inner > .orange-line[data-v-64d0e74d] {\n  margin: 20px auto;\n}\n.routes__text[data-v-64d0e74d] {\n  color: rgba(0, 0, 0, 0.5);\n  font-size: 18px;\n}\n.routes__form[data-v-64d0e74d] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.routes__form > .block + .block[data-v-64d0e74d] {\n  margin-left: 50px;\n}\n.routes__form input[data-v-64d0e74d], .routes__form select[data-v-64d0e74d] {\n  width: 200px;\n  /*180px*/\n  height: 40px;\n  border: 1px solid transparent;\n  border-radius: 5px;\n  padding: 5px;\n  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);\n  outline: none;\n}\n.routes__item[data-v-64d0e74d] {\n  background-color: rgba(0, 0, 100, 0.05);\n  border: 1px solid rgba(0, 0, 0, 0.25);\n  position: relative;\n  padding: 50px 50px 5px 50px;\n  height: auto;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);\n  margin: 20px auto;\n}\n.routes__item-title[data-v-64d0e74d] {\n  padding: 10px;\n  font-size: 24px;\n}\n.routes__item > button[data-v-64d0e74d] {\n  width: 180px;\n  height: 40px;\n  color: #fff;\n  margin: 20px;\n  background-color: #F7B903;\n  border-radius: 5px;\n  outline: none;\n  border: none;\n  padding: 5px;\n  font-size: 16px;\n}\n.routes__item > button[data-v-64d0e74d]:hover {\n  background-color: #b98a00;\n}\n.routes__price[data-v-64d0e74d] {\n  font-weight: bold;\n}\n.modal-wrapper[data-v-64d0e74d] {\n  position: fixed;\n  display: flex;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  justify-content: center;\n  align-items: center;\n  background: rgba(0, 0, 0, 0.2);\n  z-index: 100;\n}\n.modal-window[data-v-64d0e74d] {\n  max-width: 500px;\n  margin: 15px;\n  min-height: 180px;\n  padding: 50px 15px;\n  background-color: #fff;\n  z-index: 2;\n}\n.modal-window > p[data-v-64d0e74d] {\n  font-size: 18px;\n}\n.modal__button[data-v-64d0e74d] {\n  width: 150px;\n  height: 40px;\n  margin: 25px 20px;\n  outline: none;\n  border: none;\n  border-radius: 5px;\n  color: #fff;\n  background-color: #F7B903;\n}\n.overlay[data-v-64d0e74d] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n}\n.block[data-v-64d0e74d] {\n  display: block;\n  grid-template-columns: 1fr 1fr;\n  grid-gap: 10px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".routes[data-v-64d0e74d] {\n  text-align: center;\n  max-width: 800px;\n  margin: 0 auto;\n}\n.routes__vendor-code[data-v-64d0e74d] {\n  position: absolute;\n  top: 10px;\n  left: 15px;\n}\n.routes_ist_exists[data-v-64d0e74d] {\n  height: 300px;\n  padding-top: 75px;\n}\n.routes__item-up[data-v-64d0e74d], .routes__item-down[data-v-64d0e74d] {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr 1fr;\n  text-align: center;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.routes__title[data-v-64d0e74d] {\n  font-weight: bold;\n  padding-top: 20px;\n  font-size: 48px;\n}\n.routes > .container > .routes__inner > .orange-line[data-v-64d0e74d] {\n  margin: 20px auto;\n}\n.routes__text[data-v-64d0e74d] {\n  color: rgba(0, 0, 0, 0.5);\n  font-size: 18px;\n}\n.routes__form[data-v-64d0e74d] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.routes__form > .block + .block[data-v-64d0e74d] {\n  margin-left: 50px;\n}\n.routes__form input[data-v-64d0e74d], .routes__form select[data-v-64d0e74d] {\n  width: 200px;\n  height: 40px;\n  border: 1px solid transparent;\n  background-color: #FFF;\n  border-radius: 5px;\n  padding: 5px;\n  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);\n  outline: none;\n}\n.routes__item[data-v-64d0e74d] {\n  background-color: rgba(0, 0, 100, 0.05);\n  border: 1px solid rgba(0, 0, 0, 0.25);\n  position: relative;\n  padding: 50px 50px 5px 50px;\n  height: auto;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);\n  margin: 20px auto;\n}\n.routes__item-title[data-v-64d0e74d] {\n  padding: 10px;\n  font-size: 24px;\n}\n.routes__item > button[data-v-64d0e74d] {\n  width: 180px;\n  height: 40px;\n  color: #fff;\n  margin: 20px;\n  background-color: #F7B903;\n  border-radius: 5px;\n  outline: none;\n  border: none;\n  padding: 5px;\n  font-size: 16px;\n}\n.routes__item > button[data-v-64d0e74d]:hover {\n  background-color: #b98a00;\n}\n.routes__price[data-v-64d0e74d] {\n  font-weight: bold;\n}\n.modal-wrapper[data-v-64d0e74d] {\n  position: fixed;\n  display: flex;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  justify-content: center;\n  align-items: center;\n  background: rgba(0, 0, 0, 0.2);\n  z-index: 100;\n}\n.modal-window[data-v-64d0e74d] {\n  max-width: 500px;\n  margin: 15px;\n  min-height: 180px;\n  padding: 50px 15px;\n  background-color: #fff;\n  z-index: 2;\n}\n.modal-window > p[data-v-64d0e74d] {\n  font-size: 18px;\n}\n.modal__button[data-v-64d0e74d] {\n  width: 150px;\n  height: 40px;\n  margin: 25px 20px;\n  outline: none;\n  border: none;\n  border-radius: 5px;\n  color: #fff;\n  background-color: #F7B903;\n}\n.overlay[data-v-64d0e74d] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n}\n.block[data-v-64d0e74d] {\n  display: block;\n  grid-template-columns: 1fr 1fr;\n  grid-gap: 10px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

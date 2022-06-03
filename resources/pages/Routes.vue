@@ -25,17 +25,17 @@
                     </div>
                     <div class="block">
                         <label for="sort">Сортировка</label>
-                        <select name="" id="sort">
-                            <option value="">от дешевых к дорогим</option>
-                            <option value="">по рейтингу</option>
-                            <option value="" selected>по популярности</option>
+                        <select v-model="selectedSort" name="" id="sort">
+                            <option value="price">от дешевых к дорогим</option>
+                            <option value="carrier">по авиакомпании</option>
+                            <option value="id" selected>по популярности</option>
                         </select>
                     </div>
                 </form>
                 <div class="routes__items" v-if="RoutesIsExists">
                     <template v-if="routes">
                         <div class="routes__item"
-                             v-for="route in routes" :key="route.id">
+                             v-for="route in sortedPosts" :key="route.id">
                             <h6 class="routes__vendor-code">рейс #{{ route.id }}</h6>
                             <div class="routes__item-up">
                                 <div class="routes__air-company-name"><strong>Перевозчик</strong></div>
@@ -106,7 +106,8 @@ export default {
             isModalVisible: false,
             user_id: null,
             currentRouteId: null,
-            routes: {
+            selectedSort: 'id',
+            routes: [{
                 id: '',
                 carrier: '',
                 departure: '',
@@ -119,7 +120,7 @@ export default {
                 status_of_places: this.$store.state.values.status_of_places,
                 time: '',
                 price: '',
-            }
+            }]
         }
     },
     computed: {
@@ -139,6 +140,9 @@ export default {
             get() {
                 return this.values.departure_date;
             }
+        },
+        sortedPosts() {
+            return [...this.routes].sort((a, b) => (a[this.selectedSort] > b[this.selectedSort]) ? 1 : -1);
         },
     },
     mounted() {
@@ -178,7 +182,7 @@ export default {
                 .then(res => {
                     this.user_id = res.data.id;
                 });
-        }
+        },
     }
 }
 </script>
@@ -233,9 +237,10 @@ export default {
         }
 
         & input, select {
-            width: 200px; /*180px*/
+            width: 200px;
             height: 40px;
             border: 1px solid transparent;
+            background-color: #FFF;
             border-radius: 5px;
             padding: 5px;
             box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);

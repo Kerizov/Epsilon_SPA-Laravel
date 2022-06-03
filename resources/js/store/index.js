@@ -2,7 +2,7 @@ import {createStore} from "vuex";
 
 import createPersistedState from "vuex-persistedstate";
 import SecureLS from "secure-ls";
-var ls = new SecureLS({ isCompression: false });
+let ls = new SecureLS({ isCompression: false });
 
 
 let today = new Date();
