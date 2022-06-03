@@ -151,7 +151,7 @@ export default {
             get() {
                 return this.values.amount_people;
             }
-        }
+        },
     },
     mounted() {
         this.GetCities();
@@ -323,6 +323,7 @@ label {
     height: 40px;
     margin-bottom: 20px;
     border-radius: 5px;
+    background-color: #FFF;
     outline: none;
     border: none;
     padding: 5px;

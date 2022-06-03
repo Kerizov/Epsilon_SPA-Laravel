@@ -33,28 +33,30 @@ export default {
     right: 0;
     box-shadow: 0px -15px 25px rgba(0, 0, 0, 0.25);
 
-&__inner {
-     display: flex;
-     justify-content: space-between;
- }
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+    }
 
-&__feedback {
-     font-size: 16px;
-     padding-top: 33px;
- }
+    &__feedback {
+        font-size: 16px;
+        padding-top: 33px;
+        margin-bottom: 10px;
+    }
 
-&__copyright {
-     text-align: right;
-     margin-top: auto;
- }
+    &__copyright {
+        text-align: right;
+        margin-top: auto;
+        margin-bottom: 10px;
+    }
 
-& p {
-      margin-top: 20px;
-  }
+    & p {
+        margin-top: 20px;
+    }
 
-& a {
-      text-decoration: none;
-      color: #000;
-  }
+    & a {
+        text-decoration: none;
+        color: #000;
+    }
 }
 </style>

@@ -789,7 +789,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "for": "login"
   }, "Логин", 2
   /* CLASS */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("        <label v-else class=\"unauthorized-error\" for=\"login\">Логин</label>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
     id: "login",
     modelValue: $data.email,
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
@@ -804,7 +804,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "for": "pass"
   }, "Пароль", 2
   /* CLASS */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("        <label v-else class=\"unauthorized-error\" for=\"pass\">Пароль</label>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
     type: "password",
     id: "pass",
     modelValue: $data.password,
@@ -1206,7 +1206,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/arrow.svg?3a35f96ef6c68043f734d12a21154a54");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/arrow.svg?a0a4c65e39daed4db1e12a84919b8bd0");
 
 /***/ }),
 

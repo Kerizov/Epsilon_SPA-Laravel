@@ -34,7 +34,8 @@
                 </form>
                 <div class="routes__items" v-if="RoutesIsExists">
                     <template v-if="routes">
-                        <div class="routes__item" v-for="route in routes" :key="route.id">
+                        <div class="routes__item"
+                             v-for="route in routes" :key="route.id">
                             <h6 class="routes__vendor-code">рейс #{{ route.id }}</h6>
                             <div class="routes__item-up">
                                 <div class="routes__air-company-name"><strong>Перевозчик</strong></div>
@@ -236,19 +237,18 @@ export default {
             height: 40px;
             border: 1px solid transparent;
             border-radius: 5px;
-            padding: 10px;
+            padding: 5px;
             box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
             outline: none;
-
-
         }
     }
 
     &__item {
         background-color: rgba(0, 0, 100, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.25);
         position: relative;
-        padding: 50px;
-        height: 250px;
+        padding: 50px 50px 5px 50px;
+        height: auto;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         margin: 20px auto;
 
@@ -295,9 +295,10 @@ export default {
     }
 
     &-window {
-        width: 500px;
-        height: 180px;
-        padding: 50px;
+        max-width: 500px;
+        margin: 15px;
+        min-height: 180px;
+        padding: 50px 15px;
         background-color: #fff;
         z-index: 2;
 

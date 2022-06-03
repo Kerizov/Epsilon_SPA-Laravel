@@ -2,7 +2,6 @@
     <div class="auth-form__sign-in">
         <div class="auth-form__title">Вход</div>
         <label :class="AuthChecked ? 'unauthorized-error' : ''" for="login">Логин</label>
-<!--        <label v-else class="unauthorized-error" for="login">Логин</label>-->
         <UiInput
             id="login"
             v-model="email"
@@ -10,7 +9,6 @@
             placeholder="Email или телефон"
         />
         <label :class="AuthChecked ? 'unauthorized-error' : ''" for="pass">Пароль</label>
-<!--        <label v-else class="unauthorized-error" for="pass">Пароль</label>-->
         <UiInput
             type="password"
             id="pass"
