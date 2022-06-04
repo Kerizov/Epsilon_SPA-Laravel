@@ -5,6 +5,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\EmailVerificationController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RequestController;
 use App\Http\Controllers\RouteController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\User\StoreController;
@@ -47,6 +48,9 @@ Route::group(['namespace' => 'User', 'prefix' => 'users'], function () {
     Route::post('/', [StoreController::class, 'store'] );
     Route::post('/update', [UpdateController::class, 'update'] );
 });
+
+//Sending Request
+Route::post('/request', [RequestController::class, 'store']);
 
 //Getting cities and statuses to search form
 Route::get('/city', [CityController::class, 'index']);

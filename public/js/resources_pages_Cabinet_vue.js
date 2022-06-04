@@ -58,7 +58,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         status_of_places: '',
         time: '',
         price: ''
-      }
+      } // peoples: {
+      //     amount_people: null,
+      // },
+
     };
   },
   mounted: function mounted() {
@@ -73,9 +76,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               return _this.PersonalInfo();
 
             case 2:
-              _this.BookingInfo();
+              _context.next = 4;
+              return _this.BookingInfo();
 
-            case 3:
+            case 4:
             case "end":
               return _context.stop();
           }
@@ -84,6 +88,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }))();
   },
   methods: {
+    // GetAmountPeople(){
+    //     api.get('/api/booking', {
+    //         params: {
+    //             user_id: this.user_id,
+    //         }
+    //     }).then(res => {
+    //         this.peoples = res.data;
+    //         for(let i = 0; i < res.data.length; i++){
+    //             this.peoples.push(this.peoples[i].amount_people);
+    //         }
+    //         console.log(this.peoples);
+    //
+    //
+    //
+    //         // for(let i = 0; i < res.data.length; i++){
+    //         //     this.people.amount_people = res.data[i].amount_people;
+    //         //     // console.log(this.bookings.people);
+    //         // }
+    //         // this.amount_people = res.data;
+    //     })
+    // },
     Logout: function Logout() {
       _api__WEBPACK_IMPORTED_MODULE_1__["default"].post('/api/auth/logout').then(function (res) {
         localStorage.removeItem('access_token');
@@ -440,10 +465,13 @@ var _hoisted_42 = /*#__PURE__*/_withScopeId(function () {
 var _hoisted_43 = {
   "class": "booking__price"
 };
-var _hoisted_44 = {
+
+var _hoisted_44 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" руб.");
+
+var _hoisted_45 = {
   "class": "cabinet-info__buttons"
 };
-var _hoisted_45 = {
+var _hoisted_46 = {
   style: {
     "height": "10px"
   }
@@ -582,12 +610,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }
     }, " Отменить ", 8
     /* PROPS */
-    , _hoisted_41), _hoisted_42, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_43, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(booking.price) + " руб.", 1
+    , _hoisted_41), _hoisted_42, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_43, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(booking.price), 1
     /* TEXT */
-    )])]);
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            <template v-for=\"(people, index) in peoples\" :key=\"people.id\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            </template>"), _hoisted_44])])]);
   }), 128
   /* KEYED_FRAGMENT */
-  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_44, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_45, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "cabinet-info__btn btn-disable",
     onClick: _cache[9] || (_cache[9] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.Logout && $options.Logout.apply($options, arguments);
@@ -597,7 +625,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[10] || (_cache[10] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return _ctx.UpdatePersonInfo && _ctx.UpdatePersonInfo.apply(_ctx, arguments);
     }, ["prevent"]))
-  }, "Сохранить обновленные данные ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_45, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  }, "Сохранить обновленные данные ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_46, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["d-none", {
       'update-success': _ctx.isSuccess === true
     }])
@@ -1057,7 +1085,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../api */ "./resources/js/api.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../api */ "./resources/js/api.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -1070,41 +1103,76 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   methods: {
     BookingInfo: function BookingInfo() {
       var _this = this;
 
-      _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/booking', {
-        params: {
-          user_id: this.user_id
-        }
-      }).then(function (res) {
-        _this.bookings = res.data;
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _api__WEBPACK_IMPORTED_MODULE_1__["default"].get('/api/booking', {
+                  params: {
+                    user_id: _this.user_id
+                  }
+                }).then(function (res) {
+                  _this.bookings = res.data;
+                  var len = _this.bookings.length;
+                  console.log(_this.bookings);
 
-        var el = _this.bookings.map(function (el) {
-          return el.air_route_id;
-        });
+                  var el = _this.bookings.map(function (el) {
+                    return el.air_route_id;
+                  });
 
-        _this.bookings = [];
-        el.forEach(function (el) {
-          _api__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/booking/air_routes", {
-            params: {
-              air_route_id: el
+                  var amountPeople = [];
+
+                  _this.bookings.map(function (elem) {
+                    return amountPeople.push(elem.amount_people);
+                  });
+
+                  _this.bookings = [];
+                  el.forEach(function (el) {
+                    _api__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/booking/air_routes", {
+                      params: {
+                        air_route_id: el
+                      }
+                    }).then(function (res) {
+                      var _this$bookings;
+
+                      (_this$bookings = _this.bookings).push.apply(_this$bookings, _toConsumableArray(res.data));
+
+                      if (_this.bookings.length === len) {
+                        _this.bookings.map(function (elem, index) {
+                          return elem.price = elem.price * amountPeople[index];
+                        });
+                      } else {
+                        (0,vue__WEBPACK_IMPORTED_MODULE_2__.nextTick)();
+                      }
+                    });
+                  });
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
             }
-          }).then(function (response) {
-            var _this$bookings;
-
-            (_this$bookings = _this.bookings).push.apply(_this$bookings, _toConsumableArray(response.data));
-          });
-        });
-      });
+          }
+        }, _callee);
+      }))();
     },
     DeleteBooking: function DeleteBooking(booking_id) {
       var _this2 = this;
 
-      _api__WEBPACK_IMPORTED_MODULE_0__["default"].get('api/booking/delete', {
+      _api__WEBPACK_IMPORTED_MODULE_1__["default"].get('api/booking/delete', {
         params: {
           air_route_id: booking_id,
           user_id: this.user_id
@@ -1316,7 +1384,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".cabinet-info[data-v-4e3a470b] {\n  max-width: 990px;\n  margin: 100px auto;\n}\n.cabinet-info-flex[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n}\n.cabinet-info__main[data-v-4e3a470b] {\n  width: 370px;\n}\n.cabinet-info__main-title[data-v-4e3a470b] {\n  font-size: 24px;\n}\n.cabinet-info__main-info-item[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 30px;\n  align-items: center;\n}\n.cabinet-info__main-info-item > .passport-input[data-v-4e3a470b] {\n  max-width: 270px;\n  display: flex;\n  justify-content: space-between;\n}\n.cabinet-info__main-info-item input[data-v-4e3a470b] {\n  width: 270px;\n  height: 30px;\n  border: 1px solid #ddd;\n  border-radius: 3px;\n  padding-left: 5px;\n  outline: none;\n}\n.cabinet-info__main-info-item input[data-v-4e3a470b]:focus {\n  background-color: #efefef;\n}\n.cabinet-info__main-info-item label[data-v-4e3a470b] {\n  margin-right: 10px;\n}\n.cabinet-info__legal[data-v-4e3a470b] {\n  max-width: 430px;\n}\n.cabinet-info__buttons[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n}\n.cabinet-info__btn[data-v-4e3a470b] {\n  width: 335px;\n  height: 45px;\n  border-radius: 5px;\n  padding-top: 11px;\n  margin-top: 20px;\n  border: none;\n  outline: none;\n  text-align: center;\n  float: right;\n  z-index: 1;\n}\n.bookings__items[data-v-4e3a470b] {\n  text-align: center;\n  max-width: 800px;\n  margin: 0 auto;\n}\n.bookings__vendor-code[data-v-4e3a470b] {\n  position: absolute;\n  top: 10px;\n  left: 15px;\n}\n.bookings__item-up[data-v-4e3a470b], .bookings__item-down[data-v-4e3a470b] {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr 1fr;\n  text-align: center;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.bookings__title[data-v-4e3a470b] {\n  font-weight: bold;\n  padding-top: 20px;\n  font-size: 48px;\n}\n.bookings > .container > .routes__inner > .orange-line[data-v-4e3a470b] {\n  margin: 20px auto;\n}\n.bookings__text[data-v-4e3a470b] {\n  color: rgba(0, 0, 0, 0.5);\n  font-size: 18px;\n}\n.bookings__form[data-v-4e3a470b] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.bookings__form > .block + .block[data-v-4e3a470b] {\n  margin-left: 50px;\n}\n.bookings__form input[data-v-4e3a470b], .bookings__form select[data-v-4e3a470b] {\n  width: 200px;\n  height: 40px;\n  border: 1px solid transparent;\n  border-radius: 5px;\n  padding: 10px;\n  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);\n  outline: none;\n}\n.bookings__item[data-v-4e3a470b] {\n  background-color: rgba(0, 0, 100, 0.05);\n  border: 1px solid rgba(0, 0, 0, 0.25);\n  position: relative;\n  padding: 50px;\n  height: 280px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);\n  margin: 20px auto;\n}\n.bookings__item-title[data-v-4e3a470b] {\n  padding: 10px;\n  font-size: 24px;\n}\n.bookings__item > div[data-v-4e3a470b] {\n  align-items: center;\n  justify-content: flex-end;\n}\n.bookings__item > div > button[data-v-4e3a470b] {\n  width: 180px;\n  height: 40px;\n  color: #fff;\n  margin: 20px auto;\n  border-radius: 5px;\n  outline: none;\n  border: none;\n  padding: 5px;\n  font-size: 16px;\n}\n.bookings__item > div > button[data-v-4e3a470b]:hover {\n  background-color: #b98a00;\n}\n.bookings__price[data-v-4e3a470b] {\n  font-weight: bold;\n}\n.btn-disable[data-v-4e3a470b] {\n  border: 1px solid #6c757d;\n  color: #6c757d;\n  cursor: pointer;\n}\n.btn-disable[data-v-4e3a470b]:hover {\n  background-color: #5b6166;\n  color: #fff;\n}\n.passport-input-series[data-v-4e3a470b] {\n  width: 40% !important;\n  outline: none;\n}\n.passport-input-number[data-v-4e3a470b] {\n  width: 55% !important;\n  outline: none;\n}\n.update-success[data-v-4e3a470b], .update-failure[data-v-4e3a470b] {\n  -webkit-animation: update-anim-4e3a470b 3s forwards;\n          animation: update-anim-4e3a470b 3s forwards;\n  text-align: center;\n  width: 335px;\n  float: right;\n  margin-top: -10px;\n  padding: 5px;\n  color: black;\n  font-size: 16px;\n  display: block !important;\n  z-index: 0;\n}\n@-webkit-keyframes update-anim-4e3a470b {\n0% {\n    margin-top: -50px;\n    opacity: 0;\n}\n15% {\n    margin-top: -10px;\n    opacity: 1;\n}\n80% {\n    margin-top: -10px;\n    opacity: 1;\n}\n90% {\n    margin-top: -10px;\n    opacity: 0.1;\n}\n95% {\n    margin-top: -10px;\n    opacity: 0;\n}\n100% {\n    margin-top: -10px;\n    opacity: 0;\n}\n}\n@keyframes update-anim-4e3a470b {\n0% {\n    margin-top: -50px;\n    opacity: 0;\n}\n15% {\n    margin-top: -10px;\n    opacity: 1;\n}\n80% {\n    margin-top: -10px;\n    opacity: 1;\n}\n90% {\n    margin-top: -10px;\n    opacity: 0.1;\n}\n95% {\n    margin-top: -10px;\n    opacity: 0;\n}\n100% {\n    margin-top: -10px;\n    opacity: 0;\n}\n}\n.incorrect[data-v-4e3a470b] {\n  border-color: red;\n}\n.gray-line[data-v-4e3a470b] {\n  max-width: 990px;\n  margin: 30px auto;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".cabinet-info[data-v-4e3a470b] {\n  max-width: 990px;\n  margin: 100px auto;\n}\n.cabinet-info-flex[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n}\n.cabinet-info__main[data-v-4e3a470b] {\n  width: 370px;\n}\n.cabinet-info__main-title[data-v-4e3a470b] {\n  font-size: 24px;\n}\n.cabinet-info__main-info-item[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 30px;\n  align-items: center;\n}\n.cabinet-info__main-info-item > .passport-input[data-v-4e3a470b] {\n  max-width: 270px;\n  display: flex;\n  justify-content: space-between;\n}\n.cabinet-info__main-info-item input[data-v-4e3a470b] {\n  width: 270px;\n  height: 30px;\n  border: 1px solid #ddd;\n  border-radius: 3px;\n  padding-left: 5px;\n  outline: none;\n}\n.cabinet-info__main-info-item input[data-v-4e3a470b]:focus {\n  background-color: #efefef;\n}\n.cabinet-info__main-info-item label[data-v-4e3a470b] {\n  margin-right: 10px;\n}\n.cabinet-info__legal[data-v-4e3a470b] {\n  max-width: 430px;\n}\n.cabinet-info__buttons[data-v-4e3a470b] {\n  display: flex;\n  justify-content: space-between;\n}\n.cabinet-info__btn[data-v-4e3a470b] {\n  width: 335px;\n  height: 45px;\n  border-radius: 5px;\n  padding-top: 11px;\n  margin-top: 20px;\n  border: none;\n  outline: none;\n  text-align: center;\n  float: right;\n  z-index: 1;\n}\n.bookings__items[data-v-4e3a470b] {\n  text-align: center;\n  max-width: 800px;\n  margin: 0 auto;\n}\n.bookings__vendor-code[data-v-4e3a470b] {\n  position: absolute;\n  top: 10px;\n  left: 15px;\n}\n.bookings__item-up[data-v-4e3a470b], .bookings__item-down[data-v-4e3a470b] {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr 1fr;\n  text-align: center;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.bookings__title[data-v-4e3a470b] {\n  font-weight: bold;\n  padding-top: 20px;\n  font-size: 48px;\n}\n.bookings > .container > .routes__inner > .orange-line[data-v-4e3a470b] {\n  margin: 20px auto;\n}\n.bookings__text[data-v-4e3a470b] {\n  color: rgba(0, 0, 0, 0.5);\n  font-size: 18px;\n}\n.bookings__form[data-v-4e3a470b] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.bookings__form > .block + .block[data-v-4e3a470b] {\n  margin-left: 50px;\n}\n.bookings__form input[data-v-4e3a470b], .bookings__form select[data-v-4e3a470b] {\n  width: 200px;\n  height: 40px;\n  border: 1px solid transparent;\n  border-radius: 5px;\n  padding: 10px;\n  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);\n  outline: none;\n}\n.bookings__item[data-v-4e3a470b] {\n  background-color: rgba(0, 0, 100, 0.05);\n  border: 1px solid rgba(0, 0, 0, 0.25);\n  position: relative;\n  padding: 50px;\n  height: 280px;\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);\n  margin: 20px auto;\n}\n.bookings__item-title[data-v-4e3a470b] {\n  padding: 10px;\n  font-size: 24px;\n}\n.bookings__item > div[data-v-4e3a470b] {\n  align-items: center;\n  justify-content: flex-end;\n}\n.bookings__item > div > button[data-v-4e3a470b] {\n  width: 180px;\n  height: 40px;\n  color: #fff;\n  margin: 20px auto;\n  border-radius: 5px;\n  outline: none;\n  border: none;\n  padding: 5px;\n  font-size: 16px;\n}\n.bookings__item > div > button[data-v-4e3a470b]:hover {\n  background-color: #b98a00;\n}\n.bookings__price[data-v-4e3a470b] {\n  font-weight: bold;\n}\n.btn-disable[data-v-4e3a470b] {\n  border: 1px solid #6c757d;\n  color: #6c757d;\n  cursor: pointer;\n}\n.btn-disable[data-v-4e3a470b]:hover {\n  background-color: #5b6166;\n  color: #fff;\n}\n.passport-input-series[data-v-4e3a470b] {\n  width: 40% !important;\n  outline: none;\n}\n.passport-input-number[data-v-4e3a470b] {\n  width: 55% !important;\n  outline: none;\n}\n.update-success[data-v-4e3a470b], .update-failure[data-v-4e3a470b] {\n  -webkit-animation: update-anim-4e3a470b 3s forwards;\n          animation: update-anim-4e3a470b 3s forwards;\n  text-align: center;\n  width: 335px;\n  float: right;\n  margin-top: -10px;\n  padding: 5px;\n  color: black;\n  font-size: 16px;\n  display: block !important;\n  z-index: 0;\n}\n@-webkit-keyframes update-anim-4e3a470b {\n0% {\n    transform: translateY(-30px);\n    opacity: 0;\n}\n15% {\n    transform: translateY(-10px);\n    opacity: 1;\n}\n80% {\n    transform: translateY(-10px);\n    opacity: 1;\n}\n90% {\n    transform: translateY(-10px);\n    opacity: 0.1;\n}\n95% {\n    transform: translateY(-10px);\n    opacity: 0;\n}\n100% {\n    transform: translateY(-10px);\n    opacity: 0;\n}\n}\n@keyframes update-anim-4e3a470b {\n0% {\n    transform: translateY(-30px);\n    opacity: 0;\n}\n15% {\n    transform: translateY(-10px);\n    opacity: 1;\n}\n80% {\n    transform: translateY(-10px);\n    opacity: 1;\n}\n90% {\n    transform: translateY(-10px);\n    opacity: 0.1;\n}\n95% {\n    transform: translateY(-10px);\n    opacity: 0;\n}\n100% {\n    transform: translateY(-10px);\n    opacity: 0;\n}\n}\n.incorrect[data-v-4e3a470b] {\n  border-color: red;\n}\n.gray-line[data-v-4e3a470b] {\n  max-width: 990px;\n  margin: 30px auto;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

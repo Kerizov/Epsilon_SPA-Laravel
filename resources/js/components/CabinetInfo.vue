@@ -94,7 +94,10 @@
                         <button class="bookings__item-select" style="background-color:#97CA2B;">
                             Оплатить
                         </button>
-                        <div class="booking__price">{{ booking.price }} руб.</div>
+                        <div class="booking__price" >{{ booking.price }}
+<!--                            <template v-for="(people, index) in peoples" :key="people.id">-->
+<!--                            </template>-->
+                            руб.</div>
                     </div>
 
                 </div>
@@ -139,13 +142,38 @@ export default {
                 time: '',
                 price: '',
             },
+            // peoples: {
+            //     amount_people: null,
+            // },
         }
     },
     async mounted() {
         await this.PersonalInfo();
-        this.BookingInfo();
+        await this.BookingInfo();
+        // await this.GetAmountPeople();
     },
     methods: {
+        // GetAmountPeople(){
+        //     api.get('/api/booking', {
+        //         params: {
+        //             user_id: this.user_id,
+        //         }
+        //     }).then(res => {
+        //         this.peoples = res.data;
+        //         for(let i = 0; i < res.data.length; i++){
+        //             this.peoples.push(this.peoples[i].amount_people);
+        //         }
+        //         console.log(this.peoples);
+        //
+        //
+        //
+        //         // for(let i = 0; i < res.data.length; i++){
+        //         //     this.people.amount_people = res.data[i].amount_people;
+        //         //     // console.log(this.bookings.people);
+        //         // }
+        //         // this.amount_people = res.data;
+        //     })
+        // },
 
         Logout() {
             api.post('/api/auth/logout')
@@ -374,27 +402,27 @@ export default {
 
 @keyframes update-anim {
     0% {
-        margin-top: -50px;
+        transform: translateY(-30px);
         opacity: 0;
     }
     15% {
-        margin-top: -10px;
+        transform: translateY(-10px);
         opacity: 1;
     }
     80% {
-        margin-top: -10px;
+        transform: translateY(-10px);
         opacity: 1;
     }
     90% {
-        margin-top: -10px;
+        transform: translateY(-10px);
         opacity: 0.1;
     }
     95% {
-        margin-top: -10px;
+        transform: translateY(-10px);
         opacity: 0;
     }
     100% {
-        margin-top: -10px;
+        transform: translateY(-10px);
         opacity: 0;
     }
 }

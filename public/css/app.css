@@ -11482,7 +11482,10 @@ textarea.form-control-lg {
     grid-column-end: 3 !important;
   }
   .cabinet-info__btn {
-    width: auto !important;
+    width: 260px !important;
+    font-size: 14px !important;
+    padding-top: 14px !important;
+    margin: 10px;
   }
 
   .update-success, .update-failure {

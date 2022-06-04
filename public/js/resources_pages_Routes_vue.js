@@ -188,7 +188,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       }).then(function (res) {
         res.data.length === 0 ? _this2.RoutesIsExists = false : _this2.RoutesIsExists = true;
-        _this2.routes = res.data;
+        _this2.routes = res.data; // console.log(typeof +this.routes[0].price.split(' ').join(''));
       });
     },
     Booking: function Booking(route_id) {
@@ -197,7 +197,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       _js_api__WEBPACK_IMPORTED_MODULE_2__["default"].post('/api/booking/create', {
         user_id: this.user_id,
         air_route_id: route_id,
-        confirm: false
+        confirm: true,
+        amount_people: this.$store.state.values.amount_people
       }).then(function (res) {
         _this3.isModalVisible = !_this3.isModalVisible;
 
@@ -804,6 +805,8 @@ var _hoisted_41 = /*#__PURE__*/_withScopeId(function () {
 
 var _hoisted_42 = [_hoisted_39, _hoisted_40, _hoisted_41];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _this = this;
+
   var _component_HeaderOther = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("HeaderOther");
 
   var _component_Footer = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Footer");
@@ -875,7 +878,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* TEXT */
     ), _hoisted_32, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(route.destination_city), 1
     /* TEXT */
-    )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(route.price) + " руб.", 1
+    )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(+route.price.split(' ').join('') * _this.$store.state.values.amount_people) + " руб.", 1
     /* TEXT */
     ), $data.isModalVisible ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, [_hoisted_36, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
       onClick: _cache[5] || (_cache[5] = function ($event) {

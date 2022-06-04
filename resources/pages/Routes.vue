@@ -61,7 +61,7 @@
                                     {{ route.destination_city }}
                                 </div>
                             </div>
-                            <div class="routes__price">{{ route.price }} руб.</div>
+                            <div class="routes__price">{{ +route.price.split(' ').join('') * this.$store.state.values.amount_people}} руб.</div>
                             <div class="modal-wrapper" v-if="isModalVisible">
                                 <div class="modal-window">
                                     <p>Вы хотите забронировать этот рейс?</p>
@@ -164,13 +164,15 @@ export default {
                 .then(res => {
                     (res.data.length === 0) ? this.RoutesIsExists = false : this.RoutesIsExists = true
                     this.routes = res.data;
+                    // console.log(typeof +this.routes[0].price.split(' ').join(''));
                 })
         },
         Booking(route_id) {
             api.post('/api/booking/create', {
                 user_id: this.user_id,
                 air_route_id: route_id,
-                confirm: false,
+                confirm: true,
+                amount_people: this.$store.state.values.amount_people,
             })
                 .then(res => {
                     this.isModalVisible = !this.isModalVisible

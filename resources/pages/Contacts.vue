@@ -14,31 +14,7 @@
                     почте. Вы также можете воспользоваться контактной формой ниже или посетить наш офис лично. Будем
                     рады ответить на ваши вопросы.
                 </div>
-                <form class="contacts__form" action="" method="post">
-                    <div>
-                        <label for="name"></label>
-                        <input type="text" id="name" placeholder="Имя" required>
-                    </div>
-                    <div>
-                        <label for="lastname"></label>
-                        <input type="text" id="lastname" placeholder="Фамилия">
-                    </div>
-                    <div>
-                        <label for="email"></label>
-                        <input type="email" id="email" placeholder="E-mail">
-                    </div>
-                    <div>
-                        <label for="phone"></label>
-                        <input type="tel" id="phone" placeholder="Телефон" required>
-                    </div>
-                    <div class="textarea">
-                        <label for="message"></label>
-                        <textarea name="" id="message" cols="40" rows="5" placeholder="Комментарий"></textarea>
-                    </div>
-                    <div class="btn">
-                        <input type="submit">
-                    </div>
-                </form>
+                <ContactsForm/>
                 <div class="contacts__info">
                     <div class="contacts__info-item">
                         <h3 class="contacts__info-title">Телефоны</h3>
@@ -80,10 +56,12 @@
 <script>
 import HeaderOther from "../js/components/HeaderOther";
 import Footer from "../js/components/Footer";
+import ContactsForm from "../js/components/ContactsForm";
 
 export default {
     name: "Contacts",
     components: {
+        ContactsForm,
         HeaderOther,
         Footer
     }
@@ -107,8 +85,6 @@ export default {
     }
 
     &__form-text {
-        //max-width: 800px;
-        //font-size: 24px;
         font-size: calc(var(--index) * 0.9);
         color: rgba(0, 0, 0, 0.5);
     }
@@ -118,7 +94,7 @@ export default {
     }
 
     &__form {
-        margin: 20px auto;
+        margin: 20px auto 0;
         max-width: 700px;
         display: grid;
         grid-template-columns: 1fr 1fr;

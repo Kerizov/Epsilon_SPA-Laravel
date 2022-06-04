@@ -26,6 +26,7 @@ class BookingController extends Controller
         Booking::create([
             'user_id'=>$bookings['user_id'],
             'air_route_id'=>$bookings['air_route_id'],
+            'amount_people'=>$bookings['amount_people'],
             'confirm'=>true,
         ]);
         return $bookings;
