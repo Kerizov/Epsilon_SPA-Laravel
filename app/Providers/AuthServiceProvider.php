@@ -4,9 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Illuminate\Http\Request;
 use Illuminate\Notifications\Messages\MailMessage;
-use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -30,16 +28,12 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         VerifyEmail::toMailUsing(function ($notifiable, $url) {
-
-
-//            $myUrl =  $url . '*' . $this->boot() . '*';
-//         $token = request()->header('Authorization');
-//            $myUrl =  'http://epsilon/cabinet';
+            $myUrl =  'http://epsilon/cabinet';
 
             return (new MailMessage)
                 ->subject('Подтвердить почту')
                 ->line('Кликните на кнопку ниже для подтверждения почты')
-                ->action('Подтвердить почту', $url);
+                ->action('Подтвердить почту', $myUrl);
         });
     }
 }

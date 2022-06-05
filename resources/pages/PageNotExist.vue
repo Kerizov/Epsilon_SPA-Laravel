@@ -1,9 +1,7 @@
 <template>
-
     <h1>404</h1>
     <h2>Страницы не существует</h2>
     <h2><router-link :to="{ name: 'home.index' }">Вернуться на главную</router-link></h2>
-
 </template>
 
 <script>

@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class City extends Model
 {
-    protected $quarded = false;
+    protected $quarded = [];
     use HasFactory;
 }

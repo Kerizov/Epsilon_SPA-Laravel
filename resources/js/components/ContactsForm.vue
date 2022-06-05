@@ -2,19 +2,21 @@
     <form class="contacts__form" action="" method="post">
         <div>
             <label for="name"></label>
-            <input v-model="name" :class="{'incorrect': name === null}" type="text" id="name" placeholder="Имя (не менее 3 букв)">
+            <input v-model="name" :class="{'incorrect': name === null}" type="text" id="name"
+                   placeholder="Имя (не менее 3 букв)">
         </div>
         <div>
             <label for="phone"></label>
-            <input v-model="phone_number" :class="{'incorrect': phone_number === null}" v-mask="'+7 (###) ###-##-##'" type="tel" id="phone" placeholder="Телефон">
+            <input v-model="phone_number" :class="{'incorrect': phone_number === null}" v-mask="'+7 (###) ###-##-##'"
+                   type="tel" id="phone" placeholder="Телефон">
         </div>
         <div>
             <label for="lastname"></label>
-            <input v-model="lastname"  type="text" id="lastname" placeholder="Фамилия">
+            <input v-model="lastname" type="text" id="lastname" placeholder="Фамилия">
         </div>
         <div>
             <label for="email"></label>
-            <input v-model="email"  type="email" id="email" placeholder="E-mail">
+            <input v-model="email" type="email" id="email" placeholder="E-mail">
         </div>
         <div class="textarea">
             <label for="message"></label>
@@ -27,14 +29,15 @@
     </form>
     <div style="height: 30px;">
         <div class="d-none" :class="{'update-success': isSuccess === true}">Заявка отправлена!</div>
-        <div class="d-none" :class="{'update-failure': isFailure === true}">Запольните обязательные поля корректными данными!</div>
+        <div class="d-none" :class="{'update-failure': isFailure === true}">Запольните обязательные поля корректными
+            данными!
+        </div>
     </div>
 </template>
 
 <script>
 import api from "../api";
 import validateMixin from "../mixins/validateMixin";
-
 
 export default {
     name: "ContactsForm",
@@ -51,7 +54,6 @@ export default {
         }
     },
     methods: {
-
         SendRequest() {
             if (this.ValidateData() && this.name && this.phone_number) {
                 api.post('api/request', {
@@ -81,9 +83,10 @@ export default {
 </script>
 
 <style scoped>
-.contacts__form > .btn input:hover{
+.contacts__form > .btn input:hover {
     background-color: #b98a00;
 }
+
 .update-success, .update-failure {
     animation: update-anim-b0417fbc 3s forwards;
     text-align: center;

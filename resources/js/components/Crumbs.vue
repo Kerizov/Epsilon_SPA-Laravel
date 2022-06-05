@@ -1,19 +1,26 @@
 <template>
     <section class="crumbs">
         <CrumbsTitle>
-            <template v-slot:subtitle><slot name='subtitle'/></template>
-            <template v-slot:title><slot name='title'/></template>
+            <template v-slot:subtitle>
+                <slot name='subtitle'/>
+            </template>
+            <template v-slot:title>
+                <slot name='title'/>
+            </template>
         </CrumbsTitle>
         <div class="crumbs__inner">
             <router-link to="/">Главная</router-link>
             <img src="../../images/arrow.svg" alt="">
-            <a href="#"><slot name='path'/></a>
+            <a href="#">
+                <slot name='path'/>
+            </a>
         </div>
     </section>
 </template>
 
 <script>
 import CrumbsTitle from "./CrumbsTitle";
+
 export default {
     name: "Crumbs",
     components: {CrumbsTitle}

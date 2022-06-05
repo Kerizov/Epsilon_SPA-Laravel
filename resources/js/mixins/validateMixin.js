@@ -10,70 +10,70 @@ export default {
             const regexInn = /^[0-9]{12}$/;
             const regexMailIndex = /^[0-9]{6}$/;
             const regexAddress = /^[а-яА-Я0-9,\.\s]+$/;
-            let per = 0;
+            let err = 0;
 
             if (this.phone_number) {
                 this.phone_number = this.phone_number.replace(/[^+\d]/g, '');
                 if (regexPhone.test(this.phone_number)) nextTick();
                 else {
                     this.phone_number = '';
-                    per++;
+                    err++;
                 }
-            }else{
+            } else {
                 this.phone_number = null;
             }
             if (this.email) {
                 if (regexEmail.test(this.email)) nextTick();
                 else {
                     this.email = '';
-                    per++;
+                    err++;
                 }
             }
             if (this.name) {
                 if (this.name !== Number && this.name.length >= 3) nextTick();
                 else {
                     this.name = null;
-                    per++;
+                    err++;
                 }
-            }else{
+            } else {
                 this.name = null;
             }
             if (this.passport_series) {
                 if (regexPassportSeries.test(this.passport_series)) nextTick();
                 else {
                     this.passport_series = '';
-                    per++;
+                    err++;
                 }
             }
             if (this.passport_number) {
                 if (regexPassportNumber.test(this.passport_number)) nextTick();
                 else {
                     this.passport_number = '';
-                    per++;
+                    err++;
                 }
             }
             if (this.inn) {
                 if (regexInn.test(this.inn)) nextTick();
                 else {
                     this.inn = '';
-                    per++;
+                    err++;
                 }
             }
             if (this.mail_index) {
                 if (regexMailIndex.test(this.mail_index)) nextTick();
                 else {
                     this.mail_index = '';
-                    per++;
+                    err++;
                 }
             }
             if (this.address) {
                 if (regexAddress.test(this.address)) nextTick();
                 else {
                     this.address = '';
-                    per++;
+                    err++;
                 }
             }
-            return (per > 0) ? false : true;
+            return (err > 0) ? false : true;
         }
     }
 }

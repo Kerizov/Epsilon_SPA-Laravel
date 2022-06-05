@@ -24,35 +24,36 @@
                 </nav>
                 <div class="mobile_buttons">
                     <span class="mob-menu_btn">
-                        <img @click="isMobMenuVisible = !isMobMenuVisible" src="../../images/menu-button.svg" alt="Меню">
+                        <img @click="isMobMenuVisible = !isMobMenuVisible" src="../../images/menu-button.svg"
+                             alt="Меню">
                     </span>
                 </div>
                 <transition name="fade">
-                <div class="mob__menu" v-show="isMobMenuVisible">
-                    <nav class="mob-menu__list">
-                        <ul class="menu-list">
-                            <li>
-                                <router-link :to="{ name: 'home.index' }">Главная</router-link>
-                            </li>
-                            <li>
-                                <router-link :to="{ name: 'home.about' }">О нас</router-link>
-                            </li>
-                            <li>
-                                <router-link :to="{ name: 'home.contacts' }">Контакты</router-link>
-                            </li>
-                            <li>
-                                <router-link :to="{ name: 'home.auth' }">
-                                    <template v-if="AuthChecked">
-                                        <div class="cabinet-link__mob">Личный кабинет</div>
-                                    </template>
-                                    <template v-else>
-                                        <div><span class="underline">Авторизация</span></div>
-                                    </template>
-                                </router-link>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+                    <div class="mob__menu" v-show="isMobMenuVisible">
+                        <nav class="mob-menu__list">
+                            <ul class="menu-list">
+                                <li>
+                                    <router-link :to="{ name: 'home.index' }">Главная</router-link>
+                                </li>
+                                <li>
+                                    <router-link :to="{ name: 'home.about' }">О нас</router-link>
+                                </li>
+                                <li>
+                                    <router-link :to="{ name: 'home.contacts' }">Контакты</router-link>
+                                </li>
+                                <li>
+                                    <router-link :to="{ name: 'home.auth' }">
+                                        <template v-if="AuthChecked">
+                                            <div class="cabinet-link__mob">Личный кабинет</div>
+                                        </template>
+                                        <template v-else>
+                                            <div><span class="underline">Авторизация</span></div>
+                                        </template>
+                                    </router-link>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
                 </transition>
             </div>
         </div>
@@ -83,23 +84,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.cabinet-link__mob{
+.cabinet-link__mob {
     color: #000;
     text-decoration: underline;
     text-decoration-color: #0D6EFD;
 }
-.underline{
+
+.underline {
     border-bottom: 1px solid #0D6EFD;
 }
+
 .fade-enter-active,
 .fade-leave-active {
     transition: all 0.3s ease-out;
 }
+
 .fade-enter-from,
-.fade-leave-to{
+.fade-leave-to {
     transform: translateY(-20px);
     opacity: 0;
 }
+
 .header__inner {
     height: 100px;
     background-color: #fff;

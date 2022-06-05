@@ -462,7 +462,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <router-link :to=\"{ name: 'home.auth' }\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <div class=\"flex\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <template v-if=\"AuthChecked\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            <div class=\"cabinet-link\">Личный кабинет</div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        </template>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <img src=\"../../images/user.svg\" alt=\"\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                </router-link>")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Crumbs, null, {
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Crumbs, null, {
     subtitle: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "subtitle", {}, undefined, true)];
     }),

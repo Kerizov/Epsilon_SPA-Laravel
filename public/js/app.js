@@ -23704,8 +23704,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
-
 
 var api = axios__WEBPACK_IMPORTED_MODULE_0___default().create(); //Start request
 
@@ -23732,15 +23730,14 @@ api.interceptors.response.use(function (config) {
     }).then(function (res) {
       localStorage.setItem('access_token', res.data.access_token);
       error.config.headers.authorization = "Bearer ".concat(res.data.access_token);
-      return api.request(error.config); // console.log(res.data.access_token);
+      return api.request(error.config);
     });
   }
 
   if (error.response) {
-    console.log(error.response); // router.push({name: 'home.auth'});
+    console.log(error.response);
   }
-}); // this.api = api;
-
+});
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (api);
 
 /***/ }),
@@ -23767,9 +23764,7 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-__webpack_require__(/*! ./main.min */ "./resources/js/main.min.js"); // const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
+__webpack_require__(/*! ./main.min */ "./resources/js/main.min.js");
 
 var app = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({});
 app.component('epsilon', (__webpack_require__(/*! ./components/Epsilon.vue */ "./resources/js/components/Epsilon.vue")["default"]));
@@ -33075,7 +33070,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_fonts_Exo2_Regular_ttf__WEBPACK_IMPORTED_MODULE_2__["default"]);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_images_bg_jpg__WEBPACK_IMPORTED_MODULE_3__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\n    font-family: 'Exo 2', sans-serif;\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n}\n* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n    font-family: 'Exo 2';\n}\n:root{\n    --index: calc(1vw + 1vh);\n}\nbody {\n    min-height: 100vh;\n    flex-direction: column;\n    display: flex;\n    line-height: normal !important;\n    font-size: medium !important;\n}\n.page {\n    background: linear-gradient(rgba(0, 0, 100, 0.2), rgba(0, 0, 0, 0)), url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") top center no-repeat;\n    background-size: contain;\n    background-color: white;\n    padding-top: 50px;\n}\n.container {\n    margin: 0 auto;\n    max-width: 1800px;\n    padding: 0 45px;\n}\nul, p {\n    margin: 0;\n    padding: 0;\n}\n\n/*lines*/\n.green-line {\n    width: 150px;\n    border-bottom: 2px solid #97CA2B;\n    margin-top: 5px;\n}\n.orange-line {\n    width: 150px;\n    border-bottom: 2px solid #F7B903;\n    margin-top: 5px;\n}\n.gray-line {\n    max-width: 500px;\n    margin: 10px auto;\n    border-bottom: 1px solid rgba(0, 0, 0, 0.5);\n}\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\n    font-family: 'Exo 2', sans-serif;\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n}\n* {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n    font-family: 'Exo 2';\n}\n:root {\n    --index: calc(1vw + 1vh);\n}\nbody {\n    min-height: 100vh;\n    flex-direction: column;\n    display: flex;\n    line-height: normal !important;\n    font-size: medium !important;\n}\n.page {\n    background: linear-gradient(rgba(0, 0, 100, 0.2), rgba(0, 0, 0, 0)), url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") top center no-repeat;\n    background-size: contain;\n    background-color: white;\n    padding-top: 50px;\n}\n.container {\n    margin: 0 auto;\n    max-width: 1800px;\n    padding: 0 45px;\n}\nul, p {\n    margin: 0;\n    padding: 0;\n}\n\n/*lines*/\n.green-line {\n    width: 150px;\n    border-bottom: 2px solid #97CA2B;\n    margin-top: 5px;\n}\n.orange-line {\n    width: 150px;\n    border-bottom: 2px solid #F7B903;\n    margin-top: 5px;\n}\n.gray-line {\n    max-width: 500px;\n    margin: 10px auto;\n    border-bottom: 1px solid rgba(0, 0, 0, 0.5);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -33099,7 +33094,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.dropped[data-v-5ad0e820]{\n    transition: all 0.3s ease-out;\n    transform: rotate(0deg) !important;\n    cursor: pointer;\n}\n.not-dropped[data-v-5ad0e820]{\n    transition: all 0.3s ease-out;\n    transform: rotate(180deg) !important;\n    cursor: pointer;\n}\n.fade-enter-active[data-v-5ad0e820],\n.fade-leave-active[data-v-5ad0e820] {\n    transition: all 0.3s ease-out;\n}\n.fade-enter-from[data-v-5ad0e820],\n.fade-leave-to[data-v-5ad0e820] {\n    opacity: 0;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.dropped[data-v-5ad0e820] {\n    transition: all 0.3s ease-out;\n    transform: rotate(0deg) !important;\n    cursor: pointer;\n}\n.not-dropped[data-v-5ad0e820] {\n    transition: all 0.3s ease-out;\n    transform: rotate(180deg) !important;\n    cursor: pointer;\n}\n.fade-enter-active[data-v-5ad0e820],\n.fade-leave-active[data-v-5ad0e820] {\n    transition: all 0.3s ease-out;\n}\n.fade-enter-from[data-v-5ad0e820],\n.fade-leave-to[data-v-5ad0e820] {\n    opacity: 0;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

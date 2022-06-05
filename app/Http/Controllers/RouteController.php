@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Filters\RoutesFilter;
 use App\Http\Requests\FilterRequest;
 use App\Models\Air_route;
-use Illuminate\Http\Request;
 
 
 class RouteController extends Controller

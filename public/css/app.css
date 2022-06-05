@@ -11359,6 +11359,7 @@ textarea.form-control-lg {
   }
   .header__inner ul a {
     font-size: 16px !important;
+    width: 130px !important;
   }
 
   .cabinet-info {

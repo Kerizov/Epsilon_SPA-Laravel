@@ -130,7 +130,6 @@ export default {
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 20px;
         font-size: 18px;
-        //font-size: calc(var(--index) * 0.75);
         margin-bottom: 50px;
 
         &-item > .gray-line {
@@ -144,5 +143,4 @@ export default {
         }
     }
 }
-
 </style>

@@ -61,7 +61,7 @@
         <div class="bookings__items">
             <template v-if="bookings">
                 <div class="bookings__item" v-for="booking in bookings" :key="booking.id">
-                    <h6 class="bookings__vendor-code">рейс #{{ booking.id }} - {{booking.status_of_places}}</h6>
+                    <h6 class="bookings__vendor-code">рейс #{{ booking.id }} - {{ booking.status_of_places }}</h6>
                     <div class="bookings__item-up">
                         <div class="bookings__air-company-name"><strong>Перевозчик</strong></div>
                         <div class="bookings__air-company-depart"><strong>Вылет</strong></div>
@@ -94,7 +94,7 @@
                         <button class="bookings__item-select" style="background-color:#97CA2B;">
                             Оплатить
                         </button>
-                        <div class="booking__price" >{{ booking.price }} руб.</div>
+                        <div class="booking__price">{{ booking.price }} руб.</div>
                     </div>
 
                 </div>
@@ -292,7 +292,7 @@ export default {
 
     &__item {
         background-color: rgba(0, 0, 100, 0.05);
-        border: 1px solid rgba(0,0,0,0.25);
+        border: 1px solid rgba(0, 0, 0, 0.25);
         position: relative;
         padding: 50px;
         height: 280px;

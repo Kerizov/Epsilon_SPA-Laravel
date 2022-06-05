@@ -981,7 +981,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <router-link :to=\"{ name: 'home.auth' }\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <div class=\"flex\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <template v-if=\"AuthChecked\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            <div class=\"cabinet-link\">Личный кабинет</div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        </template>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <img src=\"../../images/user.svg\" alt=\"\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                </router-link>")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Crumbs, null, {
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Crumbs, null, {
     subtitle: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "subtitle", {}, undefined, true)];
     }),
@@ -1288,13 +1288,13 @@ __webpack_require__.r(__webpack_exports__);
       var regexInn = /^[0-9]{12}$/;
       var regexMailIndex = /^[0-9]{6}$/;
       var regexAddress = /^[а-яА-Я0-9,\.\s]+$/;
-      var per = 0;
+      var err = 0;
 
       if (this.phone_number) {
         this.phone_number = this.phone_number.replace(/[^+\d]/g, '');
         if (regexPhone.test(this.phone_number)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
           this.phone_number = '';
-          per++;
+          err++;
         }
       } else {
         this.phone_number = null;
@@ -1303,14 +1303,14 @@ __webpack_require__.r(__webpack_exports__);
       if (this.email) {
         if (regexEmail.test(this.email)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
           this.email = '';
-          per++;
+          err++;
         }
       }
 
       if (this.name) {
         if (this.name !== Number && this.name.length >= 3) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
           this.name = null;
-          per++;
+          err++;
         }
       } else {
         this.name = null;
@@ -1319,39 +1319,39 @@ __webpack_require__.r(__webpack_exports__);
       if (this.passport_series) {
         if (regexPassportSeries.test(this.passport_series)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
           this.passport_series = '';
-          per++;
+          err++;
         }
       }
 
       if (this.passport_number) {
         if (regexPassportNumber.test(this.passport_number)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
           this.passport_number = '';
-          per++;
+          err++;
         }
       }
 
       if (this.inn) {
         if (regexInn.test(this.inn)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
           this.inn = '';
-          per++;
+          err++;
         }
       }
 
       if (this.mail_index) {
         if (regexMailIndex.test(this.mail_index)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
           this.mail_index = '';
-          per++;
+          err++;
         }
       }
 
       if (this.address) {
         if (regexAddress.test(this.address)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
           this.address = '';
-          per++;
+          err++;
         }
       }
 
-      return per > 0 ? false : true;
+      return err > 0 ? false : true;
     }
   }
 });

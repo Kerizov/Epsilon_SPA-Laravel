@@ -1,8 +1,8 @@
 import api from "../api";
 
 export default {
-    data(){
-        return{
+    data() {
+        return {
             user_id: null,
             firstname: null,
             lastname: null,

@@ -2,7 +2,8 @@ import {createStore} from "vuex";
 
 import createPersistedState from "vuex-persistedstate";
 import SecureLS from "secure-ls";
-let ls = new SecureLS({ isCompression: false });
+
+let ls = new SecureLS({isCompression: false});
 
 
 let today = new Date();
@@ -14,8 +15,8 @@ export default createStore({
         values: {
             departure_city: 'Москва',
             destination_city: 'Абакан',
-            arrival_date: tomorrow.toJSON().slice(0,10).replace(/-/g,'-'),
-            departure_date: today.toJSON().slice(0,10).replace(/-/g,'-'),
+            arrival_date: tomorrow.toJSON().slice(0, 10).replace(/-/g, '-'),
+            departure_date: today.toJSON().slice(0, 10).replace(/-/g, '-'),
             status_of_places: "Эконом",
             amount_people: 1,
         }

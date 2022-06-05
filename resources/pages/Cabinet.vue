@@ -5,9 +5,7 @@
     </HeaderOther>
     <section class="Cabinet">
         <div class="container">
-            <CabinetInfo>
-
-            </CabinetInfo>
+            <CabinetInfo></CabinetInfo>
         </div>
     </section>
 

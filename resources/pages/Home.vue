@@ -1,79 +1,79 @@
 <template>
-        <div class="page">
-            <Header></Header>
-            <main class="main">
-                <div class="container">
-                    <div class="main__inner">
-                        <div class="desc">
-                            <div class="main__slogan">
-                                <h1>
-                                    Небеса ждут тебя
-                                </h1>
-                            </div>
-                            <div class="main__info">
-                                <p>
-                                    Вместе с Epsilon вы сможете быстро заказать
-                                    билеты на самолет и как можно скорее насладится своим
-                                    отпуском
-                                </p>
-                            </div>
-                            <div class="main__btn">
-                                <router-link :to="{ name: 'home.about' }">Подробнее</router-link>
-                            </div>
+    <div class="page">
+        <Header></Header>
+        <main class="main">
+            <div class="container">
+                <div class="main__inner">
+                    <div class="desc">
+                        <div class="main__slogan">
+                            <h1>
+                                Небеса ждут тебя
+                            </h1>
                         </div>
-                        <div class="main__form">
-                            <form class="main__search-form" method="get" action="">
-                                <div class="block">
-                                    <div>
-                                        <label for="from">Откуда</label>
-                                        <select name="" v-model="departure_city" id="from">
-                                            <option v-for="city in cities" :value="city.city_name">
-                                                {{ city.city_name }}
-                                            </option>
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <label for="to">Куда</label>
-                                        <select name="" v-model="destination_city" id="to">
-                                            <option v-for="city in cities" :value="city.city_name">
-                                                {{ city.city_name }}
-                                            </option>
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <label for="depart">Вылет</label>
-                                        <input type="date" v-model="departure_date" id="depart">
-                                    </div>
-                                    <div>
-                                        <label for="return">Прилет</label>
-                                        <input type="date" v-model="arrival_date" id="return">
-                                    </div>
-                                    <div>
-                                        <label for="class">Выберите класс</label>
-                                        <select v-model="status_of_places" id="class">
-                                            <option v-for="status in statuses" :value="status.status_name">
-                                                {{ status.status_name }}
-                                            </option>
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <label for="passenger">Кол-во пассажиров</label>
-                                        <input type="number" v-model="amount_people" id="passenger" min="1" max="10">
-                                    </div>
-                                    <div class="grid-block">
-                                        <div class="btn-submit" @click="GetRoutes">
-                                            <p>Поиск</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
+                        <div class="main__info">
+                            <p>
+                                Вместе с Epsilon вы сможете быстро заказать
+                                билеты на самолет и как можно скорее насладится своим
+                                отпуском
+                            </p>
+                        </div>
+                        <div class="main__btn">
+                            <router-link :to="{ name: 'home.about' }">Подробнее</router-link>
                         </div>
                     </div>
+                    <div class="main__form">
+                        <form class="main__search-form" method="get" action="">
+                            <div class="block">
+                                <div>
+                                    <label for="from">Откуда</label>
+                                    <select name="" v-model="departure_city" id="from">
+                                        <option v-for="city in cities" :value="city.city_name">
+                                            {{ city.city_name }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="to">Куда</label>
+                                    <select name="" v-model="destination_city" id="to">
+                                        <option v-for="city in cities" :value="city.city_name">
+                                            {{ city.city_name }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="depart">Вылет</label>
+                                    <input type="date" v-model="departure_date" id="depart">
+                                </div>
+                                <div>
+                                    <label for="return">Прилет</label>
+                                    <input type="date" v-model="arrival_date" id="return">
+                                </div>
+                                <div>
+                                    <label for="class">Выберите класс</label>
+                                    <select v-model="status_of_places" id="class">
+                                        <option v-for="status in statuses" :value="status.status_name">
+                                            {{ status.status_name }}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="passenger">Кол-во пассажиров</label>
+                                    <input type="number" v-model="amount_people" id="passenger" min="1" max="10">
+                                </div>
+                                <div class="grid-block">
+                                    <div class="btn-submit" @click="GetRoutes">
+                                        <p>Поиск</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </main>
-            <HomeNews></HomeNews>
-            <Footer></Footer>
-        </div>
+            </div>
+        </main>
+        <HomeNews></HomeNews>
+        <Footer></Footer>
+    </div>
 </template>
 
 <script>
@@ -179,7 +179,6 @@ export default {
 
 <style lang="scss">
 .news {
-    //min-height: 1200px;
     margin-top: 400px;
 
     &__items {
@@ -191,11 +190,7 @@ export default {
     }
 
     &__item {
-        //display: flex;
-        //justify-content: space-between;
-        //box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         margin: 50px;
-        //background-color: #f3f3f3;
 
         & img {
             max-width: 500px;
@@ -281,7 +276,6 @@ export default {
     cursor: pointer;
     background-color: #F7B903;
     color: #ffffff;
-    //width: 180px;
     height: 40px;
     margin-bottom: 20px;
     border-radius: 5px;

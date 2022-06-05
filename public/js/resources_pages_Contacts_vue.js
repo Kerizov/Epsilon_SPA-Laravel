@@ -311,7 +311,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["d-none", {
       'update-failure': $data.isFailure === true
     }])
-  }, "Запольните обязательные поля корректными данными!", 2
+  }, "Запольните обязательные поля корректными данными! ", 2
   /* CLASS */
   )])], 64
   /* STABLE_FRAGMENT */
@@ -683,7 +683,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                <router-link :to=\"{ name: 'home.auth' }\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    <div class=\"flex\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <template v-if=\"AuthChecked\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                            <div class=\"cabinet-link\">Личный кабинет</div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        </template>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                        <img src=\"../../images/user.svg\" alt=\"\">"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                    </div>"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("                </router-link>")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Crumbs, null, {
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Crumbs, null, {
     subtitle: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "subtitle", {}, undefined, true)];
     }),
@@ -799,13 +799,13 @@ __webpack_require__.r(__webpack_exports__);
       var regexInn = /^[0-9]{12}$/;
       var regexMailIndex = /^[0-9]{6}$/;
       var regexAddress = /^[а-яА-Я0-9,\.\s]+$/;
-      var per = 0;
+      var err = 0;
 
       if (this.phone_number) {
         this.phone_number = this.phone_number.replace(/[^+\d]/g, '');
         if (regexPhone.test(this.phone_number)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
           this.phone_number = '';
-          per++;
+          err++;
         }
       } else {
         this.phone_number = null;
@@ -814,14 +814,14 @@ __webpack_require__.r(__webpack_exports__);
       if (this.email) {
         if (regexEmail.test(this.email)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
           this.email = '';
-          per++;
+          err++;
         }
       }
 
       if (this.name) {
         if (this.name !== Number && this.name.length >= 3) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
           this.name = null;
-          per++;
+          err++;
         }
       } else {
         this.name = null;
@@ -830,39 +830,39 @@ __webpack_require__.r(__webpack_exports__);
       if (this.passport_series) {
         if (regexPassportSeries.test(this.passport_series)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
           this.passport_series = '';
-          per++;
+          err++;
         }
       }
 
       if (this.passport_number) {
         if (regexPassportNumber.test(this.passport_number)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
           this.passport_number = '';
-          per++;
+          err++;
         }
       }
 
       if (this.inn) {
         if (regexInn.test(this.inn)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
           this.inn = '';
-          per++;
+          err++;
         }
       }
 
       if (this.mail_index) {
         if (regexMailIndex.test(this.mail_index)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
           this.mail_index = '';
-          per++;
+          err++;
         }
       }
 
       if (this.address) {
         if (regexAddress.test(this.address)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
           this.address = '';
-          per++;
+          err++;
         }
       }
 
-      return per > 0 ? false : true;
+      return err > 0 ? false : true;
     }
   }
 });
@@ -983,7 +983,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.contacts__form > .btn input[data-v-b0417fbc]:hover{\n    background-color: #b98a00;\n}\n.update-success[data-v-b0417fbc], .update-failure[data-v-b0417fbc] {\n    -webkit-animation: update-anim-b0417fbc 3s forwards;\n            animation: update-anim-b0417fbc 3s forwards;\n    text-align: center;\n    justify-content: center;\n    padding: 5px;\n    margin: 0 auto;\n    color: black;\n    font-size: 16px;\n    display: flex !important;\n    z-index: 0;\n}\n.incorrect[data-v-b0417fbc] {\n    border-color: red !important;\n}\n@-webkit-keyframes update-anim-b0417fbc {\n0% {\n        transform: translateY(-50px);\n        opacity: 0;\n}\n15% {\n        transform: translateY(-30px);\n        opacity: 1;\n}\n80% {\n        transform: translateY(-30px);\n        opacity: 1;\n}\n90% {\n        transform: translateY(-30px);\n        opacity: 0.1;\n}\n95% {\n        transform: translateY(-30px);\n        opacity: 0;\n}\n100% {\n        transform: translateY(-30px);\n        opacity: 0;\n}\n}\n@keyframes update-anim-b0417fbc {\n0% {\n        transform: translateY(-50px);\n        opacity: 0;\n}\n15% {\n        transform: translateY(-30px);\n        opacity: 1;\n}\n80% {\n        transform: translateY(-30px);\n        opacity: 1;\n}\n90% {\n        transform: translateY(-30px);\n        opacity: 0.1;\n}\n95% {\n        transform: translateY(-30px);\n        opacity: 0;\n}\n100% {\n        transform: translateY(-30px);\n        opacity: 0;\n}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.contacts__form > .btn input[data-v-b0417fbc]:hover {\n    background-color: #b98a00;\n}\n.update-success[data-v-b0417fbc], .update-failure[data-v-b0417fbc] {\n    -webkit-animation: update-anim-b0417fbc 3s forwards;\n            animation: update-anim-b0417fbc 3s forwards;\n    text-align: center;\n    justify-content: center;\n    padding: 5px;\n    margin: 0 auto;\n    color: black;\n    font-size: 16px;\n    display: flex !important;\n    z-index: 0;\n}\n.incorrect[data-v-b0417fbc] {\n    border-color: red !important;\n}\n@-webkit-keyframes update-anim-b0417fbc {\n0% {\n        transform: translateY(-50px);\n        opacity: 0;\n}\n15% {\n        transform: translateY(-30px);\n        opacity: 1;\n}\n80% {\n        transform: translateY(-30px);\n        opacity: 1;\n}\n90% {\n        transform: translateY(-30px);\n        opacity: 0.1;\n}\n95% {\n        transform: translateY(-30px);\n        opacity: 0;\n}\n100% {\n        transform: translateY(-30px);\n        opacity: 0;\n}\n}\n@keyframes update-anim-b0417fbc {\n0% {\n        transform: translateY(-50px);\n        opacity: 0;\n}\n15% {\n        transform: translateY(-30px);\n        opacity: 1;\n}\n80% {\n        transform: translateY(-30px);\n        opacity: 1;\n}\n90% {\n        transform: translateY(-30px);\n        opacity: 0.1;\n}\n95% {\n        transform: translateY(-30px);\n        opacity: 0;\n}\n100% {\n        transform: translateY(-30px);\n        opacity: 0;\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

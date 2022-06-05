@@ -27,7 +27,7 @@ export default {
     font-family: 'Exo 2';
 }
 
-:root{
+:root {
     --index: calc(1vw + 1vh);
 }
 
@@ -38,7 +38,6 @@ body {
     line-height: normal !important;
     font-size: medium !important;
 }
-
 
 .page {
     background: linear-gradient(rgba(0, 0, 100, 0.2), rgba(0, 0, 0, 0)), url(../../images/bg.jpg) top center no-repeat;
@@ -76,6 +75,4 @@ ul, p {
     margin: 10px auto;
     border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 }
-
-
 </style>

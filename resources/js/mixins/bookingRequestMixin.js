@@ -34,8 +34,7 @@ export default {
                                     this.bookings.map((elem, index) => {
                                         return elem.price = elem.price * amountPeople[index];
                                     })
-                                }
-                                else {
+                                } else {
                                     nextTick()
                                 }
                             });

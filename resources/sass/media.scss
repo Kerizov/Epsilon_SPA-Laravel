@@ -74,36 +74,27 @@
 
         & ul a {
             font-size: 16px !important;
+            width: 130px !important;
         }
     }
     .cabinet-info {
-        //max-width: 990px;
         margin: 50px auto !important;
 
         &-flex {
             display: grid !important;
             grid-gap: 35px !important;
             justify-content: center !important;
-            //margin-top: 90px;
+
         }
 
         &__main {
             width: auto !important;
-
-            //&-info {
-            //    &-item {
-            //        display: block !important;
-            //        justify-content: center !important;
-            //        margin-top: 15px !important;
-            //        align-items: center !important;
-            //    }
-            //}
         }
     }
 }
 
 @media (min-width: 850px) {
-    .mob__menu,.mob__menu-other,.mobile_buttons {
+    .mob__menu, .mob__menu-other, .mobile_buttons {
         display: none !important;
     }
 }
@@ -218,18 +209,13 @@
 @media (max-width: 670px) {
     .cabinet-info {
         &__buttons {
-            //display: grid !important;
-            //max-width: 400px !important;
-            //margin: 0 auto !important;
             justify-content: space-between !important;
-
             grid-row-start: 2 !important;
             grid-column-start: 1 !important;
             grid-column-end: 3 !important;
         }
 
         &__btn {
-            //width: auto !important;
             width: 260px !important;
             font-size: 14px !important;
             padding-top: 14px !important;
@@ -317,7 +303,7 @@
         }
     }
     .bookings {
-        &__item > div > button{
+        &__item > div > button {
             width: 60vw !important;
         }
     }
@@ -442,7 +428,7 @@
         display: none !important;
     }
     .bookings {
-        &__item > div > button{
+        &__item > div > button {
             margin: 10px auto !important;
         }
     }

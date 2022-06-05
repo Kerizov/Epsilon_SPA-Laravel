@@ -31,7 +31,6 @@ Auth::routes(['verify' => true]);
 Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
     Route::post('login', [AuthController::class, 'login']);
     Route::post('refresh', [AuthController::class, 'refresh']);
-//    Route::get('email-verify', [StoreController::class, 'verification']);
     Route::group(['middleware' => 'jwt.auth'], function() {
         Route::post('logout', [AuthController::class, 'logout']);
         Route::post('me', [AuthController::class, 'me']);
@@ -69,12 +68,3 @@ Route::get('/booking/air_routes', [BookingController::class, 'getUserRoute']);
 Route::get('/posts', [PostController::class, 'index']);
 //Route::post('/posts', [PostController::class, 'store']);
 
-
-
-
-
-////Route::get('/email-verification', [VerificationController::class, "verify"])->name('verification.verify');
-//Route::post('/auth', [App\Http\Controllers\RegisterController::class, 'reg'])->name('auth');
-//Route::post('/login', [App\Http\Controllers\LoginController::class, 'login'])->name('login');
-//Route::get('/auth', [App\Http\Controllers\RegisterController::class, 'isAuth'])->name('isAuth');
-//Route::get('/logout', [App\Http\Controllers\LoginController::class, 'logout'])->name('logout');;

@@ -61,7 +61,9 @@
                                     {{ route.destination_city }}
                                 </div>
                             </div>
-                            <div class="routes__price">{{ +route.price.split(' ').join('') * this.$store.state.values.amount_people}} руб.</div>
+                            <div class="routes__price">
+                                {{ +route.price.split(' ').join('') * this.$store.state.values.amount_people }} руб.
+                            </div>
                             <div class="modal-wrapper" v-if="isModalVisible">
                                 <div class="modal-window">
                                     <p>Вы хотите забронировать этот рейс?</p>

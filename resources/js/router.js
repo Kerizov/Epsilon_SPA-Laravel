@@ -57,7 +57,6 @@ router.beforeEach((to, from, next) => {
             name: 'home.cabinet'
         })
     }
-
     next();
 })
 

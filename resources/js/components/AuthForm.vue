@@ -6,10 +6,14 @@
     </form>
     <form class="auth-form-mob">
         <template :class="[toggleShow ? 'd-flex' : 'd-none']">
-            <SignInForm><p class="auth-form-mob__link">Вы еще не регистрировались? <span style="cursor: pointer" @click="toggleShow = !toggleShow">Регистрироваться</span></p></SignInForm>
+            <SignInForm><p class="auth-form-mob__link">Вы еще не регистрировались? <span style="cursor: pointer"
+                                                                                         @click="toggleShow = !toggleShow">Регистрироваться</span>
+            </p></SignInForm>
         </template>
         <template :class="[!toggleShow ? 'd-flex' : 'd-none']">
-            <SingUpForm><p class="auth-form-mob__link">У вас уже есть аккаунт? <span style="cursor: pointer" @click="toggleShow = !toggleShow">Авторизоваться</span></p></SingUpForm>
+            <SingUpForm><p class="auth-form-mob__link">У вас уже есть аккаунт? <span style="cursor: pointer"
+                                                                                     @click="toggleShow = !toggleShow">Авторизоваться</span>
+            </p></SingUpForm>
         </template>
     </form>
 </template>
@@ -21,8 +25,8 @@ import SingUpForm from "./SingUpForm";
 export default {
     name: "AuthForm",
     components: {SingUpForm, SignInForm},
-    data(){
-        return{
+    data() {
+        return {
             toggleShow: true,
         }
     }
@@ -40,6 +44,7 @@ export default {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     position: relative;
 }
+
 .auth-form-mob {
     display: none;
     max-width: 450px;
@@ -50,11 +55,12 @@ export default {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     position: relative;
 
-    &__link{
+    &__link {
         margin-top: 15px;
         font-size: 14px;
         opacity: .9;
-        & > span{
+
+        & > span {
             text-decoration: underline;
             text-decoration-color: #0D6EFD;
         }

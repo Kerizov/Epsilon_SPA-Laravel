@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SendMessageRequest;
 use App\Models\Message;
-use Illuminate\Http\Request;
 
 class RequestController extends Controller
 {

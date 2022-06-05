@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\IndexController;
-use App\Http\Controllers\RouteController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -16,9 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('index');
-//});
 
 Auth::routes(['verify' => true]);
 

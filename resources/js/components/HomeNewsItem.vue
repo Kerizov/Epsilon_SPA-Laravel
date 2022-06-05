@@ -29,7 +29,7 @@
                 <p :class="[(post.id === postId && visible !== true)?'dropped':'not-dropped']"
                    @click="visiblePost(post.id)"
                    class="news__item-link">
-                    <img  src="../../images/drop-arrow.svg" alt="">
+                    <img src="../../images/drop-arrow.svg" alt="">
                 </p>
             </div>
         </div>
@@ -74,16 +74,18 @@ export default {
 </script>
 
 <style scoped>
-.dropped{
+.dropped {
     transition: all 0.3s ease-out;
     transform: rotate(0deg) !important;
     cursor: pointer;
 }
-.not-dropped{
+
+.not-dropped {
     transition: all 0.3s ease-out;
     transform: rotate(180deg) !important;
     cursor: pointer;
 }
+
 .fade-enter-active,
 .fade-leave-active {
     transition: all 0.3s ease-out;

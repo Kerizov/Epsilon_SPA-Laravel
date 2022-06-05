@@ -65,14 +65,6 @@
                         </nav>
                     </div>
                 </transition>
-                <!--                <router-link :to="{ name: 'home.auth' }">-->
-                <!--                    <div class="flex">-->
-                <!--                        <template v-if="AuthChecked">-->
-                <!--                            <div class="cabinet-link">Личный кабинет</div>-->
-                <!--                        </template>-->
-                <!--                        <img src="../../images/user.svg" alt="">-->
-                <!--                    </div>-->
-                <!--                </router-link>-->
             </div>
             <Crumbs>
                 <template v-slot:subtitle>
@@ -153,11 +145,6 @@ export default {
     & li:last-child {
         min-width: 150px;
         margin-left: 10px;
-
-        //width: 30px;
-        //height: 30px;
-        //margin-left: 20px;
-        //line-height: inherit;
     }
 
     & li:last-child:hover {
@@ -191,8 +178,9 @@ export default {
 .fade-leave-active {
     transition: all 0.3s ease-out;
 }
+
 .fade-enter-from,
-.fade-leave-to{
+.fade-leave-to {
     transform: translateY(-20px);
     opacity: 0;
 }

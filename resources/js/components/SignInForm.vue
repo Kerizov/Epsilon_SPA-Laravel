@@ -54,14 +54,11 @@ export default {
                 .then(res => {
                     localStorage.setItem('access_token', res.data.access_token);
                     this.$router.push('/');
-                }).catch((error)=> {
+                }).catch((error) => {
                 if (error.response) {
                     this.AuthChecked = true;
-                    console.log(error.response.status)
                 }
             })
-
-
         }
     }
 }
