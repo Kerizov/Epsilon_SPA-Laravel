@@ -25,10 +25,10 @@ class SendMessageRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'lastname' => 'string',
-            'email' => 'string|email',
-            'phone' => 'required|string',
-            'message' => 'string',
+            'lastname' => 'string|nullable',
+            'email' => 'email|nullable',
+            'phone_number' => 'required|string',
+            'message' => 'string|nullable',
         ];
     }
 }

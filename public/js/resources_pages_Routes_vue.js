@@ -188,7 +188,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       }).then(function (res) {
         res.data.length === 0 ? _this2.RoutesIsExists = false : _this2.RoutesIsExists = true;
-        _this2.routes = res.data; // console.log(typeof +this.routes[0].price.split(' ').join(''));
+        _this2.routes = res.data;
       });
     },
     Booking: function Booking(route_id) {

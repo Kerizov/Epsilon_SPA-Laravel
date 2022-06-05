@@ -61,7 +61,7 @@
         <div class="bookings__items">
             <template v-if="bookings">
                 <div class="bookings__item" v-for="booking in bookings" :key="booking.id">
-                    <h6 class="bookings__vendor-code">рейс #{{ booking.id }}</h6>
+                    <h6 class="bookings__vendor-code">рейс #{{ booking.id }} - {{booking.status_of_places}}</h6>
                     <div class="bookings__item-up">
                         <div class="bookings__air-company-name"><strong>Перевозчик</strong></div>
                         <div class="bookings__air-company-depart"><strong>Вылет</strong></div>
@@ -94,10 +94,7 @@
                         <button class="bookings__item-select" style="background-color:#97CA2B;">
                             Оплатить
                         </button>
-                        <div class="booking__price" >{{ booking.price }}
-<!--                            <template v-for="(people, index) in peoples" :key="people.id">-->
-<!--                            </template>-->
-                            руб.</div>
+                        <div class="booking__price" >{{ booking.price }} руб.</div>
                     </div>
 
                 </div>
@@ -142,39 +139,13 @@ export default {
                 time: '',
                 price: '',
             },
-            // peoples: {
-            //     amount_people: null,
-            // },
         }
     },
     async mounted() {
         await this.PersonalInfo();
         await this.BookingInfo();
-        // await this.GetAmountPeople();
     },
     methods: {
-        // GetAmountPeople(){
-        //     api.get('/api/booking', {
-        //         params: {
-        //             user_id: this.user_id,
-        //         }
-        //     }).then(res => {
-        //         this.peoples = res.data;
-        //         for(let i = 0; i < res.data.length; i++){
-        //             this.peoples.push(this.peoples[i].amount_people);
-        //         }
-        //         console.log(this.peoples);
-        //
-        //
-        //
-        //         // for(let i = 0; i < res.data.length; i++){
-        //         //     this.people.amount_people = res.data[i].amount_people;
-        //         //     // console.log(this.bookings.people);
-        //         // }
-        //         // this.amount_people = res.data;
-        //     })
-        // },
-
         Logout() {
             api.post('/api/auth/logout')
                 .then(res => {
@@ -195,7 +166,6 @@ export default {
     &-flex {
         display: flex;
         justify-content: space-between;
-        //margin-top: 90px;
     }
 
     &__main {
@@ -343,7 +313,6 @@ export default {
                 height: 40px;
                 color: #fff;
                 margin: 20px auto;
-                //background-color: #F7B903;
                 border-radius: 5px;
                 outline: none;
                 border: none;
@@ -428,7 +397,7 @@ export default {
 }
 
 .incorrect {
-    border-color: red;
+    border-color: red !important;
 }
 
 .gray-line {

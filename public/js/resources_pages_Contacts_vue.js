@@ -12,16 +12,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../api */ "./resources/js/api.js");
+/* harmony import */ var _mixins_validateMixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../mixins/validateMixin */ "./resources/js/mixins/validateMixin.js");
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ContactsForm",
+  mixins: [_mixins_validateMixin__WEBPACK_IMPORTED_MODULE_1__["default"]],
   data: function data() {
     return {
-      name: null,
-      lastname: null,
-      email: null,
-      phone: null,
-      message: null,
+      name: '',
+      lastname: '',
+      email: '',
+      phone_number: '',
+      message: '',
       isSuccess: false,
       isFailure: false
     };
@@ -30,23 +33,30 @@ __webpack_require__.r(__webpack_exports__);
     SendRequest: function SendRequest() {
       var _this = this;
 
-      if (this.name !== Number && this.name.length >= 3 && this.phone) {
+      if (this.ValidateData() && this.name && this.phone_number) {
         _api__WEBPACK_IMPORTED_MODULE_0__["default"].post('api/request', {
           name: this.name,
           lastname: this.lastname,
           email: this.email,
-          phone: this.phone.replace(/[^+\d]/g, ''),
+          phone_number: this.phone_number,
           message: this.message
         }).then(function (res) {
+          _this.name = '';
+          _this.lastname = '';
+          _this.email = '';
+          _this.phone_number = '';
+          _this.message = '';
           _this.isSuccess = true;
-          _this.name = null;
-          _this.lastname = null;
-          _this.email = null;
-          _this.phone = null;
-          _this.message = null;
+          setTimeout(function () {
+            return _this.isSuccess = false;
+          }, 3000);
         });
       } else {
         this.isFailure = true;
+        this.phone_number = null;
+        setTimeout(function () {
+          return _this.isFailure = false;
+        }, 3000);
       }
     }
   }
@@ -188,7 +198,7 @@ var _hoisted_2 = /*#__PURE__*/_withScopeId(function () {
 
 var _hoisted_3 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-    "for": "lastname"
+    "for": "phone"
   }, null, -1
   /* HOISTED */
   );
@@ -196,7 +206,7 @@ var _hoisted_3 = /*#__PURE__*/_withScopeId(function () {
 
 var _hoisted_4 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-    "for": "email"
+    "for": "lastname"
   }, null, -1
   /* HOISTED */
   );
@@ -204,7 +214,7 @@ var _hoisted_4 = /*#__PURE__*/_withScopeId(function () {
 
 var _hoisted_5 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-    "for": "phone"
+    "for": "email"
   }, null, -1
   /* HOISTED */
   );
@@ -237,13 +247,28 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
       return $data.name = $event;
     }),
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
+      'incorrect': $data.name === null
+    }),
     type: "text",
     id: "name",
-    placeholder: "Имя"
-  }, null, 512
-  /* NEED_PATCH */
+    placeholder: "Имя (не менее 3 букв)"
+  }, null, 2
+  /* CLASS */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.name]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $data.phone_number = $event;
+    }),
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
+      'incorrect': $data.phone_number === null
+    }),
+    type: "tel",
+    id: "phone",
+    placeholder: "Телефон"
+  }, null, 2
+  /* CLASS */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.phone_number], [_directive_mask, '+7 (###) ###-##-##']])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
       return $data.lastname = $event;
     }),
     type: "text",
@@ -251,8 +276,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     placeholder: "Фамилия"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.lastname]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.lastname]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
       return $data.email = $event;
     }),
     type: "email",
@@ -260,16 +285,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     placeholder: "E-mail"
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.email]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
-      return $data.phone = $event;
-    }),
-    type: "tel",
-    id: "phone",
-    placeholder: "Телефон"
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.phone], [_directive_mask, '+7 (###) ###-##-##']])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.email]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
     "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
       return $data.message = $event;
     }),
@@ -295,7 +311,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["d-none", {
       'update-failure': $data.isFailure === true
     }])
-  }, "Что-то пошло не так!", 2
+  }, "Запольните обязательные поля корректными данными!", 2
   /* CLASS */
   )])], 64
   /* STABLE_FRAGMENT */
@@ -761,6 +777,98 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
+/***/ "./resources/js/mixins/validateMixin.js":
+/*!**********************************************!*\
+  !*** ./resources/js/mixins/validateMixin.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  methods: {
+    ValidateData: function ValidateData() {
+      var regexPhone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+      var regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      var regexPassportSeries = /^[0-9]{4}$/;
+      var regexPassportNumber = /^[0-9]{6}$/;
+      var regexInn = /^[0-9]{12}$/;
+      var regexMailIndex = /^[0-9]{6}$/;
+      var regexAddress = /^[а-яА-Я0-9,\.\s]+$/;
+      var per = 0;
+
+      if (this.phone_number) {
+        this.phone_number = this.phone_number.replace(/[^+\d]/g, '');
+        if (regexPhone.test(this.phone_number)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
+          this.phone_number = '';
+          per++;
+        }
+      } else {
+        this.phone_number = null;
+      }
+
+      if (this.email) {
+        if (regexEmail.test(this.email)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
+          this.email = '';
+          per++;
+        }
+      }
+
+      if (this.name) {
+        if (this.name !== Number && this.name.length >= 3) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
+          this.name = null;
+          per++;
+        }
+      } else {
+        this.name = null;
+      }
+
+      if (this.passport_series) {
+        if (regexPassportSeries.test(this.passport_series)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
+          this.passport_series = '';
+          per++;
+        }
+      }
+
+      if (this.passport_number) {
+        if (regexPassportNumber.test(this.passport_number)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
+          this.passport_number = '';
+          per++;
+        }
+      }
+
+      if (this.inn) {
+        if (regexInn.test(this.inn)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
+          this.inn = '';
+          per++;
+        }
+      }
+
+      if (this.mail_index) {
+        if (regexMailIndex.test(this.mail_index)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
+          this.mail_index = '';
+          per++;
+        }
+      }
+
+      if (this.address) {
+        if (regexAddress.test(this.address)) (0,vue__WEBPACK_IMPORTED_MODULE_0__.nextTick)();else {
+          this.address = '';
+          per++;
+        }
+      }
+
+      return per > 0 ? false : true;
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Crumbs.vue?vue&type=style&index=0&id=b1efd7fa&lang=scss":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/Crumbs.vue?vue&type=style&index=0&id=b1efd7fa&lang=scss ***!
@@ -875,7 +983,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.contacts__form > .btn input[data-v-b0417fbc]:hover{\n    background-color: #b98a00;\n}\n.update-success[data-v-b0417fbc], .update-failure[data-v-b0417fbc] {\n    -webkit-animation: update-anim-b0417fbc 3s forwards;\n            animation: update-anim-b0417fbc 3s forwards;\n    text-align: center;\n    justify-content: center;\n    padding: 5px;\n    color: black;\n    font-size: 16px;\n    display: flex !important;\n    z-index: 0;\n}\n@-webkit-keyframes update-anim-b0417fbc {\n0% {\n        transform: translateY(-30px);\n        opacity: 0;\n}\n15% {\n        transform: translateY(-10px);\n        opacity: 1;\n}\n80% {\n        transform: translateY(-10px);\n        opacity: 1;\n}\n90% {\n        transform: translateY(-10px);\n        opacity: 0.1;\n}\n95% {\n        transform: translateY(-10px);\n        opacity: 0;\n}\n100% {\n        transform: translateY(-10px);\n        opacity: 0;\n}\n}\n@keyframes update-anim-b0417fbc {\n0% {\n        transform: translateY(-30px);\n        opacity: 0;\n}\n15% {\n        transform: translateY(-10px);\n        opacity: 1;\n}\n80% {\n        transform: translateY(-10px);\n        opacity: 1;\n}\n90% {\n        transform: translateY(-10px);\n        opacity: 0.1;\n}\n95% {\n        transform: translateY(-10px);\n        opacity: 0;\n}\n100% {\n        transform: translateY(-10px);\n        opacity: 0;\n}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.contacts__form > .btn input[data-v-b0417fbc]:hover{\n    background-color: #b98a00;\n}\n.update-success[data-v-b0417fbc], .update-failure[data-v-b0417fbc] {\n    -webkit-animation: update-anim-b0417fbc 3s forwards;\n            animation: update-anim-b0417fbc 3s forwards;\n    text-align: center;\n    justify-content: center;\n    padding: 5px;\n    margin: 0 auto;\n    color: black;\n    font-size: 16px;\n    display: flex !important;\n    z-index: 0;\n}\n.incorrect[data-v-b0417fbc] {\n    border-color: red !important;\n}\n@-webkit-keyframes update-anim-b0417fbc {\n0% {\n        transform: translateY(-50px);\n        opacity: 0;\n}\n15% {\n        transform: translateY(-30px);\n        opacity: 1;\n}\n80% {\n        transform: translateY(-30px);\n        opacity: 1;\n}\n90% {\n        transform: translateY(-30px);\n        opacity: 0.1;\n}\n95% {\n        transform: translateY(-30px);\n        opacity: 0;\n}\n100% {\n        transform: translateY(-30px);\n        opacity: 0;\n}\n}\n@keyframes update-anim-b0417fbc {\n0% {\n        transform: translateY(-50px);\n        opacity: 0;\n}\n15% {\n        transform: translateY(-30px);\n        opacity: 1;\n}\n80% {\n        transform: translateY(-30px);\n        opacity: 1;\n}\n90% {\n        transform: translateY(-30px);\n        opacity: 0.1;\n}\n95% {\n        transform: translateY(-30px);\n        opacity: 0;\n}\n100% {\n        transform: translateY(-30px);\n        opacity: 0;\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -179,6 +179,7 @@ __webpack_require__.r(__webpack_exports__);
       isWrongPassword: false,
       isWrongLogin: false,
       emailIsAlreadyExists: false,
+      emailIsNotBeAValid: false,
       isWrongLastname: false,
       isWrongFirstname: false
     };
@@ -188,35 +189,27 @@ __webpack_require__.r(__webpack_exports__);
     store: function store() {
       var _this = this;
 
-      if (this.password === this.password_confirmation && this.email != null && this.firstname != null && this.lastname != null) {
-        axios.post('/api/users', {
-          email: this.email,
-          firstname: this.firstname,
-          lastname: this.lastname,
-          password: this.password,
-          password_confirmation: this.password_confirmation
-        }).then(function (res) {
-          console.log(res);
+      axios.post('/api/users', {
+        email: this.email,
+        firstname: this.firstname,
+        lastname: this.lastname,
+        password: this.password,
+        password_confirmation: this.password_confirmation
+      }).then(function (res) {
+        if (res.data.message === 'Такая почта уже занята!') {
+          _this.emailIsAlreadyExists = true;
+        } else {
+          localStorage.setItem('access_token', res.data.access_token);
 
-          if (res.data.message === 'Такая почта уже занята!') {
-            _this.emailIsAlreadyExists = true;
-            console.log('error');
-          } else if (res.data.message === 'The email must be a valid email address.') {
-            console.log('error email');
-          } else {
-            localStorage.setItem('access_token', res.data.access_token);
-
-            _this.$router.push('/');
-          } // console.log(res.data.message)
-
-        });
-      } else {
-        if (this.password !== this.password_confirmation) this.isWrongPasswordConf = true;
-        if (this.email === null) this.isWrongLogin = true;
-        if (this.firstname === null) this.isWrongFirstname = true;
-        if (this.lastname === null) this.isWrongLastname = true;
-        if (this.password === null) this.isWrongPassword = true;
-      }
+          _this.$router.push('/');
+        }
+      })["catch"](function (error) {
+        error.response.data.errors.email ? _this.emailIsNotBeAValid = true : _this.emailIsNotBeAValid = false;
+        error.response.data.errors.firstname ? _this.isWrongFirstname = true : _this.isWrongFirstname = false;
+        error.response.data.errors.lastname ? _this.isWrongLastname = true : _this.isWrongLastname = false;
+        error.response.data.errors.password[0] === 'The password field is required.' ? _this.isWrongPassword = true : _this.isWrongPassword = false;
+        error.response.data.errors.password[0] === 'The password confirmation does not match.' ? _this.isWrongPasswordConf = true : _this.isWrongPasswordConf = false;
+      });
     }
   }
 });
@@ -328,6 +321,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SignInForm, null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+        style: {
+          "cursor": "pointer"
+        },
         onClick: _cache[0] || (_cache[0] = function ($event) {
           return $data.toggleShow = !$data.toggleShow;
         })
@@ -343,6 +339,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SingUpForm, null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+        style: {
+          "cursor": "pointer"
+        },
         onClick: _cache[1] || (_cache[1] = function ($event) {
           return $data.toggleShow = !$data.toggleShow;
         })
@@ -880,7 +879,7 @@ var _hoisted_6 = {
 var _hoisted_7 = {
   key: 4,
   "class": "validation-error",
-  "for": "reg-login"
+  "for": "lastname"
 };
 var _hoisted_8 = {
   key: 5,
@@ -902,20 +901,30 @@ var _hoisted_11 = {
 };
 var _hoisted_12 = {
   key: 9,
-  "for": "reg-pass-repeat"
+  "class": "validation-error",
+  "for": "reg-pass"
 };
 var _hoisted_13 = {
   key: 10,
+  "for": "reg-pass-repeat"
+};
+var _hoisted_14 = {
+  key: 11,
+  "class": "validation-error",
+  "for": "reg-pass-repeat"
+};
+var _hoisted_15 = {
+  key: 12,
   "class": "validation-error",
   "for": "reg-pass-repeat"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_UiInput = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("UiInput");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, !$data.isWrongLogin && !$data.emailIsAlreadyExists ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_3, "Логин")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.emailIsAlreadyExists ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_4, "Такой Email уже существует!")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.isWrongLogin && !$data.emailIsAlreadyExists ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_5, "Введите корректный email")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, !$data.isWrongLogin && !$data.emailIsAlreadyExists && !$data.emailIsNotBeAValid ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_3, "E-mail")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.emailIsAlreadyExists ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_4, "Такой Email уже существует!")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.isWrongLogin && !$data.emailIsAlreadyExists || $data.emailIsNotBeAValid ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_5, "Введите корректный email")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
     type: "email",
     id: "reg-login",
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)($data.isWrongLogin ? 'validation-error-input' : ''),
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)($data.isWrongLogin || $data.emailIsNotBeAValid || $data.emailIsAlreadyExists ? 'validation-error-input' : ''),
     modelValue: $data.email,
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
       return $data.email = $event;
@@ -923,7 +932,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     placeholder: "Email"
   }, null, 8
   /* PROPS */
-  , ["class", "modelValue"]), !$data.isWrongLastname ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_6, "Фамилия")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_7, "Введите корректно фамилию")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
+  , ["class", "modelValue"]), !$data.isWrongLastname ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_6, "Фамилия")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.isWrongLastname ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_7, "Введите фамилию(не менее 3 букв)")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
     id: "lastname",
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)($data.isWrongLastname ? 'validation-error-input' : ''),
     modelValue: $data.lastname,
@@ -933,7 +942,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     placeholder: "Латинскими буквами"
   }, null, 8
   /* PROPS */
-  , ["class", "modelValue"]), !$data.isWrongFirstname ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_8, "Имя")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_9, "Введите корректно имя")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
+  , ["class", "modelValue"]), !$data.isWrongFirstname ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_8, "Имя")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_9, "Введите имя(не менее 3 букв)")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
     id: "firstname",
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)($data.isWrongFirstname ? 'validation-error-input' : ''),
     modelValue: $data.firstname,
@@ -943,10 +952,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     placeholder: "Латинскими буквами"
   }, null, 8
   /* PROPS */
-  , ["class", "modelValue"]), !$data.isWrongPasswordConf ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_10, "Пароль")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_11, "Пароли не совпадают")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
+  , ["class", "modelValue"]), !$data.isWrongPasswordConf && !$data.isWrongPassword ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_10, "Пароль")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.isWrongPasswordConf ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_11, "Пароли не совпадают")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.isWrongPassword && !$data.isWrongPasswordConf ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_12, "Введите пароль")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
     type: "password",
     id: "reg-pass",
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)($data.isWrongPasswordConf ? 'validation-error-input' : ''),
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)($data.isWrongPasswordConf || $data.isWrongPassword ? 'validation-error-input' : ''),
     modelValue: $data.password,
     "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
       return $data.password = $event;
@@ -954,10 +963,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     placeholder: "Пароль"
   }, null, 8
   /* PROPS */
-  , ["class", "modelValue"]), !$data.isWrongPasswordConf ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_12, "Повтор пароля")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_13, "Пароли не совпадают")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
+  , ["class", "modelValue"]), !$data.isWrongPasswordConf && !$data.isWrongPassword ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_13, "Пароль")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.isWrongPasswordConf ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_14, "Пароли не совпадают")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.isWrongPassword && !$data.isWrongPasswordConf ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_15, "Введите пароль")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_UiInput, {
     type: "password",
     id: "reg-pass-repeat",
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)($data.isWrongPasswordConf ? 'validation-error-input' : ''),
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)($data.isWrongPasswordConf || $data.isWrongPassword ? 'validation-error-input' : ''),
     modelValue: $data.password_confirmation,
     "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
       return $data.password_confirmation = $event;
@@ -1189,7 +1198,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".auth-form__title[data-v-26c37319], .auth-form-mob__title[data-v-26c37319] {\n  font-size: 36px;\n  margin-bottom: 10px;\n}\n.auth-form input[data-v-26c37319], .auth-form-mob input[data-v-26c37319] {\n  width: 333px;\n  padding: 10px;\n  outline: none;\n}\n.auth-form label[data-v-26c37319], .auth-form-mob label[data-v-26c37319] {\n  padding: 10px;\n  display: block;\n}\n.auth-form__btn[data-v-26c37319], .auth-form-mob__btn[data-v-26c37319] {\n  position: absolute;\n  margin-top: 15px;\n  bottom: 25px;\n  right: 25px;\n  padding-bottom: 11px !important;\n  width: 290px;\n  height: 50px;\n  font-size: 24px;\n  background-color: #F7B903;\n  color: #fff;\n  outline: none;\n  border: none;\n  border-radius: 5px;\n}\n.auth-form__btn[data-v-26c37319]:hover, .auth-form-mob__btn[data-v-26c37319]:hover {\n  background-color: #b98a00;\n}\n.validation-error[data-v-26c37319] {\n  color: #ac0000;\n}\n.validation-error-input[data-v-26c37319] {\n  background-color: rgba(199, 41, 41, 0.53);\n  border: 1px solid black;\n  border-radius: 3px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".auth-form__title[data-v-26c37319], .auth-form-mob__title[data-v-26c37319] {\n  font-size: 36px;\n  margin-bottom: 10px;\n}\n.auth-form input[data-v-26c37319], .auth-form-mob input[data-v-26c37319] {\n  width: 333px;\n  padding: 10px;\n  outline: none;\n}\n.auth-form label[data-v-26c37319], .auth-form-mob label[data-v-26c37319] {\n  padding: 10px;\n  display: block;\n}\n.auth-form__btn[data-v-26c37319], .auth-form-mob__btn[data-v-26c37319] {\n  position: absolute;\n  margin-top: 15px;\n  bottom: 25px;\n  right: 25px;\n  padding-bottom: 11px !important;\n  width: 290px;\n  height: 50px;\n  font-size: 24px;\n  background-color: #F7B903;\n  color: #fff;\n  outline: none;\n  border: none;\n  border-radius: 5px;\n}\n.auth-form__btn[data-v-26c37319]:hover, .auth-form-mob__btn[data-v-26c37319]:hover {\n  background-color: #b98a00;\n}\n.validation-error[data-v-26c37319] {\n  color: #ac0000;\n}\n.validation-error-input[data-v-26c37319] {\n  background-color: rgba(199, 41, 41, 0.53) !important;\n  border: 1px solid black !important;\n  border-radius: 3px !important;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

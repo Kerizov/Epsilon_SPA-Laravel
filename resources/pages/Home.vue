@@ -195,7 +195,7 @@ export default {
         //justify-content: space-between;
         //box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         margin: 50px;
-        background-color: #f3f3f3;
+        //background-color: #f3f3f3;
 
         & img {
             max-width: 500px;
@@ -203,6 +203,7 @@ export default {
 
         &-text {
             padding: 35px 30px 10px 30px;
+            background-color: #fff;
             font-size: 18px;
             max-width: 500px;
 

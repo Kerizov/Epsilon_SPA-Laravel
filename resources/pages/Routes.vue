@@ -164,7 +164,6 @@ export default {
                 .then(res => {
                     (res.data.length === 0) ? this.RoutesIsExists = false : this.RoutesIsExists = true
                     this.routes = res.data;
-                    // console.log(typeof +this.routes[0].price.split(' ').join(''));
                 })
         },
         Booking(route_id) {

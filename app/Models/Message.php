@@ -12,7 +12,7 @@ class Message extends Model
         'name',
         'lastname',
         'email',
-        'phone',
+        'phone_number',
         'message',
     ];
     use HasFactory;

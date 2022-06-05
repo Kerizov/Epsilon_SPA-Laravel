@@ -11,10 +11,11 @@ export default {
                 }
             })
                 .then(res => {
-                    this.bookings = res.data;
+                    this.bookings = res.data.sort((a, b) => a.air_route_id > b.air_route_id ? 1 : -1);
+
                     let len = this.bookings.length;
-                    console.log(this.bookings);
                     let el = this.bookings.map((el) => el.air_route_id);
+
                     let amountPeople = [];
                     this.bookings.map((elem) => amountPeople.push(elem.amount_people));
 
@@ -26,8 +27,8 @@ export default {
                             }
                         })
                             .then(res => {
-
                                 this.bookings.push(...res.data);
+                                this.bookings.sort((a, b) => a.id > b.id ? 1 : -1);
 
                                 if (this.bookings.length === len) {
                                     this.bookings.map((elem, index) => {

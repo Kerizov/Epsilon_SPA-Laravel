@@ -25,8 +25,8 @@ class StoreRequest extends FormRequest
     {
         return [
             'email' => 'required|email',
-            'firstname' => 'string',
-            'lastname' => 'string',
+            'firstname' => 'string|min:3',
+            'lastname' => 'string|min:3',
             'password' => 'required|string|confirmed',
             'password_confirmation' => 'required|string',
         ];

@@ -20,6 +20,7 @@ class PostController extends Controller
         Post::create([
             'title'=>$post['title'],
             'text'=>$post['text'],
+            'full_text'=>$post['full_text'],
         ]);
         return $post;
     }

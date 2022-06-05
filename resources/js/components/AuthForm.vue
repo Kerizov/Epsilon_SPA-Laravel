@@ -6,10 +6,10 @@
     </form>
     <form class="auth-form-mob">
         <template :class="[toggleShow ? 'd-flex' : 'd-none']">
-            <SignInForm><p class="auth-form-mob__link">Вы еще не регистрировались? <span @click="toggleShow = !toggleShow">Регистрироваться</span></p></SignInForm>
+            <SignInForm><p class="auth-form-mob__link">Вы еще не регистрировались? <span style="cursor: pointer" @click="toggleShow = !toggleShow">Регистрироваться</span></p></SignInForm>
         </template>
         <template :class="[!toggleShow ? 'd-flex' : 'd-none']">
-            <SingUpForm><p class="auth-form-mob__link">У вас уже есть аккаунт? <span @click="toggleShow = !toggleShow">Авторизоваться</span></p></SingUpForm>
+            <SingUpForm><p class="auth-form-mob__link">У вас уже есть аккаунт? <span style="cursor: pointer" @click="toggleShow = !toggleShow">Авторизоваться</span></p></SingUpForm>
         </template>
     </form>
 </template>

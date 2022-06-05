@@ -39,7 +39,7 @@ export default {
                     firstname: this.firstname,
                     lastname: this.lastname,
                     email: this.email,
-                    phone_number: this.phone_number.replace(/[^+\d]/g, ''),
+                    phone_number: this.phone_number,
                     passport_series: this.passport_series,
                     passport_number: this.passport_number,
                     inn: this.inn,

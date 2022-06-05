@@ -21,7 +21,16 @@
                 <p>
                     {{ post.text }}
                 </p>
-                <p class="news__item-link"><img src="../../images/drop-arrow.svg" alt=""></p>
+                <transition name="fade">
+                    <p v-if="post.id === postId && visible !== true">
+                        {{ post.full_text }}
+                    </p>
+                </transition>
+                <p :class="[(post.id === postId && visible !== true)?'dropped':'not-dropped']"
+                   @click="visiblePost(post.id)"
+                   class="news__item-link">
+                    <img  src="../../images/drop-arrow.svg" alt="">
+                </p>
             </div>
         </div>
     </template>
@@ -29,14 +38,18 @@
 
 <script>
 import api from "../api";
+
 export default {
     name: "HomeNewsItem",
     data() {
         return {
+            visible: true,
+            postId: '',
             posts: [
                 {
                     title: null,
                     text: null,
+                    full_text: null,
                     img: null,
                 }
             ]
@@ -51,11 +64,33 @@ export default {
                 .then(res => {
                     this.posts = res.data;
                 })
+        },
+        visiblePost(id) {
+            this.postId = id;
+            this.visible = !this.visible;
         }
     },
 }
 </script>
 
 <style scoped>
+.dropped{
+    transition: all 0.3s ease-out;
+    transform: rotate(0deg) !important;
+    cursor: pointer;
+}
+.not-dropped{
+    transition: all 0.3s ease-out;
+    transform: rotate(180deg) !important;
+    cursor: pointer;
+}
+.fade-enter-active,
+.fade-leave-active {
+    transition: all 0.3s ease-out;
+}
 
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
 </style>
